@@ -1,0 +1,54 @@
+version: '{build}'
+
+init:
+- git config --global core.autocrlf input
+
+environment:
+  matrix:
+  - arch: x86
+    QT5: C:\Qt\5.9.2\mingw53_32
+    MINGW: C:\Qt\Tools\mingw530_32
+
+matrix:
+  fast_finish: true
+
+before_build:
+- set PATH=%MINGW%\bin;%QT5%\bin;%PATH%
+- ps: $env:COMMIT_TIMESTAMP = git log -1 --pretty=format:%ct
+
+build_script:
+- if not exist build mkdir build
+- cd build
+
+# Build Praaline dependencies
+- qmake -v
+- qmake ..\praaline-dependencies.pro CONFIG+=release && mingw32-make
+- dir /s
+
+# Package
+- cd ..
+- mkdir deploy
+- copy build\libs\qscintilla\Qt4Qt5\release\qscintilla2.dll deploy\qscintilla2.dll
+- copy libs\qtilities\bin\QtilitiesCore-1.5.dll deploy\QtilitiesCore-1.5.dll
+- copy libs\qtilities\bin\QtilitiesCoreGui-1.5.dll deploy\QtilitiesCoreGui-1.5.dll
+- copy libs\qtilities\bin\QtilitiesExtensionSystem-1.5.dll deploy\QtilitiesExtensionSystem-1.5.dll
+- copy libs\qtilities\bin\QtilitiesLogging-1.5.dll deploy\QtilitiesLogging-1.5.dll
+- copy libs\qtilities\bin\QtilitiesProjectManagement-1.5.dll deploy\QtilitiesProjectManagement-1.5.dll
+- copy libs\qt-solutions\qtpropertybrowser\lib\QtSolutions_PropertyBrowser-head.dll deploy\QtSolutions_PropertyBrowser-head.dll
+- 7z a praaline_dependencies_win_%arch%.zip .\deploy\*
+
+artifacts:
+- path: praaline_dependencies_win_%arch%.zip
+
+deploy:
+  - provider: GitHub
+    release: $(COMMIT_TIMESTAMP)
+    auth_token: $(GH_TOKEN)
+        secure: QP8Fu6Yw87cA6bQ0G7hf/MPFzYw0+/wwnLKnMahrETh7gPXh5Ad/2gOIEfvGrfpn
+    artifact: praaline_dependencies_win_%arch%.zip
+    force_update: true
+    on: 
+        branch: master
+
+
+
