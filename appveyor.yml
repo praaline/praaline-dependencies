@@ -43,12 +43,13 @@ artifacts:
 deploy:
   - provider: GitHub
     release: $(COMMIT_TIMESTAMP)
-    auth_token: $(GH_TOKEN)
+    auth_token: 
         secure: QP8Fu6Yw87cA6bQ0G7hf/MPFzYw0+/wwnLKnMahrETh7gPXh5Ad/2gOIEfvGrfpn
     artifact: praaline_dependencies_win_%arch%.zip
     force_update: true
     on: 
         branch: master
 
+test: off  # to avoid discovering tests
 
 
