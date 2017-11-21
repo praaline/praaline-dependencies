@@ -21,7 +21,7 @@ build_script:
 - cd build
 
 # Build Praaline dependencies
-- echo $(COMMIT_TIMESTAMP)
+- echo %COMMIT_TIMESTAMP%
 - qmake -v
 - qmake ..\praaline-dependencies.pro CONFIG+=release && mingw32-make
 - dir /s
