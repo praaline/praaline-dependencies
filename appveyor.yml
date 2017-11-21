@@ -14,12 +14,14 @@ matrix:
 
 before_build:
 - set PATH=%MINGW%\bin;%QT5%\bin;%PATH%
+- ps: $env:COMMIT_TIMESTAMP = $(Get-Date -format yyyy.mm.dd)
 
 build_script:
 - if not exist build mkdir build
 - cd build
 
 # Build Praaline dependencies
+- echo $(COMMIT_TIMESTAMP)
 - qmake -v
 - qmake ..\praaline-dependencies.pro CONFIG+=release && mingw32-make
 - dir /s
@@ -41,7 +43,7 @@ artifacts:
 
 deploy:
   - provider: GitHub
-    release: $(APPVEYOR_REPO_COMMIT_TIMESTAMP)
+    release: $(COMMIT_TIMESTAMP)
     auth_token: 
       secure: QP8Fu6Yw87cA6bQ0G7hf/MPFzYw0+/wwnLKnMahrETh7gPXh5Ad/2gOIEfvGrfpn
     artifact: praaline_dependencies_win_%arch%.zip
