@@ -59,8 +59,29 @@ script:
   - mkdir ./build && cd ./build
   # Build Praaline dependencies
   - qmake ../praaline-dependencies.pro CONFIG+=release && make && cd ..
-  - ls .
+  - ls -R
+  # Package
+  - mkdir deploy
+  - cp build/qscintilla/Qt4Qt5/release/*.* deploy
+  - cp qtilities/bin/*.* deploy
+  - cp qt-solutions/qtpropertybrowser/lib/*.* deploy
+  - tar -czv --exclude='.*' -f praaline_dependencies_${TRAVIS_OS_NAME}.tar.gz deploy
+
+before_deploy:
+  # Set up git user name and tag for this commit
+  - git config --local user.name "praaline"
+  - git config --local user.email "info@praaline.org"
+  - git tag -f "$(date +'%Y-%m-%d')"
+
+deploy:
+  provider: releases
+  api-key:
+    secure: Q12crABoL7Oy5y9E/dC5rpE/hXCeBDnvsZkv2i9PnMxysc+qhtLfUpTehj6qheG+vSiv0y1SCylP8QyW+tkmojs7Ox94GX9vzfa0uAwJGrMb34PTzDhnVrEQla25Eq52WSbhq1sQ48kCbYuvniIziazayt72+euAooU1kGV+teeiOsRbVuNWqQbp/SpHq2R1dpWPnWQbxowy3xDWIIe7khBLWH+cOR5HBBDnz+JIGILiOid/lSY/LXwFRb8zYTmUJ65u1GoJLL//bkWWteduOwVYJCa2OOC6lOVntxrQiA3zfNVlQZinFU26uaKdBPUp3Tt3nrw2oEq40EhBq5LiIFlC68ZqsyhrG6KMslf4a6z4cqOmZ0WZfjIneegyKEtsN+//ByMFHw3VfVQjejK2Ro/mgkb+IlUd5w4jgGeHaFbYv0h1vgg4tubJGtrBDDzrAGOtcx0op18bqFZPqG/MiPFES/Hz/5n2t41Q13V5o4XcjzI4V6w5J+7pt4ahePbzNKJiluj+BJ0P7xgYsETStj+IYIXZvZ9XgF2zxtto7syt/X2c0ZNhsRZI2rn5kl18BhFpYIUK3xJGlxXLuwXZrJFOphdMUICAGEDlp4NPZlnsiylYs5hwUWYxKvCBXlEs3EUKWdp9lg5Ufn64QuVGVZ3MqZUr8cy0/LVi0BZRvoE=
+  file: praaline_dependencies_${TRAVIS_OS_NAME}.tar.gz
+  skip_cleanup: true
+  on:
+    repo: praaline/praaline-dependencies
+    all_branches: true
 
 notifications:
   email: false
-
