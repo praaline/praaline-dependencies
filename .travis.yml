@@ -2,16 +2,19 @@ language: cpp
 
 matrix:
  include:
-  - os: linux
+  - if: tag IS blank
+    os: linux
     dist: trusty
     sudo: required
     compiler: gcc
     env:
      - QT_BASE=59
-  - os: osx
+  - if: tag IS blank
+    os: osx
     compiler: clang
     env:
      - QT_BASE=59
+  fast_finish: true
 
 cache: packages
 
@@ -65,7 +68,7 @@ script:
   - cp build/qscintilla/Qt4Qt5/libqscintilla*.* deploy
   - cp qtilities/bin/*.* deploy
   - cp qt-solutions/qtpropertybrowser/lib/*.* deploy
-  - tar -czv --exclude='.*' -f praaline_dependencies_${TRAVIS_OS_NAME}.tar.gz -C deploy .
+  - tar -czv --exclude='.*' -f praaline_dependencies_${TRAVIS_OS_NAME}.tar.gz deploy
 
 before_deploy:
   # Set up git user name and tag for this commit
@@ -77,11 +80,14 @@ deploy:
   provider: releases
   api-key:
     secure: LB2wnB1x31KbSmgbOK6Buv1ioap+W21tWcHhzLATMZGC6Y9RfHUS8Fd3tsjL+B2vzHCpmrgbnbVkkazmPrGNF30404a7t2eJowj3zrOe3dLhA9AejwTBxc3X+CUnr7ARF2QLpwKQ+AB9FJDeyFHFbqOcghjat5TtiDqN1ZAOV+Dn69TUw8tubzWuE9/AWCFGpvjpDFPEduaN4YBcc/jXplAKwIUM15N4CsicYN0aHWRx5AKb6tfJF8Fs6ub5CyNQTzpqvwF0WEVkNOs/dmjwxRR5HlzAFc2StTL1GnrQ1dukTPTfP6waMZHQLtrVwWHsAymYIgR6aWZaAFjUcfgIT+qE/92/snl07zLzoO1QM1jjAcqeskXoXsDQ5hLReu0vEijWkjLp19jqsWyrPmxQ28owH2IA7o3JCf2a4Wn5dU6Uc+EAhTmbUhQHkLb6iBfHFapm0ubf6yCak1KUJxPASrt0gEYWkUZmoWw+PF53+jYS5CxpwdW3s0BXqCJILJs5/2zHNKDYpwNLAtUDx6pywOphhTz843XhvWBNdrdJxJk9V/UoqBqBdgN3T8aguh25FbW75gpI0fLnAxnFqELEc8Ni54pZ1+epRrrTTDFTo+8HQfSBcN/9M2NlPRdTLrSYW1bQRH2KP7+9Czx3b+LvGGmeWh1R5kOabXTjHAAOobI=
+  name: $(date +'%Y-%m-%d')
   file: praaline_dependencies_${TRAVIS_OS_NAME}.tar.gz
   skip_cleanup: true
+  overwrite: true
   on:
     repo: praaline/praaline-dependencies
     all_branches: true
 
 notifications:
   email: false
+
