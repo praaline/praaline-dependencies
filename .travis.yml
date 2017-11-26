@@ -65,7 +65,7 @@ script:
   - cp build/qscintilla/Qt4Qt5/libqscintilla*.* deploy
   - cp qtilities/bin/*.* deploy
   - cp qt-solutions/qtpropertybrowser/lib/*.* deploy
-  - tar -czv --exclude='.*' -f praaline_dependencies_${TRAVIS_OS_NAME}.tar.gz deploy
+  - tar -czv --exclude='.*' -f praaline_dependencies_${TRAVIS_OS_NAME}.tar.gz -C deploy .
 
 before_deploy:
   # Set up git user name and tag for this commit
