@@ -1,33 +1,35 @@
 language: cpp
 
 matrix:
- include:
+  include:
   - if: tag IS blank
     os: linux
     dist: trusty
     sudo: required
     compiler: gcc
     env:
-     - QT_BASE=59
+    - QT_BASE=59
   - if: tag IS blank
     os: osx
     compiler: clang
     env:
-     - QT_BASE=59
+    - QT_BASE=59
   fast_finish: true
 
 cache: packages
 
 before_install:
-  - if [[ "$QT_BASE" = "59" && "$TRAVIS_OS_NAME" = "linux" ]]; then
-      sudo add-apt-repository ppa:beineri/opt-qt591-trusty -y;
-    fi
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
-      sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y;
-      sudo apt-get update -qq;
-    else
-      brew update;
-    fi
+- if [[ "$QT_BASE" = "59" && "$TRAVIS_OS_NAME" = "linux" ]]; then
+    sudo add-apt-repository ppa:beineri/opt-qt591-trusty -y;
+  fi
+- if [ "$TRAVIS_OS_NAME" = "linux" ]; then
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y;
+    sudo apt-get update -qq;
+  else
+    brew update;
+  fi
+- COMMIT_TIMESTAMP=`date +%Y-%m-%d`
+- echo $COMMIT_TIMESTAMP
 
 install:
   # Needed for a C++14 compiler
