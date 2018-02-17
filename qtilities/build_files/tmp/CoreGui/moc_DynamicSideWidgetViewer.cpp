@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'DynamicSideWidgetViewer.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'DynamicSideWidgetViewer.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -111,10 +111,9 @@ void Qtilities::CoreGui::DynamicSideWidgetViewer::qt_static_metacall(QObject *_o
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (DynamicSideWidgetViewer::*_t)(bool );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&DynamicSideWidgetViewer::toggleVisibility)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&DynamicSideWidgetViewer::toggleVisibility)) {
                 *result = 0;
                 return;
             }
@@ -137,7 +136,7 @@ void *Qtilities::CoreGui::DynamicSideWidgetViewer::qt_metacast(const char *_clna
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__CoreGui__DynamicSideWidgetViewer.stringdata0))
-        return static_cast<void*>(const_cast< DynamicSideWidgetViewer*>(this));
+        return static_cast<void*>(this);
     return QWidget::qt_metacast(_clname);
 }
 

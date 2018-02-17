@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'CommandEditor.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -31,7 +31,7 @@ public:
     void setupUi(QWidget *CommandEditor)
     {
         if (CommandEditor->objectName().isEmpty())
-            CommandEditor->setObjectName(QStringLiteral("CommandEditor"));
+            CommandEditor->setObjectName(QLatin1String("CommandEditor"));
         CommandEditor->resize(547, 456);
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy.setHorizontalStretch(0);
@@ -40,17 +40,17 @@ public:
         CommandEditor->setSizePolicy(sizePolicy);
         CommandEditor->setMinimumSize(QSize(400, 0));
         verticalLayout_3 = new QVBoxLayout(CommandEditor);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        verticalLayout_3->setObjectName(QLatin1String("verticalLayout_3"));
         groupBoxCommands = new QGroupBox(CommandEditor);
-        groupBoxCommands->setObjectName(QStringLiteral("groupBoxCommands"));
+        groupBoxCommands->setObjectName(QLatin1String("groupBoxCommands"));
         verticalLayout_2 = new QVBoxLayout(groupBoxCommands);
         verticalLayout_2->setSpacing(3);
 #ifndef Q_OS_MAC
         verticalLayout_2->setContentsMargins(9, 9, 9, 9);
 #endif
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QLatin1String("verticalLayout_2"));
         widgetCommandsHolder = new QWidget(groupBoxCommands);
-        widgetCommandsHolder->setObjectName(QStringLiteral("widgetCommandsHolder"));
+        widgetCommandsHolder->setObjectName(QLatin1String("widgetCommandsHolder"));
 
         verticalLayout_2->addWidget(widgetCommandsHolder);
 
@@ -65,8 +65,8 @@ public:
 
     void retranslateUi(QWidget *CommandEditor)
     {
-        CommandEditor->setWindowTitle(QApplication::translate("CommandEditor", "Command Shortcut Editor", Q_NULLPTR));
-        groupBoxCommands->setTitle(QApplication::translate("CommandEditor", "Shortcuts:", Q_NULLPTR));
+        CommandEditor->setWindowTitle(QApplication::translate("CommandEditor", "Command Shortcut Editor", nullptr));
+        groupBoxCommands->setTitle(QApplication::translate("CommandEditor", "Shortcuts:", nullptr));
     } // retranslateUi
 
 };

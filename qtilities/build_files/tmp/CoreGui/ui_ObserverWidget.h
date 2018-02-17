@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ObserverWidget.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -43,18 +43,18 @@ public:
     void setupUi(QMainWindow *ObserverWidget)
     {
         if (ObserverWidget->objectName().isEmpty())
-            ObserverWidget->setObjectName(QStringLiteral("ObserverWidget"));
+            ObserverWidget->setObjectName(QLatin1String("ObserverWidget"));
         ObserverWidget->resize(496, 510);
         centralwidget = new QWidget(ObserverWidget);
-        centralwidget->setObjectName(QStringLiteral("centralwidget"));
+        centralwidget->setObjectName(QLatin1String("centralwidget"));
         verticalLayout = new QVBoxLayout(centralwidget);
         verticalLayout->setSpacing(0);
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QLatin1String("verticalLayout"));
         widgetProgressInfo = new QWidget(centralwidget);
-        widgetProgressInfo->setObjectName(QStringLiteral("widgetProgressInfo"));
+        widgetProgressInfo->setObjectName(QLatin1String("widgetProgressInfo"));
         gridLayout = new QGridLayout(widgetProgressInfo);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setObjectName(QLatin1String("gridLayout"));
         verticalSpacer = new QSpacerItem(20, 97, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout->addItem(verticalSpacer, 0, 1, 1, 1);
@@ -72,7 +72,7 @@ public:
         gridLayout->addItem(verticalSpacer_2, 2, 1, 1, 1);
 
         widgetProgressBarHolder = new QWidget(widgetProgressInfo);
-        widgetProgressBarHolder->setObjectName(QStringLiteral("widgetProgressBarHolder"));
+        widgetProgressBarHolder->setObjectName(QLatin1String("widgetProgressBarHolder"));
         widgetProgressBarHolder->setAutoFillBackground(false);
 
         gridLayout->addWidget(widgetProgressBarHolder, 1, 1, 1, 1);
@@ -81,7 +81,7 @@ public:
         verticalLayout->addWidget(widgetProgressInfo);
 
         navigationBarWidget = new QWidget(centralwidget);
-        navigationBarWidget->setObjectName(QStringLiteral("navigationBarWidget"));
+        navigationBarWidget->setObjectName(QLatin1String("navigationBarWidget"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -92,18 +92,18 @@ public:
         verticalLayout->addWidget(navigationBarWidget);
 
         itemParentWidget = new QWidget(centralwidget);
-        itemParentWidget->setObjectName(QStringLiteral("itemParentWidget"));
+        itemParentWidget->setObjectName(QLatin1String("itemParentWidget"));
         QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(itemParentWidget->sizePolicy().hasHeightForWidth());
         itemParentWidget->setSizePolicy(sizePolicy1);
-        itemParentWidget->setStyleSheet(QStringLiteral(""));
+        itemParentWidget->setStyleSheet(QLatin1String(""));
 
         verticalLayout->addWidget(itemParentWidget);
 
         widgetSearchBox = new QWidget(centralwidget);
-        widgetSearchBox->setObjectName(QStringLiteral("widgetSearchBox"));
+        widgetSearchBox->setObjectName(QLatin1String("widgetSearchBox"));
         sizePolicy.setHeightForWidth(widgetSearchBox->sizePolicy().hasHeightForWidth());
         widgetSearchBox->setSizePolicy(sizePolicy);
         widgetSearchBox->setMinimumSize(QSize(0, 22));
@@ -111,7 +111,7 @@ public:
         horizontalLayout = new QHBoxLayout(widgetSearchBox);
         horizontalLayout->setSpacing(2);
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QLatin1String("horizontalLayout"));
 
         verticalLayout->addWidget(widgetSearchBox);
 
@@ -124,7 +124,7 @@ public:
 
     void retranslateUi(QMainWindow *ObserverWidget)
     {
-        ObserverWidget->setWindowTitle(QApplication::translate("ObserverWidget", "MainWindow", Q_NULLPTR));
+        ObserverWidget->setWindowTitle(QApplication::translate("ObserverWidget", "MainWindow", nullptr));
     } // retranslateUi
 
 };

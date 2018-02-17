@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ObserverWidget.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -14,7 +14,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'ObserverWidget.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -558,80 +558,79 @@ void Qtilities::CoreGui::ObserverWidget::qt_static_metacall(QObject *_o, QMetaOb
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (ObserverWidget::*_t)(const QStringList & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverWidget::expandedNodesChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverWidget::expandedNodesChanged)) {
                 *result = 0;
                 return;
             }
         }
         {
             typedef void (ObserverWidget::*_t)(const QList<QPointer<QObject> > & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverWidget::expandedObjectsChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverWidget::expandedObjectsChanged)) {
                 *result = 1;
                 return;
             }
         }
         {
             typedef void (ObserverWidget::*_t)(Observer * );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverWidget::observerContextChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverWidget::observerContextChanged)) {
                 *result = 2;
                 return;
             }
         }
         {
             typedef void (ObserverWidget::*_t)(bool );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverWidget::readOnlyStateChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverWidget::readOnlyStateChanged)) {
                 *result = 3;
                 return;
             }
         }
         {
             typedef void (ObserverWidget::*_t)(Qtilities::DisplayMode );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverWidget::displayModeChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverWidget::displayModeChanged)) {
                 *result = 4;
                 return;
             }
         }
         {
             typedef void (ObserverWidget::*_t)(QList<QObject*> , Observer * );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverWidget::selectedObjectsChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverWidget::selectedObjectsChanged)) {
                 *result = 5;
                 return;
             }
         }
         {
             typedef void (ObserverWidget::*_t)() const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverWidget::treeModelBuildStarted)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverWidget::treeModelBuildStarted)) {
                 *result = 7;
                 return;
             }
         }
         {
             typedef void (ObserverWidget::*_t)() const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverWidget::treeModelBuildEnded)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverWidget::treeModelBuildEnded)) {
                 *result = 8;
                 return;
             }
         }
         {
             typedef void (ObserverWidget::*_t)(QObject * , Observer * );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverWidget::addActionNewItem_triggered)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverWidget::addActionNewItem_triggered)) {
                 *result = 9;
                 return;
             }
         }
         {
             typedef void (ObserverWidget::*_t)(QObject * , Observer * );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverWidget::doubleClickRequest)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverWidget::doubleClickRequest)) {
                 *result = 11;
                 return;
             }
         }
         {
             typedef void (ObserverWidget::*_t)(ObserverWidget * );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverWidget::newObserverWidgetCreated)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverWidget::newObserverWidgetCreated)) {
                 *result = 13;
                 return;
             }
@@ -654,11 +653,11 @@ void *Qtilities::CoreGui::ObserverWidget::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__CoreGui__ObserverWidget.stringdata0))
-        return static_cast<void*>(const_cast< ObserverWidget*>(this));
+        return static_cast<void*>(this);
     if (!strcmp(_clname, "IContext"))
-        return static_cast< IContext*>(const_cast< ObserverWidget*>(this));
+        return static_cast< IContext*>(this);
     if (!strcmp(_clname, "com.Qtilities.Core.IContext/1.0"))
-        return static_cast< Qtilities::Core::Interfaces::IContext*>(const_cast< ObserverWidget*>(this));
+        return static_cast< Qtilities::Core::Interfaces::IContext*>(this);
     return QMainWindow::qt_metacast(_clname);
 }
 

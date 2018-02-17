@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GenericPropertyPathEditorListWrapper.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -31,18 +31,18 @@ public:
     void setupUi(QDialog *GenericPropertyPathEditorListWrapper)
     {
         if (GenericPropertyPathEditorListWrapper->objectName().isEmpty())
-            GenericPropertyPathEditorListWrapper->setObjectName(QStringLiteral("GenericPropertyPathEditorListWrapper"));
+            GenericPropertyPathEditorListWrapper->setObjectName(QLatin1String("GenericPropertyPathEditorListWrapper"));
         GenericPropertyPathEditorListWrapper->resize(784, 301);
-        GenericPropertyPathEditorListWrapper->setWindowTitle(QStringLiteral("Dialog"));
+        GenericPropertyPathEditorListWrapper->setWindowTitle(QLatin1String("Dialog"));
         verticalLayout = new QVBoxLayout(GenericPropertyPathEditorListWrapper);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QLatin1String("verticalLayout"));
         listHolder = new QWidget(GenericPropertyPathEditorListWrapper);
-        listHolder->setObjectName(QStringLiteral("listHolder"));
+        listHolder->setObjectName(QLatin1String("listHolder"));
 
         verticalLayout->addWidget(listHolder);
 
         buttonBox = new QDialogButtonBox(GenericPropertyPathEditorListWrapper);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setObjectName(QLatin1String("buttonBox"));
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 
         verticalLayout->addWidget(buttonBox);

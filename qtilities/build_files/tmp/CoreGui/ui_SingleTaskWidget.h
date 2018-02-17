@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'SingleTaskWidget.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -42,24 +42,24 @@ public:
     void setupUi(QWidget *SingleTaskWidget)
     {
         if (SingleTaskWidget->objectName().isEmpty())
-            SingleTaskWidget->setObjectName(QStringLiteral("SingleTaskWidget"));
+            SingleTaskWidget->setObjectName(QLatin1String("SingleTaskWidget"));
         SingleTaskWidget->resize(393, 20);
         SingleTaskWidget->setProperty("dockNestingEnabled", QVariant(false));
         horizontalLayout = new QHBoxLayout(SingleTaskWidget);
         horizontalLayout->setSpacing(2);
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QLatin1String("horizontalLayout"));
         widgetLeftButtonsHolder = new QWidget(SingleTaskWidget);
-        widgetLeftButtonsHolder->setObjectName(QStringLiteral("widgetLeftButtonsHolder"));
+        widgetLeftButtonsHolder->setObjectName(QLatin1String("widgetLeftButtonsHolder"));
         widgetLeftButtonsHolder->setMinimumSize(QSize(0, 0));
         widgetLeftButtonsHolder->setMaximumSize(QSize(16777215, 16777215));
         widgetLeftButtonsHolder->setLayoutDirection(Qt::RightToLeft);
         horizontalLayout_3 = new QHBoxLayout(widgetLeftButtonsHolder);
         horizontalLayout_3->setSpacing(2);
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        horizontalLayout_3->setObjectName(QLatin1String("horizontalLayout_3"));
         btnStart = new QToolButton(widgetLeftButtonsHolder);
-        btnStart->setObjectName(QStringLiteral("btnStart"));
+        btnStart->setObjectName(QLatin1String("btnStart"));
         QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -68,7 +68,7 @@ public:
         btnStart->setMinimumSize(QSize(20, 20));
         btnStart->setMaximumSize(QSize(16777215, 20));
         QIcon icon;
-        icon.addFile(QStringLiteral(":/icons/task_stop_22x22.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QLatin1String(":/icons/task_stop_22x22.png"), QSize(), QIcon::Normal, QIcon::Off);
         btnStart->setIcon(icon);
         btnStart->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         btnStart->setAutoRaise(true);
@@ -76,13 +76,13 @@ public:
         horizontalLayout_3->addWidget(btnStart);
 
         btnShowLog = new QToolButton(widgetLeftButtonsHolder);
-        btnShowLog->setObjectName(QStringLiteral("btnShowLog"));
+        btnShowLog->setObjectName(QLatin1String("btnShowLog"));
         sizePolicy.setHeightForWidth(btnShowLog->sizePolicy().hasHeightForWidth());
         btnShowLog->setSizePolicy(sizePolicy);
         btnShowLog->setMinimumSize(QSize(20, 20));
         btnShowLog->setMaximumSize(QSize(16777215, 20));
         QIcon icon1;
-        icon1.addFile(QStringLiteral(":/icons/delete_red_16x16.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QLatin1String(":/icons/delete_red_16x16.png"), QSize(), QIcon::Normal, QIcon::Off);
         btnShowLog->setIcon(icon1);
         btnShowLog->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         btnShowLog->setAutoRaise(true);
@@ -93,14 +93,14 @@ public:
         horizontalLayout->addWidget(widgetLeftButtonsHolder);
 
         lblTaskName = new QLabel(SingleTaskWidget);
-        lblTaskName->setObjectName(QStringLiteral("lblTaskName"));
+        lblTaskName->setObjectName(QLatin1String("lblTaskName"));
         QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Preferred);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(lblTaskName->sizePolicy().hasHeightForWidth());
         lblTaskName->setSizePolicy(sizePolicy1);
         QFont font;
-        font.setFamily(QStringLiteral("Segoe UI"));
+        font.setFamily(QLatin1String("Segoe UI"));
         font.setPointSize(9);
         font.setBold(false);
         font.setItalic(false);
@@ -114,7 +114,7 @@ public:
         horizontalLayout->addItem(middleSpacer);
 
         progressBar = new QProgressBar(SingleTaskWidget);
-        progressBar->setObjectName(QStringLiteral("progressBar"));
+        progressBar->setObjectName(QLatin1String("progressBar"));
         QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Fixed);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
@@ -131,15 +131,15 @@ public:
         horizontalLayout->addWidget(progressBar);
 
         widgetRightButtonsHolder = new QWidget(SingleTaskWidget);
-        widgetRightButtonsHolder->setObjectName(QStringLiteral("widgetRightButtonsHolder"));
+        widgetRightButtonsHolder->setObjectName(QLatin1String("widgetRightButtonsHolder"));
         widgetRightButtonsHolder->setMinimumSize(QSize(42, 0));
         widgetRightButtonsHolder->setMaximumSize(QSize(16777215, 16777215));
         horizontalLayout_2 = new QHBoxLayout(widgetRightButtonsHolder);
         horizontalLayout_2->setSpacing(2);
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setObjectName(QLatin1String("horizontalLayout_2"));
         btnPause = new QToolButton(widgetRightButtonsHolder);
-        btnPause->setObjectName(QStringLiteral("btnPause"));
+        btnPause->setObjectName(QLatin1String("btnPause"));
         sizePolicy.setHeightForWidth(btnPause->sizePolicy().hasHeightForWidth());
         btnPause->setSizePolicy(sizePolicy);
         btnPause->setMinimumSize(QSize(20, 20));
@@ -150,7 +150,7 @@ public:
         horizontalLayout_2->addWidget(btnPause);
 
         btnStop = new QToolButton(widgetRightButtonsHolder);
-        btnStop->setObjectName(QStringLiteral("btnStop"));
+        btnStop->setObjectName(QLatin1String("btnStop"));
         sizePolicy.setHeightForWidth(btnStop->sizePolicy().hasHeightForWidth());
         btnStop->setSizePolicy(sizePolicy);
         btnStop->setMinimumSize(QSize(20, 20));
@@ -172,10 +172,10 @@ public:
 
     void retranslateUi(QWidget *SingleTaskWidget)
     {
-        SingleTaskWidget->setWindowTitle(QApplication::translate("SingleTaskWidget", "SingleTaskWidget", Q_NULLPTR));
+        SingleTaskWidget->setWindowTitle(QApplication::translate("SingleTaskWidget", "SingleTaskWidget", nullptr));
         btnStart->setText(QString());
         btnShowLog->setText(QString());
-        lblTaskName->setText(QApplication::translate("SingleTaskWidget", "Task Name", Q_NULLPTR));
+        lblTaskName->setText(QApplication::translate("SingleTaskWidget", "Task Name", nullptr));
 #ifndef QT_NO_TOOLTIP
         btnPause->setToolTip(QString());
 #endif // QT_NO_TOOLTIP

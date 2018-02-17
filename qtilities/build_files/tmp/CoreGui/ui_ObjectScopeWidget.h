@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ObjectScopeWidget.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -48,25 +48,25 @@ public:
     void setupUi(QWidget *ObjectScopeWidget)
     {
         if (ObjectScopeWidget->objectName().isEmpty())
-            ObjectScopeWidget->setObjectName(QStringLiteral("ObjectScopeWidget"));
+            ObjectScopeWidget->setObjectName(QLatin1String("ObjectScopeWidget"));
         ObjectScopeWidget->resize(240, 426);
         verticalLayout_3 = new QVBoxLayout(ObjectScopeWidget);
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        verticalLayout_3->setObjectName(QLatin1String("verticalLayout_3"));
         widgetName = new QWidget(ObjectScopeWidget);
-        widgetName->setObjectName(QStringLiteral("widgetName"));
+        widgetName->setObjectName(QLatin1String("widgetName"));
         verticalLayout_2 = new QVBoxLayout(widgetName);
         verticalLayout_2->setSpacing(0);
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QLatin1String("verticalLayout_2"));
         nameLayout = new QHBoxLayout();
-        nameLayout->setObjectName(QStringLiteral("nameLayout"));
+        nameLayout->setObjectName(QLatin1String("nameLayout"));
         nameSpacerLeft = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         nameLayout->addItem(nameSpacerLeft);
 
         txtName = new QLabel(widgetName);
-        txtName->setObjectName(QStringLiteral("txtName"));
+        txtName->setObjectName(QLatin1String("txtName"));
         QFont font;
         font.setPointSize(10);
         font.setBold(true);
@@ -83,7 +83,7 @@ public:
         verticalLayout_2->addLayout(nameLayout);
 
         lineName = new QFrame(widgetName);
-        lineName->setObjectName(QStringLiteral("lineName"));
+        lineName->setObjectName(QLatin1String("lineName"));
         lineName->setFrameShape(QFrame::HLine);
         lineName->setFrameShadow(QFrame::Sunken);
 
@@ -94,18 +94,18 @@ public:
 
         textInfoLayout = new QVBoxLayout();
         textInfoLayout->setSpacing(3);
-        textInfoLayout->setObjectName(QStringLiteral("textInfoLayout"));
+        textInfoLayout->setObjectName(QLatin1String("textInfoLayout"));
         textInfoLayout->setContentsMargins(6, 6, 6, -1);
         formLayout = new QFormLayout();
-        formLayout->setObjectName(QStringLiteral("formLayout"));
+        formLayout->setObjectName(QLatin1String("formLayout"));
         formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         txtOwnership = new QLabel(ObjectScopeWidget);
-        txtOwnership->setObjectName(QStringLiteral("txtOwnership"));
+        txtOwnership->setObjectName(QLatin1String("txtOwnership"));
 
         formLayout->setWidget(0, QFormLayout::FieldRole, txtOwnership);
 
         label = new QLabel(ObjectScopeWidget);
-        label->setObjectName(QStringLiteral("label"));
+        label->setObjectName(QLatin1String("label"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, label);
 
@@ -113,15 +113,15 @@ public:
         textInfoLayout->addLayout(formLayout);
 
         formLayout_2 = new QFormLayout();
-        formLayout_2->setObjectName(QStringLiteral("formLayout_2"));
+        formLayout_2->setObjectName(QLatin1String("formLayout_2"));
         formLayout_2->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         txtObserverLimit = new QLabel(ObjectScopeWidget);
-        txtObserverLimit->setObjectName(QStringLiteral("txtObserverLimit"));
+        txtObserverLimit->setObjectName(QLatin1String("txtObserverLimit"));
 
         formLayout_2->setWidget(0, QFormLayout::FieldRole, txtObserverLimit);
 
         ObserverLimit = new QLabel(ObjectScopeWidget);
-        ObserverLimit->setObjectName(QStringLiteral("ObserverLimit"));
+        ObserverLimit->setObjectName(QLatin1String("ObserverLimit"));
 
         formLayout_2->setWidget(0, QFormLayout::LabelRole, ObserverLimit);
 
@@ -136,7 +136,7 @@ public:
             observerTable->setColumnCount(1);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         observerTable->setHorizontalHeaderItem(0, __qtablewidgetitem);
-        observerTable->setObjectName(QStringLiteral("observerTable"));
+        observerTable->setObjectName(QLatin1String("observerTable"));
         observerTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
         observerTable->setAlternatingRowColors(true);
         observerTable->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -158,14 +158,14 @@ public:
 
     void retranslateUi(QWidget *ObjectScopeWidget)
     {
-        ObjectScopeWidget->setWindowTitle(QApplication::translate("ObjectScopeWidget", "Object Scope & Context Details", Q_NULLPTR));
-        txtName->setText(QApplication::translate("ObjectScopeWidget", "No Scope Information", Q_NULLPTR));
-        txtOwnership->setText(QApplication::translate("ObjectScopeWidget", "Not set", Q_NULLPTR));
-        label->setText(QApplication::translate("ObjectScopeWidget", "Ownership:", Q_NULLPTR));
-        txtObserverLimit->setText(QApplication::translate("ObjectScopeWidget", "Not set", Q_NULLPTR));
-        ObserverLimit->setText(QApplication::translate("ObjectScopeWidget", "Context Limit:", Q_NULLPTR));
+        ObjectScopeWidget->setWindowTitle(QApplication::translate("ObjectScopeWidget", "Object Scope & Context Details", nullptr));
+        txtName->setText(QApplication::translate("ObjectScopeWidget", "No Scope Information", nullptr));
+        txtOwnership->setText(QApplication::translate("ObjectScopeWidget", "Not set", nullptr));
+        label->setText(QApplication::translate("ObjectScopeWidget", "Ownership:", nullptr));
+        txtObserverLimit->setText(QApplication::translate("ObjectScopeWidget", "Not set", nullptr));
+        ObserverLimit->setText(QApplication::translate("ObjectScopeWidget", "Context Limit:", nullptr));
         QTableWidgetItem *___qtablewidgetitem = observerTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("ObjectScopeWidget", "Context List", Q_NULLPTR));
+        ___qtablewidgetitem->setText(QApplication::translate("ObjectScopeWidget", "Context List", nullptr));
     } // retranslateUi
 
 };

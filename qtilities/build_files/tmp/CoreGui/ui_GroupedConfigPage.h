@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GroupedConfigPage.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -29,13 +29,13 @@ public:
     void setupUi(QWidget *GroupedConfigPage)
     {
         if (GroupedConfigPage->objectName().isEmpty())
-            GroupedConfigPage->setObjectName(QStringLiteral("GroupedConfigPage"));
+            GroupedConfigPage->setObjectName(QLatin1String("GroupedConfigPage"));
         GroupedConfigPage->resize(400, 300);
-        GroupedConfigPage->setWindowTitle(QStringLiteral("Form"));
+        GroupedConfigPage->setWindowTitle(QLatin1String("Form"));
         verticalLayout = new QVBoxLayout(GroupedConfigPage);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QLatin1String("verticalLayout"));
         groupedTab = new QTabWidget(GroupedConfigPage);
-        groupedTab->setObjectName(QStringLiteral("groupedTab"));
+        groupedTab->setObjectName(QLatin1String("groupedTab"));
 
         verticalLayout->addWidget(groupedTab);
 

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'NamingPolicyInputDialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -68,19 +68,19 @@ public:
     void setupUi(QDialog *NamingPolicyInputDialog)
     {
         if (NamingPolicyInputDialog->objectName().isEmpty())
-            NamingPolicyInputDialog->setObjectName(QStringLiteral("NamingPolicyInputDialog"));
+            NamingPolicyInputDialog->setObjectName(QLatin1String("NamingPolicyInputDialog"));
         NamingPolicyInputDialog->resize(486, 323);
         verticalLayout_2 = new QVBoxLayout(NamingPolicyInputDialog);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QLatin1String("verticalLayout_2"));
         lblHeading = new QLabel(NamingPolicyInputDialog);
-        lblHeading->setObjectName(QStringLiteral("lblHeading"));
+        lblHeading->setObjectName(QLatin1String("lblHeading"));
 
         verticalLayout_2->addWidget(lblHeading);
 
         formLayout = new QFormLayout();
-        formLayout->setObjectName(QStringLiteral("formLayout"));
+        formLayout->setObjectName(QLatin1String("formLayout"));
         label_2 = new QLabel(NamingPolicyInputDialog);
-        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setObjectName(QLatin1String("label_2"));
         QFont font;
         font.setBold(true);
         font.setWeight(75);
@@ -89,29 +89,29 @@ public:
         formLayout->setWidget(0, QFormLayout::LabelRole, label_2);
 
         lblContext = new QLabel(NamingPolicyInputDialog);
-        lblContext->setObjectName(QStringLiteral("lblContext"));
+        lblContext->setObjectName(QLatin1String("lblContext"));
 
         formLayout->setWidget(0, QFormLayout::FieldRole, lblContext);
 
         label_6 = new QLabel(NamingPolicyInputDialog);
-        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setObjectName(QLatin1String("label_6"));
         label_6->setFont(font);
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label_6);
 
         lblOriginalName = new QLabel(NamingPolicyInputDialog);
-        lblOriginalName->setObjectName(QStringLiteral("lblOriginalName"));
+        lblOriginalName->setObjectName(QLatin1String("lblOriginalName"));
 
         formLayout->setWidget(1, QFormLayout::FieldRole, lblOriginalName);
 
         label_5 = new QLabel(NamingPolicyInputDialog);
-        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setObjectName(QLatin1String("label_5"));
         label_5->setFont(font);
 
         formLayout->setWidget(2, QFormLayout::LabelRole, label_5);
 
         lblProblemDescription = new QLabel(NamingPolicyInputDialog);
-        lblProblemDescription->setObjectName(QStringLiteral("lblProblemDescription"));
+        lblProblemDescription->setObjectName(QLatin1String("lblProblemDescription"));
 
         formLayout->setWidget(2, QFormLayout::FieldRole, lblProblemDescription);
 
@@ -119,40 +119,40 @@ public:
         verticalLayout_2->addLayout(formLayout);
 
         line = new QFrame(NamingPolicyInputDialog);
-        line->setObjectName(QStringLiteral("line"));
+        line->setObjectName(QLatin1String("line"));
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
 
         verticalLayout_2->addWidget(line);
 
         groupBox = new QGroupBox(NamingPolicyInputDialog);
-        groupBox->setObjectName(QStringLiteral("groupBox"));
+        groupBox->setObjectName(QLatin1String("groupBox"));
         verticalLayout = new QVBoxLayout(groupBox);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QLatin1String("verticalLayout"));
         radioDifferentName = new QRadioButton(groupBox);
-        radioDifferentName->setObjectName(QStringLiteral("radioDifferentName"));
+        radioDifferentName->setObjectName(QLatin1String("radioDifferentName"));
         radioDifferentName->setChecked(true);
 
         verticalLayout->addWidget(radioDifferentName);
 
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QLatin1String("horizontalLayout"));
         horizontalSpacer_2 = new QSpacerItem(17, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer_2);
 
         label_3 = new QLabel(groupBox);
-        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setObjectName(QLatin1String("label_3"));
 
         horizontalLayout->addWidget(label_3);
 
         txtDifferentName = new QLineEdit(groupBox);
-        txtDifferentName->setObjectName(QStringLiteral("txtDifferentName"));
+        txtDifferentName->setObjectName(QLatin1String("txtDifferentName"));
 
         horizontalLayout->addWidget(txtDifferentName);
 
         btnDifferentNameValidityIndicator = new QToolButton(groupBox);
-        btnDifferentNameValidityIndicator->setObjectName(QStringLiteral("btnDifferentNameValidityIndicator"));
+        btnDifferentNameValidityIndicator->setObjectName(QLatin1String("btnDifferentNameValidityIndicator"));
         btnDifferentNameValidityIndicator->setEnabled(true);
         btnDifferentNameValidityIndicator->setAutoRaise(true);
 
@@ -162,32 +162,32 @@ public:
         verticalLayout->addLayout(horizontalLayout);
 
         radioAutoRename = new QRadioButton(groupBox);
-        radioAutoRename->setObjectName(QStringLiteral("radioAutoRename"));
+        radioAutoRename->setObjectName(QLatin1String("radioAutoRename"));
         radioAutoRename->setChecked(false);
 
         verticalLayout->addWidget(radioAutoRename);
 
         horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setObjectName(QLatin1String("horizontalLayout_2"));
         horizontalSpacer_3 = new QSpacerItem(17, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer_3);
 
         label_4 = new QLabel(groupBox);
-        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setObjectName(QLatin1String("label_4"));
         label_4->setEnabled(false);
 
         horizontalLayout_2->addWidget(label_4);
 
         txtAutoGeneratedName = new QLineEdit(groupBox);
-        txtAutoGeneratedName->setObjectName(QStringLiteral("txtAutoGeneratedName"));
+        txtAutoGeneratedName->setObjectName(QLatin1String("txtAutoGeneratedName"));
         txtAutoGeneratedName->setEnabled(false);
         txtAutoGeneratedName->setReadOnly(true);
 
         horizontalLayout_2->addWidget(txtAutoGeneratedName);
 
         btnGenerateNewName = new QToolButton(groupBox);
-        btnGenerateNewName->setObjectName(QStringLiteral("btnGenerateNewName"));
+        btnGenerateNewName->setObjectName(QLatin1String("btnGenerateNewName"));
         btnGenerateNewName->setEnabled(false);
         btnGenerateNewName->setAutoRaise(true);
 
@@ -197,12 +197,12 @@ public:
         verticalLayout->addLayout(horizontalLayout_2);
 
         radioReplaceConflicting = new QRadioButton(groupBox);
-        radioReplaceConflicting->setObjectName(QStringLiteral("radioReplaceConflicting"));
+        radioReplaceConflicting->setObjectName(QLatin1String("radioReplaceConflicting"));
 
         verticalLayout->addWidget(radioReplaceConflicting);
 
         radioReject = new QRadioButton(groupBox);
-        radioReject->setObjectName(QStringLiteral("radioReject"));
+        radioReject->setObjectName(QLatin1String("radioReject"));
 
         verticalLayout->addWidget(radioReject);
 
@@ -214,9 +214,9 @@ public:
         verticalLayout_2->addWidget(groupBox);
 
         horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        horizontalLayout_3->setObjectName(QLatin1String("horizontalLayout_3"));
         chkAllInThisCycle = new QCheckBox(NamingPolicyInputDialog);
-        chkAllInThisCycle->setObjectName(QStringLiteral("chkAllInThisCycle"));
+        chkAllInThisCycle->setObjectName(QLatin1String("chkAllInThisCycle"));
 
         horizontalLayout_3->addWidget(chkAllInThisCycle);
 
@@ -225,7 +225,7 @@ public:
         horizontalLayout_3->addItem(horizontalSpacer);
 
         buttonBox = new QDialogButtonBox(NamingPolicyInputDialog);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setObjectName(QLatin1String("buttonBox"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Ok);
 
@@ -262,27 +262,27 @@ public:
 
     void retranslateUi(QDialog *NamingPolicyInputDialog)
     {
-        NamingPolicyInputDialog->setWindowTitle(QApplication::translate("NamingPolicyInputDialog", "Naming Problem Detected", Q_NULLPTR));
-        lblHeading->setText(QApplication::translate("NamingPolicyInputDialog", "A naming problem has been detected with the name of the following object:", Q_NULLPTR));
-        label_2->setText(QApplication::translate("NamingPolicyInputDialog", "Context:", Q_NULLPTR));
-        lblContext->setText(QApplication::translate("NamingPolicyInputDialog", "Context not specified", Q_NULLPTR));
-        label_6->setText(QApplication::translate("NamingPolicyInputDialog", "Object Name:", Q_NULLPTR));
-        lblOriginalName->setText(QApplication::translate("NamingPolicyInputDialog", "Object Name", Q_NULLPTR));
+        NamingPolicyInputDialog->setWindowTitle(QApplication::translate("NamingPolicyInputDialog", "Naming Problem Detected", nullptr));
+        lblHeading->setText(QApplication::translate("NamingPolicyInputDialog", "A naming problem has been detected with the name of the following object:", nullptr));
+        label_2->setText(QApplication::translate("NamingPolicyInputDialog", "Context:", nullptr));
+        lblContext->setText(QApplication::translate("NamingPolicyInputDialog", "Context not specified", nullptr));
+        label_6->setText(QApplication::translate("NamingPolicyInputDialog", "Object Name:", nullptr));
+        lblOriginalName->setText(QApplication::translate("NamingPolicyInputDialog", "Object Name", nullptr));
         label_5->setText(QString());
-        lblProblemDescription->setText(QApplication::translate("NamingPolicyInputDialog", "Problem description", Q_NULLPTR));
-        groupBox->setTitle(QApplication::translate("NamingPolicyInputDialog", "If you want to continue, please select how you want to resolve this:", Q_NULLPTR));
-        radioDifferentName->setText(QApplication::translate("NamingPolicyInputDialog", "Use a different name.", Q_NULLPTR));
-        label_3->setText(QApplication::translate("NamingPolicyInputDialog", "Please specify a new name:", Q_NULLPTR));
-        btnDifferentNameValidityIndicator->setText(QApplication::translate("NamingPolicyInputDialog", "...", Q_NULLPTR));
-        radioAutoRename->setText(QApplication::translate("NamingPolicyInputDialog", "Auto-rename the object for me.", Q_NULLPTR));
-        label_4->setText(QApplication::translate("NamingPolicyInputDialog", "The following name will be used:", Q_NULLPTR));
+        lblProblemDescription->setText(QApplication::translate("NamingPolicyInputDialog", "Problem description", nullptr));
+        groupBox->setTitle(QApplication::translate("NamingPolicyInputDialog", "If you want to continue, please select how you want to resolve this:", nullptr));
+        radioDifferentName->setText(QApplication::translate("NamingPolicyInputDialog", "Use a different name.", nullptr));
+        label_3->setText(QApplication::translate("NamingPolicyInputDialog", "Please specify a new name:", nullptr));
+        btnDifferentNameValidityIndicator->setText(QApplication::translate("NamingPolicyInputDialog", "...", nullptr));
+        radioAutoRename->setText(QApplication::translate("NamingPolicyInputDialog", "Auto-rename the object for me.", nullptr));
+        label_4->setText(QApplication::translate("NamingPolicyInputDialog", "The following name will be used:", nullptr));
 #ifndef QT_NO_TOOLTIP
-        btnGenerateNewName->setToolTip(QApplication::translate("NamingPolicyInputDialog", "Generate again", Q_NULLPTR));
+        btnGenerateNewName->setToolTip(QApplication::translate("NamingPolicyInputDialog", "Generate again", nullptr));
 #endif // QT_NO_TOOLTIP
-        btnGenerateNewName->setText(QApplication::translate("NamingPolicyInputDialog", "...", Q_NULLPTR));
-        radioReplaceConflicting->setText(QApplication::translate("NamingPolicyInputDialog", "Replace the existing (conflicting) object with the new object.", Q_NULLPTR));
-        radioReject->setText(QApplication::translate("NamingPolicyInputDialog", "Reject (Cancel this operation)", Q_NULLPTR));
-        chkAllInThisCycle->setText(QApplication::translate("NamingPolicyInputDialog", "All in this cycle", Q_NULLPTR));
+        btnGenerateNewName->setText(QApplication::translate("NamingPolicyInputDialog", "...", nullptr));
+        radioReplaceConflicting->setText(QApplication::translate("NamingPolicyInputDialog", "Replace the existing (conflicting) object with the new object.", nullptr));
+        radioReject->setText(QApplication::translate("NamingPolicyInputDialog", "Reject (Cancel this operation)", nullptr));
+        chkAllInThisCycle->setText(QApplication::translate("NamingPolicyInputDialog", "All in this cycle", nullptr));
     } // retranslateUi
 
 };

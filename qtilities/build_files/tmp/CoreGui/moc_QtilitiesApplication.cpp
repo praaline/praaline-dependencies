@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'QtilitiesApplication.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'QtilitiesApplication.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -97,17 +97,16 @@ void Qtilities::CoreGui::QtilitiesApplication::qt_static_metacall(QObject *_o, Q
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (QtilitiesApplication::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&QtilitiesApplication::settingsUpdateRequest)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&QtilitiesApplication::settingsUpdateRequest)) {
                 *result = 0;
                 return;
             }
         }
         {
             typedef void (QtilitiesApplication::*_t)(bool );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&QtilitiesApplication::busyStateChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&QtilitiesApplication::busyStateChanged)) {
                 *result = 1;
                 return;
             }
@@ -130,7 +129,7 @@ void *Qtilities::CoreGui::QtilitiesApplication::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__CoreGui__QtilitiesApplication.stringdata0))
-        return static_cast<void*>(const_cast< QtilitiesApplication*>(this));
+        return static_cast<void*>(this);
     return QApplication::qt_metacast(_clname);
 }
 

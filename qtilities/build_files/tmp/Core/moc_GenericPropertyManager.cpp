@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'GenericPropertyManager.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'GenericPropertyManager.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -194,80 +194,79 @@ void Qtilities::Core::GenericPropertyManager::qt_static_metacall(QObject *_o, QM
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (GenericPropertyManager::*_t)(bool );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&GenericPropertyManager::toggleAdvancedSettings)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GenericPropertyManager::toggleAdvancedSettings)) {
                 *result = 0;
                 return;
             }
         }
         {
             typedef void (GenericPropertyManager::*_t)(bool );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&GenericPropertyManager::toggleSwitchNames)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GenericPropertyManager::toggleSwitchNames)) {
                 *result = 1;
                 return;
             }
         }
         {
             typedef void (GenericPropertyManager::*_t)(GenericProperty * );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&GenericPropertyManager::propertyValueChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GenericPropertyManager::propertyValueChanged)) {
                 *result = 2;
                 return;
             }
         }
         {
             typedef void (GenericPropertyManager::*_t)(GenericProperty * );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&GenericPropertyManager::propertyEditableChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GenericPropertyManager::propertyEditableChanged)) {
                 *result = 3;
                 return;
             }
         }
         {
             typedef void (GenericPropertyManager::*_t)(GenericProperty * );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&GenericPropertyManager::propertyContextDependentChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GenericPropertyManager::propertyContextDependentChanged)) {
                 *result = 4;
                 return;
             }
         }
         {
             typedef void (GenericPropertyManager::*_t)(GenericProperty * );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&GenericPropertyManager::propertyPossibleValuesChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GenericPropertyManager::propertyPossibleValuesChanged)) {
                 *result = 5;
                 return;
             }
         }
         {
             typedef void (GenericPropertyManager::*_t)(GenericProperty * );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&GenericPropertyManager::propertyDefaultValueChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GenericPropertyManager::propertyDefaultValueChanged)) {
                 *result = 6;
                 return;
             }
         }
         {
             typedef void (GenericPropertyManager::*_t)(GenericProperty * );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&GenericPropertyManager::propertyNoteChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GenericPropertyManager::propertyNoteChanged)) {
                 *result = 7;
                 return;
             }
         }
         {
             typedef void (GenericPropertyManager::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&GenericPropertyManager::refresh)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GenericPropertyManager::refresh)) {
                 *result = 8;
                 return;
             }
         }
         {
             typedef void (GenericPropertyManager::*_t)(bool ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&GenericPropertyManager::modificationStateChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GenericPropertyManager::modificationStateChanged)) {
                 *result = 9;
                 return;
             }
         }
         {
             typedef void (GenericPropertyManager::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&GenericPropertyManager::reloadPropertyBrowsersRequest)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GenericPropertyManager::reloadPropertyBrowsersRequest)) {
                 *result = 10;
                 return;
             }
@@ -290,11 +289,11 @@ void *Qtilities::Core::GenericPropertyManager::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__Core__GenericPropertyManager.stringdata0))
-        return static_cast<void*>(const_cast< GenericPropertyManager*>(this));
+        return static_cast<void*>(this);
     if (!strcmp(_clname, "IModificationNotifier"))
-        return static_cast< IModificationNotifier*>(const_cast< GenericPropertyManager*>(this));
+        return static_cast< IModificationNotifier*>(this);
     if (!strcmp(_clname, "com.Qtilities.Core.IModificationNotifier/1.0"))
-        return static_cast< Qtilities::Core::Interfaces::IModificationNotifier*>(const_cast< GenericPropertyManager*>(this));
+        return static_cast< Qtilities::Core::Interfaces::IModificationNotifier*>(this);
     return QObject::qt_metacast(_clname);
 }
 

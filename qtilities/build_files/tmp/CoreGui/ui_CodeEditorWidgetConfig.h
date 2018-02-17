@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'CodeEditorWidgetConfig.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -40,16 +40,16 @@ public:
     void setupUi(QWidget *CodeEditorWidgetConfig)
     {
         if (CodeEditorWidgetConfig->objectName().isEmpty())
-            CodeEditorWidgetConfig->setObjectName(QStringLiteral("CodeEditorWidgetConfig"));
+            CodeEditorWidgetConfig->setObjectName(QLatin1String("CodeEditorWidgetConfig"));
         CodeEditorWidgetConfig->resize(400, 300);
         verticalLayout = new QVBoxLayout(CodeEditorWidgetConfig);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QLatin1String("verticalLayout"));
         groupBox = new QGroupBox(CodeEditorWidgetConfig);
-        groupBox->setObjectName(QStringLiteral("groupBox"));
+        groupBox->setObjectName(QLatin1String("groupBox"));
         horizontalLayout = new QHBoxLayout(groupBox);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QLatin1String("horizontalLayout"));
         label = new QLabel(groupBox);
-        label->setObjectName(QStringLiteral("label"));
+        label->setObjectName(QLatin1String("label"));
 
         horizontalLayout->addWidget(label);
 
@@ -58,12 +58,12 @@ public:
         horizontalLayout->addItem(horizontalSpacer);
 
         fontComboBox = new QFontComboBox(groupBox);
-        fontComboBox->setObjectName(QStringLiteral("fontComboBox"));
+        fontComboBox->setObjectName(QLatin1String("fontComboBox"));
 
         horizontalLayout->addWidget(fontComboBox);
 
         fontSizeComboBox = new QComboBox(groupBox);
-        fontSizeComboBox->setObjectName(QStringLiteral("fontSizeComboBox"));
+        fontSizeComboBox->setObjectName(QLatin1String("fontSizeComboBox"));
         fontSizeComboBox->setEditable(true);
 
         horizontalLayout->addWidget(fontSizeComboBox);
@@ -83,9 +83,9 @@ public:
 
     void retranslateUi(QWidget *CodeEditorWidgetConfig)
     {
-        CodeEditorWidgetConfig->setWindowTitle(QApplication::translate("CodeEditorWidgetConfig", "Form", Q_NULLPTR));
-        groupBox->setTitle(QApplication::translate("CodeEditorWidgetConfig", "Font", Q_NULLPTR));
-        label->setText(QApplication::translate("CodeEditorWidgetConfig", "Editor Font", Q_NULLPTR));
+        CodeEditorWidgetConfig->setWindowTitle(QApplication::translate("CodeEditorWidgetConfig", "Form", nullptr));
+        groupBox->setTitle(QApplication::translate("CodeEditorWidgetConfig", "Font", nullptr));
+        label->setText(QApplication::translate("CodeEditorWidgetConfig", "Editor Font", nullptr));
     } // retranslateUi
 
 };

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ObserverProjectItemWrapper.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'ObserverProjectItemWrapper.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -95,10 +95,9 @@ void Qtilities::ProjectManagement::ObserverProjectItemWrapper::qt_static_metacal
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (ObserverProjectItemWrapper::*_t)(bool ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverProjectItemWrapper::modificationStateChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverProjectItemWrapper::modificationStateChanged)) {
                 *result = 0;
                 return;
             }
@@ -121,11 +120,11 @@ void *Qtilities::ProjectManagement::ObserverProjectItemWrapper::qt_metacast(cons
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__ProjectManagement__ObserverProjectItemWrapper.stringdata0))
-        return static_cast<void*>(const_cast< ObserverProjectItemWrapper*>(this));
+        return static_cast<void*>(this);
     if (!strcmp(_clname, "IProjectItem"))
-        return static_cast< IProjectItem*>(const_cast< ObserverProjectItemWrapper*>(this));
+        return static_cast< IProjectItem*>(this);
     if (!strcmp(_clname, "com.Qtilities.ProjectManagement.IProjectItem/1.0"))
-        return static_cast< Qtilities::ProjectManagement::Interfaces::IProjectItem*>(const_cast< ObserverProjectItemWrapper*>(this));
+        return static_cast< Qtilities::ProjectManagement::Interfaces::IProjectItem*>(this);
     return QObject::qt_metacast(_clname);
 }
 

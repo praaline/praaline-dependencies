@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ObjectHierarchyNavigator.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -34,7 +34,7 @@ public:
     void setupUi(QWidget *ObjectHierarchyNavigator)
     {
         if (ObjectHierarchyNavigator->objectName().isEmpty())
-            ObjectHierarchyNavigator->setObjectName(QStringLiteral("ObjectHierarchyNavigator"));
+            ObjectHierarchyNavigator->setObjectName(QLatin1String("ObjectHierarchyNavigator"));
         ObjectHierarchyNavigator->resize(400, 30);
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
@@ -46,20 +46,20 @@ public:
         verticalLayout = new QVBoxLayout(ObjectHierarchyNavigator);
         verticalLayout->setSpacing(0);
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QLatin1String("verticalLayout"));
         scrollArea = new QScrollArea(ObjectHierarchyNavigator);
-        scrollArea->setObjectName(QStringLiteral("scrollArea"));
+        scrollArea->setObjectName(QLatin1String("scrollArea"));
         scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         scrollArea->setWidgetResizable(true);
         navigationArea = new QWidget();
-        navigationArea->setObjectName(QStringLiteral("navigationArea"));
+        navigationArea->setObjectName(QLatin1String("navigationArea"));
         navigationArea->setGeometry(QRect(0, 0, 398, 28));
         horizontalLayout = new QHBoxLayout(navigationArea);
         horizontalLayout->setContentsMargins(6, 6, 6, 6);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QLatin1String("horizontalLayout"));
         lblHierarchy = new QLabel(navigationArea);
-        lblHierarchy->setObjectName(QStringLiteral("lblHierarchy"));
+        lblHierarchy->setObjectName(QLatin1String("lblHierarchy"));
         QFont font;
         font.setBold(true);
         font.setWeight(75);
@@ -79,8 +79,8 @@ public:
 
     void retranslateUi(QWidget *ObjectHierarchyNavigator)
     {
-        ObjectHierarchyNavigator->setWindowTitle(QApplication::translate("ObjectHierarchyNavigator", "Form", Q_NULLPTR));
-        lblHierarchy->setText(QApplication::translate("ObjectHierarchyNavigator", "Navigation stack not set.", Q_NULLPTR));
+        ObjectHierarchyNavigator->setWindowTitle(QApplication::translate("ObjectHierarchyNavigator", "Form", nullptr));
+        lblHierarchy->setText(QApplication::translate("ObjectHierarchyNavigator", "Navigation stack not set.", nullptr));
     } // retranslateUi
 
 };

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GenericPropertyPathEditor.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -31,21 +31,21 @@ public:
     void setupUi(QWidget *GenericPropertyPathEditor)
     {
         if (GenericPropertyPathEditor->objectName().isEmpty())
-            GenericPropertyPathEditor->setObjectName(QStringLiteral("GenericPropertyPathEditor"));
+            GenericPropertyPathEditor->setObjectName(QLatin1String("GenericPropertyPathEditor"));
         GenericPropertyPathEditor->resize(158, 20);
-        GenericPropertyPathEditor->setWindowTitle(QStringLiteral("Form"));
+        GenericPropertyPathEditor->setWindowTitle(QLatin1String("Form"));
         horizontalLayout = new QHBoxLayout(GenericPropertyPathEditor);
         horizontalLayout->setSpacing(0);
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QLatin1String("horizontalLayout"));
         txtEditor = new QLineEdit(GenericPropertyPathEditor);
-        txtEditor->setObjectName(QStringLiteral("txtEditor"));
+        txtEditor->setObjectName(QLatin1String("txtEditor"));
 
         horizontalLayout->addWidget(txtEditor);
 
         btnBrowse = new QToolButton(GenericPropertyPathEditor);
-        btnBrowse->setObjectName(QStringLiteral("btnBrowse"));
-        btnBrowse->setText(QStringLiteral("..."));
+        btnBrowse->setObjectName(QLatin1String("btnBrowse"));
+        btnBrowse->setText(QLatin1String("..."));
 
         horizontalLayout->addWidget(btnBrowse);
 

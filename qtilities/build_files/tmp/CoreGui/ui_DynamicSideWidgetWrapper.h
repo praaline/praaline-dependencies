@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'DynamicSideWidgetWrapper.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -39,22 +39,22 @@ public:
     void setupUi(QWidget *DynamicSideWidgetWrapper)
     {
         if (DynamicSideWidgetWrapper->objectName().isEmpty())
-            DynamicSideWidgetWrapper->setObjectName(QStringLiteral("DynamicSideWidgetWrapper"));
+            DynamicSideWidgetWrapper->setObjectName(QLatin1String("DynamicSideWidgetWrapper"));
         DynamicSideWidgetWrapper->resize(294, 313);
         verticalLayout = new QVBoxLayout(DynamicSideWidgetWrapper);
         verticalLayout->setSpacing(0);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QLatin1String("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         frame = new QFrame(DynamicSideWidgetWrapper);
-        frame->setObjectName(QStringLiteral("frame"));
+        frame->setObjectName(QLatin1String("frame"));
         frame->setFrameShape(QFrame::NoFrame);
         frame->setFrameShadow(QFrame::Sunken);
         horizontalLayout = new QHBoxLayout(frame);
         horizontalLayout->setSpacing(0);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QLatin1String("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 1, 0, 2);
         widgetCombo = new QComboBox(frame);
-        widgetCombo->setObjectName(QStringLiteral("widgetCombo"));
+        widgetCombo->setObjectName(QLatin1String("widgetCombo"));
 
         horizontalLayout->addWidget(widgetCombo);
 
@@ -63,13 +63,13 @@ public:
         horizontalLayout->addItem(horizontalSpacer);
 
         btnNew = new QToolButton(frame);
-        btnNew->setObjectName(QStringLiteral("btnNew"));
+        btnNew->setObjectName(QLatin1String("btnNew"));
         btnNew->setAutoRaise(true);
 
         horizontalLayout->addWidget(btnNew);
 
         btnClose = new QToolButton(frame);
-        btnClose->setObjectName(QStringLiteral("btnClose"));
+        btnClose->setObjectName(QLatin1String("btnClose"));
         btnClose->setAutoRaise(true);
 
         horizontalLayout->addWidget(btnClose);
@@ -78,7 +78,7 @@ public:
         verticalLayout->addWidget(frame);
 
         centralwidget = new QWidget(DynamicSideWidgetWrapper);
-        centralwidget->setObjectName(QStringLiteral("centralwidget"));
+        centralwidget->setObjectName(QLatin1String("centralwidget"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -95,9 +95,9 @@ public:
 
     void retranslateUi(QWidget *DynamicSideWidgetWrapper)
     {
-        DynamicSideWidgetWrapper->setWindowTitle(QApplication::translate("DynamicSideWidgetWrapper", "MainWindow", Q_NULLPTR));
-        btnNew->setText(QApplication::translate("DynamicSideWidgetWrapper", "...", Q_NULLPTR));
-        btnClose->setText(QApplication::translate("DynamicSideWidgetWrapper", "...", Q_NULLPTR));
+        DynamicSideWidgetWrapper->setWindowTitle(QApplication::translate("DynamicSideWidgetWrapper", "MainWindow", nullptr));
+        btnNew->setText(QApplication::translate("DynamicSideWidgetWrapper", "...", nullptr));
+        btnClose->setText(QApplication::translate("DynamicSideWidgetWrapper", "...", nullptr));
     } // retranslateUi
 
 };

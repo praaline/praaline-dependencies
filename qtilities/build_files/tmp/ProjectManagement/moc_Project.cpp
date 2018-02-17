@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Project.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'Project.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -95,10 +95,9 @@ void Qtilities::ProjectManagement::Project::qt_static_metacall(QObject *_o, QMet
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (Project::*_t)(bool ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Project::modificationStateChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Project::modificationStateChanged)) {
                 *result = 0;
                 return;
             }
@@ -121,15 +120,15 @@ void *Qtilities::ProjectManagement::Project::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__ProjectManagement__Project.stringdata0))
-        return static_cast<void*>(const_cast< Project*>(this));
+        return static_cast<void*>(this);
     if (!strcmp(_clname, "IProject"))
-        return static_cast< IProject*>(const_cast< Project*>(this));
+        return static_cast< IProject*>(this);
     if (!strcmp(_clname, "IExportable"))
-        return static_cast< IExportable*>(const_cast< Project*>(this));
+        return static_cast< IExportable*>(this);
     if (!strcmp(_clname, "com.ProjectManagement.IProject/1.0"))
-        return static_cast< Qtilities::ProjectManagement::Interfaces::IProject*>(const_cast< Project*>(this));
+        return static_cast< Qtilities::ProjectManagement::Interfaces::IProject*>(this);
     if (!strcmp(_clname, "com.Qtilities.Core.IExportable/1.0"))
-        return static_cast< Qtilities::Core::Interfaces::IExportable*>(const_cast< Project*>(this));
+        return static_cast< Qtilities::Core::Interfaces::IExportable*>(this);
     return QObject::qt_metacast(_clname);
 }
 

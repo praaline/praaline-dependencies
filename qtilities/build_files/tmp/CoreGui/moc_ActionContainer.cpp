@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ActionContainer.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'ActionContainer.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -77,7 +77,7 @@ void *Qtilities::CoreGui::ActionContainer::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__CoreGui__ActionContainer.stringdata0))
-        return static_cast<void*>(const_cast< ActionContainer*>(this));
+        return static_cast<void*>(this);
     return QObject::qt_metacast(_clname);
 }
 
@@ -143,7 +143,7 @@ void *Qtilities::CoreGui::MenuContainer::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__CoreGui__MenuContainer.stringdata0))
-        return static_cast<void*>(const_cast< MenuContainer*>(this));
+        return static_cast<void*>(this);
     return ActionContainer::qt_metacast(_clname);
 }
 
@@ -209,7 +209,7 @@ void *Qtilities::CoreGui::MenuBarContainer::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__CoreGui__MenuBarContainer.stringdata0))
-        return static_cast<void*>(const_cast< MenuBarContainer*>(this));
+        return static_cast<void*>(this);
     return ActionContainer::qt_metacast(_clname);
 }
 

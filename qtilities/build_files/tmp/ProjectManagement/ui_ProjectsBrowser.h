@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ProjectsBrowser.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -46,21 +46,21 @@ public:
     void setupUi(QWidget *ProjectsBrowser)
     {
         if (ProjectsBrowser->objectName().isEmpty())
-            ProjectsBrowser->setObjectName(QStringLiteral("ProjectsBrowser"));
+            ProjectsBrowser->setObjectName(QLatin1String("ProjectsBrowser"));
         ProjectsBrowser->resize(602, 420);
         verticalLayout = new QVBoxLayout(ProjectsBrowser);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QLatin1String("verticalLayout"));
         tabWidget = new QTabWidget(ProjectsBrowser);
-        tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        tabWidget->setObjectName(QLatin1String("tabWidget"));
         tab = new QWidget();
-        tab->setObjectName(QStringLiteral("tab"));
+        tab->setObjectName(QLatin1String("tab"));
         gridLayout = new QGridLayout(tab);
 #ifndef Q_OS_MAC
         gridLayout->setContentsMargins(9, 9, 9, 9);
 #endif
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setObjectName(QLatin1String("gridLayout"));
         listWidgetRecent = new QListWidget(tab);
-        listWidgetRecent->setObjectName(QStringLiteral("listWidgetRecent"));
+        listWidgetRecent->setObjectName(QLatin1String("listWidgetRecent"));
 
         gridLayout->addWidget(listWidgetRecent, 0, 0, 1, 4);
 
@@ -69,18 +69,18 @@ public:
         gridLayout->addItem(horizontalSpacer, 1, 2, 1, 1);
 
         btnClearRecent = new QPushButton(tab);
-        btnClearRecent->setObjectName(QStringLiteral("btnClearRecent"));
+        btnClearRecent->setObjectName(QLatin1String("btnClearRecent"));
 
         gridLayout->addWidget(btnClearRecent, 1, 0, 1, 1);
 
         btnRemoveNonExisting = new QPushButton(tab);
-        btnRemoveNonExisting->setObjectName(QStringLiteral("btnRemoveNonExisting"));
+        btnRemoveNonExisting->setObjectName(QLatin1String("btnRemoveNonExisting"));
 
         gridLayout->addWidget(btnRemoveNonExisting, 1, 1, 1, 1);
 
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
-        tab_2->setObjectName(QStringLiteral("tab_2"));
+        tab_2->setObjectName(QLatin1String("tab_2"));
         horizontalLayout = new QHBoxLayout(tab_2);
 #ifndef Q_OS_MAC
         horizontalLayout->setSpacing(6);
@@ -88,9 +88,9 @@ public:
 #ifndef Q_OS_MAC
         horizontalLayout->setContentsMargins(9, 9, 9, 9);
 #endif
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QLatin1String("horizontalLayout"));
         listCustomCategories = new QListWidget(tab_2);
-        listCustomCategories->setObjectName(QStringLiteral("listCustomCategories"));
+        listCustomCategories->setObjectName(QLatin1String("listCustomCategories"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -101,7 +101,7 @@ public:
         horizontalLayout->addWidget(listCustomCategories);
 
         widgetCustomBrowser = new QWidget(tab_2);
-        widgetCustomBrowser->setObjectName(QStringLiteral("widgetCustomBrowser"));
+        widgetCustomBrowser->setObjectName(QLatin1String("widgetCustomBrowser"));
         QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Preferred);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
@@ -115,7 +115,7 @@ public:
         verticalLayout->addWidget(tabWidget);
 
         buttonBox = new QDialogButtonBox(ProjectsBrowser);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setObjectName(QLatin1String("buttonBox"));
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Open);
 
         verticalLayout->addWidget(buttonBox);
@@ -131,11 +131,11 @@ public:
 
     void retranslateUi(QWidget *ProjectsBrowser)
     {
-        ProjectsBrowser->setWindowTitle(QApplication::translate("ProjectsBrowser", "Projects Browser", Q_NULLPTR));
-        btnClearRecent->setText(QApplication::translate("ProjectsBrowser", "Clear", Q_NULLPTR));
-        btnRemoveNonExisting->setText(QApplication::translate("ProjectsBrowser", "Remove Non Existing", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("ProjectsBrowser", "Recent Projects", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("ProjectsBrowser", "Project Paths", Q_NULLPTR));
+        ProjectsBrowser->setWindowTitle(QApplication::translate("ProjectsBrowser", "Projects Browser", nullptr));
+        btnClearRecent->setText(QApplication::translate("ProjectsBrowser", "Clear", nullptr));
+        btnRemoveNonExisting->setText(QApplication::translate("ProjectsBrowser", "Remove Non Existing", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("ProjectsBrowser", "Recent Projects", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("ProjectsBrowser", "Project Paths", nullptr));
     } // retranslateUi
 
 };

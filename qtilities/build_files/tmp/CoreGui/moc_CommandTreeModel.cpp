@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'CommandTreeModel.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'CommandTreeModel.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -77,7 +77,7 @@ void *Qtilities::CoreGui::qti_private_CommandTreeModel::qt_metacast(const char *
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__CoreGui__qti_private_CommandTreeModel.stringdata0))
-        return static_cast<void*>(const_cast< qti_private_CommandTreeModel*>(this));
+        return static_cast<void*>(this);
     return ObserverTreeModel::qt_metacast(_clname);
 }
 
@@ -143,7 +143,7 @@ void *Qtilities::CoreGui::qti_private_ShortcutEditorDelegate::qt_metacast(const 
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__CoreGui__qti_private_ShortcutEditorDelegate.stringdata0))
-        return static_cast<void*>(const_cast< qti_private_ShortcutEditorDelegate*>(this));
+        return static_cast<void*>(this);
     return QItemDelegate::qt_metacast(_clname);
 }
 
@@ -220,10 +220,9 @@ void Qtilities::CoreGui::qti_private_QtKeySequenceEdit::qt_static_metacall(QObje
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (qti_private_QtKeySequenceEdit::*_t)(const QKeySequence & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&qti_private_QtKeySequenceEdit::keySequenceChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&qti_private_QtKeySequenceEdit::keySequenceChanged)) {
                 *result = 0;
                 return;
             }
@@ -246,7 +245,7 @@ void *Qtilities::CoreGui::qti_private_QtKeySequenceEdit::qt_metacast(const char 
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__CoreGui__qti_private_QtKeySequenceEdit.stringdata0))
-        return static_cast<void*>(const_cast< qti_private_QtKeySequenceEdit*>(this));
+        return static_cast<void*>(this);
     return QWidget::qt_metacast(_clname);
 }
 

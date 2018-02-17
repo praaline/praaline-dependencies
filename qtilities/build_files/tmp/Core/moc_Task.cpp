@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Task.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'Task.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -414,178 +414,177 @@ void Qtilities::Core::Task::qt_static_metacall(QObject *_o, QMetaObject::Call _c
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (Task::*_t)(const QString & , Logger::MessageType ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::newMessageLogged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::newMessageLogged)) {
                 *result = 0;
                 return;
             }
         }
         {
             typedef void (Task::*_t)(int ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::taskElapsedTimeChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::taskElapsedTimeChanged)) {
                 *result = 1;
                 return;
             }
         }
         {
             typedef void (Task::*_t)(int , const QString & , Logger::MessageType ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::taskStarted)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::taskStarted)) {
                 *result = 2;
                 return;
             }
         }
         {
             typedef void (Task::*_t)(int , const QString & , Logger::MessageType ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::subTaskCompleted)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::subTaskCompleted)) {
                 *result = 6;
                 return;
             }
         }
         {
             typedef void (Task::*_t)(ITask::TaskResult , const QString & , Logger::MessageType ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::taskCompleted)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::taskCompleted)) {
                 *result = 10;
                 return;
             }
         }
         {
             typedef void (Task::*_t)() const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::taskPaused)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::taskPaused)) {
                 *result = 13;
                 return;
             }
         }
         {
             typedef void (Task::*_t)() const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::taskResumed)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::taskResumed)) {
                 *result = 14;
                 return;
             }
         }
         {
             typedef void (Task::*_t)() const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::taskStopped)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::taskStopped)) {
                 *result = 15;
                 return;
             }
         }
         {
             typedef void (Task::*_t)() const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::taskAboutToPause)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::taskAboutToPause)) {
                 *result = 16;
                 return;
             }
         }
         {
             typedef void (Task::*_t)() const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::taskAboutToComplete)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::taskAboutToComplete)) {
                 *result = 17;
                 return;
             }
         }
         {
             typedef void (Task::*_t)() const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::taskSubTaskAboutToComplete)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::taskSubTaskAboutToComplete)) {
                 *result = 18;
                 return;
             }
         }
         {
             typedef void (Task::*_t)() const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::taskAboutToStop)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::taskAboutToStop)) {
                 *result = 19;
                 return;
             }
         }
         {
             typedef void (Task::*_t)() const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::taskAboutToStart)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::taskAboutToStart)) {
                 *result = 20;
                 return;
             }
         }
         {
             typedef void (Task::*_t)() const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::taskAboutToResume)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::taskAboutToResume)) {
                 *result = 21;
                 return;
             }
         }
         {
             typedef void (Task::*_t)(ITask::TaskState , ITask::TaskState ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::stateChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::stateChanged)) {
                 *result = 22;
                 return;
             }
         }
         {
             typedef void (Task::*_t)(ITask::TaskBusyState , ITask::TaskBusyState ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::busyStateChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::busyStateChanged)) {
                 *result = 23;
                 return;
             }
         }
         {
             typedef void (Task::*_t)(ITask::TaskType ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::taskTypeChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::taskTypeChanged)) {
                 *result = 24;
                 return;
             }
         }
         {
             typedef void (Task::*_t)(const QString & ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::displayedNameChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::displayedNameChanged)) {
                 *result = 25;
                 return;
             }
         }
         {
             typedef void (Task::*_t)(bool ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::canStartChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::canStartChanged)) {
                 *result = 26;
                 return;
             }
         }
         {
             typedef void (Task::*_t)(bool ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::canStopChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::canStopChanged)) {
                 *result = 27;
                 return;
             }
         }
         {
             typedef void (Task::*_t)(bool ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::canPauseChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::canPauseChanged)) {
                 *result = 28;
                 return;
             }
         }
         {
             typedef void (Task::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::startTaskRequest)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::startTaskRequest)) {
                 *result = 29;
                 return;
             }
         }
         {
             typedef void (Task::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::stopTaskRequest)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::stopTaskRequest)) {
                 *result = 30;
                 return;
             }
         }
         {
             typedef void (Task::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::pauseTaskRequest)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::pauseTaskRequest)) {
                 *result = 31;
                 return;
             }
         }
         {
             typedef void (Task::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Task::resumeTaskRequest)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Task::resumeTaskRequest)) {
                 *result = 32;
                 return;
             }
@@ -628,11 +627,11 @@ void *Qtilities::Core::Task::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__Core__Task.stringdata0))
-        return static_cast<void*>(const_cast< Task*>(this));
+        return static_cast<void*>(this);
     if (!strcmp(_clname, "ITask"))
-        return static_cast< ITask*>(const_cast< Task*>(this));
+        return static_cast< ITask*>(this);
     if (!strcmp(_clname, "com.Qtilities.Core.ITask/1.0"))
-        return static_cast< Qtilities::Core::Interfaces::ITask*>(const_cast< Task*>(this));
+        return static_cast< Qtilities::Core::Interfaces::ITask*>(this);
     return QObject::qt_metacast(_clname);
 }
 

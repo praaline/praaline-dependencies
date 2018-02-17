@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ProjectManager.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'ProjectManager.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -224,94 +224,93 @@ void Qtilities::ProjectManagement::ProjectManager::qt_static_metacall(QObject *_
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (ProjectManager::*_t)(bool ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ProjectManager::modificationStateChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ProjectManager::modificationStateChanged)) {
                 *result = 0;
                 return;
             }
         }
         {
             typedef void (ProjectManager::*_t)(IProject * );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ProjectManager::currentProjectChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ProjectManager::currentProjectChanged)) {
                 *result = 1;
                 return;
             }
         }
         {
             typedef void (ProjectManager::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ProjectManager::projectCreationStarted)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ProjectManager::projectCreationStarted)) {
                 *result = 2;
                 return;
             }
         }
         {
             typedef void (ProjectManager::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ProjectManager::projectCreationFinished)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ProjectManager::projectCreationFinished)) {
                 *result = 3;
                 return;
             }
         }
         {
             typedef void (ProjectManager::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ProjectManager::projectLoadingStarted)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ProjectManager::projectLoadingStarted)) {
                 *result = 4;
                 return;
             }
         }
         {
             typedef void (ProjectManager::*_t)(const QString & , bool );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ProjectManager::projectLoadingFinished)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ProjectManager::projectLoadingFinished)) {
                 *result = 5;
                 return;
             }
         }
         {
             typedef void (ProjectManager::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ProjectManager::projectSavingStarted)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ProjectManager::projectSavingStarted)) {
                 *result = 6;
                 return;
             }
         }
         {
             typedef void (ProjectManager::*_t)(const QString & , bool );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ProjectManager::projectSavingFinished)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ProjectManager::projectSavingFinished)) {
                 *result = 7;
                 return;
             }
         }
         {
             typedef void (ProjectManager::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ProjectManager::projectClosingStarted)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ProjectManager::projectClosingStarted)) {
                 *result = 8;
                 return;
             }
         }
         {
             typedef void (ProjectManager::*_t)(bool );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ProjectManager::projectClosingFinished)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ProjectManager::projectClosingFinished)) {
                 *result = 9;
                 return;
             }
         }
         {
             typedef void (ProjectManager::*_t)(const QStringList & , const QStringList & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ProjectManager::recentProjectsChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ProjectManager::recentProjectsChanged)) {
                 *result = 10;
                 return;
             }
         }
         {
             typedef void (ProjectManager::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ProjectManager::customProjectPathsChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ProjectManager::customProjectPathsChanged)) {
                 *result = 11;
                 return;
             }
         }
         {
             typedef void (ProjectManager::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ProjectManager::projectSaveRequestedWithoutOpenProject)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ProjectManager::projectSaveRequestedWithoutOpenProject)) {
                 *result = 12;
                 return;
             }
@@ -334,13 +333,13 @@ void *Qtilities::ProjectManagement::ProjectManager::qt_metacast(const char *_cln
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__ProjectManagement__ProjectManager.stringdata0))
-        return static_cast<void*>(const_cast< ProjectManager*>(this));
+        return static_cast<void*>(this);
     if (!strcmp(_clname, "IModificationNotifier"))
-        return static_cast< IModificationNotifier*>(const_cast< ProjectManager*>(this));
+        return static_cast< IModificationNotifier*>(this);
     if (!strcmp(_clname, "ITaskContainer"))
-        return static_cast< ITaskContainer*>(const_cast< ProjectManager*>(this));
+        return static_cast< ITaskContainer*>(this);
     if (!strcmp(_clname, "com.Qtilities.Core.IModificationNotifier/1.0"))
-        return static_cast< Qtilities::Core::Interfaces::IModificationNotifier*>(const_cast< ProjectManager*>(this));
+        return static_cast< Qtilities::Core::Interfaces::IModificationNotifier*>(this);
     return QObject::qt_metacast(_clname);
 }
 

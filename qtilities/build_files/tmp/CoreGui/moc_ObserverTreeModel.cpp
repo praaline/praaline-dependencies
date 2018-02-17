@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ObserverTreeModel.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -14,7 +14,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'ObserverTreeModel.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -256,59 +256,58 @@ void Qtilities::CoreGui::ObserverTreeModel::qt_static_metacall(QObject *_o, QMet
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (ObserverTreeModel::*_t)(Observer * );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverTreeModel::selectionParentChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverTreeModel::selectionParentChanged)) {
                 *result = 0;
                 return;
             }
         }
         {
             typedef void (ObserverTreeModel::*_t)(QList<QPointer<QObject> > ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverTreeModel::selectObjects)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverTreeModel::selectObjects)) {
                 *result = 1;
                 return;
             }
         }
         {
             typedef void (ObserverTreeModel::*_t)(QList<QObject*> ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverTreeModel::selectObjects)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverTreeModel::selectObjects)) {
                 *result = 2;
                 return;
             }
         }
         {
             typedef void (ObserverTreeModel::*_t)(QList<QtilitiesCategory> ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverTreeModel::selectCategories)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverTreeModel::selectCategories)) {
                 *result = 3;
                 return;
             }
         }
         {
             typedef void (ObserverTreeModel::*_t)() const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverTreeModel::treeModelBuildAboutToStart)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverTreeModel::treeModelBuildAboutToStart)) {
                 *result = 4;
                 return;
             }
         }
         {
             typedef void (ObserverTreeModel::*_t)() const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverTreeModel::treeModelBuildStarted)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverTreeModel::treeModelBuildStarted)) {
                 *result = 5;
                 return;
             }
         }
         {
             typedef void (ObserverTreeModel::*_t)() const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverTreeModel::treeModelBuildEnded)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverTreeModel::treeModelBuildEnded)) {
                 *result = 6;
                 return;
             }
         }
         {
             typedef void (ObserverTreeModel::*_t)(QModelIndexList );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ObserverTreeModel::expandItemsRequest)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ObserverTreeModel::expandItemsRequest)) {
                 *result = 7;
                 return;
             }
@@ -331,9 +330,9 @@ void *Qtilities::CoreGui::ObserverTreeModel::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__CoreGui__ObserverTreeModel.stringdata0))
-        return static_cast<void*>(const_cast< ObserverTreeModel*>(this));
+        return static_cast<void*>(this);
     if (!strcmp(_clname, "AbstractObserverItemModel"))
-        return static_cast< AbstractObserverItemModel*>(const_cast< ObserverTreeModel*>(this));
+        return static_cast< AbstractObserverItemModel*>(this);
     return QAbstractItemModel::qt_metacast(_clname);
 }
 

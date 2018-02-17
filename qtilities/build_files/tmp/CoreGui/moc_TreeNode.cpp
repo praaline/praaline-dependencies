@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'TreeNode.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'TreeNode.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -128,13 +128,13 @@ void *Qtilities::CoreGui::TreeNode::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__CoreGui__TreeNode.stringdata0))
-        return static_cast<void*>(const_cast< TreeNode*>(this));
+        return static_cast<void*>(this);
     if (!strcmp(_clname, "AbstractTreeItem"))
-        return static_cast< AbstractTreeItem*>(const_cast< TreeNode*>(this));
+        return static_cast< AbstractTreeItem*>(this);
     if (!strcmp(_clname, "IExportableFormatting"))
-        return static_cast< IExportableFormatting*>(const_cast< TreeNode*>(this));
+        return static_cast< IExportableFormatting*>(this);
     if (!strcmp(_clname, "com.Qtilities.Core.IExportableFormatting/1.0"))
-        return static_cast< Qtilities::Core::Interfaces::IExportableFormatting*>(const_cast< TreeNode*>(this));
+        return static_cast< Qtilities::Core::Interfaces::IExportableFormatting*>(this);
     return Observer::qt_metacast(_clname);
 }
 

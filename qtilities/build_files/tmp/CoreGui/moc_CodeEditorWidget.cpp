@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'CodeEditorWidget.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'CodeEditorWidget.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -226,17 +226,16 @@ void Qtilities::CoreGui::CodeEditorWidget::qt_static_metacall(QObject *_o, QMeta
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (CodeEditorWidget::*_t)(bool ) const;
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&CodeEditorWidget::modificationStateChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CodeEditorWidget::modificationStateChanged)) {
                 *result = 0;
                 return;
             }
         }
         {
             typedef void (CodeEditorWidget::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&CodeEditorWidget::fileNameChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CodeEditorWidget::fileNameChanged)) {
                 *result = 1;
                 return;
             }
@@ -259,15 +258,15 @@ void *Qtilities::CoreGui::CodeEditorWidget::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__CoreGui__CodeEditorWidget.stringdata0))
-        return static_cast<void*>(const_cast< CodeEditorWidget*>(this));
+        return static_cast<void*>(this);
     if (!strcmp(_clname, "IContext"))
-        return static_cast< IContext*>(const_cast< CodeEditorWidget*>(this));
+        return static_cast< IContext*>(this);
     if (!strcmp(_clname, "IModificationNotifier"))
-        return static_cast< IModificationNotifier*>(const_cast< CodeEditorWidget*>(this));
+        return static_cast< IModificationNotifier*>(this);
     if (!strcmp(_clname, "com.Qtilities.Core.IContext/1.0"))
-        return static_cast< Qtilities::Core::Interfaces::IContext*>(const_cast< CodeEditorWidget*>(this));
+        return static_cast< Qtilities::Core::Interfaces::IContext*>(this);
     if (!strcmp(_clname, "com.Qtilities.Core.IModificationNotifier/1.0"))
-        return static_cast< Qtilities::Core::Interfaces::IModificationNotifier*>(const_cast< CodeEditorWidget*>(this));
+        return static_cast< Qtilities::Core::Interfaces::IModificationNotifier*>(this);
     return QMainWindow::qt_metacast(_clname);
 }
 

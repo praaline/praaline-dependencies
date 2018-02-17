@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'CodeEditorWidget.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -25,7 +25,7 @@ public:
     void setupUi(QMainWindow *CodeEditorWidget)
     {
         if (CodeEditorWidget->objectName().isEmpty())
-            CodeEditorWidget->setObjectName(QStringLiteral("CodeEditorWidget"));
+            CodeEditorWidget->setObjectName(QLatin1String("CodeEditorWidget"));
         CodeEditorWidget->resize(500, 363);
 
         retranslateUi(CodeEditorWidget);
@@ -35,7 +35,7 @@ public:
 
     void retranslateUi(QMainWindow *CodeEditorWidget)
     {
-        CodeEditorWidget->setWindowTitle(QApplication::translate("CodeEditorWidget", "Code Editor", Q_NULLPTR));
+        CodeEditorWidget->setWindowTitle(QApplication::translate("CodeEditorWidget", "Code Editor", nullptr));
     } // retranslateUi
 
 };

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'DynamicSideWidgetViewer.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -25,7 +25,7 @@ public:
     void setupUi(QWidget *DynamicSideWidgetViewer)
     {
         if (DynamicSideWidgetViewer->objectName().isEmpty())
-            DynamicSideWidgetViewer->setObjectName(QStringLiteral("DynamicSideWidgetViewer"));
+            DynamicSideWidgetViewer->setObjectName(QLatin1String("DynamicSideWidgetViewer"));
         DynamicSideWidgetViewer->resize(215, 618);
 
         retranslateUi(DynamicSideWidgetViewer);
@@ -35,7 +35,7 @@ public:
 
     void retranslateUi(QWidget *DynamicSideWidgetViewer)
     {
-        DynamicSideWidgetViewer->setWindowTitle(QApplication::translate("DynamicSideWidgetViewer", "Form", Q_NULLPTR));
+        DynamicSideWidgetViewer->setWindowTitle(QApplication::translate("DynamicSideWidgetViewer", "Form", nullptr));
     } // retranslateUi
 
 };

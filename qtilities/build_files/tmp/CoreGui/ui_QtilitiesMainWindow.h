@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'QtilitiesMainWindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -33,22 +33,22 @@ public:
     void setupUi(QMainWindow *QtilitiesMainWindow)
     {
         if (QtilitiesMainWindow->objectName().isEmpty())
-            QtilitiesMainWindow->setObjectName(QStringLiteral("QtilitiesMainWindow"));
+            QtilitiesMainWindow->setObjectName(QLatin1String("QtilitiesMainWindow"));
         QtilitiesMainWindow->resize(665, 400);
         QtilitiesMainWindow->setDockNestingEnabled(true);
         actionExit = new QAction(QtilitiesMainWindow);
-        actionExit->setObjectName(QStringLiteral("actionExit"));
+        actionExit->setObjectName(QLatin1String("actionExit"));
         actionAdd_Example_Objects = new QAction(QtilitiesMainWindow);
-        actionAdd_Example_Objects->setObjectName(QStringLiteral("actionAdd_Example_Objects"));
+        actionAdd_Example_Objects->setObjectName(QLatin1String("actionAdd_Example_Objects"));
         centralWidget = new QWidget(QtilitiesMainWindow);
-        centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        centralWidget->setObjectName(QLatin1String("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setObjectName(QLatin1String("gridLayout"));
         QtilitiesMainWindow->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(QtilitiesMainWindow);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
+        statusBar->setObjectName(QLatin1String("statusBar"));
         QtilitiesMainWindow->setStatusBar(statusBar);
 
         retranslateUi(QtilitiesMainWindow);
@@ -58,9 +58,9 @@ public:
 
     void retranslateUi(QMainWindow *QtilitiesMainWindow)
     {
-        QtilitiesMainWindow->setWindowTitle(QApplication::translate("QtilitiesMainWindow", "Qtilities Main Window", Q_NULLPTR));
-        actionExit->setText(QApplication::translate("QtilitiesMainWindow", "Exit", Q_NULLPTR));
-        actionAdd_Example_Objects->setText(QApplication::translate("QtilitiesMainWindow", "Add Example Objects", Q_NULLPTR));
+        QtilitiesMainWindow->setWindowTitle(QApplication::translate("QtilitiesMainWindow", "Qtilities Main Window", nullptr));
+        actionExit->setText(QApplication::translate("QtilitiesMainWindow", "Exit", nullptr));
+        actionAdd_Example_Objects->setText(QApplication::translate("QtilitiesMainWindow", "Add Example Objects", nullptr));
     } // retranslateUi
 
 };

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'SideViewerWidgetFactory.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'SideViewerWidgetFactory.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -99,10 +99,9 @@ void Qtilities::CoreGui::SideViewerWidgetFactory::qt_static_metacall(QObject *_o
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
-        void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (SideViewerWidgetFactory::*_t)(QWidget * , const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&SideViewerWidgetFactory::newWidgetCreated)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&SideViewerWidgetFactory::newWidgetCreated)) {
                 *result = 0;
                 return;
             }
@@ -125,11 +124,11 @@ void *Qtilities::CoreGui::SideViewerWidgetFactory::qt_metacast(const char *_clna
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__CoreGui__SideViewerWidgetFactory.stringdata0))
-        return static_cast<void*>(const_cast< SideViewerWidgetFactory*>(this));
+        return static_cast<void*>(this);
     if (!strcmp(_clname, "ISideViewerWidget"))
-        return static_cast< ISideViewerWidget*>(const_cast< SideViewerWidgetFactory*>(this));
+        return static_cast< ISideViewerWidget*>(this);
     if (!strcmp(_clname, "com.Qtilities.CoreGui.ISideViewerWidget/1.0"))
-        return static_cast< Qtilities::CoreGui::Interfaces::ISideViewerWidget*>(const_cast< SideViewerWidgetFactory*>(this));
+        return static_cast< Qtilities::CoreGui::Interfaces::ISideViewerWidget*>(this);
     return QObject::qt_metacast(_clname);
 }
 

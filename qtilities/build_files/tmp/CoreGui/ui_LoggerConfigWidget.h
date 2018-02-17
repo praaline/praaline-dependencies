@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'LoggerConfigWidget.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -81,16 +81,16 @@ public:
     void setupUi(QWidget *LoggerConfigWidget)
     {
         if (LoggerConfigWidget->objectName().isEmpty())
-            LoggerConfigWidget->setObjectName(QStringLiteral("LoggerConfigWidget"));
+            LoggerConfigWidget->setObjectName(QLatin1String("LoggerConfigWidget"));
         LoggerConfigWidget->resize(513, 497);
         verticalLayout_2 = new QVBoxLayout(LoggerConfigWidget);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QLatin1String("verticalLayout_2"));
         groupBox = new QGroupBox(LoggerConfigWidget);
-        groupBox->setObjectName(QStringLiteral("groupBox"));
+        groupBox->setObjectName(QLatin1String("groupBox"));
         gridLayout = new QGridLayout(groupBox);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setObjectName(QLatin1String("gridLayout"));
         label = new QLabel(groupBox);
-        label->setObjectName(QStringLiteral("label"));
+        label->setObjectName(QLatin1String("label"));
 
         gridLayout->addWidget(label, 0, 0, 1, 1);
 
@@ -99,7 +99,7 @@ public:
         gridLayout->addItem(horizontalSpacer, 0, 1, 1, 1);
 
         comboGlobalLogLevel = new QComboBox(groupBox);
-        comboGlobalLogLevel->setObjectName(QStringLiteral("comboGlobalLogLevel"));
+        comboGlobalLogLevel->setObjectName(QLatin1String("comboGlobalLogLevel"));
         comboGlobalLogLevel->setMinimumSize(QSize(100, 0));
         comboGlobalLogLevel->setMaximumSize(QSize(100, 16777215));
 
@@ -109,17 +109,17 @@ public:
         verticalLayout_2->addWidget(groupBox);
 
         groupBox_4 = new QGroupBox(LoggerConfigWidget);
-        groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
+        groupBox_4->setObjectName(QLatin1String("groupBox_4"));
         gridLayout_4 = new QGridLayout(groupBox_4);
-        gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
+        gridLayout_4->setObjectName(QLatin1String("gridLayout_4"));
         tabWidget = new QTabWidget(groupBox_4);
-        tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        tabWidget->setObjectName(QLatin1String("tabWidget"));
         widgetLoggerEngines = new QWidget();
-        widgetLoggerEngines->setObjectName(QStringLiteral("widgetLoggerEngines"));
+        widgetLoggerEngines->setObjectName(QLatin1String("widgetLoggerEngines"));
         gridLayout_3 = new QGridLayout(widgetLoggerEngines);
-        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        gridLayout_3->setObjectName(QLatin1String("gridLayout_3"));
         tableViewLoggerEngines = new QTableView(widgetLoggerEngines);
-        tableViewLoggerEngines->setObjectName(QStringLiteral("tableViewLoggerEngines"));
+        tableViewLoggerEngines->setObjectName(QLatin1String("tableViewLoggerEngines"));
         tableViewLoggerEngines->setMinimumSize(QSize(180, 0));
         tableViewLoggerEngines->setShowGrid(false);
         tableViewLoggerEngines->setSortingEnabled(false);
@@ -127,19 +127,19 @@ public:
         gridLayout_3->addWidget(tableViewLoggerEngines, 1, 0, 1, 4);
 
         groupBoxEngineDetails = new QGroupBox(widgetLoggerEngines);
-        groupBoxEngineDetails->setObjectName(QStringLiteral("groupBoxEngineDetails"));
+        groupBoxEngineDetails->setObjectName(QLatin1String("groupBoxEngineDetails"));
         groupBoxEngineDetails->setEnabled(false);
         groupBoxEngineDetails->setFlat(false);
         groupBoxEngineDetails->setCheckable(false);
         gridLayout_5 = new QGridLayout(groupBoxEngineDetails);
-        gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
+        gridLayout_5->setObjectName(QLatin1String("gridLayout_5"));
         label_2 = new QLabel(groupBoxEngineDetails);
-        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setObjectName(QLatin1String("label_2"));
 
         gridLayout_5->addWidget(label_2, 0, 0, 1, 1);
 
         txtLoggerEngineStatus = new QPlainTextEdit(groupBoxEngineDetails);
-        txtLoggerEngineStatus->setObjectName(QStringLiteral("txtLoggerEngineStatus"));
+        txtLoggerEngineStatus->setObjectName(QLatin1String("txtLoggerEngineStatus"));
         txtLoggerEngineStatus->setMinimumSize(QSize(0, 0));
         txtLoggerEngineStatus->setMaximumSize(QSize(16777215, 16777215));
         txtLoggerEngineStatus->setReadOnly(true);
@@ -147,34 +147,34 @@ public:
         gridLayout_5->addWidget(txtLoggerEngineStatus, 1, 0, 1, 3);
 
         label_3 = new QLabel(groupBoxEngineDetails);
-        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setObjectName(QLatin1String("label_3"));
 
         gridLayout_5->addWidget(label_3, 2, 0, 1, 1);
 
         txtLoggerEngineDescription = new QPlainTextEdit(groupBoxEngineDetails);
-        txtLoggerEngineDescription->setObjectName(QStringLiteral("txtLoggerEngineDescription"));
+        txtLoggerEngineDescription->setObjectName(QLatin1String("txtLoggerEngineDescription"));
         txtLoggerEngineDescription->setMaximumSize(QSize(16777215, 16777215));
         txtLoggerEngineDescription->setReadOnly(true);
 
         gridLayout_5->addWidget(txtLoggerEngineDescription, 3, 0, 1, 3);
 
         label_6 = new QLabel(groupBoxEngineDetails);
-        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setObjectName(QLatin1String("label_6"));
 
         gridLayout_5->addWidget(label_6, 4, 0, 1, 1);
 
         label_5 = new QLabel(groupBoxEngineDetails);
-        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setObjectName(QLatin1String("label_5"));
 
         gridLayout_5->addWidget(label_5, 5, 0, 1, 1);
 
         comboBoxLoggerFormattingEngine = new QComboBox(groupBoxEngineDetails);
-        comboBoxLoggerFormattingEngine->setObjectName(QStringLiteral("comboBoxLoggerFormattingEngine"));
+        comboBoxLoggerFormattingEngine->setObjectName(QLatin1String("comboBoxLoggerFormattingEngine"));
 
         gridLayout_5->addWidget(comboBoxLoggerFormattingEngine, 5, 2, 1, 1);
 
         txtMessageContexts = new QLineEdit(groupBoxEngineDetails);
-        txtMessageContexts->setObjectName(QStringLiteral("txtMessageContexts"));
+        txtMessageContexts->setObjectName(QLatin1String("txtMessageContexts"));
         txtMessageContexts->setReadOnly(true);
 
         gridLayout_5->addWidget(txtMessageContexts, 4, 2, 1, 1);
@@ -183,19 +183,19 @@ public:
         gridLayout_3->addWidget(groupBoxEngineDetails, 0, 4, 4, 4);
 
         btnAddLoggerEngine = new QPushButton(widgetLoggerEngines);
-        btnAddLoggerEngine->setObjectName(QStringLiteral("btnAddLoggerEngine"));
+        btnAddLoggerEngine->setObjectName(QLatin1String("btnAddLoggerEngine"));
         btnAddLoggerEngine->setMaximumSize(QSize(16777215, 16777215));
 
         gridLayout_3->addWidget(btnAddLoggerEngine, 2, 2, 1, 1);
 
         btnRemoveLoggerEngine = new QPushButton(widgetLoggerEngines);
-        btnRemoveLoggerEngine->setObjectName(QStringLiteral("btnRemoveLoggerEngine"));
+        btnRemoveLoggerEngine->setObjectName(QLatin1String("btnRemoveLoggerEngine"));
         btnRemoveLoggerEngine->setMaximumSize(QSize(16777215, 16777215));
 
         gridLayout_3->addWidget(btnRemoveLoggerEngine, 2, 3, 1, 1);
 
         checkBoxToggleAll = new QCheckBox(widgetLoggerEngines);
-        checkBoxToggleAll->setObjectName(QStringLiteral("checkBoxToggleAll"));
+        checkBoxToggleAll->setObjectName(QLatin1String("checkBoxToggleAll"));
 
         gridLayout_3->addWidget(checkBoxToggleAll, 0, 0, 1, 3);
 
@@ -204,28 +204,28 @@ public:
         gridLayout_3->addItem(horizontalSpacer_3, 2, 0, 1, 1);
 
         btnViewLog = new QPushButton(widgetLoggerEngines);
-        btnViewLog->setObjectName(QStringLiteral("btnViewLog"));
+        btnViewLog->setObjectName(QLatin1String("btnViewLog"));
 
         gridLayout_3->addWidget(btnViewLog, 2, 1, 1, 1);
 
         tabWidget->addTab(widgetLoggerEngines, QString());
         widgetFormattingEngines = new QWidget();
-        widgetFormattingEngines->setObjectName(QStringLiteral("widgetFormattingEngines"));
+        widgetFormattingEngines->setObjectName(QLatin1String("widgetFormattingEngines"));
         verticalLayout_3 = new QVBoxLayout(widgetFormattingEngines);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        verticalLayout_3->setObjectName(QLatin1String("verticalLayout_3"));
         listWidgetFormattingEngines = new QListWidget(widgetFormattingEngines);
-        listWidgetFormattingEngines->setObjectName(QStringLiteral("listWidgetFormattingEngines"));
+        listWidgetFormattingEngines->setObjectName(QLatin1String("listWidgetFormattingEngines"));
 
         verticalLayout_3->addWidget(listWidgetFormattingEngines);
 
         groupBox_3 = new QGroupBox(widgetFormattingEngines);
-        groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
+        groupBox_3->setObjectName(QLatin1String("groupBox_3"));
         groupBox_3->setFlat(false);
         groupBox_3->setCheckable(false);
         gridLayout_2 = new QGridLayout(groupBox_3);
-        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        gridLayout_2->setObjectName(QLatin1String("gridLayout_2"));
         txtFormattingEnginePreview = new QTextEdit(groupBox_3);
-        txtFormattingEnginePreview->setObjectName(QStringLiteral("txtFormattingEnginePreview"));
+        txtFormattingEnginePreview->setObjectName(QLatin1String("txtFormattingEnginePreview"));
 
         gridLayout_2->addWidget(txtFormattingEnginePreview, 0, 0, 1, 1);
 
@@ -240,13 +240,13 @@ public:
         verticalLayout_2->addWidget(groupBox_4);
 
         groupBox_5 = new QGroupBox(LoggerConfigWidget);
-        groupBox_5->setObjectName(QStringLiteral("groupBox_5"));
+        groupBox_5->setObjectName(QLatin1String("groupBox_5"));
         verticalLayout = new QVBoxLayout(groupBox_5);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QLatin1String("verticalLayout"));
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QLatin1String("horizontalLayout"));
         checkBoxRememberSession = new QCheckBox(groupBox_5);
-        checkBoxRememberSession->setObjectName(QStringLiteral("checkBoxRememberSession"));
+        checkBoxRememberSession->setObjectName(QLatin1String("checkBoxRememberSession"));
 
         horizontalLayout->addWidget(checkBoxRememberSession);
 
@@ -255,17 +255,17 @@ public:
         horizontalLayout->addItem(horizontalSpacer_2);
 
         btnLoadConfig = new QPushButton(groupBox_5);
-        btnLoadConfig->setObjectName(QStringLiteral("btnLoadConfig"));
+        btnLoadConfig->setObjectName(QLatin1String("btnLoadConfig"));
 
         horizontalLayout->addWidget(btnLoadConfig);
 
         btnSaveConfig = new QPushButton(groupBox_5);
-        btnSaveConfig->setObjectName(QStringLiteral("btnSaveConfig"));
+        btnSaveConfig->setObjectName(QLatin1String("btnSaveConfig"));
 
         horizontalLayout->addWidget(btnSaveConfig);
 
         btnApply = new QPushButton(groupBox_5);
-        btnApply->setObjectName(QStringLiteral("btnApply"));
+        btnApply->setObjectName(QLatin1String("btnApply"));
 
         horizontalLayout->addWidget(btnApply);
 
@@ -300,27 +300,27 @@ public:
 
     void retranslateUi(QWidget *LoggerConfigWidget)
     {
-        LoggerConfigWidget->setWindowTitle(QApplication::translate("LoggerConfigWidget", "Logging Configuration", Q_NULLPTR));
-        groupBox->setTitle(QApplication::translate("LoggerConfigWidget", "General Settings:", Q_NULLPTR));
-        label->setText(QApplication::translate("LoggerConfigWidget", "Global Logging Verbosity", Q_NULLPTR));
-        groupBox_4->setTitle(QApplication::translate("LoggerConfigWidget", "Log Engines and Formatting:", Q_NULLPTR));
-        groupBoxEngineDetails->setTitle(QApplication::translate("LoggerConfigWidget", "Engine Details:", Q_NULLPTR));
-        label_2->setText(QApplication::translate("LoggerConfigWidget", "Status:", Q_NULLPTR));
-        label_3->setText(QApplication::translate("LoggerConfigWidget", "Description:", Q_NULLPTR));
-        label_6->setText(QApplication::translate("LoggerConfigWidget", "Message Contexts", Q_NULLPTR));
-        label_5->setText(QApplication::translate("LoggerConfigWidget", "Formatting Engine:", Q_NULLPTR));
-        btnAddLoggerEngine->setText(QApplication::translate("LoggerConfigWidget", "Add", Q_NULLPTR));
-        btnRemoveLoggerEngine->setText(QApplication::translate("LoggerConfigWidget", "Remove", Q_NULLPTR));
-        checkBoxToggleAll->setText(QApplication::translate("LoggerConfigWidget", "Enable / Disable All", Q_NULLPTR));
-        btnViewLog->setText(QApplication::translate("LoggerConfigWidget", "View", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(widgetLoggerEngines), QApplication::translate("LoggerConfigWidget", "Logger Engines", Q_NULLPTR));
-        groupBox_3->setTitle(QApplication::translate("LoggerConfigWidget", "Formatting Preview:", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(widgetFormattingEngines), QApplication::translate("LoggerConfigWidget", "Formatting Engines", Q_NULLPTR));
-        groupBox_5->setTitle(QApplication::translate("LoggerConfigWidget", "Current Configuration:", Q_NULLPTR));
-        checkBoxRememberSession->setText(QApplication::translate("LoggerConfigWidget", "Remember configuration for next session.", Q_NULLPTR));
-        btnLoadConfig->setText(QApplication::translate("LoggerConfigWidget", "Import", Q_NULLPTR));
-        btnSaveConfig->setText(QApplication::translate("LoggerConfigWidget", "Export", Q_NULLPTR));
-        btnApply->setText(QApplication::translate("LoggerConfigWidget", "Apply", Q_NULLPTR));
+        LoggerConfigWidget->setWindowTitle(QApplication::translate("LoggerConfigWidget", "Logging Configuration", nullptr));
+        groupBox->setTitle(QApplication::translate("LoggerConfigWidget", "General Settings:", nullptr));
+        label->setText(QApplication::translate("LoggerConfigWidget", "Global Logging Verbosity", nullptr));
+        groupBox_4->setTitle(QApplication::translate("LoggerConfigWidget", "Log Engines and Formatting:", nullptr));
+        groupBoxEngineDetails->setTitle(QApplication::translate("LoggerConfigWidget", "Engine Details:", nullptr));
+        label_2->setText(QApplication::translate("LoggerConfigWidget", "Status:", nullptr));
+        label_3->setText(QApplication::translate("LoggerConfigWidget", "Description:", nullptr));
+        label_6->setText(QApplication::translate("LoggerConfigWidget", "Message Contexts", nullptr));
+        label_5->setText(QApplication::translate("LoggerConfigWidget", "Formatting Engine:", nullptr));
+        btnAddLoggerEngine->setText(QApplication::translate("LoggerConfigWidget", "Add", nullptr));
+        btnRemoveLoggerEngine->setText(QApplication::translate("LoggerConfigWidget", "Remove", nullptr));
+        checkBoxToggleAll->setText(QApplication::translate("LoggerConfigWidget", "Enable / Disable All", nullptr));
+        btnViewLog->setText(QApplication::translate("LoggerConfigWidget", "View", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(widgetLoggerEngines), QApplication::translate("LoggerConfigWidget", "Logger Engines", nullptr));
+        groupBox_3->setTitle(QApplication::translate("LoggerConfigWidget", "Formatting Preview:", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(widgetFormattingEngines), QApplication::translate("LoggerConfigWidget", "Formatting Engines", nullptr));
+        groupBox_5->setTitle(QApplication::translate("LoggerConfigWidget", "Current Configuration:", nullptr));
+        checkBoxRememberSession->setText(QApplication::translate("LoggerConfigWidget", "Remember configuration for next session.", nullptr));
+        btnLoadConfig->setText(QApplication::translate("LoggerConfigWidget", "Import", nullptr));
+        btnSaveConfig->setText(QApplication::translate("LoggerConfigWidget", "Export", nullptr));
+        btnApply->setText(QApplication::translate("LoggerConfigWidget", "Apply", nullptr));
     } // retranslateUi
 
 };

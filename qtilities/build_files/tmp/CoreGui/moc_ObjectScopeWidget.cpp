@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ObjectScopeWidget.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.10.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -14,7 +14,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'ObjectScopeWidget.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.10.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -185,11 +185,11 @@ void *Qtilities::CoreGui::ObjectScopeWidget::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Qtilities__CoreGui__ObjectScopeWidget.stringdata0))
-        return static_cast<void*>(const_cast< ObjectScopeWidget*>(this));
+        return static_cast<void*>(this);
     if (!strcmp(_clname, "IContext"))
-        return static_cast< IContext*>(const_cast< ObjectScopeWidget*>(this));
+        return static_cast< IContext*>(this);
     if (!strcmp(_clname, "com.Qtilities.Core.IContext/1.0"))
-        return static_cast< Qtilities::Core::Interfaces::IContext*>(const_cast< ObjectScopeWidget*>(this));
+        return static_cast< Qtilities::Core::Interfaces::IContext*>(this);
     return QWidget::qt_metacast(_clname);
 }
 
