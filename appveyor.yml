@@ -29,7 +29,7 @@ build_script:
 # Package
 - cd ..
 - mkdir deploy
-- copy build\qscintilla\Qt4Qt5\release\qscintilla2.dll deploy\qscintilla2.dll
+- copy build\qscintilla\Qt4Qt5\release\qscintilla2_qt5.dll deploy\qscintilla2_qt5.dll
 - copy qtilities\bin\QtilitiesCore-1.5.dll deploy\QtilitiesCore-1.5.dll
 - copy qtilities\bin\QtilitiesCoreGui-1.5.dll deploy\QtilitiesCoreGui-1.5.dll
 - copy qtilities\bin\QtilitiesExtensionSystem-1.5.dll deploy\QtilitiesExtensionSystem-1.5.dll
