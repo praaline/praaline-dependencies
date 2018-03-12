@@ -22,7 +22,9 @@
 # build directory.  If you need to change this, you can add
 # "-after QTILITIES_DEPENDENCIES=${somewhere_else}" to the qmake build command.
 #****************************************************************************
-QTILITIES_DEPENDENCIES  = $$PWD/../../
+!defined(QTILITIES_DEPENDENCIES, var) {
+    QTILITIES_DEPENDENCIES  = $$OUT_PWD/../../..
+}
 
 # --------------------------
 # Qt Property Browser Solution
@@ -42,18 +44,14 @@ QTILITIES_DEPENDENCIES  = $$PWD/../../
 # --------------------------
 contains(DEFINES, QTILITIES_PROPERTY_BROWSER) {
     DEFINES += QT_QTPROPERTYBROWSER_IMPORT
-    QT_SOLUTIONS_PATH = $$QTILITIES_DEPENDENCIES/qt-solutions
-    PROPERTY_EDITOR_BASE = $$QT_SOLUTIONS_PATH/qtpropertybrowser
-    DEPENDPATH += $$PROPERTY_EDITOR_BASE/src
-    INCLUDEPATH += $$PROPERTY_EDITOR_BASE/src
+    DEPENDPATH += $$PWD/../../qtpropertybrowser/src
+    INCLUDEPATH += $$PWD/../../qtpropertybrowser/src
+    PROPERTY_EDITOR_LIB = $$QTILITIES_DEPENDENCIES/qtpropertybrowser/build
     CONFIG(debug, debug|release) {
-        # Note: Because the property browser uses $$qtLibraryTarget(QtSolutions_PropertyBrowser-head)
-        # as its output file name, it ends up with a trailing 'd' on Windows, but not on Unix.
-        win32::LIBS += -L$$PROPERTY_EDITOR_BASE/lib -lQtSolutions_PropertyBrowser-headd
-        unix::LIBS += -L$$PROPERTY_EDITOR_BASE/lib -lQtSolutions_PropertyBrowser-head
+        LIBS += -L$$PROPERTY_EDITOR_LIB/debug -lqtpropertybrowserd
     }
     else {
-        LIBS += -L$$PROPERTY_EDITOR_BASE/lib -lQtSolutions_PropertyBrowser-head
+        LIBS += -L$$PROPERTY_EDITOR_LIB/release -lqtpropertybrowser
     }
 }
 
@@ -91,14 +89,14 @@ contains(DEFINES, QTILITIES_PROPERTY_BROWSER) {
 # along with the Testing Library. If not, see http://www.gnu.org/licenses/.
 # --------------------------
 contains(DEFINES, QTILITIES_CONAN) {
-    CONAN_BASE = $$QTILITIES_DEPENDENCIES/conanforqt/Conan
+    CONAN_BASE = $$PWD/../../conanforqt/Conan
     INCLUDEPATH += $$CONAN_BASE/include
 
     CONFIG(debug, debug|release) {
-        LIBS += -L$$CONAN_BASE/lib -lConand
+        LIBS += -L$OUT_PWD/../../conanforqt/lib -lConand
     }
     else {
-        LIBS += -L$$CONAN_BASE/lib -lConan
+        LIBS += -L$OUT_PWD/../../conanforqt/lib -lConan
     }
 }
 

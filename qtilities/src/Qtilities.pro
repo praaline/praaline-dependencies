@@ -101,11 +101,3 @@ OTHER_FILES += \
     ../License.txt \
     ../Readme.md \
 
-
-# TODO: Make this part more Windows-friendly
-includes.path = /usr/local/include/$$TARGET
-includes.files = $$PWD/../include/*
-
-libs.path = /usr/local/lib
-libs.files = $$PWD/../bin/*
-INSTALLS += includes libs

@@ -13,11 +13,21 @@
 #****************************************************************************
 # Project paths
 #****************************************************************************
-QTILITIES_BASE          = $$PWD/../
-QTILITIES_SOURCE        = $$QTILITIES_BASE/src
-QTILITIES_INCLUDE       = $$QTILITIES_BASE/include
-QTILITIES_TEMP          = $$QTILITIES_BASE/build_files/tmp
-QTILITIES_BIN           = $$QTILITIES_BASE/bin
+!defined(QTILITIES_SOURCE_BASE, var) {
+    QTILITIES_SOURCE_BASE   = $$PWD/..
+}
+!defined(QTILITIES_BUILD_BASE, var) {
+    QTILITIES_BUILD_BASE    = $$OUT_PWD/../..
+}
+QTILITIES_SOURCE        = $$QTILITIES_SOURCE_BASE/src
+QTILITIES_INCLUDE       = $$QTILITIES_SOURCE_BASE/include
+CONFIG(debug, debug|release) {
+    QTILITIES_TEMP = build/debug
+    QTILITIES_BIN =  $$QTILITIES_BUILD_BASE/build/debug
+} else {
+    QTILITIES_TEMP = build/release
+    QTILITIES_BIN =  $$QTILITIES_BUILD_BASE/build/release
+}
 
 #****************************************************************************
 # Version Definitions
@@ -80,7 +90,7 @@ DEFINES += QTILITIES_TESTING
 #****************************************************************************
 # Include paths
 #****************************************************************************
-INCLUDEPATH         +=$$QTILITIES_INCLUDE
+INCLUDEPATH         += $$QTILITIES_INCLUDE
 CONFIG              += ordered qt
 CONFIG              += exceptions rtti
 
