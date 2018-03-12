@@ -14,6 +14,7 @@ matrix:
 
 before_build:
 - set PATH=%MINGW%\bin;%QT5%\bin;%PATH%
+- echo %PATH%
 - ps: $env:COMMIT_TIMESTAMP = $(Get-Date -format yyyy-MM-dd)
 
 build_script:
