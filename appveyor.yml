@@ -6,7 +6,7 @@ init:
 environment:
   matrix:
   - arch: x86
-    QT5: C:\Qt\5.10.0\mingw53_32
+    QT5: C:\Qt\5.10.1\mingw53_32
     MINGW: C:\Qt\Tools\mingw530_32
 
 matrix:
@@ -14,6 +14,7 @@ matrix:
 
 before_build:
 - set PATH=%MINGW%\bin;%QT5%\bin;%PATH%
+- echo %PATH%
 - ps: $env:COMMIT_TIMESTAMP = $(Get-Date -format yyyy-MM-dd)
 
 build_script:
@@ -26,16 +27,16 @@ build_script:
 - qmake ..\praaline-dependencies.pro CONFIG+=release && mingw32-make
 - dir /s
 
-# Package
+# Package (Current directory is C:\projects\praaline-dependencies\)
 - cd ..
 - mkdir deploy
-- copy build\qscintilla\Qt4Qt5\release\qscintilla2_qt5.dll deploy\qscintilla2_qt5.dll
-- copy qtilities\bin\QtilitiesCore-1.5.dll deploy\QtilitiesCore-1.5.dll
-- copy qtilities\bin\QtilitiesCoreGui-1.5.dll deploy\QtilitiesCoreGui-1.5.dll
-- copy qtilities\bin\QtilitiesExtensionSystem-1.5.dll deploy\QtilitiesExtensionSystem-1.5.dll
-- copy qtilities\bin\QtilitiesLogging-1.5.dll deploy\QtilitiesLogging-1.5.dll
-- copy qtilities\bin\QtilitiesProjectManagement-1.5.dll deploy\QtilitiesProjectManagement-1.5.dll
-- copy qt-solutions\qtpropertybrowser\lib\QtSolutions_PropertyBrowser-head.dll deploy\QtSolutions_PropertyBrowser-head.dll
+- copy build\qscintilla\Qt4Qt5\build\release\qscintilla2_qt5.dll deploy\qscintilla2_qt5.dll
+- copy build\qtilities\build\release\QtilitiesCore-1.5.dll deploy\QtilitiesCore-1.5.dll
+- copy build\qtilities\build\release\QtilitiesCoreGui-1.5.dll deploy\QtilitiesCoreGui-1.5.dll
+- copy build\qtilities\build\release\QtilitiesExtensionSystem-1.5.dll deploy\QtilitiesExtensionSystem-1.5.dll
+- copy build\qtilities\build\release\QtilitiesLogging-1.5.dll deploy\QtilitiesLogging-1.5.dll
+- copy build\qtilities\build\release\QtilitiesProjectManagement-1.5.dll deploy\QtilitiesProjectManagement-1.5.dll
+- copy build\qtpropertybrowser\build\release\qtpropertybrowser.dll deploy\qtpropertybrowser.dll
 - 7z a praaline_dependencies_win_%arch%.zip .\deploy\*
 
 artifacts:
@@ -52,5 +53,4 @@ deploy:
       branch: master
 
 test: off  # to avoid discovering tests
-
 
