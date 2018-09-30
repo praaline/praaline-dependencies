@@ -54,6 +54,7 @@
 #include <QToolBar>
 #include <QDrag>
 #include <QGraphicsOpacityEffect>
+#include <QHeaderView>
 
 #include <stdio.h>
 #include <time.h>

@@ -22,12 +22,13 @@
 #include <QDesktopWidget>
 #include <QPushButton>
 #include <QStatusBar>
+#include <QHeaderView>
 
 using namespace Qtilities::CoreGui::Interfaces;
 struct Qtilities::CoreGui::ConfigurationWidgetPrivateData {
     ConfigurationWidgetPrivateData() : config_pages_obs(QObject::tr("Application Settings")),
-        activity_filter(0),
-        active_widget(0),
+        activity_filter(nullptr),
+        active_widget(nullptr),
         apply_all_pages(true),
         apply_all_pages_visible(true),
         categorized_display(false) {}

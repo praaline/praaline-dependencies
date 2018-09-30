@@ -24,6 +24,7 @@
 #include <QFileDialog>
 #include <QSortFilterProxyModel>
 #include <QHBoxLayout>
+#include <QHeaderView>
 
 using namespace Qtilities::CoreGui::Icons;
 
