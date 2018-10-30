@@ -4,7 +4,7 @@
 TEMPLATE = lib
 CONFIG += qt dll
 
-mac:CONFIG += absolute_library_soname
+#mac:CONFIG += absolute_library_soname
 win32|mac:!wince*:!win32-msvc:!macx-xcode:CONFIG += debug_and_release build_all
 
 # The following keeps the generated files at least somewhat separate from the source files.
