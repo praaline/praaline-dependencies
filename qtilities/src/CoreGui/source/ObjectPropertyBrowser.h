@@ -73,7 +73,7 @@ namespace Qtilities {
                                     */
             };
 
-            ObjectPropertyBrowser(BrowserType browser_type = TreeBrowser, QWidget *parent = 0);
+            ObjectPropertyBrowser(BrowserType browser_type = TreeBrowser, QWidget *parent = nullptr);
             ~ObjectPropertyBrowser();
             bool eventFilter(QObject *object, QEvent *event);
 

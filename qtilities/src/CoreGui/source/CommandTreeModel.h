@@ -49,7 +49,7 @@ namespace Qtilities {
         {
             Q_OBJECT
         public:
-            qti_private_ShortcutEditorDelegate(QObject *parent = 0);
+            qti_private_ShortcutEditorDelegate(QObject *parent = nullptr);
 
             QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
             void setEditorData(QWidget *editor, const QModelIndex &index) const;
@@ -67,7 +67,7 @@ namespace Qtilities {
         {
             Q_OBJECT
         public:
-            qti_private_QtKeySequenceEdit(QWidget *parent = 0);
+            qti_private_QtKeySequenceEdit(QWidget *parent = nullptr);
 
             QKeySequence keySequence() const;
             bool eventFilter(QObject *o, QEvent *e);

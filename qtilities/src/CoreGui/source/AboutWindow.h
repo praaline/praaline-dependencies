@@ -27,7 +27,7 @@ namespace Qtilities {
         class qti_private_AboutWindow : public QWidget {
             Q_OBJECT
         public:
-            qti_private_AboutWindow(QWidget *parent = 0);
+            qti_private_AboutWindow(QWidget *parent = nullptr);
             ~qti_private_AboutWindow();
 
         protected:

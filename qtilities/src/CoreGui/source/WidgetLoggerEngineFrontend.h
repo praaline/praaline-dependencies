@@ -50,7 +50,7 @@ namespace Qtilities {
              * \param toolbar_area The toolbar area to use for action toolbars. If no toolbars should be displayed
              * use Qt::NoToolBarArea.
              */
-            MessagesPlainTextEditTab(QWidget *parent = 0,
+            MessagesPlainTextEditTab(QWidget *parent = nullptr,
                                      Qt::ToolBarArea toolbar_area = Qt::TopToolBarArea);
             ~MessagesPlainTextEditTab();
             bool eventFilter(QObject *object, QEvent *event);
@@ -139,7 +139,7 @@ namespace Qtilities {
              */
             WidgetLoggerEngineFrontend(WidgetLoggerEngine::MessageDisplaysFlag message_displays_flag,
                                        Qt::ToolBarArea toolbar_area = Qt::TopToolBarArea,
-                                       QWidget *parent = 0);
+                                       QWidget *parent = nullptr);
             ~WidgetLoggerEngineFrontend();
 
             // --------------------------------

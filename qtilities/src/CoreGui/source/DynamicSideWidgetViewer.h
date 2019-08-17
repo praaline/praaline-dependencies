@@ -40,7 +40,7 @@ namespace Qtilities {
         class QTILITIES_CORE_GUI_SHARED_EXPORT DynamicSideWidgetViewer : public QWidget {
             Q_OBJECT
         public:
-            DynamicSideWidgetViewer(int mode_destination, QWidget *parent = 0);
+            DynamicSideWidgetViewer(int mode_destination, QWidget *parent = nullptr);
             ~DynamicSideWidgetViewer();
 
             //! Adds a widget to the bottom of the dynamic viewer.

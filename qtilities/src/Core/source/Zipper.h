@@ -87,7 +87,7 @@ public:
      * \param temp_dir In some situations (for example, moving folders) the zipper creates temporary files in this path. If not specified, QtilitiesCoreApplication::applicationSessionPath() will be used.
      * \param parent The Zipper's parent object.
      */
-    explicit Zipper(const QString& path_7za, const QString& ignore_list = QString(), const QString& temp_dir = QString(), QObject *parent = 0);
+    explicit Zipper(const QString& path_7za, const QString& ignore_list = QString(), const QString& temp_dir = QString(), QObject *parent = nullptr);
     ~Zipper();
 
     //! Sets the ignore list used by the zipper.

@@ -89,7 +89,7 @@ test_list: Delete object test2 during destruction of test_list. Deleting it will
             /*!
              \param cleanup_when_done When true, the PointerList will delete all objects attached to it when it is destructed.
             */
-            PointerList(bool cleanup_when_done = false, QObject *parent = 0);
+            PointerList(bool cleanup_when_done = false, QObject *parent = nullptr);
             ~PointerList();
 
             void append(QObject* object);

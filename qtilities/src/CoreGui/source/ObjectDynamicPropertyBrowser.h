@@ -79,7 +79,7 @@ namespace Qtilities {
                                     */
             };
 
-            ObjectDynamicPropertyBrowser(BrowserType browser_type = TreeBrowser, bool show_toolbar = true, Qt::ToolBarArea area = Qt::TopToolBarArea, QWidget *parent = 0);
+            ObjectDynamicPropertyBrowser(BrowserType browser_type = TreeBrowser, bool show_toolbar = true, Qt::ToolBarArea area = Qt::TopToolBarArea, QWidget *parent = nullptr);
             ~ObjectDynamicPropertyBrowser();
             bool eventFilter(QObject *object, QEvent *event);
 

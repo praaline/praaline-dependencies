@@ -51,7 +51,7 @@ OBJECT_MANAGER->registerObject(EXTENSION_SYSTEM->configWidget());
             friend class ExtensionSystemCore;
 
         public:
-            ExtensionSystemConfig(QWidget *parent = 0);
+            ExtensionSystemConfig(QWidget *parent = nullptr);
             ~ExtensionSystemConfig();
 
             // --------------------------------

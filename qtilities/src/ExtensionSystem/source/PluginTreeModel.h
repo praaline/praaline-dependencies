@@ -34,7 +34,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            PluginTreeModel(QObject *parent = 0);
+            PluginTreeModel(QObject *parent = nullptr);
             virtual ~PluginTreeModel() {}
 
             // --------------------------------

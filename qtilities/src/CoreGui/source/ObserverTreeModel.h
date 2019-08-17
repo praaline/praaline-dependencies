@@ -53,7 +53,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            ObserverTreeModel(QObject *parent = 0);
+            ObserverTreeModel(QObject *parent = nullptr);
             virtual ~ObserverTreeModel();
 
             // --------------------------------

@@ -34,7 +34,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            explicit PluginInfoWidget(IPlugin* plugin, QWidget *parent = 0);
+            explicit PluginInfoWidget(IPlugin* plugin, QWidget *parent = nullptr);
             ~PluginInfoWidget();
 
         protected:

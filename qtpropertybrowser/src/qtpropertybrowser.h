@@ -124,7 +124,7 @@ class QT_QTPROPERTYBROWSER_EXPORT QtAbstractPropertyManager : public QObject
     Q_OBJECT
 public:
 
-    explicit QtAbstractPropertyManager(QObject *parent = 0);
+    explicit QtAbstractPropertyManager(QObject *parent = nullptr);
     ~QtAbstractPropertyManager();
 
     QSet<QtProperty *> properties() const;
@@ -160,7 +160,7 @@ class QT_QTPROPERTYBROWSER_EXPORT QtAbstractEditorFactoryBase : public QObject
 public:
     virtual QWidget *createEditor(QtProperty *property, QWidget *parent) = 0;
 protected:
-    explicit QtAbstractEditorFactoryBase(QObject *parent = 0)
+    explicit QtAbstractEditorFactoryBase(QObject *parent = nullptr)
         : QObject(parent) {}
 
     virtual void breakConnection(QtAbstractPropertyManager *manager) = 0;
@@ -277,7 +277,7 @@ class QT_QTPROPERTYBROWSER_EXPORT QtAbstractPropertyBrowser : public QWidget
     Q_OBJECT
 public:
 
-    explicit QtAbstractPropertyBrowser(QWidget *parent = 0);
+    explicit QtAbstractPropertyBrowser(QWidget *parent = nullptr);
     ~QtAbstractPropertyBrowser();
 
     QList<QtProperty *> properties() const;

@@ -47,7 +47,7 @@ namespace Qtilities {
 
         public:
             //! Constructs a GenericPropertyManager object.
-            explicit GenericPropertyManager(QObject *parent = 0);
+            explicit GenericPropertyManager(QObject *parent = nullptr);
             ~GenericPropertyManager();
 
             // --------------------------------

@@ -56,7 +56,7 @@ OBJECT_MANAGER->registerObject(ACTION_MANAGER->commandEditor());
             Q_INTERFACES(Qtilities::CoreGui::Interfaces::IConfigPage)
 
         public:
-            CommandEditor(QWidget *parent = 0);
+            CommandEditor(QWidget *parent = nullptr);
             ~CommandEditor();
 
             //! Returns the observer widget used to display commands.

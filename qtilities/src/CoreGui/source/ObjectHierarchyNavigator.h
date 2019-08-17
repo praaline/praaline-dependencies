@@ -36,7 +36,7 @@ namespace Qtilities {
         class ObjectHierarchyNavigator : public QWidget {
             Q_OBJECT
         public:
-            ObjectHierarchyNavigator(QWidget *parent = 0);
+            ObjectHierarchyNavigator(QWidget *parent = nullptr);
             ~ObjectHierarchyNavigator();
 
         public slots:

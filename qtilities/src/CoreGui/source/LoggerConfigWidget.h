@@ -60,7 +60,7 @@ OBJECT_MANAGER->registerObject(LoggerGui::createLoggerConfigWidget());
             Q_INTERFACES(Qtilities::CoreGui::Interfaces::IConfigPage)
 
         public:
-            LoggerConfigWidget(bool applyButtonVisisble = true, QWidget *parent = 0);
+            LoggerConfigWidget(bool applyButtonVisisble = true, QWidget *parent = nullptr);
             ~LoggerConfigWidget();
 
             // --------------------------------

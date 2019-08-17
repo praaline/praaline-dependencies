@@ -133,7 +133,7 @@ searchBoxWidget->setPlainTextEditor(myTextEdit);
             SearchBoxWidget(SearchOptions search_options = AllSearchOptions,
                             WidgetMode mode = SearchOnly,
                             ButtonFlags buttons = AllButtons,
-                            QWidget *parent = 0);
+                            QWidget *parent = nullptr);
             ~SearchBoxWidget();
 
             //! Gets the current search string in the search text box.

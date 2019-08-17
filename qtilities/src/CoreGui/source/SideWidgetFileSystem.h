@@ -72,7 +72,7 @@ side_viewer_widget->show();
               \param start_path The path to use when this widget is constructed. By default it will use QDir::currentPath(), as well as in the case where start_path does not exist.
               \param parent The parent widget.
               */
-            explicit SideWidgetFileSystem(const QString& start_path = QString(), QWidget *parent = 0);
+            explicit SideWidgetFileSystem(const QString& start_path = QString(), QWidget *parent = nullptr);
             virtual ~SideWidgetFileSystem();
             bool eventFilter(QObject *object, QEvent *event);
             void dragEnterEvent(QDragEnterEvent *event);

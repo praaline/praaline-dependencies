@@ -31,7 +31,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            explicit GenericPropertyPathEditor(GenericProperty::PropertyType property_type, QWidget *parent = 0);
+            explicit GenericPropertyPathEditor(GenericProperty::PropertyType property_type, QWidget *parent = nullptr);
             ~GenericPropertyPathEditor();
 
             void setText(const QString& text);

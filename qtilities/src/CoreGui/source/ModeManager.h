@@ -85,7 +85,7 @@ ModeListWidget()->setStyleSheet(stylesheet);
               \param orientation The orientation of the mode list widget. When \p Qt::Horizontal the list will be a top to bottom list and when
               \p Qt::Vertical the list will be a left to right list.
               */
-            ModeManager(int manager_id, Qt::Orientation orientation, QObject *parent = 0);
+            ModeManager(int manager_id, Qt::Orientation orientation, QObject *parent = nullptr);
             ~ModeManager();
 
             // ----------------------------------

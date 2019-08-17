@@ -52,7 +52,7 @@ OBJECT_MANAGER->registerObject(project_item,QtilitiesCategory("Core::Project Ite
             Q_INTERFACES(Qtilities::ProjectManagement::Interfaces::IProjectItem)
 
         public:
-            explicit CodeEditorProjectItemWrapper(CodeEditorWidget* code_editor = 0, QObject *parent = 0);
+            explicit CodeEditorProjectItemWrapper(CodeEditorWidget* code_editor = 0, QObject *parent = nullptr);
 
             //! Sets the code editor widget for this project item.
             void setCodeEditor(CodeEditorWidget* code_editor);

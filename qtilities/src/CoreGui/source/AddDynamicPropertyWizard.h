@@ -52,7 +52,7 @@ namespace Qtilities {
             };
             Q_ENUMS(PropertyCreationHint)
 
-            explicit AddDynamicPropertyWizard(PropertyCreationHint property_creation_hint = ConstructAndAdd, QWidget *parent = 0);
+            explicit AddDynamicPropertyWizard(PropertyCreationHint property_creation_hint = ConstructAndAdd, QWidget *parent = nullptr);
             virtual ~AddDynamicPropertyWizard();
 
             //! Returns the current PropertyCreationHint used by the wizard.

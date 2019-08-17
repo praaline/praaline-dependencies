@@ -31,7 +31,7 @@ namespace Qtilities {
         {
             Q_OBJECT
         public:
-            PathPropertyManager(QObject *parent = 0);
+            PathPropertyManager(QObject *parent = nullptr);
             ~PathPropertyManager();
 
             //! Gets the default start path for a property, if possible.
@@ -74,7 +74,7 @@ namespace Qtilities {
         {
             Q_OBJECT
         public:
-            FileEditorFactory(QObject *parent = 0);
+            FileEditorFactory(QObject *parent = nullptr);
             ~FileEditorFactory();
         protected:
             void connectPropertyManager(PathPropertyManager *manager);

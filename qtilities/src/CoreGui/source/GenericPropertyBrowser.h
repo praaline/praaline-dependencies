@@ -45,7 +45,7 @@ namespace Qtilities {
                 ButtonBrowser
             };
 
-            GenericPropertyBrowser(GenericPropertyManager* property_manager, BrowserType browser_type = TreeBrowser, QWidget *parent = 0);
+            GenericPropertyBrowser(GenericPropertyManager* property_manager, BrowserType browser_type = TreeBrowser, QWidget *parent = nullptr);
             ~GenericPropertyBrowser();
 
             //! Return a reference to the QtAbstractPropertyBrowser property browser used internally.

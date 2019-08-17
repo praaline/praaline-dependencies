@@ -67,7 +67,7 @@ namespace Qtilities {
             Q_INTERFACES(Qtilities::Core::Interfaces::IContext)
 
         public:
-            explicit ObjectScopeWidget(QWidget *parent = 0);
+            explicit ObjectScopeWidget(QWidget *parent = nullptr);
             virtual ~ObjectScopeWidget();
 
             enum ColumnIDs {

@@ -29,7 +29,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            explicit GenericPropertyPathEditorListWrapper(StringListWidget* list_widget, QWidget *parent = 0);
+            explicit GenericPropertyPathEditorListWrapper(StringListWidget* list_widget, QWidget *parent = nullptr);
             ~GenericPropertyPathEditorListWrapper();
 
         private slots:

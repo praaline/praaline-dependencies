@@ -201,8 +201,8 @@ settings.endGroup();
             };
 
             // This constructor is kept for backward compatibility.
-            ConfigurationWidget(Qtilities::DisplayMode display_mode, QWidget *parent = 0);
-            ConfigurationWidget(ConfigurationWidget::DisplayMode display_mode = DisplayLeftItemViewTable, QWidget *parent = 0);
+            ConfigurationWidget(Qtilities::DisplayMode display_mode, QWidget *parent = nullptr);
+            ConfigurationWidget(ConfigurationWidget::DisplayMode display_mode = DisplayLeftItemViewTable, QWidget *parent = nullptr);
             ~ConfigurationWidget();
 
             //! Returns the mode manager use for ModeWidgetView display modes.

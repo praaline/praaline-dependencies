@@ -46,7 +46,7 @@ namespace Qtilities {
             friend class NamingPolicyFilter;
 
         public:
-            NamingPolicyInputDialog(QWidget *parent = 0);
+            NamingPolicyInputDialog(QWidget *parent = nullptr);
             ~NamingPolicyInputDialog();
 
             void accept();

@@ -242,8 +242,8 @@ namespace Qtilities {
             };
             Q_ENUMS(FileListStringFormat)
 
-            explicit GenericProperty(QObject *parent = 0);
-            explicit GenericProperty(const QString& property_name, QObject *parent = 0);
+            explicit GenericProperty(QObject *parent = nullptr);
+            explicit GenericProperty(const QString& property_name, QObject *parent = nullptr);
             ~GenericProperty();
 
             GenericProperty(const GenericProperty& ref);

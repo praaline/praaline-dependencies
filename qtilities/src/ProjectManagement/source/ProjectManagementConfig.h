@@ -49,7 +49,7 @@ OBJECT_MANAGER->registerObject(PROJECT_MANAGER->configWidget());
             Q_INTERFACES(Qtilities::CoreGui::Interfaces::IConfigPage)
 
         public:
-            ProjectManagementConfig(QWidget *parent = 0);
+            ProjectManagementConfig(QWidget *parent = nullptr);
             ~ProjectManagementConfig();
 
             // --------------------------------

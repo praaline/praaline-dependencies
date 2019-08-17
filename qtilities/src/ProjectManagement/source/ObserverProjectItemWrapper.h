@@ -50,7 +50,7 @@ OBJECT_MANAGER->registerObject(project_item,QtilitiesCategory("Core::Project Ite
             Q_INTERFACES(Qtilities::ProjectManagement::Interfaces::IProjectItem)
 
         public:
-            explicit ObserverProjectItemWrapper(Observer* observer = 0, QObject *parent = 0);
+            explicit ObserverProjectItemWrapper(Observer* observer = 0, QObject *parent = nullptr);
 
             //! Sets the observer context for this project item.
             void setObserverContext(Observer* observer);

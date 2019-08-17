@@ -34,7 +34,7 @@ namespace Qtilities {
             class QTILITIES_CORE_GUI_SHARED_EXPORT INamingPolicyDialog: public QDialog, virtual public IObjectBase
             {
             public:
-                INamingPolicyDialog(QWidget *parent = 0) : QDialog(parent) {}
+                INamingPolicyDialog(QWidget *parent = nullptr) : QDialog(parent) {}
                 virtual ~INamingPolicyDialog() {}
 
                 //! Indicates if the "All in this cycle" check box is selected.

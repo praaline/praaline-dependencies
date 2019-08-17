@@ -36,7 +36,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            ObserverTreeModelBuilder(ObserverTreeItem* item = 0, bool use_observer_hints = false, ObserverHints* observer_hints = 0, QObject *parent = 0);
+            ObserverTreeModelBuilder(ObserverTreeItem* item = 0, bool use_observer_hints = false, ObserverHints* observer_hints = 0, QObject *parent = nullptr);
             virtual ~ObserverTreeModelBuilder();
 
             //! Sets the root ObserverTreeitem.

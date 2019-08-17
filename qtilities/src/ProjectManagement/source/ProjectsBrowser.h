@@ -36,7 +36,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            ProjectsBrowser(QWidget *parent = 0);
+            ProjectsBrowser(QWidget *parent = nullptr);
             ~ProjectsBrowser();
 
         private slots:
