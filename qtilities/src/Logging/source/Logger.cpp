@@ -756,6 +756,9 @@ void Qtilities::Logging::installLoggerMessageHandler(QtMsgType type, const QMess
     QString detailed_msg = QString("%1 (%2:%3. %4)").arg(msg).arg(context.file).arg(context.line).arg(context.function);
     switch (type)
     {
+    case QtInfoMsg:
+        Log->logMessage(QString(),Logger::Info, detailed_msg);
+        break;
     case QtDebugMsg:
         Log->logMessage(QString(),Logger::Debug, detailed_msg);
         break;

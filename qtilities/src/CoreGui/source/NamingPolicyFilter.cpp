@@ -573,9 +573,10 @@ bool Qtilities::CoreGui::NamingPolicyFilter::handleMonitoredPropertyChange(QObje
 
             filter_mutex.unlock();
             return (!return_value);
-        } else
+        } else {
             filter_mutex.unlock();
             return false;
+        }
     } else if (!strcmp(property_name,qti_prop_ALIAS_MAP)) {
         MultiContextProperty instance_property = ObjectManager::getMultiContextProperty(obj,qti_prop_ALIAS_MAP);
         #ifndef QT_NO_DEBUG

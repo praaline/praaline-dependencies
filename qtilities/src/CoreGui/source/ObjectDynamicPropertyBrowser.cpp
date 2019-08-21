@@ -351,7 +351,7 @@ void Qtilities::CoreGui::ObjectDynamicPropertyBrowser::propertyChangedFromObject
 }
 
 void Qtilities::CoreGui::ObjectDynamicPropertyBrowser::handleObjectDeleted() {
-    setObject(0);
+    setObject(nullptr);
     QListIterator<QtProperty *> it(d->top_level_properties);
     while (it.hasNext()) {
         d->property_browser->removeProperty(it.next());
@@ -367,7 +367,7 @@ void Qtilities::CoreGui::ObjectDynamicPropertyBrowser::inspectObject(const QObje
     clear();
 
     QList<QByteArray> property_names = obj->dynamicPropertyNames();
-    qSort(property_names);
+    std::sort(property_names.begin(), property_names.end());
     for (int i = 0; i < property_names.count(); ++i) {
         QString property_name = QString(property_names.at(i).data());
         if (property_name.startsWith("qti.") && !d->show_qtilities_properties)
@@ -377,7 +377,7 @@ void Qtilities::CoreGui::ObjectDynamicPropertyBrowser::inspectObject(const QObje
         QVariant property_value = property_variant;
 
         bool is_enabled = !d->read_only;
-        QtProperty *dynamic_property = 0;
+        QtProperty *dynamic_property = nullptr;
         // If it is MultiContextProperty or SharedProperty then we need to handle it:
         if (property_variant.isValid() && property_variant.canConvert<SharedProperty>()) {
             SharedProperty shared_property = (property_variant.value<SharedProperty>());

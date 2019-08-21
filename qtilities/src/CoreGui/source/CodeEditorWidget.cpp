@@ -133,7 +133,7 @@ Qtilities::CoreGui::CodeEditorWidget::CodeEditorWidget(ActionFlags action_flags,
     // Set the tab width:
     QString tab_width_text = "tabs";
     QFontMetrics fm(d->codeEditor->font());
-    d->codeEditor->setTabStopWidth(fm.tightBoundingRect(tab_width_text).width());
+    d->codeEditor->setTabStopDistance(fm.tightBoundingRect(tab_width_text).width());
     //qDebug() << "fm.tightBoundingRect(tab_width_text).width()" << fm.tightBoundingRect(tab_width_text).width();
 
     // Read the settings for this editor:

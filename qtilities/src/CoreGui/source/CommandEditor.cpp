@@ -116,7 +116,7 @@ void Qtilities::CoreGui::CommandEditor::configPageInitialize() {
     if (d->observer_widget->treeView()) {
         d->observer_widget->treeView()->setItemDelegate(d->shortcut_delegate);
         d->observer_widget->treeView()->setAlternatingRowColors(true);
-        d->observer_widget->treeView()->sortByColumn(d->model->columnPosition(AbstractObserverItemModel::ColumnName));
+        d->observer_widget->treeView()->sortByColumn(d->model->columnPosition(AbstractObserverItemModel::ColumnName), Qt::AscendingOrder);
         QHeaderView* table_header = d->observer_widget->treeView()->header();
         if (table_header) {
             #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
@@ -186,7 +186,7 @@ void Qtilities::CoreGui::CommandEditor::importConfiguration() {
         } else {
             d->observer_widget->refresh();
             if (d->observer_widget->treeView())
-                d->observer_widget->treeView()->sortByColumn(d->model->columnPosition(AbstractObserverItemModel::ColumnName));
+                d->observer_widget->treeView()->sortByColumn(d->model->columnPosition(AbstractObserverItemModel::ColumnName), Qt::AscendingOrder);
         }
     }
 }

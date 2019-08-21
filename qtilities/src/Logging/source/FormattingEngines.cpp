@@ -14,7 +14,7 @@
 // -----------------------------------
 // Default Formatting Engine
 // -----------------------------------
-Qtilities::Logging::FormattingEngine_Default* Qtilities::Logging::FormattingEngine_Default::formattingEngine_Default_Instance = 0;
+Qtilities::Logging::FormattingEngine_Default* Qtilities::Logging::FormattingEngine_Default::formattingEngine_Default_Instance = nullptr;
 
 Qtilities::Logging::FormattingEngine_Default *Qtilities::Logging::FormattingEngine_Default::instance() {
     static QMutex mutex;
@@ -53,7 +53,7 @@ QString Qtilities::Logging::FormattingEngine_Default::formatMessage(Logger::Mess
     message.append(messages.front().toString());
 
     for (int i = 1; i < messages.count(); ++i) {
-        message.append("\n            %1").arg(messages.at(i).toString());
+        message.append(QString("\n            %1").arg(messages.at(i).toString()));
     }
     return message;
 }
@@ -65,7 +65,7 @@ QString Qtilities::Logging::FormattingEngine_Default::finalizeString() const {
 // -----------------------------------
 // Rich Text Formatting Engine
 // -----------------------------------
-Qtilities::Logging::FormattingEngine_Rich_Text* Qtilities::Logging::FormattingEngine_Rich_Text::formattingEngine_Rich_Text_Instance = 0;
+Qtilities::Logging::FormattingEngine_Rich_Text* Qtilities::Logging::FormattingEngine_Rich_Text::formattingEngine_Rich_Text_Instance = nullptr;
 
 Qtilities::Logging::FormattingEngine_Rich_Text* Qtilities::Logging::FormattingEngine_Rich_Text::instance() {
     static QMutex mutex;
@@ -97,7 +97,7 @@ QString Qtilities::Logging::FormattingEngine_Rich_Text::formatMessage(Logger::Me
     message.append(formatted_string);
     for (int i = 1; i < messages.count(); ++i) {
         QString formatted_string = AbstractFormattingEngine::escape(messages.at(i).toString());
-        message.append("<br>            %1").arg(formatted_string);
+        message.append(QString("<br>            %1").arg(formatted_string));
     }
     message.append("</font>");
 
@@ -172,7 +172,7 @@ QString Qtilities::Logging::FormattingEngine_Rich_Text::finalizeString() const {
 // -----------------------------------
 // XML Formatting Engine
 // -----------------------------------
-Qtilities::Logging::FormattingEngine_XML* Qtilities::Logging::FormattingEngine_XML::formattingEngine_XML_Instance = 0;
+Qtilities::Logging::FormattingEngine_XML* Qtilities::Logging::FormattingEngine_XML::formattingEngine_XML_Instance = nullptr;
 
 Qtilities::Logging::FormattingEngine_XML* Qtilities::Logging::FormattingEngine_XML::instance() {
     static QMutex mutex;
@@ -213,7 +213,7 @@ QString Qtilities::Logging::FormattingEngine_XML::finalizeString() const {
 // -----------------------------------
 // HTML Formatting Engine
 // -----------------------------------
-Qtilities::Logging::FormattingEngine_HTML* Qtilities::Logging::FormattingEngine_HTML::formattingEngine_HTML_Instance = 0;
+Qtilities::Logging::FormattingEngine_HTML* Qtilities::Logging::FormattingEngine_HTML::formattingEngine_HTML_Instance = nullptr;
 
 Qtilities::Logging::FormattingEngine_HTML *Qtilities::Logging::FormattingEngine_HTML::instance() {
     static QMutex mutex;
@@ -287,7 +287,7 @@ QString Qtilities::Logging::FormattingEngine_HTML::finalizeString() const {
 // -----------------------------------
 // Qt Message Formatting Engine
 // -----------------------------------
-Qtilities::Logging::FormattingEngine_QtMsgEngineFormat* Qtilities::Logging::FormattingEngine_QtMsgEngineFormat::formattingEngine_QtMsgEngineFormat_Instance = 0;
+Qtilities::Logging::FormattingEngine_QtMsgEngineFormat* Qtilities::Logging::FormattingEngine_QtMsgEngineFormat::formattingEngine_QtMsgEngineFormat_Instance = nullptr;
 
 Qtilities::Logging::FormattingEngine_QtMsgEngineFormat* Qtilities::Logging::FormattingEngine_QtMsgEngineFormat::instance() {
     static QMutex mutex;

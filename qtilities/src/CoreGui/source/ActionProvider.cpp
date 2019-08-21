@@ -62,7 +62,7 @@ QList<QAction*> Qtilities::CoreGui::ActionProvider::actions(IActionProvider::Act
 
     // We need to sort the list here by the action names:
     QStringList name_list = filtered_map.keys();
-    qSort(name_list.begin(), name_list.end());
+    std::sort(name_list.begin(), name_list.end());
 
     // Build final list in sorted order and return it:
     QList<QAction*> final_list;
@@ -111,7 +111,7 @@ QList<QtilitiesCategory> Qtilities::CoreGui::ActionProvider::actionCategories() 
         if (!category_list.contains(actions_values.at(i)))
             category_list << actions_values.at(i);
     }
-    qSort(category_list);
+    std::sort(category_list.begin(), category_list.end());
     return category_list;
 }
 

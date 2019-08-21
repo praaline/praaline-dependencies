@@ -126,7 +126,7 @@ Qtilities::CoreGui::AddDynamicPropertyWizard::AddDynamicPropertyWizard(PropertyC
         type_names << QVariant::typeToName(QVariant::UInt);
         type_names << QVariant::typeToName(QVariant::Int);
         type_names << QVariant::typeToName(QVariant::Double);
-        qSort(type_names);
+        std::sort(type_names.begin(), type_names.end());
         d->property_types_list.addItems(type_names);
         QList<QListWidgetItem *> string_items = d->property_types_list.findItems(QVariant::typeToName(QVariant::String),Qt::MatchExactly);
         if (string_items.count() > 0) {
@@ -493,7 +493,7 @@ QStringList AddDynamicPropertyWizard::availablePropertyDisplayedNames() const {
     if (!prohibitCustomProperties())
         property_names.append(tr("Custom Property"));
 
-    qSort(property_names);
+    std::sort(property_names.begin(), property_names.end());
     return property_names;
 }
 

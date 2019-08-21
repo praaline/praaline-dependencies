@@ -1854,7 +1854,7 @@ QList<Qtilities::Core::QtilitiesCategory> Qtilities::Core::Observer::subjectCate
         }
     }
 
-    qSort(subject_categories);
+    std::sort(subject_categories.begin(), subject_categories.end());
     return subject_categories;
 }
 

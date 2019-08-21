@@ -85,7 +85,7 @@ void HelpManager::initialize() {
 
         QFile file(filename);
         if (file.open(QFile::ReadOnly)) {
-            QTemporaryFile *temp_file = QTemporaryFile::createLocalFile(file);
+            QTemporaryFile *temp_file = QTemporaryFile::createNativeFile(file);
             if (temp_file) {
                 filename = temp_file->fileName();
                 temp_file->setParent(this);
