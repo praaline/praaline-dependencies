@@ -640,7 +640,7 @@ Qtilities::Core::ObserverHints::ModificationStateDisplayHint Qtilities::Core::Ob
 }
 
 Qtilities::Core::InstanceFactoryInfo Qtilities::Core::ObserverHints::instanceFactoryInfo() const {
-    return instanceFactoryInfo();
+    return IExportable::instanceFactoryInfo();
 }
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::Core::ObserverHints::supportedFormats() const {
