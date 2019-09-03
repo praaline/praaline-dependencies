@@ -128,7 +128,7 @@ void Qtilities::CoreGui::ConfigurationWidget::sharedConstruct() {
         ui->widgetTopModeWidgetHolder->setVisible(true);
         ui->widgetObsWidgetHolder->setVisible(false);
 
-        QtilitiesMainWindow::ModeLayout mode_layout;
+        QtilitiesMainWindow::ModeLayout mode_layout(QtilitiesMainWindow::ModesLeft);
         if (d->display_mode == DisplayTopModeWidgetView)
             mode_layout = QtilitiesMainWindow::ModesTop;
         else if (d->display_mode == DisplayRightModeWidgetView)

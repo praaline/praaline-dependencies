@@ -1428,7 +1428,7 @@ bool Qtilities::Core::ObserverData::constructRelationships(QList<QPointer<QObjec
                 ObjectManager::setSharedProperty(objects.at(i),ownership_property);
                 SharedProperty observer_parent_property(qti_prop_PARENT_ID,QVariant(session_id));
                 ObjectManager::setSharedProperty(objects.at(i),observer_parent_property);
-                LOG_TASK_TRACE(">> Restored object ownership is SpecificObserverOwnership. Owner context ID: " + session_id,exportTask());
+                LOG_TASK_TRACE(QString(">> Restored object ownership is SpecificObserverOwnership. Owner context ID: %1").arg(session_id),exportTask());
             } else {
                 // This will happen when the object is the top level observer which was exported. In this
                 // case we need to check if the object has any parents in the observer relational table entry.

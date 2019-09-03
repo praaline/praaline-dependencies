@@ -146,9 +146,9 @@ static QtProperty *wrappedProperty(QtProperty *property)
 
 class QtVariantPropertyPrivate
 {
-    QtVariantProperty *q_ptr;
+    // QtVariantProperty *q_ptr; UNUSED
 public:
-    QtVariantPropertyPrivate(QtVariantPropertyManager *m) : q_ptr(nullptr), manager(m) {}
+    QtVariantPropertyPrivate(QtVariantPropertyManager *m) : manager(m) {}
 
     QtVariantPropertyManager *manager;
 };
