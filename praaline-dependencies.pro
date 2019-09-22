@@ -12,6 +12,10 @@ SUBDIRS += qscintilla/Qt4Qt5/qscintilla.pro
 SUBDIRS += qcustomplot/qcustomplot.pro
 
 # Dependencies inherited from Sonic Visualiser
-
-
+SUBDIRS += bqvec/bqvec.pro
+SUBDIRS += bqthingfactory/bqthingfactory.pro
+SUBDIRS += bqresample/bqresample.pro
+SUBDIRS += bqaudioio/bqaudioio.pro
+SUBDIRS += bqaudiostream/bqaudiostream.pro
+SUBDIRS += bqfft/bqfft.pro
 

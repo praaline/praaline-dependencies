@@ -39,6 +39,7 @@ SOURCES += $$PWD/src/qtpropertybrowser.cpp \
         $$PWD/src/qtbuttonpropertybrowser.cpp \
         $$PWD/src/qtgroupboxpropertybrowser.cpp \
         $$PWD/src/qtpropertybrowserutils.cpp
+
 HEADERS += $$PWD/src/qtpropertybrowser.h \
         $$PWD/src/qtpropertymanager.h \
         $$PWD/src/qteditorfactory.h \

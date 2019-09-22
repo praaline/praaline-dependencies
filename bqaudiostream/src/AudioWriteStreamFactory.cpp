@@ -56,7 +56,7 @@ AudioWriteStreamFactory::createWriteStream(string audioFileName,
                                            size_t channelCount,
                                            size_t sampleRate)
 {
-    AudioWriteStream *s = 0;
+    // AudioWriteStream *s = 0;
 
     string extension = AudioReadStreamFactory::extensionOf(audioFileName);
     
