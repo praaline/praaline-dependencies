@@ -13,6 +13,19 @@ CONFIG(debug, debug|release) {
 }
 OBJECTS_DIR = $$DESTDIR/.obj
 
+win32-g++ {
+    INCLUDEPATH += $$PWD/../../dependency-builds/sv/win32-mingw/include
+    LIBS += -L$$PWD/../../dependency-builds/sv/win32-mingw/lib
+}
+win32-msvc* {
+    INCLUDEPATH += $$PWD/../../dependency-builds/sv/win32-msvc/include
+    LIBS += -L$$PWD/../../dependency-builds/sv/win32-msvc/lib
+}
+macx* {
+    INCLUDEPATH += $$PWD/../../dependency-builds/sv/osx/include
+    LIBS += -L$$PWD/../../dependency-builds/sv/osx/lib
+}
+
 INCLUDEPATH += . bqfft ../bqvec
 
 # Add to FFT_DEFINES the relevant options for your desired third-party

@@ -13,9 +13,22 @@ CONFIG(debug, debug|release) {
 }
 OBJECTS_DIR = $$DESTDIR/.obj
 
+win32-g++ {
+    INCLUDEPATH += $$PWD/../../dependency-builds/sv/win32-mingw/include
+    LIBS += -L$$PWD/../../dependency-builds/sv/win32-mingw/lib
+}
+win32-msvc* {
+    INCLUDEPATH += $$PWD/../../dependency-builds/sv/win32-msvc/include
+    LIBS += -L$$PWD/../../dependency-builds/sv/win32-msvc/lib
+}
+macx* {
+    INCLUDEPATH += $$PWD/../../dependency-builds/sv/osx/include
+    LIBS += -L$$PWD/../../dependency-builds/sv/osx/lib
+}
+
 INCLUDEPATH += . bqaudiostream ../bqvec ../bqthingfactory ../bqresample
 
-DEFINES += HAVE_LIBSNDFILE HAVE_OGGZ HAVE_FISHSOUND
+DEFINES += HAVE_LIBSNDFILE # HAVE_OGGZ HAVE_FISHSOUND
 
 HEADERS += \
     bqaudiostream/AudioReadStream.h \

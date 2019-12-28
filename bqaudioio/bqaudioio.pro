@@ -15,7 +15,29 @@ OBJECTS_DIR = $$DESTDIR/.obj
 
 INCLUDEPATH += . bqaudioio ../bqvec ../bqresample
 
-DEFINES += HAVE_JACK HAVE_LIBPULSE HAVE_PORTAUDIO
+win32-g++ {
+    INCLUDEPATH += $$PWD/../../dependency-builds/sv/win32-mingw/include
+    LIBS += -L$$PWD/../../dependency-builds/sv/win32-mingw/lib
+}
+win32-msvc* {
+    INCLUDEPATH += $$PWD/../../dependency-builds/sv/win32-msvc/include
+    LIBS += -L$$PWD/../../dependency-builds/sv/win32-msvc/lib
+}
+macx* {
+    INCLUDEPATH += $$PWD/../../dependency-builds/sv/osx/include
+    LIBS += -L$$PWD/../../dependency-builds/sv/osx/lib
+}
+
+win* {
+    DEFINES += HAVE_PORTAUDIO
+}
+macx* {
+    DEFINES += HAVE_COREAUDIO HAVE_PORTAUDIO
+}
+unix*:!macx* {
+    DEFINES += HAVE_LIBPULSE
+    # DEFINES += HAVE_JACK HAVE_LIBPULSE HAVE_PORTAUDIO
+}
 
 HEADERS += \
     bqaudioio/ApplicationPlaybackSource.h \

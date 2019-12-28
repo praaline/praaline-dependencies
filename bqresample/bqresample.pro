@@ -15,6 +15,19 @@ OBJECTS_DIR = $$DESTDIR/.obj
 INCLUDEPATH += . bqresample ../bqvec
 QMAKE_CXXFLAGS += -std=c++98 -Wextra -Werror -O3 -ffast-math
 
+win32-g++ {
+    INCLUDEPATH += $$PWD/../../dependency-builds/sv/win32-mingw/include
+    LIBS += -L$$PWD/../../dependency-builds/sv/win32-mingw/lib
+}
+win32-msvc* {
+    INCLUDEPATH += $$PWD/../../dependency-builds/sv/win32-msvc/include
+    LIBS += -L$$PWD/../../dependency-builds/sv/win32-msvc/lib
+}
+macx* {
+    INCLUDEPATH += $$PWD/../../dependency-builds/sv/osx/include
+    LIBS += -L$$PWD/../../dependency-builds/sv/osx/lib
+}
+
 HEADERS += \
     bqresample/Resampler.h \
     speex/speex_resampler.h
