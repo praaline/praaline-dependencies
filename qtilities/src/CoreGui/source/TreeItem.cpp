@@ -46,7 +46,7 @@ Qtilities::Core::InstanceFactoryInfo Qtilities::CoreGui::TreeItem::instanceFacto
 }
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::CoreGui::TreeItem::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags;
     flags |= IExportable::Binary;
     flags |= IExportable::XML;
     return flags;

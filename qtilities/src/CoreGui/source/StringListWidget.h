@@ -59,7 +59,8 @@ namespace Qtilities {
                 Directories          = 2  /*!< Directories. */
             };           
 
-            StringListWidget(const QStringList& string_list = QStringList(), Qt::ToolBarArea toolbar_area = Qt::TopToolBarArea, QWidget * parent = 0, Qt::WindowFlags flags = 0);
+            StringListWidget(const QStringList& string_list = QStringList(), Qt::ToolBarArea toolbar_area = Qt::TopToolBarArea,
+                             QWidget *parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
             ~StringListWidget();
 
         public:

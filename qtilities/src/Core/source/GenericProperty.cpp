@@ -624,9 +624,9 @@ void GenericProperty::setListSeparatorBackend(const QString &sep) {
     if (d->list_backend_separator != sep) {
         // Convert the value from the old separator to the new separator:
         if (!d->value.isEmpty())
-            d->value = d->value.split(d->list_backend_separator,QString::SkipEmptyParts).join(sep);
+            d->value = d->value.split(d->list_backend_separator, Qt::SkipEmptyParts).join(sep);
         if (!d->default_value.isEmpty())
-            d->default_value = d->default_value.split(d->list_backend_separator,QString::SkipEmptyParts).join(sep);
+            d->default_value = d->default_value.split(d->list_backend_separator, Qt::SkipEmptyParts).join(sep);
         d->list_backend_separator = sep;
     }
 }
@@ -897,7 +897,7 @@ void GenericProperty::setPath(const QString &file_name) {
 
 QStringList GenericProperty::fileList() const {
     if (type() == TypeFileList|| type() == TypePathList)
-        return valueString().split(d->list_backend_separator,QString::SkipEmptyParts);
+        return valueString().split(d->list_backend_separator, Qt::SkipEmptyParts);
     Q_ASSERT(type() == TypeFileList || type() == TypePathList);
     return QStringList();
 }
@@ -1103,12 +1103,12 @@ bool GenericProperty::fromCsvString(const QString &csv_string) {
     if (csv_list.count() < 15)
         return false;
 
-    d->enum_possible_values_displayed = csv_list[14].split(d->list_storage_separator,QString::SkipEmptyParts);
+    d->enum_possible_values_displayed = csv_list[14].split(d->list_storage_separator, Qt::SkipEmptyParts);
 
     if (csv_list.count() < 16)
         return false;
 
-    d->enum_possible_values_command_line = csv_list[15].split(d->list_storage_separator,QString::SkipEmptyParts);
+    d->enum_possible_values_command_line = csv_list[15].split(d->list_storage_separator, Qt::SkipEmptyParts);
     if (d->enum_possible_values_command_line.isEmpty())
         d->enum_possible_values_command_line = d->enum_possible_values_displayed;
     Q_ASSERT(d->enum_possible_values_command_line.count() == d->enum_possible_values_displayed.count());
@@ -1247,7 +1247,7 @@ Qtilities::Core::Interfaces::IExportable::ExportResultFlags GenericProperty::imp
     }
     QDomElement element_2 = object_node->firstChildElement("separatorStorage");
     if (element_2.isNull())
-      element_2 = object_node->firstChildElement("seperatorStorage");
+        element_2 = object_node->firstChildElement("seperatorStorage");
     // backwards compatibility with the "seperator" typo
 
     if (!element_2.isNull())
@@ -1273,7 +1273,7 @@ Qtilities::Core::Interfaces::IExportable::ExportResultFlags GenericProperty::imp
         d->note = element_5.text();
     QDomElement element_6 = object_node->firstChildElement("editable");
     if (!element_6.isNull()) {
-        if (element_6.text().compare("true",Qt::CaseInsensitive) == 0)
+        if (element_6.text().compare("true", Qt::CaseInsensitive) == 0)
             d->editable = true;
         else
             d->editable = false;
@@ -1342,7 +1342,7 @@ QString GenericProperty::listToBackendFormat(const QString &value) const {
     else if (d->list_storage_separator == d->list_backend_separator)
         return value;
     else
-        return value.split(d->list_storage_separator,QString::SkipEmptyParts).join(d->list_backend_separator);
+        return value.split(d->list_storage_separator, Qt::SkipEmptyParts).join(d->list_backend_separator);
 }
 
 QString GenericProperty::listToStorageFormat(const QString &value) const {
@@ -1351,7 +1351,7 @@ QString GenericProperty::listToStorageFormat(const QString &value) const {
     else if (d->list_storage_separator == d->list_backend_separator)
         return value;
     else
-        return value.split(d->list_backend_separator,QString::SkipEmptyParts).join(d->list_storage_separator);
+        return value.split(d->list_backend_separator, Qt::SkipEmptyParts).join(d->list_storage_separator);
 }
 
 }

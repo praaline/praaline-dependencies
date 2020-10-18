@@ -128,7 +128,7 @@ int main(int argc, char *argv[])
             Q_DECLARE_FLAGS(ModeLayoutFlags, ModeLayout)
             Q_FLAGS(ModeLayoutFlags)
 
-            QtilitiesMainWindow(ModeLayout modeLayout = ModesNone, QWidget * parent = 0, Qt::WindowFlags flags = 0);
+            QtilitiesMainWindow(ModeLayout modeLayout = ModesNone, QWidget *parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
             ~QtilitiesMainWindow();
 
             bool eventFilter(QObject *object, QEvent *event);

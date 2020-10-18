@@ -60,12 +60,12 @@ QVariant Qtilities::CoreGui::qti_private_CommandTreeModel::data(const QModelInde
 
 Qt::ItemFlags Qtilities::CoreGui::qti_private_CommandTreeModel::flags(const QModelIndex &index) const {
     if (index.column() == columnCount() - 2) {
-        Qt::ItemFlags item_flags = 0;
+        Qt::ItemFlags item_flags;
         item_flags |= Qt::ItemIsEnabled;
         item_flags |= Qt::ItemIsSelectable;
         return item_flags;
     } else if (index.column() == columnCount() - 1) {
-        Qt::ItemFlags item_flags = 0;
+        Qt::ItemFlags item_flags;
         item_flags |= Qt::ItemIsEnabled;
         item_flags |= Qt::ItemIsSelectable;
         item_flags |= Qt::ItemIsEditable;

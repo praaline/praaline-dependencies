@@ -134,7 +134,8 @@ void Qtilities::CoreGui::ObserverTreeModelBuilder::buildRecursive(ObserverTreeIt
             if (use_categorized) {
                 // Get the object / category hash:
                 QMap<QPointer<QObject>, QString> category_map = observer->subjectReferenceCategoryMap();
-                QSet<QString> categories = category_map.values().toSet();
+                QList<QString> categories_list = category_map.values();
+                QSet<QString> categories = QSet<QString>(categories_list.begin(), categories_list.end());
 
                 foreach (const QString& category_string, categories) {
                     //QApplication::processEvents();

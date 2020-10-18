@@ -83,7 +83,7 @@ Qtilities::ExtensionSystem::ExtensionSystemCore::ExtensionSystemCore(QObject* pa
                                                                  ObserverHints::NoActivityControl);
     d->plugin_activity_filter->setNewSubjectActivityPolicy(ActivityPolicyFilter::SetNewActive);
 
-    ObserverHints::DisplayFlags display_flags = 0;
+    ObserverHints::DisplayFlags display_flags;
     display_flags |= ObserverHints::ItemView;
     d->plugins.displayHints()->setDisplayFlagsHint(display_flags);
     d->plugins.displayHints()->setActionHints(ObserverHints::ActionFindItem);
@@ -194,7 +194,7 @@ void Qtilities::ExtensionSystem::ExtensionSystemCore::initialize() {
 
                             // Set the category property of the plugin:
                             MultiContextProperty category_property(qti_prop_CATEGORY_MAP);
-                            category_property.setValue(qVariantFromValue(pluginIFace->pluginCategory()),d->plugins.observerID());
+                            category_property.setValue(QVariant::fromValue(pluginIFace->pluginCategory()), d->plugins.observerID());
                             ObjectManager::setMultiContextProperty(pluginIFace->objectBase(),category_property);
 
                             // Store the file name:

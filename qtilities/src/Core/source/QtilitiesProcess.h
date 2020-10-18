@@ -59,7 +59,7 @@ namespace Qtilities {
                 d_is_stopper = false;
                 d_stop_message_type = Logger::Error;
 
-                d_disabled_unblocked_message_types = 0;
+                d_disabled_unblocked_message_types = Logger::MessageTypeFlags();
                 d_disabled_unblocked_message_types |= Logger::Error;
                 d_disabled_unblocked_message_types |= Logger::Fatal;
             }

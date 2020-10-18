@@ -496,7 +496,7 @@ void SearchBoxWidget::handleReplaceAll() {
 }
 
 QTextDocument::FindFlags SearchBoxWidget::findFlags() const {
-    QTextDocument::FindFlags find_flags = 0;
+    QTextDocument::FindFlags find_flags;
     if (wholeWordsOnly())
         find_flags |= QTextDocument::FindWholeWords;
     if (caseSensitive())

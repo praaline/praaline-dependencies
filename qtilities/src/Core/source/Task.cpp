@@ -12,6 +12,7 @@
 #include "Task.h"
 #include "QtilitiesCoreApplication.h"
 
+#include <QElapsedTimer>
 #include <LoggerEngines>
 
 using namespace Qtilities::Core::Interfaces;
@@ -67,7 +68,7 @@ struct Qtilities::Core::TaskPrivateData {
     bool                            logging_enabled_to_console;
     bool                            clear_log_on_start;
 
-    QTime                           timer;
+    QElapsedTimer                   timer;
     int                             last_run_time;
     QTimer                          elapsed_time_notification_timer;
 

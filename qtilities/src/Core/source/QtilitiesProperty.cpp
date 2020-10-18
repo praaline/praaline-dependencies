@@ -219,7 +219,7 @@ bool Qtilities::Core::QtilitiesProperty::propertySupportsChangeNotifications(con
 quint32 MARKER_OBSERVER_PROPERTY = 0xBABEFACE;
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::Core::QtilitiesProperty::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags;
     flags |= IExportable::Binary;
     flags |= IExportable::XML;
     return flags;
@@ -501,7 +501,7 @@ void Qtilities::Core::MultiContextProperty::addContext(QVariant new_value, int c
 }
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::Core::MultiContextProperty::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags;
     flags |= IExportable::Binary;
     flags |= IExportable::XML;
     return flags;
@@ -680,7 +680,7 @@ bool Qtilities::Core::SharedProperty::operator!=(const SharedProperty& other) co
 }
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::Core::SharedProperty::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags;
     flags |= IExportable::Binary;
     flags |= IExportable::XML;
     return flags;

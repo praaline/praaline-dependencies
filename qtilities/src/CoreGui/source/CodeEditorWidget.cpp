@@ -514,10 +514,10 @@ void Qtilities::CoreGui::CodeEditorWidget::handleSettingsUpdateRequest(const QSt
 
 void Qtilities::CoreGui::CodeEditorWidget::showSearchBox() {
     if (!d->searchBoxWidget) {
-        SearchBoxWidget::SearchOptions search_options = 0;
+        SearchBoxWidget::SearchOptions search_options;
         search_options |= SearchBoxWidget::CaseSensitive;
         search_options |= SearchBoxWidget::WholeWordsOnly;
-        SearchBoxWidget::ButtonFlags button_flags = 0;
+        SearchBoxWidget::ButtonFlags button_flags;
         button_flags |= SearchBoxWidget::HideButtonDown;
         button_flags |= SearchBoxWidget::NextButtons;
         button_flags |= SearchBoxWidget::PreviousButtons;

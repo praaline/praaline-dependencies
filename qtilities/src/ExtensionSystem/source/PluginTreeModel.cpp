@@ -52,7 +52,7 @@ QVariant Qtilities::ExtensionSystem::PluginTreeModel::data(const QModelIndex &in
 
 Qt::ItemFlags Qtilities::ExtensionSystem::PluginTreeModel::flags(const QModelIndex &index) const {
     if (index.column() == columnCount() - 1) {
-        Qt::ItemFlags item_flags = 0;
+        Qt::ItemFlags item_flags;
         item_flags |= Qt::ItemIsEnabled;
         item_flags |= Qt::ItemIsSelectable;
         return item_flags;

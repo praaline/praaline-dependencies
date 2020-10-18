@@ -72,11 +72,11 @@ void Qtilities::CoreGui::Command::setCategory(Qtilities::Core::QtilitiesCategory
     // Ok it changed, thus set it again:
     if (ObjectManager::propertyExists(this,qti_prop_CATEGORY_MAP)) {
         MultiContextProperty category_property = ObjectManager::getMultiContextProperty(this,qti_prop_CATEGORY_MAP);
-        category_property.setValue(qVariantFromValue(category),d_category_context);
+        category_property.setValue(QVariant::fromValue(category), d_category_context);
         ObjectManager::setMultiContextProperty(this,category_property);
     } else {
         MultiContextProperty category_property(qti_prop_CATEGORY_MAP);
-        category_property.setValue(qVariantFromValue(category),d_category_context);
+        category_property.setValue(QVariant::fromValue(category), d_category_context);
         ObjectManager::setMultiContextProperty(this,category_property);
     }
 }

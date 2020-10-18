@@ -84,7 +84,7 @@ void Qtilities::Core::ObserverData::clearExportTask() {
 }
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::Core::ObserverData::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags;
     flags |= IExportable::Binary;
     flags |= IExportable::XML;
     return flags;
@@ -1156,7 +1156,7 @@ Qtilities::Core::Interfaces::IExportable::ExportResultFlags Qtilities::Core::Obs
                                                 }
 
                                                 MultiContextProperty category_property(qti_prop_CATEGORY_MAP);
-                                                category_property.setValue(qVariantFromValue(category),observer->observerID());
+                                                category_property.setValue(QVariant::fromValue(category), observer->observerID());
                                                 if (!ObjectManager::setMultiContextProperty(iface->objectBase(),category_property)) {
                                                     LOG_TASK_WARNING(QString("Failed to set category on object \"%1\" to tree node: %2. Import will be incomplete.").arg(observer->observerName()).arg(iface->objectBase()->objectName()),exportTask());
                                                     result = IExportable::Incomplete;

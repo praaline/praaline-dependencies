@@ -269,11 +269,11 @@ void Qtilities::Core::ObjectManager::registerObject(QObject* obj, QtilitiesCateg
         if (obj->thread() == thread()) {
             if (ObjectManager::propertyExists(obj,qti_prop_CATEGORY_MAP)) {
                 MultiContextProperty category_property = ObjectManager::getMultiContextProperty(obj,qti_prop_CATEGORY_MAP);
-                category_property.setValue(qVariantFromValue(category),d->object_pool.observerID());
+                category_property.setValue(QVariant::fromValue(category), d->object_pool.observerID());
                 ObjectManager::setMultiContextProperty(obj,category_property);
             } else {
                 MultiContextProperty category_property(qti_prop_CATEGORY_MAP);
-                category_property.setValue(qVariantFromValue(category),d->object_pool.observerID());
+                category_property.setValue(QVariant::fromValue(category), d->object_pool.observerID());
                 ObjectManager::setMultiContextProperty(obj,category_property);
             }
         }
@@ -806,7 +806,7 @@ bool Qtilities::Core::ObjectManager::setMultiContextProperty(QObject* obj, Multi
         return false;
     }
 
-    QVariant property = qVariantFromValue(multi_context_property);
+    QVariant property = QVariant::fromValue(multi_context_property);
     return !obj->setProperty(multi_context_property.propertyNameString().toUtf8().data(),property);
 }
 
@@ -845,7 +845,7 @@ bool Qtilities::Core::ObjectManager::setSharedProperty(QObject* obj, SharedPrope
         return false;
     }
 
-    QVariant property = qVariantFromValue(shared_property);
+    QVariant property = QVariant::fromValue(shared_property);
     return !obj->setProperty(shared_property.propertyNameString().toUtf8().data(),property);
 }
 

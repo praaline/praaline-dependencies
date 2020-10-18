@@ -197,7 +197,7 @@ QList<int> Qtilities::Core::RelationalTableEntry::stringToIntList(const QString&
 }
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::Core::RelationalTableEntry::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags;
     flags |= IExportable::Binary;
     flags |= IExportable::XML;
     return flags;
@@ -749,7 +749,7 @@ int Qtilities::Core::ObserverRelationalTable::addVisitorID(QObject* obj) {
     if (!ObjectManager::propertyExists(obj, qti_prop_VISITOR_ID)) {
         // We need to create the property and add it to the object
         SharedProperty new_prop(qti_prop_VISITOR_ID,d->visitor_id_count);
-        QVariant new_prop_variant = qVariantFromValue(new_prop);
+        QVariant new_prop_variant = QVariant::fromValue(new_prop);
         obj->setProperty(new_prop.propertyNameString().toUtf8().data(),new_prop_variant);
         if (ObjectManager::propertyExists(obj,qti_prop_VISITOR_ID))
             LOG_TRACE("Added visitor ID property to object: " + obj->objectName());
@@ -766,7 +766,7 @@ int Qtilities::Core::ObserverRelationalTable::addLimitedExportProperty(QObject* 
     if (!ObjectManager::propertyExists(obj, qti_prop_LIMITED_EXPORTS)) {
         // We need to create the property and add it to the object
         SharedProperty new_prop(qti_prop_LIMITED_EXPORTS,0);
-        QVariant new_prop_variant = qVariantFromValue(new_prop);
+        QVariant new_prop_variant = QVariant::fromValue(new_prop);
         obj->setProperty(new_prop.propertyNameString().toUtf8().data(),new_prop_variant);
         return d->visitor_id_count;
     }
@@ -789,7 +789,7 @@ int Qtilities::Core::ObserverRelationalTable::getSpecificParent(QObject* obj) co
 }
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::Core::ObserverRelationalTable::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags;
     flags |= IExportable::Binary;
     flags |= IExportable::XML;
     return flags;

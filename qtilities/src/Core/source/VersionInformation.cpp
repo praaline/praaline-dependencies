@@ -352,7 +352,7 @@ void Qtilities::Core::VersionNumber::fromString(const QString& version, const QS
     QString cleaned_version = version.toLower();
     cleaned_version.replace(" ","");
 
-    QStringList list = cleaned_version.split(separator,QString::SkipEmptyParts);
+    QStringList list = cleaned_version.split(separator, Qt::SkipEmptyParts);
     if (list.isEmpty())
         return;
 
@@ -368,7 +368,7 @@ void Qtilities::Core::VersionNumber::fromString(const QString& version, const QS
         // We need to handle for example: 11sp1
         QString major_string = list.at(0);
         if (major_string.contains(local_stage_identifier) && !local_stage_identifier.isEmpty() && local_stage != DevelopmentStageNone) {
-            QStringList revision_split = major_string.split(local_stage_identifier,QString::SkipEmptyParts);
+            QStringList revision_split = major_string.split(local_stage_identifier, Qt::SkipEmptyParts);
             if (revision_split.count() > 0)
                 major_string = revision_split.front();
         }
@@ -380,7 +380,7 @@ void Qtilities::Core::VersionNumber::fromString(const QString& version, const QS
         // We need to handle for example: 11.0sp1
         QString minor_string = list.at(1);
         if (minor_string.contains(local_stage_identifier) && !local_stage_identifier.isEmpty() && local_stage != DevelopmentStageNone) {
-            QStringList revision_split = minor_string.split(local_stage_identifier,QString::SkipEmptyParts);
+            QStringList revision_split = minor_string.split(local_stage_identifier, Qt::SkipEmptyParts);
             if (revision_split.count() > 0)
                 minor_string = revision_split.front();
         }
@@ -392,7 +392,7 @@ void Qtilities::Core::VersionNumber::fromString(const QString& version, const QS
         // We need to handle for example: 11.0.0sp1
         QString revision_string = list.at(2);
         if (revision_string.contains(local_stage_identifier) && !local_stage_identifier.isEmpty() && local_stage != DevelopmentStageNone) {
-            QStringList revision_split = revision_string.split(local_stage_identifier,QString::SkipEmptyParts);
+            QStringList revision_split = revision_string.split(local_stage_identifier, Qt::SkipEmptyParts);
             if (revision_split.count() > 0)
                 revision_string = revision_split.front();
         }
@@ -403,7 +403,7 @@ void Qtilities::Core::VersionNumber::fromString(const QString& version, const QS
 
     // Next, see if a stage type was specified:
     if (local_stage != DevelopmentStageNone) {
-        QStringList stage_split_list = list.last().split(local_stage_identifier,QString::SkipEmptyParts);
+        QStringList stage_split_list = list.last().split(local_stage_identifier, Qt::SkipEmptyParts);
         if (stage_split_list.count() == 2) {
             int tmp_int = stage_split_list.last().toInt(&conv_ok);
             if (conv_ok)

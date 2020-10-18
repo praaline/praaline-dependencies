@@ -680,9 +680,6 @@ QStringList Qtilities::Core::ActivityPolicyFilter::monitoredProperties() const {
 bool Qtilities::Core::ActivityPolicyFilter::handleMonitoredPropertyChange(QObject* obj, const char* property_name, QDynamicPropertyChangeEvent* propertyChangeEvent) {
     Q_UNUSED(property_name)
 
-    QTime time;
-    time.start();
-
     if (!d->enforce_activity_policy)
         return true;
 
@@ -761,7 +758,7 @@ Qtilities::Core::InstanceFactoryInfo Qtilities::Core::ActivityPolicyFilter::inst
 }
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::Core::ActivityPolicyFilter::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags;
     flags |= IExportable::Binary;
     flags |= IExportable::XML;
     return flags;

@@ -81,7 +81,7 @@ bool Qtilities::ProjectManagement::ObserverProjectItemWrapper::closeProjectItem(
 }
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::ProjectManagement::ObserverProjectItemWrapper::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags;
     flags |= IExportable::Binary;
     flags |= IExportable::XML;
     return flags;

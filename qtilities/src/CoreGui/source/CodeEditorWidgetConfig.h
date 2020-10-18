@@ -42,7 +42,7 @@ namespace Qtilities {
             Q_INTERFACES(Qtilities::CoreGui::Interfaces::IConfigPage)
 
         public:
-            CodeEditorWidgetConfig(QWidget* parent = 0, Qt::WindowFlags f = 0);
+            CodeEditorWidgetConfig(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
             ~CodeEditorWidgetConfig();
 
             // --------------------------------------------

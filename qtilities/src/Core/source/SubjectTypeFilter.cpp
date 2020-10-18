@@ -216,7 +216,7 @@ Qtilities::Core::InstanceFactoryInfo Qtilities::Core::SubjectTypeFilter::instanc
 }
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::Core::SubjectTypeFilter::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags;
     flags |= IExportable::Binary;
     flags |= IExportable::XML;
     return flags;

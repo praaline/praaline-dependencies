@@ -341,7 +341,7 @@ Qtilities::Core::Interfaces::IExportable::ExportResultFlags GenericPropertyManag
                 connect(prop,SIGNAL(noteChanged(GenericProperty*)),SIGNAL(propertyNoteChanged(GenericProperty*)));
 
                 MultiContextProperty category_property(qti_prop_CATEGORY_MAP);
-                category_property.setValue(qVariantFromValue(prop->category()),d->properties_observer.observerID());
+                category_property.setValue(QVariant::fromValue(prop->category()), d->properties_observer.observerID());
                 ObjectManager::setMultiContextProperty(prop,category_property);
             }
         }
