@@ -573,7 +573,7 @@ namespace Qtilities {
             //! Add a project to the recent project list.
             void addRecentProject(IProject* project);         
 
-            ProjectManager(QObject* parent = 0);
+            ProjectManager(QObject *parent = nullptr);
             static ProjectManager* m_Instance;
             ProjectManagerPrivateData* d;
         };

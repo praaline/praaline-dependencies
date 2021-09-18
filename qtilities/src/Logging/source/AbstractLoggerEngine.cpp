@@ -57,7 +57,7 @@ Qtilities::Logging::Logger::MessageTypeFlags Qtilities::Logging::AbstractLoggerE
 }
 
 void Qtilities::Logging::AbstractLoggerEngine::enableAllMessageTypes() {
-    abstractLoggerEngineData->enabled_message_types = 0;
+    abstractLoggerEngineData->enabled_message_types = Logger::MessageTypeFlags();
     abstractLoggerEngineData->enabled_message_types |= Logger::Info;
     abstractLoggerEngineData->enabled_message_types |= Logger::Warning;
     abstractLoggerEngineData->enabled_message_types |= Logger::Error;

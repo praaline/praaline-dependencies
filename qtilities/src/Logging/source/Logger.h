@@ -109,7 +109,7 @@ namespace Qtilities {
             Q_ENUMS(MessageType)
 
         private:
-            Logger(QObject* parent = 0);
+            Logger(QObject *parent = nullptr);
 
         public slots:
             //! Function to log a message.

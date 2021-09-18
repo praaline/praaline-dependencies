@@ -95,7 +95,7 @@ Qtilities::CoreGui::MessagesPlainTextEditTab::MessagesPlainTextEditTab(QWidget *
     d->action_provider = new ActionProvider(this);
 
     // Setup search box widget:
-    SearchBoxWidget::SearchOptions search_options = 0;
+    SearchBoxWidget::SearchOptions search_options = SearchBoxWidget::SearchOptions();
     search_options |= SearchBoxWidget::CaseSensitive;
     search_options |= SearchBoxWidget::WholeWordsOnly;
     search_options |= SearchBoxWidget::RegEx;
@@ -221,7 +221,7 @@ void Qtilities::CoreGui::MessagesPlainTextEditTab::appendMessage(const QString& 
 }
 
 void Qtilities::CoreGui::MessagesPlainTextEditTab::handle_FindPrevious() {
-    QTextDocument::FindFlags find_flags = 0;
+    QTextDocument::FindFlags find_flags = QTextDocument::FindFlags();
     if (d->searchBoxWidget->caseSensitive())
         find_flags |= QTextDocument::FindCaseSensitively;
     if (d->searchBoxWidget->wholeWordsOnly())
@@ -231,7 +231,7 @@ void Qtilities::CoreGui::MessagesPlainTextEditTab::handle_FindPrevious() {
 }
 
 void Qtilities::CoreGui::MessagesPlainTextEditTab::handleSearchStringChanged(const QString& filter_string) {
-    QTextDocument::FindFlags find_flags = 0;
+    QTextDocument::FindFlags find_flags = QTextDocument::FindFlags();
     if (d->searchBoxWidget->wholeWordsOnly())
         find_flags |= QTextDocument::FindWholeWords;
     if (d->searchBoxWidget->caseSensitive())
@@ -242,7 +242,7 @@ void Qtilities::CoreGui::MessagesPlainTextEditTab::handleSearchStringChanged(con
 }
 
 void Qtilities::CoreGui::MessagesPlainTextEditTab::handle_FindNext() {
-    QTextDocument::FindFlags find_flags = 0;
+    QTextDocument::FindFlags find_flags = QTextDocument::FindFlags();
     if (d->searchBoxWidget->caseSensitive())
         find_flags |= QTextDocument::FindCaseSensitively;
     if (d->searchBoxWidget->wholeWordsOnly())

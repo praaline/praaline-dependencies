@@ -192,7 +192,7 @@ void Qtilities::Logging::Logger::logMessage(const QString& engine_name, MessageT
 //        int i = 5;
 
     // Create the correct message context:
-    MessageContextFlags context = 0;
+    MessageContextFlags context = MessageContextFlags();
     if (engine_name.isEmpty())
         context |= SystemWideMessages;
     else
@@ -227,7 +227,7 @@ void Qtilities::Logging::Logger::logPriorityMessage(const QString& engine_name, 
     if (!msg9.isNull()) message_contents.push_back(msg9);
 
     // Create the correct message context:
-    MessageContextFlags context = 0;
+    MessageContextFlags context = MessageContextFlags();
     context |= PriorityMessages;
 
     emit newMessage(engine_name,message_type,context,message_contents);
@@ -460,7 +460,7 @@ QString Qtilities::Logging::Logger::messageContextsToString(Logger::MessageConte
 }
 
 Qtilities::Logging::Logger::MessageContextFlags Qtilities::Logging::Logger::stringToMessageContexts(const QString& message_contexts_string) const {
-    MessageContextFlags flags = 0;
+    MessageContextFlags flags = MessageContextFlags();
     if (message_contexts_string.contains("System"))
         flags |= SystemWideMessages;
     if (message_contexts_string.contains("Priority"))

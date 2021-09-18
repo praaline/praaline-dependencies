@@ -75,7 +75,7 @@ namespace Qtilities {
               \param path_display The preferred way that this file item must be displayed.
               \param parent The parent of the item.
               */
-            TreeFileItem(const QString& file_path = QString(), const QString& relative_to_path = QString(), PathDisplay path_display = DisplayFileName,  QObject* parent = 0);
+            TreeFileItem(const QString& file_path = QString(), const QString& relative_to_path = QString(), PathDisplay path_display = DisplayFileName,  QObject *parent = nullptr);
             virtual ~TreeFileItem();
             //! Event filter which catches qti_prop_NAME property changes on this object.
             bool eventFilter(QObject *object, QEvent *event);

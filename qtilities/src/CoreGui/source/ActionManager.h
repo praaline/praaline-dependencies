@@ -42,7 +42,7 @@ namespace Qtilities {
             Q_INTERFACES(Qtilities::CoreGui::Interfaces::IActionManager)
 
         public:
-            ActionManager(QObject* parent = 0);
+            ActionManager(QObject *parent = nullptr);
             ~ActionManager();
 
             // --------------------------------

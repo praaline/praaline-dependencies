@@ -49,7 +49,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            TaskManager(QObject* parent = 0);
+            TaskManager(QObject *parent = nullptr);
             ~TaskManager();
 
             //! Returns the IDs of all tasks.

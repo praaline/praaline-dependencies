@@ -82,7 +82,7 @@ Qtilities::CoreGui::ObserverTreeModel::ObserverTreeModel(QObject* parent) :
 
     // Init root data
     d->rootItem = new ObserverTreeItem();
-    d->selection_parent = 0;
+    d->selection_parent = nullptr;
     d->type_grouping_name = QString();
     d->read_only = false;
 
@@ -910,7 +910,7 @@ bool Qtilities::CoreGui::ObserverTreeModel::dropMimeData(const QMimeData * data,
                                 if (current_category == *target_category && !target_category->isEmpty())
                                     continue;
 
-                                obs->setMultiContextPropertyValue(subjects.at(i),qti_prop_CATEGORY_MAP,qVariantFromValue(*target_category));
+                                obs->setMultiContextPropertyValue(subjects.at(i),qti_prop_CATEGORY_MAP,QVariant::fromValue(*target_category));
                                 IModificationNotifier* mod_notifier = qobject_cast<IModificationNotifier*> (subjects.at(i));
                                 if (mod_notifier)
                                     mod_notifier->setModificationState(true);
@@ -918,7 +918,7 @@ bool Qtilities::CoreGui::ObserverTreeModel::dropMimeData(const QMimeData * data,
                             } else {
                                 // If the category does not exist, we create and add it:
                                 MultiContextProperty new_category_prop(qti_prop_CATEGORY_MAP);
-                                new_category_prop.setValue(qVariantFromValue(*target_category),obs->observerID());
+                                new_category_prop.setValue(QVariant::fromValue(*target_category),obs->observerID());
 
                                 ObjectManager::setMultiContextProperty(subjects.at(i),new_category_prop);
                                 IModificationNotifier* mod_notifier = qobject_cast<IModificationNotifier*> (subjects.at(i));
@@ -969,7 +969,7 @@ Qt::DropActions Qtilities::CoreGui::ObserverTreeModel::supportedDropActions() co
     if (!d->tree_model_up_to_date)
         return Qt::IgnoreAction;
 
-    Qt::DropActions drop_actions = 0;
+    Qt::DropActions drop_actions = Qt::DropActions();
     if (!d->read_only)
         drop_actions |= Qt::CopyAction;
     //drop_actions |= Qt::MoveAction;
@@ -1303,12 +1303,12 @@ Qtilities::Core::Observer* Qtilities::CoreGui::ObserverTreeModel::calculateSelec
         emit selectionParentChanged(d->selection_parent);
         return d->selection_parent;
     } else if (index_list.count() > 1) {
-        Observer* parent = 0;
+        Observer *parent = nullptr;
         bool match = true;
 
         foreach (QModelIndex index, index_list) {
             Observer* obs = parentOfIndex(index);
-            if (parent == 0)
+            if (parent == nullptr)
                 parent = obs;
             else if (obs != parent) {
                 parent = obs;
@@ -1331,10 +1331,10 @@ Qtilities::Core::Observer* Qtilities::CoreGui::ObserverTreeModel::calculateSelec
             emit selectionParentChanged(d->selection_parent);
             return d->selection_parent;
         } else {
-            d->selection_parent = 0;
-            model->hints_selection_parent = 0;
-            emit selectionParentChanged(0);
-            return 0;
+            d->selection_parent = nullptr;
+            model->hints_selection_parent = nullptr;
+            emit selectionParentChanged(nullptr);
+            return nullptr;
         }
     } else {
         d->selection_parent = d_observer;
@@ -1373,14 +1373,14 @@ Qtilities::Core::Observer* Qtilities::CoreGui::ObserverTreeModel::selectionParen
 }
 
 Qtilities::Core::Observer* Qtilities::CoreGui::ObserverTreeModel::parentOfIndex(const QModelIndex &index) const {
-    Observer* local_selection_parent = 0;
+    Observer *local_selection_parent = nullptr;
     ObserverTreeItem* item = getItem(index);
     if (!item)
-        return 0;
+        return nullptr;
 
     ObserverTreeItem* item_parent = item->parentItem();
     if (!item_parent)
-        return 0;
+        return nullptr;
 
     if (activeHints()->rootIndexDisplayHint() == ObserverHints::RootIndexHide) {
         if (item_parent == d->rootItem)
@@ -1390,7 +1390,7 @@ Qtilities::Core::Observer* Qtilities::CoreGui::ObserverTreeModel::parentOfIndex(
     if (item_parent->getObject())
         local_selection_parent = qobject_cast<Observer*> (item_parent->getObject());
     else
-        return 0;
+        return nullptr;
 
     if (!local_selection_parent) {
         // Handle the cases where the parent is a category item:
@@ -1669,12 +1669,12 @@ Qtilities::CoreGui::ObserverTreeItem* Qtilities::CoreGui::ObserverTreeModel::get
             return item;
     }
 
-    return 0;
+    return nullptr;
 }
 
 void Qtilities::CoreGui::ObserverTreeModel::handleObserverContextDeleted() {
     if (d_observer)
         d_observer->disconnect(this);
     clearTreeStructure();
-    d->selection_parent = 0;
+    d->selection_parent = nullptr;
 }

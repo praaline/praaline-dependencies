@@ -19,7 +19,7 @@
 // CategoryLevel
 // -----------------------------------------
 Qtilities::Core::IExportable::ExportModeFlags Qtilities::Core::CategoryLevel::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags = IExportable::ExportModeFlags();
     flags |= IExportable::Binary;
     flags |= IExportable::XML;
     return flags;
@@ -84,7 +84,7 @@ Qtilities::Core::QtilitiesCategory::QtilitiesCategory(const QString& category_le
 }
 
 Qtilities::Core::QtilitiesCategory::QtilitiesCategory(const QString& category_levels, const QString& separator) : IExportable() {
-    QStringList category_name_list = category_levels.split(separator,QString::SkipEmptyParts);
+    QStringList category_name_list = category_levels.split(separator, Qt::SkipEmptyParts);
     foreach(QString level,category_name_list) {
         if (level.trimmed().length() > 0)
             addLevel(level);
@@ -172,7 +172,7 @@ void Qtilities::Core::QtilitiesCategory::setExportVersion(Qtilities::ExportVersi
 }
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::Core::QtilitiesCategory::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags = IExportable::ExportModeFlags();
     flags |= IExportable::Binary;
     flags |= IExportable::XML;
     return flags;

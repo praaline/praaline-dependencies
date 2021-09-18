@@ -52,7 +52,7 @@ namespace Qtilities {
             Q_INTERFACES(Qtilities::Core::Interfaces::IExportable)
 
         public:
-            FileSetInfo(QObject* parent = 0);
+            FileSetInfo(QObject *parent = nullptr);
             FileSetInfo(const FileSetInfo& other);
             FileSetInfo& operator=(const FileSetInfo& other);
             virtual ~FileSetInfo();

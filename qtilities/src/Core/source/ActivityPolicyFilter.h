@@ -56,7 +56,7 @@ ActivityPolicyFilter* activity_filter = tree_node->enableActivityControl(Observe
             Q_ENUMS(NewSubjectActivityPolicy)
 
         public:
-            ActivityPolicyFilter(QObject* parent = 0);
+            ActivityPolicyFilter(QObject *parent = nullptr);
             virtual ~ActivityPolicyFilter();
             bool eventFilter(QObject *object, QEvent *event);
 

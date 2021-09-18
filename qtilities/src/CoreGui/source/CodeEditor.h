@@ -39,7 +39,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            CodeEditor(QWidget* parent = 0);
+            CodeEditor(QWidget *parent = nullptr);
             virtual ~CodeEditor();
 
             void lineNumberAreaPaintEvent(QPaintEvent *event);

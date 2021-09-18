@@ -154,7 +154,7 @@ code_editor.codeEditor()->setReadOnly(true);
               */
             CodeEditorWidget(ActionFlags action_flags = ActionAllHints,
                              DisplayFlags display_flags = AllDisplayFlagHint,
-                             QWidget* parent = 0);
+                             QWidget *parent = nullptr);
             virtual ~CodeEditorWidget();
             bool eventFilter(QObject *object, QEvent *event);
 

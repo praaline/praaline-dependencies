@@ -266,7 +266,7 @@ if (!core_plugins_ok) {
         private:
             QString regExpToXml(QString pattern) const;
             QString xmlToRegExp(QString xml) const;
-            ExtensionSystemCore(QObject* parent = 0);
+            ExtensionSystemCore(QObject *parent = nullptr);
 
             static ExtensionSystemCore* m_Instance;
             ExtensionSystemCorePrivateData* d;

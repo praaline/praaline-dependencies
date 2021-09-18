@@ -194,11 +194,11 @@ To change a property is easy, but care should be taken when changing properties 
 // for all other contexts.
 if (ObjectManager::propertyExists(obj,qti_prop_CATEGORY_MAP)) {
     MultiContextProperty category_property = ObjectManager::getMultiContextProperty(obj,qti_prop_CATEGORY_MAP);
-    category_property.setValue(qVariantFromValue(NEW_CATEGORY),OBSERVER_ID);
+    category_property.setValue(QVariant::fromValue(NEW_CATEGORY),OBSERVER_ID);
     ObjectManager::setMultiContextProperty(obj,category_property);
 } else {
     MultiContextProperty category_property(qti_prop_CATEGORY_MAP);
-    category_property.setValue(qVariantFromValue(NEW_CATEGORY),OBSERVER_ID);
+    category_property.setValue(QVariant::fromValue(NEW_CATEGORY),OBSERVER_ID);
     ObjectManager::setMultiContextProperty(obj,category_property);
 }
 \endcode

@@ -55,7 +55,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            ObserverTableModel(QObject* parent = 0);
+            ObserverTableModel(QObject *parent = nullptr);
             virtual ~ObserverTableModel() {}
 
             // --------------------------------

@@ -110,7 +110,7 @@ if (observer_mime_data) {
                 Q_ENUMS(ClipboardOrigin)
 
             public:
-                IClipboard(QObject* parent = 0) : QObject(parent) {}
+                IClipboard(QObject *parent = nullptr) : QObject(parent) {}
                 virtual ~IClipboard() {}
 
                 //! Enumeration which is used to indicate if a copy or a cut operation caused the clipboard to change.

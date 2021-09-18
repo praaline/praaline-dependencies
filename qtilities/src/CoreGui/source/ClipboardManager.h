@@ -41,7 +41,7 @@ namespace Qtilities {
             friend class Qtilities::Core::Observer;
 
         public:
-            ClipboardManager(QObject* parent = 0);
+            ClipboardManager(QObject *parent = nullptr);
             ~ClipboardManager();
 
             // --------------------------------

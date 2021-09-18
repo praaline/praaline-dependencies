@@ -32,7 +32,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            ActionContainer(QObject* parent = 0) : QObject(parent) {}
+            ActionContainer(QObject *parent = nullptr) : QObject(parent) {}
             virtual ~ActionContainer() {}
 
             //! The menu associated with this action container. If the action container is a menu, 0 is returned.
@@ -77,7 +77,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            MenuContainer(const QString& name, QObject* parent = 0);
+            MenuContainer(const QString& name, QObject *parent = nullptr);
             virtual ~MenuContainer();
 
             // --------------------------------
@@ -110,7 +110,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            MenuBarContainer(QObject* parent = 0);
+            MenuBarContainer(QObject *parent = nullptr);
             virtual ~MenuBarContainer();
 
             // --------------------------------

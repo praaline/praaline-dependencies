@@ -55,13 +55,13 @@ namespace Qtilities {
               \param parent The name of the parent node which provides the context in which we want to get the name.
               By default gets the objectName(). If a parent is specified which does not contain this item, QString() is returned.
               */
-            QString getName(TreeNode* parent = 0) const;
+            QString getName(TreeNode *parent = nullptr) const;
             //! Function to set the name of this tree item.
             /*!
               \param parent The name of the parent node which provides the context in which we want to set the name.
               \returns True when changed successfully, false otherwise.
               */
-            bool setName(const QString& new_name, Observer* parent = 0);
+            bool setName(const QString& new_name, Observer *parent = nullptr);
 
         protected:
             virtual QObject* getTreeItemObjectBase() = 0;

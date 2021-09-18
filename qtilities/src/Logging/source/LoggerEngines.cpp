@@ -142,7 +142,7 @@ void Qtilities::Logging::FileLoggerEngine::logMessage(const QString& message, Lo
 
 
 Qtilities::Logging::Interfaces::ILoggerExportable::ExportModeFlags Qtilities::Logging::FileLoggerEngine::supportedFormats() const {
-    ILoggerExportable::ExportModeFlags flags = 0;
+    ILoggerExportable::ExportModeFlags flags = ILoggerExportable::ExportModeFlags();
     flags |= ILoggerExportable::Binary;
     return flags;
 }

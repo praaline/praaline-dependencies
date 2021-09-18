@@ -196,7 +196,7 @@ Lets look at an example where we create change the \p ProduceMe class in the abo
 // --------------------------------------------
 // ProduceMe class derived from QObject:
 class ProduceMe : public QObject {
-    ProduceMe(Qbject* parent = 0) : QObject(parent) {}
+    ProduceMe(Qbject *parent = nullptr) : QObject(parent) {}
     ~ProduceMe() {}
 
     // Make this class a factory item:

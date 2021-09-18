@@ -59,7 +59,7 @@ namespace Qtilities {
                 d_is_stopper = false;
                 d_stop_message_type = Logger::Error;
 
-                d_disabled_unblocked_message_types = 0;
+                d_disabled_unblocked_message_types = Logger::MessageTypeFlags();
                 d_disabled_unblocked_message_types |= Logger::Error;
                 d_disabled_unblocked_message_types |= Logger::Fatal;
             }
@@ -197,7 +197,7 @@ my_process.addProcessBufferMessageTypeHint(message_hint_error);
              *
              * \note For more details on how QtilitiesProcess can buffer and log process message, see \ref qtilities_process_buffering.
              */
-            QtilitiesProcess(const QString& task_name, bool enable_logging = true, bool read_process_buffers = true, QObject* parent = 0);
+            QtilitiesProcess(const QString& task_name, bool enable_logging = true, bool read_process_buffers = true, QObject *parent = nullptr);
             virtual ~QtilitiesProcess();
 
             //! Access to the QProcess instance contained and used within this object.

@@ -153,7 +153,7 @@ tree_widget->show();
             Q_PROPERTY(QString WhatsThis READ getWhatsThis WRITE setWhatsThis)
 
         public:
-            TreeNode(const QString& name = QString(), QObject* parent = 0);
+            TreeNode(const QString& name = QString(), QObject *parent = nullptr);
             virtual ~TreeNode();
 
             // --------------------------------

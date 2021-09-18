@@ -48,7 +48,7 @@ namespace Qtilities {
             Q_DECLARE_FLAGS(TreeItemTypeFlags, TreeItemType)
             Q_FLAGS(TreeItemTypeFlags)
 
-            ObserverTreeItem(QObject* obj = 0, ObserverTreeItem *parent = 0, const QVector<QVariant> &data = QVector<QVariant>(), TreeItemType type = InvalidType);
+            ObserverTreeItem(QObject *obj = 0, ObserverTreeItem *parent = nullptr, const QVector<QVariant> &data = QVector<QVariant>(), TreeItemType type = InvalidType);
             ObserverTreeItem(const ObserverTreeItem& ref);
             ~ObserverTreeItem();
 

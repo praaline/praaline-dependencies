@@ -230,7 +230,7 @@ Qtilities::Core::InstanceFactoryInfo Qtilities::Core::Observer::instanceFactoryI
 }
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::Core::Observer::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags = IExportable::ExportModeFlags();
     flags |= IExportable::Binary;
     flags |= IExportable::XML;
     return flags;
@@ -1806,7 +1806,7 @@ QList<QPointer<QObject> > Qtilities::Core::Observer::renameCategory(const Qtilit
                     observerData->categories << renamed_category;
 
                 // Update the property on the current subject:
-                setMultiContextPropertyValue(subjectAt(i),qti_prop_CATEGORY_MAP,qVariantFromValue(renamed_category));
+                setMultiContextPropertyValue(subjectAt(i),qti_prop_CATEGORY_MAP,QVariant::fromValue(renamed_category));
                 renamed_list << subjectAt(i);
             }
         }

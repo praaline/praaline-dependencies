@@ -42,7 +42,7 @@ namespace Qtilities {
             Q_INTERFACES(Qtilities::CoreGui::Interfaces::IConfigPage)
 
         public:
-            GroupedConfigPage(const QtilitiesCategory& category, QWidget* parent = 0, Qt::WindowFlags f = 0);
+            GroupedConfigPage(const QtilitiesCategory& category, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
             ~GroupedConfigPage();
 
             // --------------------------------------------

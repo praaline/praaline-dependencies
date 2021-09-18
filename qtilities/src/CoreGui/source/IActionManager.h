@@ -43,7 +43,7 @@ namespace Qtilities {
                 Q_OBJECT
 
             public:
-                IActionManager(QObject* parent = 0) : QObject(parent) {}
+                IActionManager(QObject *parent = nullptr) : QObject(parent) {}
                 virtual ~IActionManager() {}
 
                 //! Creates a menu with the given string ID.

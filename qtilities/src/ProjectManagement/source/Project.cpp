@@ -511,7 +511,7 @@ void Qtilities::ProjectManagement::Project::setModificationState(bool new_state,
 }
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::ProjectManagement::Project::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags = IExportable::ExportModeFlags();
     flags |= IExportable::Binary;
     flags |= IExportable::XML;
 

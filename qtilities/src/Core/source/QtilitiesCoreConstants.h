@@ -258,7 +258,7 @@ obs->setHierarchicalDisplayHint(ObserverHints::CategorizedHierarchy);
 
 QObject* obj = new QObject();
 MultiContextProperty category_property(qti_prop_CATEGORY_MAP);
-category_property.setValue(qVariantFromValue(QtilitiesCategory("Category 1")),obs->observerID());
+category_property.setValue(QVariant::fromValue(QtilitiesCategory("Category 1")),obs->observerID());
 ObjectManager::setMultiContextProperty(obj,category_property);
 
 obs->attachSubject(obj);

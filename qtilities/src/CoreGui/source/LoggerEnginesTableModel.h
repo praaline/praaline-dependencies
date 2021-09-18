@@ -29,7 +29,7 @@ namespace Qtilities {
             Q_ENUMS(ColumnIDs)
 
         public:
-            qti_private_LoggerEnginesTableModel(QObject* parent = 0);
+            qti_private_LoggerEnginesTableModel(QObject *parent = nullptr);
             virtual ~qti_private_LoggerEnginesTableModel() {}
 
             enum ColumnIDs {

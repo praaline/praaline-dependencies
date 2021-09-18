@@ -29,7 +29,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            ObserverTreeModelProxyFilter(QObject* parent = 0);
+            ObserverTreeModelProxyFilter(QObject *parent = nullptr);
             virtual ~ObserverTreeModelProxyFilter();
 
             //! Sets the tree item types to be filtered in filterAcceptsRow().

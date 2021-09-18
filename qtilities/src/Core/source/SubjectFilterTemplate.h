@@ -43,7 +43,7 @@ namespace Qtilities {
             Q_INTERFACES(Qtilities::Core::Interfaces::IModificationNotifier)
 
         public:
-            SubjectFilterTemplate(QObject* parent = 0);
+            SubjectFilterTemplate(QObject *parent = nullptr);
             ~SubjectFilterTemplate();
             QString filterName() { return tr("Subject Filter Template"); }
 

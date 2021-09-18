@@ -88,7 +88,7 @@ namespace Qtilities {
                 \param task_name A name for the task.
                 \param enable_logging When true, the activity of this task will be logged. Thus, logMessage() will route messages to a logger engine created for this task.
               */
-            Task(const QString& task_name, bool enable_logging = true, QObject* parent = 0);
+            Task(const QString& task_name, bool enable_logging = true, QObject *parent = nullptr);
             virtual ~Task();
 
             // --------------------------------

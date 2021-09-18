@@ -348,7 +348,7 @@ inverse_categories(true),
 category_filter_enabled(false),
 \endcode
               */
-            ObserverHints(QObject* parent = 0);
+            ObserverHints(QObject *parent = nullptr);
             //! Copy constructor.
             ObserverHints(const ObserverHints& other);
             //! Destructor.

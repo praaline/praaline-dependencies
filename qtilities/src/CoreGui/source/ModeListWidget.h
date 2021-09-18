@@ -19,7 +19,7 @@ namespace Qtilities {
         class ModeListWidget : public QListWidget
         {
         public:
-            ModeListWidget(Qt::Orientation orientation, QWidget* parent = 0);
+            ModeListWidget(Qt::Orientation orientation, QWidget *parent = nullptr);
             virtual QSize sizeHint() const;
 
             void setMinimumItemSize(QSize size) {

@@ -43,7 +43,7 @@ namespace Qtilities {
             Q_INTERFACES(Qtilities::Core::Interfaces::IExportable)
 
         public:
-            Project(QObject* parent = 0);
+            Project(QObject *parent = nullptr);
             ~Project();
 
             // --------------------------------------------

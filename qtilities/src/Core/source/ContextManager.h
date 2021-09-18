@@ -42,7 +42,7 @@ namespace Qtilities {
             Q_INTERFACES(Qtilities::Core::Interfaces::IContextManager)
 
         public:
-            ContextManager(QObject* parent = 0);
+            ContextManager(QObject *parent = nullptr);
 
             // --------------------------------
             // IContextManager Implementation

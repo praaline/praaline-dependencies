@@ -48,8 +48,8 @@ namespace Qtilities {
             friend class Observer;
 
         public:
-            AbstractSubjectFilter(QObject* parent = 0) : QObject(parent) {
-                observer = 0;
+            AbstractSubjectFilter(QObject *parent = nullptr) : QObject(parent) {
+                observer = nullptr;
                 filter_is_modification_state_monitored = true;
             }
             virtual ~AbstractSubjectFilter() {}

@@ -134,7 +134,7 @@ if (ObjectManager::propertyExists(obj,qti_prop_NAME)) {
             friend class NamingPolicyInputDialog;
 
         public:
-            NamingPolicyFilter(QObject* parent = 0);
+            NamingPolicyFilter(QObject *parent = nullptr);
             virtual ~NamingPolicyFilter();
 
             NamingPolicyFilter& operator=(const NamingPolicyFilter& ref);

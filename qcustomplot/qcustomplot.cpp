@@ -4888,7 +4888,7 @@ Qt::Alignment QCPLayoutInset::insetAlignment(int index) const
   else
   {
     qDebug() << Q_FUNC_INFO << "Invalid element index:" << index;
-    return 0;
+    return Qt::Alignment();
   }
 }
 
@@ -11323,12 +11323,12 @@ QCPItemAnchor::QCPItemAnchor(QCustomPlot *parentPlot, QCPAbstractItem *parentIte
 QCPItemAnchor::~QCPItemAnchor()
 {
   // unregister as parent at children:
-  foreach (QCPItemPosition *child, mChildrenX.toList())
+  foreach (QCPItemPosition *child, mChildrenX.values())
   {
     if (child->parentAnchorX() == this)
       child->setParentAnchorX(0); // this acts back on this anchor and child removes itself from mChildrenX
   }
-  foreach (QCPItemPosition *child, mChildrenY.toList())
+  foreach (QCPItemPosition *child, mChildrenY.values())
   {
     if (child->parentAnchorY() == this)
       child->setParentAnchorY(0); // this acts back on this anchor and child removes itself from mChildrenY
@@ -11501,12 +11501,12 @@ QCPItemPosition::~QCPItemPosition()
   // unregister as parent at children:
   // Note: this is done in ~QCPItemAnchor again, but it's important QCPItemPosition does it itself, because only then
   //       the setParentAnchor(0) call the correct QCPItemPosition::pixelPosition function instead of QCPItemAnchor::pixelPosition
-  foreach (QCPItemPosition *child, mChildrenX.toList())
+  foreach (QCPItemPosition *child, mChildrenX.values())
   {
     if (child->parentAnchorX() == this)
       child->setParentAnchorX(0); // this acts back on this anchor and child removes itself from mChildrenX
   }
-  foreach (QCPItemPosition *child, mChildrenY.toList())
+  foreach (QCPItemPosition *child, mChildrenY.values())
   {
     if (child->parentAnchorY() == this)
       child->setParentAnchorY(0); // this acts back on this anchor and child removes itself from mChildrenY
@@ -12857,7 +12857,7 @@ QCustomPlot::QCustomPlot(QWidget *parent) :
   mAutoAddPlottableToLegend(true),
   mAntialiasedElements(QCP::aeNone),
   mNotAntialiasedElements(QCP::aeNone),
-  mInteractions(0),
+  mInteractions(QCP::Interactions()),
   mSelectionTolerance(8),
   mNoAntialiasingOnDrag(false),
   mBackgroundBrush(Qt::white, Qt::SolidPattern),
@@ -19540,7 +19540,7 @@ void QCPColorScale::setRangeDrag(bool enabled)
   if (enabled)
     mAxisRect.data()->setRangeDrag(QCPAxis::orientation(mType));
   else
-    mAxisRect.data()->setRangeDrag(0);
+    mAxisRect.data()->setRangeDrag(Qt::Orientations());
 }
 
 /*!
@@ -19560,7 +19560,7 @@ void QCPColorScale::setRangeZoom(bool enabled)
   if (enabled)
     mAxisRect.data()->setRangeZoom(QCPAxis::orientation(mType));
   else
-    mAxisRect.data()->setRangeZoom(0);
+    mAxisRect.data()->setRangeZoom(Qt::Orientations());
 }
 
 /*!

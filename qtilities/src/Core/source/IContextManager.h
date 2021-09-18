@@ -34,7 +34,7 @@ namespace Qtilities {
                 Q_OBJECT
 
             public:
-                IContextManager(QObject* parent = 0) : QObject(parent) {}
+                IContextManager(QObject *parent = nullptr) : QObject(parent) {}
                 virtual ~IContextManager() {}
 
                 // --------------------------------

@@ -32,7 +32,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            ObserverTableModelProxyFilter(QObject* parent = 0);
+            ObserverTableModelProxyFilter(QObject *parent = nullptr);
             virtual ~ObserverTableModelProxyFilter();
 
             //! Function to toggle usage of hints from the active parent observer. If not custom hints will be used.

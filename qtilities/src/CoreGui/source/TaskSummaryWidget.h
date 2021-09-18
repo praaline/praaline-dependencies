@@ -106,7 +106,7 @@ task_summary_widget.findCurrentTasks();
             Q_DECLARE_FLAGS(TaskRemoveOptionFlags, TaskRemoveOption)
             Q_FLAGS(TaskRemoveOptionFlags)
 
-            TaskSummaryWidget(TaskRemoveOption remove_options = RemoveDefault, TaskDisplayOptions display_options = DisplayOnlyBusyTasks, QWidget * parent = 0);
+            TaskSummaryWidget(TaskRemoveOption remove_options = RemoveDefault, TaskDisplayOptions display_options = DisplayOnlyBusyTasks, QWidget *parent = nullptr);
             ~TaskSummaryWidget();
 
             //! Gets the TaskDisplayOptions for this summary widget.

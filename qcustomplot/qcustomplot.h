@@ -124,11 +124,6 @@ class QCPBars;
 #  define QCP_LIB_DECL
 #endif
 
-// define empty macro for Q_DECL_OVERRIDE if it doesn't exist (Qt < 5)
-#ifndef Q_DECL_OVERRIDE
-#  define Q_DECL_OVERRIDE
-#endif
-
 /*!
   The QCP Namespace contains general enums, QFlags and functions used throughout the QCustomPlot
   library.
@@ -554,16 +549,16 @@ public:
   virtual ~QCPPaintBufferPixmap();
   
   // reimplemented virtual methods:
-  virtual QCPPainter *startPainting() Q_DECL_OVERRIDE;
-  virtual void draw(QCPPainter *painter) const Q_DECL_OVERRIDE;
-  void clear(const QColor &color) Q_DECL_OVERRIDE;
+  virtual QCPPainter *startPainting() override;
+  virtual void draw(QCPPainter *painter) const override;
+  void clear(const QColor &color) override;
   
 protected:
   // non-property members:
   QPixmap mBuffer;
   
   // reimplemented virtual methods:
-  virtual void reallocateBuffer() Q_DECL_OVERRIDE;
+  virtual void reallocateBuffer() override;
 };
 
 
@@ -575,9 +570,9 @@ public:
   virtual ~QCPPaintBufferGlPbuffer();
   
   // reimplemented virtual methods:
-  virtual QCPPainter *startPainting() Q_DECL_OVERRIDE;
-  virtual void draw(QCPPainter *painter) const Q_DECL_OVERRIDE;
-  void clear(const QColor &color) Q_DECL_OVERRIDE;
+  virtual QCPPainter *startPainting() override;
+  virtual void draw(QCPPainter *painter) const override;
+  void clear(const QColor &color) override;
   
 protected:
   // non-property members:
@@ -585,7 +580,7 @@ protected:
   int mMultisamples;
   
   // reimplemented virtual methods:
-  virtual void reallocateBuffer() Q_DECL_OVERRIDE;
+  virtual void reallocateBuffer() override;
 };
 #endif // QCP_OPENGL_PBUFFER
 
@@ -598,10 +593,10 @@ public:
   virtual ~QCPPaintBufferGlFbo();
   
   // reimplemented virtual methods:
-  virtual QCPPainter *startPainting() Q_DECL_OVERRIDE;
-  virtual void donePainting() Q_DECL_OVERRIDE;
-  virtual void draw(QCPPainter *painter) const Q_DECL_OVERRIDE;
-  void clear(const QColor &color) Q_DECL_OVERRIDE;
+  virtual QCPPainter *startPainting() override;
+  virtual void donePainting() override;
+  virtual void draw(QCPPainter *painter) const override;
+  void clear(const QColor &color) override;
   
 protected:
   // non-property members:
@@ -610,7 +605,7 @@ protected:
   QOpenGLFramebufferObject *mGlFrameBuffer;
   
   // reimplemented virtual methods:
-  virtual void reallocateBuffer() Q_DECL_OVERRIDE;
+  virtual void reallocateBuffer() override;
 };
 #endif // QCP_OPENGL_FBO
 
@@ -1133,8 +1128,8 @@ protected:
   virtual void keyPressEvent(QKeyEvent *event);
   
   // reimplemented virtual methods
-  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const Q_DECL_OVERRIDE;
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
+  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const override;
+  virtual void draw(QCPPainter *painter) override;
   
   friend class QCustomPlot;
 };
@@ -1248,7 +1243,7 @@ public:
   virtual QList<QCPLayoutElement*> elements(bool recursive) const;
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
   
 protected:
   // property members:
@@ -1265,9 +1260,9 @@ protected:
   virtual void layoutChanged();
   
   // reimplemented virtual methods:
-  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const Q_DECL_OVERRIDE { Q_UNUSED(painter) }
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE { Q_UNUSED(painter) }
-  virtual void parentPlotInitialized(QCustomPlot *parentPlot) Q_DECL_OVERRIDE;
+  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const override { Q_UNUSED(painter) }
+  virtual void draw(QCPPainter *painter) override { Q_UNUSED(painter) }
+  virtual void parentPlotInitialized(QCustomPlot *parentPlot) override;
 
 private:
   Q_DISABLE_COPY(QCPLayoutElement)
@@ -1286,8 +1281,8 @@ public:
   explicit QCPLayout();
   
   // reimplemented virtual methods:
-  virtual void update(UpdatePhase phase) Q_DECL_OVERRIDE;
-  virtual QList<QCPLayoutElement*> elements(bool recursive) const Q_DECL_OVERRIDE;
+  virtual void update(UpdatePhase phase) override;
+  virtual QList<QCPLayoutElement*> elements(bool recursive) const override;
   
   // introduced virtual methods:
   virtual int elementCount() const = 0;
@@ -1370,15 +1365,15 @@ public:
   void setFillOrder(FillOrder order, bool rearrange=true);
   
   // reimplemented virtual methods:
-  virtual void updateLayout() Q_DECL_OVERRIDE;
-  virtual int elementCount() const Q_DECL_OVERRIDE { return rowCount()*columnCount(); }
-  virtual QCPLayoutElement* elementAt(int index) const Q_DECL_OVERRIDE;
-  virtual QCPLayoutElement* takeAt(int index) Q_DECL_OVERRIDE;
-  virtual bool take(QCPLayoutElement* element) Q_DECL_OVERRIDE;
-  virtual QList<QCPLayoutElement*> elements(bool recursive) const Q_DECL_OVERRIDE;
-  virtual void simplify() Q_DECL_OVERRIDE;
-  virtual QSize minimumOuterSizeHint() const Q_DECL_OVERRIDE;
-  virtual QSize maximumOuterSizeHint() const Q_DECL_OVERRIDE;
+  virtual void updateLayout() override;
+  virtual int elementCount() const override { return rowCount()*columnCount(); }
+  virtual QCPLayoutElement* elementAt(int index) const override;
+  virtual QCPLayoutElement* takeAt(int index) override;
+  virtual bool take(QCPLayoutElement* element) override;
+  virtual QList<QCPLayoutElement*> elements(bool recursive) const override;
+  virtual void simplify() override;
+  virtual QSize minimumOuterSizeHint() const override;
+  virtual QSize maximumOuterSizeHint() const override;
   
   // non-virtual methods:
   QCPLayoutElement *element(int row, int column) const;
@@ -1436,13 +1431,13 @@ public:
   void setInsetRect(int index, const QRectF &rect);
   
   // reimplemented virtual methods:
-  virtual void updateLayout() Q_DECL_OVERRIDE;
-  virtual int elementCount() const Q_DECL_OVERRIDE;
-  virtual QCPLayoutElement* elementAt(int index) const Q_DECL_OVERRIDE;
-  virtual QCPLayoutElement* takeAt(int index) Q_DECL_OVERRIDE;
-  virtual bool take(QCPLayoutElement* element) Q_DECL_OVERRIDE;
-  virtual void simplify() Q_DECL_OVERRIDE {}
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
+  virtual void updateLayout() override;
+  virtual int elementCount() const override;
+  virtual QCPLayoutElement* elementAt(int index) const override;
+  virtual QCPLayoutElement* takeAt(int index) override;
+  virtual bool take(QCPLayoutElement* element) override;
+  virtual void simplify() override {}
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
   
   // non-virtual methods:
   void addElement(QCPLayoutElement *element, Qt::Alignment alignment);
@@ -1620,10 +1615,10 @@ protected:
   enum DateStrategy {dsNone, dsUniformTimeInDay, dsUniformDayInMonth} mDateStrategy;
   
   // reimplemented virtual methods:
-  virtual double getTickStep(const QCPRange &range) Q_DECL_OVERRIDE;
-  virtual int getSubTickCount(double tickStep) Q_DECL_OVERRIDE;
-  virtual QString getTickLabel(double tick, const QLocale &locale, QChar formatChar, int precision) Q_DECL_OVERRIDE;
-  virtual QVector<double> createTickVector(double tickStep, const QCPRange &range) Q_DECL_OVERRIDE;
+  virtual double getTickStep(const QCPRange &range) override;
+  virtual int getSubTickCount(double tickStep) override;
+  virtual QString getTickLabel(double tick, const QLocale &locale, QChar formatChar, int precision) override;
+  virtual QVector<double> createTickVector(double tickStep, const QCPRange &range) override;
 };
 
 /* end of 'src/axis/axistickerdatetime.h' */
@@ -1669,9 +1664,9 @@ protected:
   QHash<TimeUnit, QString> mFormatPattern;
   
   // reimplemented virtual methods:
-  virtual double getTickStep(const QCPRange &range) Q_DECL_OVERRIDE;
-  virtual int getSubTickCount(double tickStep) Q_DECL_OVERRIDE;
-  virtual QString getTickLabel(double tick, const QLocale &locale, QChar formatChar, int precision) Q_DECL_OVERRIDE;
+  virtual double getTickStep(const QCPRange &range) override;
+  virtual int getSubTickCount(double tickStep) override;
+  virtual QString getTickLabel(double tick, const QLocale &locale, QChar formatChar, int precision) override;
   
   // non-virtual methods:
   void replaceUnit(QString &text, TimeUnit unit, int value) const;
@@ -1716,7 +1711,7 @@ protected:
   ScaleStrategy mScaleStrategy;
   
   // reimplemented virtual methods:
-  virtual double getTickStep(const QCPRange &range) Q_DECL_OVERRIDE;
+  virtual double getTickStep(const QCPRange &range) override;
 };
 Q_DECLARE_METATYPE(QCPAxisTickerFixed::ScaleStrategy)
 
@@ -1752,10 +1747,10 @@ protected:
   int mSubTickCount;
   
   // reimplemented virtual methods:
-  virtual double getTickStep(const QCPRange &range) Q_DECL_OVERRIDE;
-  virtual int getSubTickCount(double tickStep) Q_DECL_OVERRIDE;
-  virtual QString getTickLabel(double tick, const QLocale &locale, QChar formatChar, int precision) Q_DECL_OVERRIDE;
-  virtual QVector<double> createTickVector(double tickStep, const QCPRange &range) Q_DECL_OVERRIDE;
+  virtual double getTickStep(const QCPRange &range) override;
+  virtual int getSubTickCount(double tickStep) override;
+  virtual QString getTickLabel(double tick, const QLocale &locale, QChar formatChar, int precision) override;
+  virtual QVector<double> createTickVector(double tickStep, const QCPRange &range) override;
   
 };
 
@@ -1805,9 +1800,9 @@ protected:
   double mPiTickStep; // size of one tick step in units of mPiValue
   
   // reimplemented virtual methods:
-  virtual double getTickStep(const QCPRange &range) Q_DECL_OVERRIDE;
-  virtual int getSubTickCount(double tickStep) Q_DECL_OVERRIDE;
-  virtual QString getTickLabel(double tick, const QLocale &locale, QChar formatChar, int precision) Q_DECL_OVERRIDE;
+  virtual double getTickStep(const QCPRange &range) override;
+  virtual int getSubTickCount(double tickStep) override;
+  virtual QString getTickLabel(double tick, const QLocale &locale, QChar formatChar, int precision) override;
   
   // non-virtual methods:
   void simplifyFraction(int &numerator, int &denominator) const;
@@ -1846,9 +1841,9 @@ protected:
   double mLogBaseLnInv;
   
   // reimplemented virtual methods:
-  virtual double getTickStep(const QCPRange &range) Q_DECL_OVERRIDE;
-  virtual int getSubTickCount(double tickStep) Q_DECL_OVERRIDE;
-  virtual QVector<double> createTickVector(double tickStep, const QCPRange &range) Q_DECL_OVERRIDE;
+  virtual double getTickStep(const QCPRange &range) override;
+  virtual int getSubTickCount(double tickStep) override;
+  virtual QVector<double> createTickVector(double tickStep, const QCPRange &range) override;
 };
 
 /* end of 'src/axis/axistickerlog.h' */
@@ -1897,8 +1892,8 @@ protected:
   QCPAxis *mParentAxis;
   
   // reimplemented virtual methods:
-  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const Q_DECL_OVERRIDE;
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
+  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const override;
+  virtual void draw(QCPPainter *painter) override;
   
   // non-virtual methods:
   void drawGridLines(QCPPainter *painter) const;
@@ -2094,7 +2089,7 @@ public:
   void setUpperEnding(const QCPLineEnding &ending);
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
   
   // non-property methods:
   Qt::Orientation orientation() const { return mOrientation; }
@@ -2176,12 +2171,12 @@ protected:
   virtual int calculateMargin();
   
   // reimplemented virtual methods:
-  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const Q_DECL_OVERRIDE;
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual QCP::Interaction selectionCategory() const Q_DECL_OVERRIDE;
+  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const override;
+  virtual void draw(QCPPainter *painter) override;
+  virtual QCP::Interaction selectionCategory() const override;
   // events:
-  virtual void selectEvent(QMouseEvent *event, bool additive, const QVariant &details, bool *selectionStateChanged) Q_DECL_OVERRIDE;
-  virtual void deselectEvent(bool *selectionStateChanged) Q_DECL_OVERRIDE;
+  virtual void selectEvent(QMouseEvent *event, bool additive, const QVariant &details, bool *selectionStateChanged) override;
+  virtual void deselectEvent(bool *selectionStateChanged) override;
   // mouse events:
   virtual void mousePressEvent(QMouseEvent *event, const QVariant &details) override;
   virtual void mouseMoveEvent(QMouseEvent *event, const QPointF &startPos) override;
@@ -3364,13 +3359,13 @@ protected:
   QCPSelectionDecorator *mSelectionDecorator;
   
   // reimplemented virtual methods:
-  virtual QRect clipRect() const Q_DECL_OVERRIDE;
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE = 0;
-  virtual QCP::Interaction selectionCategory() const Q_DECL_OVERRIDE;
-  void applyDefaultAntialiasingHint(QCPPainter *painter) const Q_DECL_OVERRIDE;
+  virtual QRect clipRect() const override;
+  virtual void draw(QCPPainter *painter) override = 0;
+  virtual QCP::Interaction selectionCategory() const override;
+  void applyDefaultAntialiasingHint(QCPPainter *painter) const override;
   // events:
-  virtual void selectEvent(QMouseEvent *event, bool additive, const QVariant &details, bool *selectionStateChanged) Q_DECL_OVERRIDE;
-  virtual void deselectEvent(bool *selectionStateChanged) Q_DECL_OVERRIDE;
+  virtual void selectEvent(QMouseEvent *event, bool additive, const QVariant &details, bool *selectionStateChanged) override;
+  virtual void deselectEvent(bool *selectionStateChanged) override;
   
   // introduced virtual methods:
   virtual void drawLegendIcon(QCPPainter *painter, const QRectF &rect) const = 0;
@@ -3469,7 +3464,7 @@ public:
   QCPAxis *keyAxis() const { return mKeyAxis.data(); }
   QCPAxis *valueAxis() const { return mValueAxis.data(); }
   QCPAxisRect *axisRect() const;
-  virtual QPointF pixelPosition() const Q_DECL_OVERRIDE;
+  virtual QPointF pixelPosition() const override;
   
   // setters:
   void setType(PositionType type);
@@ -3493,7 +3488,7 @@ protected:
   QCPItemAnchor *mParentAnchorX, *mParentAnchorY;
   
   // reimplemented virtual methods:
-  virtual QCPItemPosition *toQCPItemPosition() Q_DECL_OVERRIDE { return this; }
+  virtual QCPItemPosition *toQCPItemPosition() override { return this; }
   
 private:
   Q_DISABLE_COPY(QCPItemPosition)
@@ -3528,7 +3523,7 @@ public:
   Q_SLOT void setSelected(bool selected);
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE = 0;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override = 0;
   
   // non-virtual methods:
   QList<QCPItemPosition*> positions() const { return mPositions; }
@@ -3550,13 +3545,13 @@ protected:
   bool mSelectable, mSelected;
   
   // reimplemented virtual methods:
-  virtual QCP::Interaction selectionCategory() const Q_DECL_OVERRIDE;
-  virtual QRect clipRect() const Q_DECL_OVERRIDE;
-  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const Q_DECL_OVERRIDE;
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE = 0;
+  virtual QCP::Interaction selectionCategory() const override;
+  virtual QRect clipRect() const override;
+  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const override;
+  virtual void draw(QCPPainter *painter) override = 0;
   // events:
-  virtual void selectEvent(QMouseEvent *event, bool additive, const QVariant &details, bool *selectionStateChanged) Q_DECL_OVERRIDE;
-  virtual void deselectEvent(bool *selectionStateChanged) Q_DECL_OVERRIDE;
+  virtual void selectEvent(QMouseEvent *event, bool additive, const QVariant &details, bool *selectionStateChanged) override;
+  virtual void deselectEvent(bool *selectionStateChanged) override;
   
   // introduced virtual methods:
   virtual QPointF anchorPixelPosition(int anchorId) const;
@@ -3797,15 +3792,15 @@ protected:
 #endif
   
   // reimplemented virtual methods:
-  virtual QSize minimumSizeHint() const Q_DECL_OVERRIDE;
-  virtual QSize sizeHint() const Q_DECL_OVERRIDE;
-  virtual void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
-  virtual void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
-  virtual void mouseDoubleClickEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-  virtual void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-  virtual void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-  virtual void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-  virtual void wheelEvent(QWheelEvent *event) Q_DECL_OVERRIDE;
+  virtual QSize minimumSizeHint() const override;
+  virtual QSize sizeHint() const override;
+  virtual void paintEvent(QPaintEvent *event) override;
+  virtual void resizeEvent(QResizeEvent *event) override;
+  virtual void mouseDoubleClickEvent(QMouseEvent *event) override;
+  virtual void mousePressEvent(QMouseEvent *event) override;
+  virtual void mouseMoveEvent(QMouseEvent *event) override;
+  virtual void mouseReleaseEvent(QMouseEvent *event) override;
+  virtual void wheelEvent(QWheelEvent *event) override;
   
   // introduced virtual methods:
   virtual void draw(QCPPainter *painter);
@@ -3874,20 +3869,20 @@ public:
   virtual ~QCPAbstractPlottable1D();
   
   // virtual methods of 1d plottable interface:
-  virtual int dataCount() const Q_DECL_OVERRIDE;
-  virtual double dataMainKey(int index) const Q_DECL_OVERRIDE;
-  virtual double dataSortKey(int index) const Q_DECL_OVERRIDE;
-  virtual double dataMainValue(int index) const Q_DECL_OVERRIDE;
-  virtual QCPRange dataValueRange(int index) const Q_DECL_OVERRIDE;
-  virtual QPointF dataPixelPosition(int index) const Q_DECL_OVERRIDE;
-  virtual bool sortKeyIsMainKey() const Q_DECL_OVERRIDE;
-  virtual QCPDataSelection selectTestRect(const QRectF &rect, bool onlySelectable) const Q_DECL_OVERRIDE;
-  virtual int findBegin(double sortKey, bool expandedRange=true) const Q_DECL_OVERRIDE;
-  virtual int findEnd(double sortKey, bool expandedRange=true) const Q_DECL_OVERRIDE;
+  virtual int dataCount() const override;
+  virtual double dataMainKey(int index) const override;
+  virtual double dataSortKey(int index) const override;
+  virtual double dataMainValue(int index) const override;
+  virtual QCPRange dataValueRange(int index) const override;
+  virtual QPointF dataPixelPosition(int index) const override;
+  virtual bool sortKeyIsMainKey() const override;
+  virtual QCPDataSelection selectTestRect(const QRectF &rect, bool onlySelectable) const override;
+  virtual int findBegin(double sortKey, bool expandedRange=true) const override;
+  virtual int findEnd(double sortKey, bool expandedRange=true) const override;
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
-  virtual QCPPlottableInterface1D *interface1D() Q_DECL_OVERRIDE { return this; }
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
+  virtual QCPPlottableInterface1D *interface1D() override { return this; }
   
 protected:
   // property members:
@@ -4554,7 +4549,7 @@ public:
   virtual void drawBracket(QCPPainter *painter, int direction) const;
   
   // virtual methods:
-  virtual void drawDecoration(QCPPainter *painter, QCPDataSelection selection) Q_DECL_OVERRIDE;
+  virtual void drawDecoration(QCPPainter *painter, QCPDataSelection selection) override;
   
 protected:
   // property members:
@@ -4655,8 +4650,8 @@ public:
   QPoint center() const { return mRect.center(); }
   
   // reimplemented virtual methods:
-  virtual void update(UpdatePhase phase) Q_DECL_OVERRIDE;
-  virtual QList<QCPLayoutElement*> elements(bool recursive) const Q_DECL_OVERRIDE;
+  virtual void update(UpdatePhase phase) override;
+  virtual QList<QCPLayoutElement*> elements(bool recursive) const override;
 
 protected:
   // property members:
@@ -4678,15 +4673,15 @@ protected:
   QHash<QCPAxis::AxisType, QList<QCPAxis*> > mAxes;
   
   // reimplemented virtual methods:
-  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const Q_DECL_OVERRIDE;
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual int calculateAutoMargin(QCP::MarginSide side) Q_DECL_OVERRIDE;
-  virtual void layoutChanged() Q_DECL_OVERRIDE;
+  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const override;
+  virtual void draw(QCPPainter *painter) override;
+  virtual int calculateAutoMargin(QCP::MarginSide side) override;
+  virtual void layoutChanged() override;
   // events:
-  virtual void mousePressEvent(QMouseEvent *event, const QVariant &details) Q_DECL_OVERRIDE;
-  virtual void mouseMoveEvent(QMouseEvent *event, const QPointF &startPos) Q_DECL_OVERRIDE;
-  virtual void mouseReleaseEvent(QMouseEvent *event, const QPointF &startPos) Q_DECL_OVERRIDE;
-  virtual void wheelEvent(QWheelEvent *event) Q_DECL_OVERRIDE;
+  virtual void mousePressEvent(QMouseEvent *event, const QVariant &details) override;
+  virtual void mouseMoveEvent(QMouseEvent *event, const QPointF &startPos) override;
+  virtual void mouseReleaseEvent(QMouseEvent *event, const QPointF &startPos) override;
+  virtual void wheelEvent(QWheelEvent *event) override;
   
   // non-property methods:
   void drawBackground(QCPPainter *painter);
@@ -4738,7 +4733,7 @@ public:
   Q_SLOT void setSelected(bool selected);
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
   
 signals:
   void selectionChanged(bool selected);
@@ -4754,13 +4749,13 @@ protected:
   bool mSelectable, mSelected;
   
   // reimplemented virtual methods:
-  virtual QCP::Interaction selectionCategory() const Q_DECL_OVERRIDE;
-  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const Q_DECL_OVERRIDE;
-  virtual QRect clipRect() const Q_DECL_OVERRIDE;
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE = 0;
+  virtual QCP::Interaction selectionCategory() const override;
+  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const override;
+  virtual QRect clipRect() const override;
+  virtual void draw(QCPPainter *painter) override = 0;
   // events:
-  virtual void selectEvent(QMouseEvent *event, bool additive, const QVariant &details, bool *selectionStateChanged) Q_DECL_OVERRIDE;
-  virtual void deselectEvent(bool *selectionStateChanged) Q_DECL_OVERRIDE;
+  virtual void selectEvent(QMouseEvent *event, bool additive, const QVariant &details, bool *selectionStateChanged) override;
+  virtual void deselectEvent(bool *selectionStateChanged) override;
   
 private:
   Q_DISABLE_COPY(QCPAbstractLegendItem)
@@ -4783,8 +4778,8 @@ protected:
   QCPAbstractPlottable *mPlottable;
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual QSize minimumOuterSizeHint() const Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
+  virtual QSize minimumOuterSizeHint() const override;
   
   // non-virtual methods:
   QPen getIconBorderPen() const;
@@ -4863,7 +4858,7 @@ public:
   void setSelectedTextColor(const QColor &color);
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
   
   // non-virtual methods:
   QCPAbstractLegendItem *item(int index) const;
@@ -4896,13 +4891,13 @@ protected:
   QColor mSelectedTextColor;
   
   // reimplemented virtual methods:
-  virtual void parentPlotInitialized(QCustomPlot *parentPlot) Q_DECL_OVERRIDE;
-  virtual QCP::Interaction selectionCategory() const Q_DECL_OVERRIDE;
-  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const Q_DECL_OVERRIDE;
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
+  virtual void parentPlotInitialized(QCustomPlot *parentPlot) override;
+  virtual QCP::Interaction selectionCategory() const override;
+  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const override;
+  virtual void draw(QCPPainter *painter) override;
   // events:
-  virtual void selectEvent(QMouseEvent *event, bool additive, const QVariant &details, bool *selectionStateChanged) Q_DECL_OVERRIDE;
-  virtual void deselectEvent(bool *selectionStateChanged) Q_DECL_OVERRIDE;
+  virtual void selectEvent(QMouseEvent *event, bool additive, const QVariant &details, bool *selectionStateChanged) override;
+  virtual void deselectEvent(bool *selectionStateChanged) override;
   
   // non-virtual methods:
   QPen getBorderPen() const;
@@ -4963,10 +4958,10 @@ public:
   Q_SLOT void setSelected(bool selected);
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
-  virtual void mousePressEvent(QMouseEvent *event, const QVariant &details) Q_DECL_OVERRIDE;
-  virtual void mouseReleaseEvent(QMouseEvent *event, const QPointF &startPos) Q_DECL_OVERRIDE;
-  virtual void mouseDoubleClickEvent(QMouseEvent *event, const QVariant &details) Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
+  virtual void mousePressEvent(QMouseEvent *event, const QVariant &details) override;
+  virtual void mouseReleaseEvent(QMouseEvent *event, const QPointF &startPos) override;
+  virtual void mouseDoubleClickEvent(QMouseEvent *event, const QVariant &details) override;
   
 signals:
   void selectionChanged(bool selected);
@@ -4986,13 +4981,13 @@ protected:
   bool mSelectable, mSelected;
   
   // reimplemented virtual methods:
-  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const Q_DECL_OVERRIDE;
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual QSize minimumOuterSizeHint() const Q_DECL_OVERRIDE;
-  virtual QSize maximumOuterSizeHint() const Q_DECL_OVERRIDE;
+  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const override;
+  virtual void draw(QCPPainter *painter) override;
+  virtual QSize minimumOuterSizeHint() const override;
+  virtual QSize maximumOuterSizeHint() const override;
   // events:
-  virtual void selectEvent(QMouseEvent *event, bool additive, const QVariant &details, bool *selectionStateChanged) Q_DECL_OVERRIDE;
-  virtual void deselectEvent(bool *selectionStateChanged) Q_DECL_OVERRIDE;
+  virtual void selectEvent(QMouseEvent *event, bool additive, const QVariant &details, bool *selectionStateChanged) override;
+  virtual void deselectEvent(bool *selectionStateChanged) override;
   
   // non-virtual methods:
   QFont mainFont() const;
@@ -5027,7 +5022,7 @@ protected:
   using QCPAxisRect::mouseReleaseEvent;
   using QCPAxisRect::wheelEvent;
   using QCPAxisRect::update;
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
   void updateGradientImage();
   Q_SLOT void axisSelectionChanged(QCPAxis::SelectableParts selectedParts);
   Q_SLOT void axisSelectableChanged(QCPAxis::SelectableParts selectableParts);
@@ -5078,7 +5073,7 @@ public:
   void rescaleDataRange(bool onlyVisibleMaps);
   
   // reimplemented virtual methods:
-  virtual void update(UpdatePhase phase) Q_DECL_OVERRIDE;
+  virtual void update(UpdatePhase phase) override;
   
 signals:
   void dataRangeChanged(const QCPRange &newRange);
@@ -5098,12 +5093,12 @@ protected:
   QPointer<QCPAxis> mColorAxis;
   
   // reimplemented virtual methods:
-  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const Q_DECL_OVERRIDE;
+  virtual void applyDefaultAntialiasingHint(QCPPainter *painter) const override;
   // events:
-  virtual void mousePressEvent(QMouseEvent *event, const QVariant &details) Q_DECL_OVERRIDE;
-  virtual void mouseMoveEvent(QMouseEvent *event, const QPointF &startPos) Q_DECL_OVERRIDE;
-  virtual void mouseReleaseEvent(QMouseEvent *event, const QPointF &startPos) Q_DECL_OVERRIDE;
-  virtual void wheelEvent(QWheelEvent *event) Q_DECL_OVERRIDE;
+  virtual void mousePressEvent(QMouseEvent *event, const QVariant &details) override;
+  virtual void mouseMoveEvent(QMouseEvent *event, const QPointF &startPos) override;
+  virtual void mouseReleaseEvent(QMouseEvent *event, const QPointF &startPos) override;
+  virtual void wheelEvent(QWheelEvent *event) override;
   
 private:
   Q_DISABLE_COPY(QCPColorScale)
@@ -5200,9 +5195,9 @@ public:
   void addData(double key, double value);
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
-  virtual QCPRange getKeyRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth) const Q_DECL_OVERRIDE;
-  virtual QCPRange getValueRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth, const QCPRange &inKeyRange=QCPRange()) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
+  virtual QCPRange getKeyRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth) const override;
+  virtual QCPRange getValueRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth, const QCPRange &inKeyRange=QCPRange()) const override;
   
 protected:
   // property members:
@@ -5213,8 +5208,8 @@ protected:
   bool mAdaptiveSampling;
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual void drawLegendIcon(QCPPainter *painter, const QRectF &rect) const Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
+  virtual void drawLegendIcon(QCPPainter *painter, const QRectF &rect) const override;
   
   // introduced virtual methods:
   virtual void drawFill(QCPPainter *painter, QVector<QPointF> *lines) const;
@@ -5332,9 +5327,9 @@ public:
   void addData(double key, double value);
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
-  virtual QCPRange getKeyRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth) const Q_DECL_OVERRIDE;
-  virtual QCPRange getValueRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth, const QCPRange &inKeyRange=QCPRange()) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
+  virtual QCPRange getKeyRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth) const override;
+  virtual QCPRange getValueRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth, const QCPRange &inKeyRange=QCPRange()) const override;
   
 protected:
   // property members:
@@ -5343,8 +5338,8 @@ protected:
   LineStyle mLineStyle;
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual void drawLegendIcon(QCPPainter *painter, const QRectF &rect) const Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
+  virtual void drawLegendIcon(QCPPainter *painter, const QRectF &rect) const override;
   
   // introduced virtual methods:
   virtual void drawCurveLine(QCPPainter *painter, const QVector<QPointF> &lines) const;
@@ -5522,11 +5517,11 @@ public:
   void moveAbove(QCPBars *bars);
   
   // reimplemented virtual methods:
-  virtual QCPDataSelection selectTestRect(const QRectF &rect, bool onlySelectable) const Q_DECL_OVERRIDE;
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
-  virtual QCPRange getKeyRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth) const Q_DECL_OVERRIDE;
-  virtual QCPRange getValueRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth, const QCPRange &inKeyRange=QCPRange()) const Q_DECL_OVERRIDE;
-  virtual QPointF dataPixelPosition(int index) const Q_DECL_OVERRIDE;
+  virtual QCPDataSelection selectTestRect(const QRectF &rect, bool onlySelectable) const override;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
+  virtual QCPRange getKeyRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth) const override;
+  virtual QCPRange getValueRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth, const QCPRange &inKeyRange=QCPRange()) const override;
+  virtual QPointF dataPixelPosition(int index) const override;
   
 protected:
   // property members:
@@ -5538,8 +5533,8 @@ protected:
   QPointer<QCPBars> mBarBelow, mBarAbove;
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual void drawLegendIcon(QCPPainter *painter, const QRectF &rect) const Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
+  virtual void drawLegendIcon(QCPPainter *painter, const QRectF &rect) const override;
   
   // non-virtual methods:
   void getVisibleDataBounds(QCPBarsDataContainer::const_iterator &begin, QCPBarsDataContainer::const_iterator &end) const;
@@ -5640,10 +5635,10 @@ public:
   void addData(double key, double minimum, double lowerQuartile, double median, double upperQuartile, double maximum, const QVector<double> &outliers=QVector<double>());
   
   // reimplemented virtual methods:
-  virtual QCPDataSelection selectTestRect(const QRectF &rect, bool onlySelectable) const Q_DECL_OVERRIDE;
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
-  virtual QCPRange getKeyRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth) const Q_DECL_OVERRIDE;
-  virtual QCPRange getValueRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth, const QCPRange &inKeyRange=QCPRange()) const Q_DECL_OVERRIDE;
+  virtual QCPDataSelection selectTestRect(const QRectF &rect, bool onlySelectable) const override;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
+  virtual QCPRange getKeyRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth) const override;
+  virtual QCPRange getValueRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth, const QCPRange &inKeyRange=QCPRange()) const override;
   
 protected:
   // property members:
@@ -5655,8 +5650,8 @@ protected:
   QCPScatterStyle mOutlierStyle;
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual void drawLegendIcon(QCPPainter *painter, const QRectF &rect) const Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
+  virtual void drawLegendIcon(QCPPainter *painter, const QRectF &rect) const override;
   
   // introduced virtual methods:
   virtual void drawStatisticalBox(QCPPainter *painter, QCPStatisticalBoxDataContainer::const_iterator it, const QCPScatterStyle &outlierStyle) const;
@@ -5772,9 +5767,9 @@ public:
   Q_SLOT void updateLegendIcon(Qt::TransformationMode transformMode=Qt::SmoothTransformation, const QSize &thumbSize=QSize(32, 18));
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
-  virtual QCPRange getKeyRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth) const Q_DECL_OVERRIDE;
-  virtual QCPRange getValueRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth, const QCPRange &inKeyRange=QCPRange()) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
+  virtual QCPRange getKeyRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth) const override;
+  virtual QCPRange getValueRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth, const QCPRange &inKeyRange=QCPRange()) const override;
   
 signals:
   void dataRangeChanged(const QCPRange &newRange);
@@ -5800,8 +5795,8 @@ protected:
   virtual void updateMapImage();
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual void drawLegendIcon(QCPPainter *painter, const QRectF &rect) const Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
+  virtual void drawLegendIcon(QCPPainter *painter, const QRectF &rect) const override;
   
   friend class QCustomPlot;
   friend class QCPLegend;
@@ -5911,10 +5906,10 @@ public:
   void addData(double key, double open, double high, double low, double close);
   
   // reimplemented virtual methods:
-  virtual QCPDataSelection selectTestRect(const QRectF &rect, bool onlySelectable) const Q_DECL_OVERRIDE;
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
-  virtual QCPRange getKeyRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth) const Q_DECL_OVERRIDE;
-  virtual QCPRange getValueRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth, const QCPRange &inKeyRange=QCPRange()) const Q_DECL_OVERRIDE;
+  virtual QCPDataSelection selectTestRect(const QRectF &rect, bool onlySelectable) const override;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
+  virtual QCPRange getKeyRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth) const override;
+  virtual QCPRange getValueRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth, const QCPRange &inKeyRange=QCPRange()) const override;
   
   // static methods:
   static QCPFinancialDataContainer timeSeriesToOhlc(const QVector<double> &time, const QVector<double> &value, double timeBinSize, double timeBinOffset = 0);
@@ -5929,8 +5924,8 @@ protected:
   QPen mPenPositive, mPenNegative;
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual void drawLegendIcon(QCPPainter *painter, const QRectF &rect) const Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
+  virtual void drawLegendIcon(QCPPainter *painter, const QRectF &rect) const override;
   
   // non-virtual methods:
   void drawOhlcPlot(QCPPainter *painter, const QCPFinancialDataContainer::const_iterator &begin, const QCPFinancialDataContainer::const_iterator &end, bool isSelected);
@@ -6029,20 +6024,20 @@ public:
   void addData(double errorMinus, double errorPlus);
   
   // virtual methods of 1d plottable interface:
-  virtual int dataCount() const Q_DECL_OVERRIDE;
-  virtual double dataMainKey(int index) const Q_DECL_OVERRIDE;
-  virtual double dataSortKey(int index) const Q_DECL_OVERRIDE;
-  virtual double dataMainValue(int index) const Q_DECL_OVERRIDE;
-  virtual QCPRange dataValueRange(int index) const Q_DECL_OVERRIDE;
-  virtual QPointF dataPixelPosition(int index) const Q_DECL_OVERRIDE;
-  virtual bool sortKeyIsMainKey() const Q_DECL_OVERRIDE;
-  virtual QCPDataSelection selectTestRect(const QRectF &rect, bool onlySelectable) const Q_DECL_OVERRIDE;
-  virtual int findBegin(double sortKey, bool expandedRange=true) const Q_DECL_OVERRIDE;
-  virtual int findEnd(double sortKey, bool expandedRange=true) const Q_DECL_OVERRIDE;
+  virtual int dataCount() const override;
+  virtual double dataMainKey(int index) const override;
+  virtual double dataSortKey(int index) const override;
+  virtual double dataMainValue(int index) const override;
+  virtual QCPRange dataValueRange(int index) const override;
+  virtual QPointF dataPixelPosition(int index) const override;
+  virtual bool sortKeyIsMainKey() const override;
+  virtual QCPDataSelection selectTestRect(const QRectF &rect, bool onlySelectable) const override;
+  virtual int findBegin(double sortKey, bool expandedRange=true) const override;
+  virtual int findEnd(double sortKey, bool expandedRange=true) const override;
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
-  virtual QCPPlottableInterface1D *interface1D() Q_DECL_OVERRIDE { return this; }
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
+  virtual QCPPlottableInterface1D *interface1D() override { return this; }
   
 protected:
   // property members:
@@ -6053,10 +6048,10 @@ protected:
   double mSymbolGap;
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual void drawLegendIcon(QCPPainter *painter, const QRectF &rect) const Q_DECL_OVERRIDE;
-  virtual QCPRange getKeyRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth) const Q_DECL_OVERRIDE;
-  virtual QCPRange getValueRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth, const QCPRange &inKeyRange=QCPRange()) const Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
+  virtual void drawLegendIcon(QCPPainter *painter, const QRectF &rect) const override;
+  virtual QCPRange getKeyRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth) const override;
+  virtual QCPRange getValueRange(bool &foundRange, QCP::SignDomain inSignDomain=QCP::sdBoth, const QCPRange &inKeyRange=QCPRange()) const override;
   
   // non-virtual methods:
   void getErrorBarLines(QCPErrorBarsDataContainer::const_iterator it, QVector<QLineF> &backbones, QVector<QLineF> &whiskers) const;
@@ -6097,7 +6092,7 @@ public:
   void setSelectedPen(const QPen &pen);
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
   
   QCPItemPosition * const point1;
   QCPItemPosition * const point2;
@@ -6107,7 +6102,7 @@ protected:
   QPen mPen, mSelectedPen;
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
   
   // non-virtual methods:
   QLineF getRectClippedStraightLine(const QCPVector2D &point1, const QCPVector2D &vec, const QRect &rect) const;
@@ -6146,7 +6141,7 @@ public:
   void setTail(const QCPLineEnding &tail);
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
   
   QCPItemPosition * const start;
   QCPItemPosition * const end;
@@ -6157,7 +6152,7 @@ protected:
   QCPLineEnding mHead, mTail;
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
   
   // non-virtual methods:
   QLineF getRectClippedLine(const QCPVector2D &start, const QCPVector2D &end, const QRect &rect) const;
@@ -6196,7 +6191,7 @@ public:
   void setTail(const QCPLineEnding &tail);
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
   
   QCPItemPosition * const start;
   QCPItemPosition * const startDir;
@@ -6209,7 +6204,7 @@ protected:
   QCPLineEnding mHead, mTail;
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
   
   // non-virtual methods:
   QPen mainPen() const;
@@ -6247,7 +6242,7 @@ public:
   void setSelectedBrush(const QBrush &brush);
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
   
   QCPItemPosition * const topLeft;
   QCPItemPosition * const bottomRight;
@@ -6266,8 +6261,8 @@ protected:
   QBrush mBrush, mSelectedBrush;
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual QPointF anchorPixelPosition(int anchorId) const Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
+  virtual QPointF anchorPixelPosition(int anchorId) const override;
   
   // non-virtual methods:
   QPen mainPen() const;
@@ -6333,7 +6328,7 @@ public:
   void setPadding(const QMargins &padding);
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
   
   QCPItemPosition * const position;
   QCPItemAnchor * const topLeft;
@@ -6360,8 +6355,8 @@ protected:
   QMargins mPadding;
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual QPointF anchorPixelPosition(int anchorId) const Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
+  virtual QPointF anchorPixelPosition(int anchorId) const override;
   
   // non-virtual methods:
   QPointF getTextDrawPoint(const QPointF &pos, const QRectF &rect, Qt::Alignment positionAlignment) const;
@@ -6403,7 +6398,7 @@ public:
   void setSelectedBrush(const QBrush &brush);
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
   
   QCPItemPosition * const topLeft;
   QCPItemPosition * const bottomRight;
@@ -6425,8 +6420,8 @@ protected:
   QBrush mBrush, mSelectedBrush;
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual QPointF anchorPixelPosition(int anchorId) const Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
+  virtual QPointF anchorPixelPosition(int anchorId) const override;
   
   // non-virtual methods:
   QPen mainPen() const;
@@ -6469,7 +6464,7 @@ public:
   void setSelectedPen(const QPen &pen);
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
   
   QCPItemPosition * const topLeft;
   QCPItemPosition * const bottomRight;
@@ -6493,8 +6488,8 @@ protected:
   QPen mPen, mSelectedPen;
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual QPointF anchorPixelPosition(int anchorId) const Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
+  virtual QPointF anchorPixelPosition(int anchorId) const override;
   
   // non-virtual methods:
   void updateScaledPixmap(QRect finalRect=QRect(), bool flipHorz=false, bool flipVert=false);
@@ -6562,7 +6557,7 @@ public:
   void setInterpolating(bool enabled);
 
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
   
   // non-virtual methods:
   void updatePosition();
@@ -6580,7 +6575,7 @@ protected:
   bool mInterpolating;
 
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
 
   // non-virtual methods:
   QPen mainPen() const;
@@ -6633,7 +6628,7 @@ public:
   void setStyle(BracketStyle style);
   
   // reimplemented virtual methods:
-  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const Q_DECL_OVERRIDE;
+  virtual double selectTest(const QPointF &pos, bool onlySelectable, QVariant *details=0) const override;
   
   QCPItemPosition * const left;
   QCPItemPosition * const right;
@@ -6647,8 +6642,8 @@ protected:
   BracketStyle mStyle;
   
   // reimplemented virtual methods:
-  virtual void draw(QCPPainter *painter) Q_DECL_OVERRIDE;
-  virtual QPointF anchorPixelPosition(int anchorId) const Q_DECL_OVERRIDE;
+  virtual void draw(QCPPainter *painter) override;
+  virtual QPointF anchorPixelPosition(int anchorId) const override;
   
   // non-virtual methods:
   QPen mainPen() const;

@@ -648,7 +648,7 @@ Qtilities::Core::InstanceFactoryInfo Qtilities::CoreGui::NamingPolicyFilter::ins
 }
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::CoreGui::NamingPolicyFilter::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags = IExportable::ExportModeFlags();
     flags |= IExportable::Binary;
     flags |= IExportable::XML;
     return flags;
@@ -831,7 +831,7 @@ bool Qtilities::CoreGui::NamingPolicyFilter::validateNamePropertyChange(QObject*
                 object_name_prop = obj->property(qti_prop_NAME);
                 if (object_name_prop.isValid() && object_name_prop.canConvert<SharedProperty>()) {
                     SharedProperty name_property(qti_prop_NAME,QVariant(valid_name));
-                    QVariant property = qVariantFromValue(name_property);
+                    QVariant property = QVariant::fromValue(name_property);
                     obj->setProperty(qti_prop_NAME,QVariant(property));
                     return_value = true;
                 } else
@@ -843,7 +843,7 @@ bool Qtilities::CoreGui::NamingPolicyFilter::validateNamePropertyChange(QObject*
                 if (instance_names_prop.isValid() && instance_names_prop.canConvert<MultiContextProperty>()) {
                     MultiContextProperty new_instance_name = instance_names_prop.value<MultiContextProperty>();
                     new_instance_name.setValue(QVariant(valid_name),observer->observerID());
-                    obj->setProperty(qti_prop_ALIAS_MAP,qVariantFromValue(new_instance_name));
+                    obj->setProperty(qti_prop_ALIAS_MAP,QVariant::fromValue(new_instance_name));
                     return_value = true;
                 } else
                     return_value = false;
@@ -1156,7 +1156,7 @@ void Qtilities::CoreGui::NamingPolicyFilter::setName(QObject* object, const QStr
         object_name_prop = object->property(qti_prop_NAME);
         if (object_name_prop.isValid() && object_name_prop.canConvert<SharedProperty>()) {
             SharedProperty name_property(qti_prop_NAME,QVariant(new_name));
-            QVariant property = qVariantFromValue(name_property);
+            QVariant property = QVariant::fromValue(name_property);
             object->setProperty(qti_prop_NAME,QVariant(property));
         }
     } else {
@@ -1166,7 +1166,7 @@ void Qtilities::CoreGui::NamingPolicyFilter::setName(QObject* object, const QStr
         if (instance_names_prop.isValid() && instance_names_prop.canConvert<MultiContextProperty>()) {
             MultiContextProperty new_instance_name = instance_names_prop.value<MultiContextProperty>();
             new_instance_name.setValue(QVariant(new_name),observer->observerID());
-            object->setProperty(qti_prop_ALIAS_MAP,qVariantFromValue(new_instance_name));
+            object->setProperty(qti_prop_ALIAS_MAP,QVariant::fromValue(new_instance_name));
         }
     }
 }

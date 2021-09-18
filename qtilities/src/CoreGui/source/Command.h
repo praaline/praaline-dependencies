@@ -63,7 +63,7 @@ namespace Qtilities {
             Q_PROPERTY(QKeySequence KeySequence READ keySequence WRITE setKeySequence)
 
         public:
-            Command(int category_context, QObject* parent = 0);
+            Command(int category_context, QObject *parent = nullptr);
             ~Command();
 
             //! Sets the default key sequence.
@@ -133,7 +133,7 @@ namespace Qtilities {
         public:
             ProxyAction(QAction* proxy_action,
                         int category_context,
-                        QObject* parent = 0);
+                        QObject *parent = nullptr);
             virtual ~ProxyAction();
 
             // --------------------------------
@@ -182,7 +182,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            ShortcutCommand(const QString& user_text, QShortcut *shortcut, const QList<int> &active_contexts, int category_context, QObject* parent = 0);
+            ShortcutCommand(const QString& user_text, QShortcut *shortcut, const QList<int> &active_contexts, int category_context, QObject *parent = nullptr);
             virtual ~ShortcutCommand();
 
             // --------------------------------

@@ -79,7 +79,7 @@ namespace Qtilities {
               \param parent The parent widget.
               \param f The Qt::WindowFlags which must be used for the widget.
               */
-            ObserverWidget(DisplayMode display_mode = TreeView, QWidget * parent = 0, Qt::WindowFlags f = 0);
+            ObserverWidget(DisplayMode display_mode = TreeView, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
             //! A constructor which takes the observer context to be displayed as the first parameter.
             /*!
               This constructor can be used if no functions need to be called on the observer widget object
@@ -102,16 +102,16 @@ categorized_widget->show();
               \param parent The parent widget.
               \param f The Qt::WindowFlags which must be used for the widget.
               */
-            ObserverWidget(Observer* observer_context, DisplayMode display_mode = TreeView, QWidget * parent = 0, Qt::WindowFlags f = 0);
+            ObserverWidget(Observer* observer_context, DisplayMode display_mode = TreeView, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
             //! Default destructor.
             virtual ~ObserverWidget();
 
         private:
-            void constructPrivate(DisplayMode display_mode = TreeView, Observer* observer_context = 0);
+            void constructPrivate(DisplayMode display_mode = TreeView, Observer *observer_context = nullptr);
 
         public:
             //! Sets the observer context.
-            bool setObserverContext(Observer* observer_ptr);
+            bool setObserverContext(Observer *observer_ptr);
             //! Gets a pointer to the observer context.
             Observer* observerContext() const;
             //! Provides a pointer to the current selection's parent. If no objects are selected, 0 is returned.
@@ -860,7 +860,7 @@ categorized_widget->show();
             //! Signal which is emitted when the display mode of this widget is toggled.
             void displayModeChanged(Qtilities::DisplayMode display_mode);
             //! Signal which is emitted when object selection changes.
-            void selectedObjectsChanged(QList<QObject*> selected_objects, Observer* selection_parent = 0);
+            void selectedObjectsChanged(QList<QObject*> selected_objects, Observer *selection_parent = nullptr);
 
             // --------------------------------
             // Item Widgets Related Functions

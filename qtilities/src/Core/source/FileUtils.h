@@ -54,7 +54,7 @@ namespace Qtilities {
                 return "";
             }
 
-            FileUtils(bool enable_tasking = true, QObject* parent = 0);
+            FileUtils(bool enable_tasking = true, QObject *parent = nullptr);
             virtual ~FileUtils();
 
             // --------------------------------

@@ -236,7 +236,7 @@ while (itrB.hasNext()) {
                 return const_cast<T*> (d_current);
             }
 
-            Observer* iterationContext() const {
+            const Observer* iterationContext() const {
                 return d_parent_observer;
             }
 
@@ -426,12 +426,12 @@ while (itrB.hasNext()) {
                 return d_current;
             }
 
-            Observer* iterationContext() const {
+            const Observer* iterationContext() const {
                 return d_parent_observer;
             }
 
         protected:
-            Observer* getParent() {
+            const Observer* getParent() {
                 QList<Observer*> parents = Observer::parentReferences(d_current);
                 if (parents.count() > 1) {
                     if (d_parent_observer)

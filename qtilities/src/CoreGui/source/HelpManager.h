@@ -81,7 +81,7 @@ bool MyPlugins::initializeDependencies(QStringList *error_strings) {
             Q_OBJECT
 
         public:
-            HelpManager(QObject* parent = 0);
+            HelpManager(QObject *parent = nullptr);
             ~HelpManager();
 
             //! Returns a help engine to use in your application.

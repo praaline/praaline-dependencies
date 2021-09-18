@@ -125,7 +125,7 @@ bool Zipper::zipFiles(const QStringList &files, const QString &output_file, QStr
     arguments << output_file;
 
     // Build up the ignore list in 7zip format:
-    QStringList ignore_list_items = d->ignore_list.split(" ",QString::SkipEmptyParts);
+    QStringList ignore_list_items = d->ignore_list.split(" ",Qt::SkipEmptyParts);
     foreach (const QString& ignore_token, ignore_list_items)
         arguments << "-xr!" + ignore_token;
 
@@ -183,7 +183,7 @@ bool Qtilities::Core::Zipper::zipFolder(const QString& source_path, const QStrin
     arguments << output_file;
     arguments << source_path;
     // Build up the ignore list in 7zip format:
-    QStringList ignore_list_items = d->ignore_list.split(" ",QString::SkipEmptyParts);
+    QStringList ignore_list_items = d->ignore_list.split(" ",Qt::SkipEmptyParts);
     foreach (const QString& ignore_token, ignore_list_items)
         arguments << "-xr!" + ignore_token;
 

@@ -80,7 +80,7 @@ QFileInfoList Qtilities::Core::FileUtils::findFilesUnderDir(const QString &dirNa
     }
 
     if (!file_filters.isEmpty()) {
-        QStringList file_filters_list = file_filters.split(" ",QString::SkipEmptyParts);
+        QStringList file_filters_list = file_filters.split(" ",Qt::SkipEmptyParts);
         dir.setNameFilters(file_filters_list);
     }
 
@@ -89,7 +89,7 @@ QFileInfoList Qtilities::Core::FileUtils::findFilesUnderDir(const QString &dirNa
     final_filters |= QDir::NoDotAndDotDot;
     //qDebug() << "XXX" << dir.path() << file_filters << ignore_list << final_filters;
 
-    QStringList ignore_patterns = ignore_list.split(" ",QString::SkipEmptyParts);
+    QStringList ignore_patterns = ignore_list.split(" ",Qt::SkipEmptyParts);
     ignore_patterns.removeDuplicates();
 
     if (first_run) {

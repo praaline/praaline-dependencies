@@ -1399,12 +1399,12 @@ QList<QObject*> Qtilities::CoreGui::ObserverWidget::selectedObjects() const {
 
 bool Qtilities::CoreGui::ObserverWidget::selectedObjectsContextMatch() const {
     QModelIndexList indexes = selectedIndexes();
-    Observer* parent = 0;
+    Observer *parent = nullptr;
     bool match = true;
 
     foreach (QModelIndex index, indexes) {
         Observer* obs = d->tree_model->parentOfIndex(index);
-        if (parent == 0)
+        if (parent == nullptr)
             parent = obs;
         else if (obs != parent) {
             parent = obs;
@@ -1421,16 +1421,16 @@ bool Qtilities::CoreGui::ObserverWidget::selectedObjectsHintsMatch() const {
         return true;
 
     QModelIndexList indexes = selectedIndexes();
-    Observer* parent = 0;
+    Observer *parent = nullptr;
     bool match = true;
 
     foreach (QModelIndex index, indexes) {
         Observer* obs = d->tree_model->parentOfIndex(index);
-        if (parent == 0) {
+        if (parent == nullptr) {
             parent = obs;
         } else {
-            ObserverHints* hintsA = 0;
-            ObserverHints* hintsB = 0;
+            ObserverHints *hintsA = nullptr;
+            ObserverHints *hintsB = nullptr;
             if (!obs)
                 hintsA = d->selection_parent_observer_context->displayHints();
             else
@@ -1439,7 +1439,7 @@ bool Qtilities::CoreGui::ObserverWidget::selectedObjectsHintsMatch() const {
             if (parent)
                 hintsB = parent->displayHints();
 
-            if (hintsA != 0 && hintsB != 0) {
+            if (hintsA != nullptr && hintsB != nullptr) {
                 if (*hintsA != *hintsB) {
                     parent = obs;
                     match = false;
@@ -3227,10 +3227,10 @@ void Qtilities::CoreGui::ObserverWidget::toggleSearchBox() {
         return;
 
     if (!d->searchBoxWidget) {
-        SearchBoxWidget::SearchOptions search_options = 0;
+        SearchBoxWidget::SearchOptions search_options = SearchBoxWidget::SearchOptions();
         search_options |= SearchBoxWidget::CaseSensitive;
         search_options |= SearchBoxWidget::RegEx;
-        SearchBoxWidget::ButtonFlags button_flags = 0;
+        SearchBoxWidget::ButtonFlags button_flags = SearchBoxWidget::ButtonFlags();
         button_flags |= SearchBoxWidget::HideButtonDown;
         d->searchBoxWidget = new SearchBoxWidget(search_options,SearchBoxWidget::SearchOnly,button_flags);
         d->searchBoxWidget->setObjectName("Search Box: Observer Widget (" + objectName() + ")");
@@ -3311,7 +3311,7 @@ void Qtilities::CoreGui::ObserverWidget::handleSearchItemTypesChanged() {
     if (d->display_mode == TreeView && proxyModel()) {
         ObserverTreeModelProxyFilter* proxy = dynamic_cast<ObserverTreeModelProxyFilter*> (proxyModel());
         if (proxy) {
-            ObserverTreeItem::TreeItemTypeFlags flags = 0;
+            ObserverTreeItem::TreeItemTypeFlags flags = ObserverTreeItem::TreeItemTypeFlags();
             if (d->actionFilterNodes->isChecked())
                 flags |= ObserverTreeItem::TreeNode;
             if (d->actionFilterItems->isChecked())

@@ -48,7 +48,7 @@ namespace Qtilities {
             Q_PROPERTY(QString Category READ getCategoryString WRITE setCategoryString)
 
         public:
-            TreeItem(const QString& name = QString(), QObject* parent = 0);
+            TreeItem(const QString& name = QString(), QObject *parent = nullptr);
             virtual ~TreeItem();
 
             // --------------------------------

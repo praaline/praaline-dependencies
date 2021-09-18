@@ -46,7 +46,7 @@ namespace Qtilities {
               \param name The name of the item.
               \param parent The parent of the item.
               */
-            TreeItemBase(const QString& name = QString(), QObject* parent = 0);
+            TreeItemBase(const QString& name = QString(), QObject *parent = nullptr);
             virtual ~TreeItemBase();
 
             // --------------------------------

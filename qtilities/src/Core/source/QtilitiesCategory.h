@@ -131,7 +131,7 @@ observer->displayHints()->setHierarchicalDisplayHint(ObserverHints::CategorizedD
 QObject* object = new QObject();
 object->setObjectName("Categorized Item");
 MultiContextProperty category_property(qti_prop_CATEGORY_MAP);
-category_property.setValue(qVariantFromValue(QtilitiesCategory("Item Category")),observer->observerID());
+category_property.setValue(QVariant::fromValue(QtilitiesCategory("Item Category")),observer->observerID());
 ObjectManager::setMultiContextProperty(object,category_property);
 observer->attachSubject(object);
 

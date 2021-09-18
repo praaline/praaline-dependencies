@@ -28,7 +28,7 @@ namespace Qtilities {
             Q_OBJECT
 
         public:
-            qti_private_CommandTreeModel(QObject* parent = 0);
+            qti_private_CommandTreeModel(QObject *parent = nullptr);
             virtual ~qti_private_CommandTreeModel() {}
 
             // --------------------------------

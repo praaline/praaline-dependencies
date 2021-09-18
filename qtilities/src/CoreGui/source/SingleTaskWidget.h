@@ -65,7 +65,7 @@ SingleTaskWidget* task_widget = TaskManagerGui::instance()->singleTaskWidget(tas
             Q_OBJECT
 
         public:
-            SingleTaskWidget(int task_id, QWidget * parent = 0);
+            SingleTaskWidget(int task_id, QWidget *parent = nullptr);
             ~SingleTaskWidget();
 
             void resizeEvent(QResizeEvent * event);

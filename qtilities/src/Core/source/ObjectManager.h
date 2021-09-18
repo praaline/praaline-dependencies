@@ -145,7 +145,7 @@ namespace Qtilities {
             friend class Observer;
 
         public:
-            ObjectManager(QObject* parent = 0);
+            ObjectManager(QObject *parent = nullptr);
             ~ObjectManager();
 
             // -----------------------------------------
@@ -239,12 +239,12 @@ QtilitiesCategory category("Test Category");
 if (ObjectManager::propertyExists(iface->objectBase(),qti_prop_CATEGORY_MAP)) {
     // If it does we MUST append the value for our context:
     MultiContextProperty category_property = ObjectManager::getMultiContextProperty(iface->objectBase(),qti_prop_CATEGORY_MAP);
-    category_property.setValue(qVariantFromValue(category),observerID());
+    category_property.setValue(QVariant::fromValue(category),observerID());
     ObjectManager::setMultiContextProperty(iface->objectBase(),category_property);
 } else {
     // If not we create a new property with the value for our context:
     MultiContextProperty category_property(qti_prop_CATEGORY_MAP);
-    category_property.setValue(qVariantFromValue(category),observerID());
+    category_property.setValue(QVariant::fromValue(category),observerID());
     ObjectManager::setMultiContextProperty(iface->objectBase(),category_property);
 }
 \endcode

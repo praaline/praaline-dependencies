@@ -50,7 +50,7 @@ namespace Qtilities {
                 Q_DECLARE_FLAGS(PropertyTypeFlags, PropertyTypes)
                 Q_FLAGS(PropertyTypeFlags)
 
-                IObjectManager(QObject* parent = 0) : QObject(parent) {}
+                IObjectManager(QObject *parent = nullptr) : QObject(parent) {}
                 virtual ~IObjectManager() {}
 
                 // ---------------------------------

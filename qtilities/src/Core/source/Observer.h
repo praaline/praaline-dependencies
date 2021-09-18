@@ -408,7 +408,7 @@ In this example \p observerA will be deleted as soon as \p object1 is deleted.
             // Core Functions
             // --------------------------------
             //! Default constructor.
-            Observer(const QString& observer_name = QString(), const QString& observer_description = QString(), QObject* parent = 0);
+            Observer(const QString& observer_name = QString(), const QString& observer_description = QString(), QObject *parent = nullptr);
             //! Copy constructor.
             Observer(const Observer &other);
             //! Observer destructor.

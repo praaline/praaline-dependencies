@@ -134,7 +134,7 @@ void GenericPropertyPathEditor::on_btnBrowse_clicked() {
 }
 
 void GenericPropertyPathEditor::handleValueChanged(const QString &value) {
-    d_current_values = value.split(d_list_separator_backend,QString::SkipEmptyParts);
+    d_current_values = value.split(d_list_separator_backend,Qt::SkipEmptyParts);
     emit valueChanged(value);
 }
 

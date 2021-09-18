@@ -57,7 +57,7 @@ QList<QAction*> actions_per_category = widget.actions(IActionProvider::NoFilter,
             Q_INTERFACES(Qtilities::CoreGui::Interfaces::IActionProvider)
 
         public:
-            ActionProvider(QObject* parent = 0);
+            ActionProvider(QObject *parent = nullptr);
             virtual ~ActionProvider();
 
             // --------------------------------

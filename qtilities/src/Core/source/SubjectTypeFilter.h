@@ -68,7 +68,7 @@ subject_type_filter->enableInverseFiltering(true);
             Q_INTERFACES(Qtilities::Core::Interfaces::IModificationNotifier)
 
         public:
-            SubjectTypeFilter(const QString& known_objects_group_name = QString(), QObject* parent = 0);
+            SubjectTypeFilter(const QString& known_objects_group_name = QString(), QObject *parent = nullptr);
             virtual ~SubjectTypeFilter();
 
             SubjectTypeFilter& operator=(const SubjectTypeFilter& ref);
