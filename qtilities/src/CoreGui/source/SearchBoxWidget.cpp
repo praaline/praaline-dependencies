@@ -61,14 +61,14 @@ SearchBoxWidget::SearchBoxWidget(SearchOptions search_options, WidgetMode mode, 
     setWindowTitle(tr("Search Box Widget"));
 
     // Connect ui signals to own signals which will be monitored by this widget's parent
-    connect(ui->btnFindPrevious,SIGNAL(clicked()),SLOT(handleFindPrevious()));
-    connect(ui->btnFindNext,SIGNAL(clicked()),SLOT(handleFindNext()));
-    connect(ui->btnReplacePrevious,SIGNAL(clicked()),SLOT(handleReplacePrevious()));
-    connect(ui->btnReplaceNext,SIGNAL(clicked()),SLOT(handleReplaceNext()));
-    connect(ui->btnReplaceAll,SIGNAL(clicked()),SLOT(handleReplaceAll()));
-    connect(ui->btnClose,SIGNAL(clicked()),SLOT(handleClose()));
-    connect(ui->txtSearchString,SIGNAL(textChanged(QString)),SLOT(handleSearchStringChanged(QString)));
-    connect(ui->txtReplaceString,SIGNAL(textChanged(QString)),SLOT(handleReplaceStringChanged(QString)));
+    connect(ui->btnFindPrevious,&QAbstractButton::clicked,this, &SearchBoxWidget::handleFindPrevious);
+    connect(ui->btnFindNext,&QAbstractButton::clicked,this, &SearchBoxWidget::handleFindNext);
+    connect(ui->btnReplacePrevious,&QAbstractButton::clicked,this, &SearchBoxWidget::handleReplacePrevious);
+    connect(ui->btnReplaceNext,&QAbstractButton::clicked,this, &SearchBoxWidget::handleReplaceNext);
+    connect(ui->btnReplaceAll,&QAbstractButton::clicked,this, &SearchBoxWidget::handleReplaceAll);
+    connect(ui->btnClose,&QAbstractButton::clicked,this, &SearchBoxWidget::handleClose);
+    connect(ui->txtSearchString,&QLineEdit::textChanged,this, &SearchBoxWidget::handleSearchStringChanged);
+    connect(ui->txtReplaceString,&QLineEdit::textChanged,this, &SearchBoxWidget::handleReplaceStringChanged);
 
     // Construct the search options pop-up menu
     d->searchOptionsMenu = new QMenu(tr("Search Options"));
@@ -80,13 +80,13 @@ SearchBoxWidget::SearchBoxWidget(SearchOptions search_options, WidgetMode mode, 
     d->searchOptionCaseSensitive->setCheckable(true);
     d->searchOptionCaseSensitive->setObjectName(objectName());
     d->searchOptionsMenu->addAction(d->searchOptionCaseSensitive);
-    connect(d->searchOptionCaseSensitive,SIGNAL(triggered()),SLOT(handleOptionsChanged()));
+    connect(d->searchOptionCaseSensitive,&QAction::triggered,this, &SearchBoxWidget::handleOptionsChanged);
 
     d->searchOptionWholeWordsOnly = new QAction(tr("Whole Words Only"),0);
     d->searchOptionWholeWordsOnly->setObjectName(objectName());
     d->searchOptionsMenu->addAction(d->searchOptionWholeWordsOnly);
     d->searchOptionWholeWordsOnly->setCheckable(true);
-    connect(d->searchOptionWholeWordsOnly,SIGNAL(triggered()),SLOT(handleOptionsChanged()));
+    connect(d->searchOptionWholeWordsOnly,&QAction::triggered,this, &SearchBoxWidget::handleOptionsChanged);
 
     d->searchOptionsMenu->addSeparator();
 
@@ -111,7 +111,7 @@ SearchBoxWidget::SearchBoxWidget(SearchOptions search_options, WidgetMode mode, 
     d->searchPatternGroup->addAction(d->searchOptionFixedString);
     d->searchOptionWildcard->setChecked(true);
 
-    connect(d->searchPatternGroup,SIGNAL(triggered(QAction*)),SLOT(handleOptionsChanged()));
+    connect(d->searchPatternGroup,&QActionGroup::triggered,this, &SearchBoxWidget::handleOptionsChanged);
 
     ui->btnSearchOptions->setPopupMode(QToolButton::InstantPopup);
     ui->btnSearchOptions->setMenu(d->searchOptionsMenu);

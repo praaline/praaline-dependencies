@@ -127,7 +127,7 @@ QsciScintillaBase::QsciScintillaBase(QWidget *parent)
     QClipboard *cb = QApplication::clipboard();
 
     if (cb->supportsSelection())
-        connect(cb, SIGNAL(selectionChanged()), SLOT(handleSelection()));
+        connect(cb, &QClipboard::selectionChanged, this, &QsciScintillaBase::handleSelection);
 
     // Add it to the pool.
     poolList.append(this);
@@ -800,16 +800,16 @@ QMimeData *QsciScintillaBase::toMimeData(const QByteArray &text, bool rectangula
 // Connect up the vertical scroll bar.
 void QsciScintillaBase::connectVerticalScrollBar()
 {
-    connect(verticalScrollBar(), SIGNAL(valueChanged(int)),
-            SLOT(handleVSb(int)));
+    connect(verticalScrollBar(), &QAbstractSlider::valueChanged,
+            this, &QsciScintillaBase::handleVSb);
 }
 
 
 // Connect up the horizontal scroll bar.
 void QsciScintillaBase::connectHorizontalScrollBar()
 {
-    connect(horizontalScrollBar(), SIGNAL(valueChanged(int)),
-            SLOT(handleHSb(int)));
+    connect(horizontalScrollBar(), &QAbstractSlider::valueChanged,
+            this, &QsciScintillaBase::handleHSb);
 }
 
 

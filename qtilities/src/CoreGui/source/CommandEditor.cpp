@@ -99,11 +99,11 @@ void Qtilities::CoreGui::CommandEditor::configPageInitialize() {
     d->observer_widget->setObserverContext(ACTION_MANAGER->commandObserver());
 
     d->action_restore_defaults = new QAction(QIcon(qti_icon_EDIT_PASTE_16x16),"Restore Defaults",this);
-    connect(d->action_restore_defaults,SIGNAL(triggered()),SLOT(restoreDefaults()));
+    connect(d->action_restore_defaults,&QAction::triggered,this, &CommandEditor::restoreDefaults);
     d->action_load = new QAction(QIcon(qti_icon_FILE_OPEN_16x16),"Load Previous Configuration",this);
-    connect(d->action_load,SIGNAL(triggered()),SLOT(importConfiguration()));
+    connect(d->action_load,&QAction::triggered,this, &CommandEditor::importConfiguration);
     d->action_save = new QAction(QIcon(qti_icon_FILE_SAVE_16x16),"Save Current Configuration",this);
-    connect(d->action_save,SIGNAL(triggered()),SLOT(exportConfiguration()));
+    connect(d->action_save,&QAction::triggered,this, &CommandEditor::exportConfiguration);
     d->observer_widget->actionProvider()->addAction(d->action_restore_defaults,QtilitiesCategory("Current Configuration"));
     d->observer_widget->actionProvider()->addAction(d->action_load,QtilitiesCategory("Current Configuration"));
     d->observer_widget->actionProvider()->addAction(d->action_save,QtilitiesCategory("Current Configuration"));

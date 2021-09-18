@@ -349,7 +349,7 @@ bool Qtilities::Core::Zipper::executeCommand(QStringList arguments, QStringList*
                 connect(d->zip_process.process(),SIGNAL(finished(int)),&loop,SLOT(quit()));
                 if (polling_interval > 0) {
                     t.start(polling_interval);
-                    connect(&t,SIGNAL(timeout()),&loop, SLOT(quit()));
+                    connect(&t,&QTimer::timeout,&loop, &QEventLoop::quit);
                 }
 
                 loop.exec();

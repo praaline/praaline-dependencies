@@ -164,7 +164,7 @@ FileEditorFactory::~FileEditorFactory() {
 
 void FileEditorFactory::connectPropertyManager(PathPropertyManager *manager) {
     addPropertyManager(manager);
-    connect(manager, SIGNAL(valueChanged(QtProperty *, const QString &)), this, SLOT(slotValueChanged(QtProperty *, const QString &)));
+    connect(manager, &QtStringPropertyManager::valueChanged, this, &FileEditorFactory::slotValueChanged);
 }
 
 QWidget *FileEditorFactory::createEditor(PathPropertyManager *manager, QtProperty *property,
@@ -185,8 +185,8 @@ QWidget *FileEditorFactory::createEditor(PathPropertyManager *manager, QtPropert
         editor->setListSeparatorBackend(manager->listSeparatorBackend(property));
     }
 
-    connect(editor,SIGNAL(valueChanged(QString)),SLOT(slotSetValue(QString)));
-    connect(editor,SIGNAL(destroyed(QObject*)),SLOT(slotEditorDestroyed(QObject*)));
+    connect(editor,&GenericPropertyPathEditor::valueChanged,this, &FileEditorFactory::slotSetValue);
+    connect(editor,&QObject::destroyed,this, &FileEditorFactory::slotEditorDestroyed);
 
     createdEditors[property].append(editor);
     editorToProperty[editor] = property;
@@ -196,7 +196,7 @@ QWidget *FileEditorFactory::createEditor(PathPropertyManager *manager, QtPropert
 
 void FileEditorFactory::disconnectPropertyManager(PathPropertyManager *manager) {
     removePropertyManager(manager);
-    disconnect(manager, SIGNAL(valueChanged(QtProperty *, const QString &)), this, SLOT(slotValueChanged(QtProperty *, const QString &)));
+    disconnect(manager, &QtStringPropertyManager::valueChanged, this, &FileEditorFactory::slotValueChanged);
 }
 
 void FileEditorFactory::slotValueChanged(QtProperty *property, const QString &value) {

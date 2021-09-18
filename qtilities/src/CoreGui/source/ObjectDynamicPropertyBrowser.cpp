@@ -120,8 +120,8 @@ Qtilities::CoreGui::ObjectDynamicPropertyBrowser::ObjectDynamicPropertyBrowser(B
     d->property_manager = new QtVariantPropertyManager(this);
     QtVariantEditorFactory *factory = new QtVariantEditorFactory(this);
     d->property_browser->setFactoryForManager(d->property_manager, factory);
-    connect(d->property_manager, SIGNAL(valueChanged(QtProperty *, const QVariant &)),
-                this, SLOT(propertyChangedFromBrowserSide(QtProperty *, const QVariant &)));
+    connect(d->property_manager, &QtVariantPropertyManager::valueChanged,
+                this, &ObjectDynamicPropertyBrowser::propertyChangedFromBrowserSide);
 
     // Create property manager for read only properties. It does not get a factory.
     d->property_manager_read_only = new QtVariantPropertyManager(this);
@@ -171,10 +171,10 @@ void ObjectDynamicPropertyBrowser::toggleToolBar() {
         addToolBar(d->preferred_area,d->toolbar);
         d->toolbar->setMovable(false);
         d->actionAddProperty = new QAction(QIcon(qti_icon_NEW_16x16),tr("Add Property"),this);
-        connect(d->actionAddProperty,SIGNAL(triggered()),SLOT(handleAddProperty()));
+        connect(d->actionAddProperty,&QAction::triggered,this, &ObjectDynamicPropertyBrowser::handleAddProperty);
         d->toolbar->addAction(d->actionAddProperty);
         d->actionRemoveProperty = new QAction(QIcon(qti_icon_REMOVE_ONE_16x16),tr("Remove Selected Property"),this);
-        connect(d->actionRemoveProperty,SIGNAL(triggered()),SLOT(handleRemoveProperty()));
+        connect(d->actionRemoveProperty,&QAction::triggered,this, &ObjectDynamicPropertyBrowser::handleRemoveProperty);
         d->toolbar->addAction(d->actionRemoveProperty);
     } else {
         d->toolbar->setVisible(d->toolbar_visible);
@@ -262,7 +262,7 @@ void Qtilities::CoreGui::ObjectDynamicPropertyBrowser::setObject(QObject *object
         d->obj->installEventFilter(this);
     }
 
-    connect(d->obj,SIGNAL(destroyed()),SLOT(handleObjectDeleted()));
+    connect(d->obj.data(),&QObject::destroyed,this, &ObjectDynamicPropertyBrowser::handleObjectDeleted);
     inspectObject(d->obj);
 }
 

@@ -60,7 +60,7 @@ void HelpManager::initialize() {
 
         // Delete the current help collection file:
         d->helpEngine = new QHelpEngine(temp_file.fileName(),this);
-        connect(d->helpEngine,SIGNAL(warning(QString)),SLOT(logMessage(QString)));
+        connect(d->helpEngine.data(),&QHelpEngineCore::warning,this, &HelpManager::logMessage);
 
         readSettings(false);
     }

@@ -46,7 +46,7 @@ Qtilities::Core::FileUtils::FileUtils(bool enable_tasking, QObject* parent) : QO
         // Create TaskFindFilesUnderDir:
         Task* taskFindFileUnderDir = new Task(taskNameToString(TaskFindFilesUnderDir),true,this);
         taskFindFileUnderDir->setCanStart(true);
-        connect(taskFindFileUnderDir,SIGNAL(startTaskRequest()),SLOT(findFilesUnderDirLauncher()));
+        connect(taskFindFileUnderDir,&Task::startTaskRequest,this, &FileUtils::findFilesUnderDirLauncher);
         registerTask(taskFindFileUnderDir,taskNameToString(TaskFindFilesUnderDir));
     }
 }

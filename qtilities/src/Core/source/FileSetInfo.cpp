@@ -46,14 +46,14 @@ using namespace Qtilities::Core;
 
 Qtilities::Core::FileSetInfo::FileSetInfo(QObject* parent) : QObject(parent) {
     d = new FileSetInfoPrivateData;
-    connect(&d->watcher,SIGNAL(fileChanged(QString)),SIGNAL(fileChanged(QString)));
-    connect(&d->watcher,SIGNAL(fileChanged(QString)),SIGNAL(setChanged()));
+    connect(&d->watcher,&QFileSystemWatcher::fileChanged,this, &FileSetInfo::fileChanged);
+    connect(&d->watcher,&QFileSystemWatcher::fileChanged,this, &FileSetInfo::setChanged);
 }
 
 FileSetInfo::FileSetInfo(const FileSetInfo &other) : QObject(other.parent()) {
     d = new FileSetInfoPrivateData;
-    connect(&d->watcher,SIGNAL(fileChanged(QString)),SIGNAL(fileChanged(QString)));
-    connect(&d->watcher,SIGNAL(fileChanged(QString)),SIGNAL(setChanged()));
+    connect(&d->watcher,&QFileSystemWatcher::fileChanged,this, &FileSetInfo::fileChanged);
+    connect(&d->watcher,&QFileSystemWatcher::fileChanged,this, &FileSetInfo::setChanged);
 
     d->watcher.removePaths(d->watcher.files());
     d->files = other.files();

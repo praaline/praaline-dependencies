@@ -122,7 +122,7 @@ Qtilities::CoreGui::CodeEditorWidget::CodeEditorWidget(ActionFlags action_flags,
     setCentralWidget(d->central_widget);
     d->default_path = QtilitiesApplication::applicationSessionPath();
 
-    connect(&d->watcher,SIGNAL(fileChanged(QString)),SLOT(handleFileChangedNotification(QString)));
+    connect(&d->watcher,&QFileSystemWatcher::fileChanged,this, &CodeEditorWidget::handleFileChangedNotification);
 
     // Create the code editor:
     d->codeEditor = new CodeEditor();
@@ -139,7 +139,7 @@ Qtilities::CoreGui::CodeEditorWidget::CodeEditorWidget(ActionFlags action_flags,
     // Read the settings for this editor:
     handleSettingsUpdateRequest(d->global_meta_type);
     if (QtilitiesApplication::instance(true))
-        connect(QtilitiesApplication::instance(),SIGNAL(settingsUpdateRequest(QString)),SLOT(handleSettingsUpdateRequest(QString)));
+        connect(QtilitiesApplication::instance(),&QtilitiesApplication::settingsUpdateRequest,this, &CodeEditorWidget::handleSettingsUpdateRequest);
 
     // Create new layout:
     if (d->central_widget->layout())
@@ -184,7 +184,7 @@ bool Qtilities::CoreGui::CodeEditorWidget::eventFilter(QObject *object, QEvent *
             Command* command = ACTION_MANAGER->command(qti_action_EDIT_PASTE);
             if (command) {
                 if (command->action())
-                    connect(command->action(),SIGNAL(triggered()),d->codeEditor,SLOT(paste()));
+                    connect(command->action(),&QAction::triggered,d->codeEditor,&QPlainTextEdit::paste);
             }
         }
     } else if (object == d->codeEditor->viewport() && event->type() == QEvent::FocusIn) {
@@ -196,7 +196,7 @@ bool Qtilities::CoreGui::CodeEditorWidget::eventFilter(QObject *object, QEvent *
             Command* command = ACTION_MANAGER->command(qti_action_EDIT_PASTE);
             if (command) {
                 if (command->action())
-                    connect(command->action(),SIGNAL(triggered()),d->codeEditor,SLOT(paste()));
+                    connect(command->action(),&QAction::triggered,d->codeEditor,&QPlainTextEdit::paste);
             }
         }
     } else if (object == d->codeEditor && event->type() == QEvent::FocusOut) {
@@ -447,7 +447,7 @@ void Qtilities::CoreGui::CodeEditorWidget::actionPrintPreview() {
 #ifndef QT_NO_PRINTER
     QPrinter printer(QPrinter::HighResolution);
     QPrintPreviewDialog preview(&printer, this);
-    connect(&preview, SIGNAL(paintRequested(QPrinter *)), SLOT(printPreview(QPrinter *)));
+    connect(&preview, &QPrintPreviewDialog::paintRequested, this, &CodeEditorWidget::printPreview);
     preview.exec();
 #endif
 }
@@ -642,7 +642,7 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
     if (d->action_flags & ActionNew) {
         d->actionNew = new QAction(QIcon(qti_icon_EDIT_CLEAR_16x16),tr("New"),this);
         d->action_provider->addAction(d->actionNew,QtilitiesCategory(tr("File")));
-        connect(d->actionNew,SIGNAL(triggered()),SLOT(actionNew()));
+        connect(d->actionNew,&QAction::triggered,this, &CodeEditorWidget::actionNew);
         command = ACTION_MANAGER->registerAction(qti_action_FILE_NEW,d->actionNew,context);
         command->setCategory(QtilitiesCategory("Editing"));
     }
@@ -652,7 +652,7 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
     if (d->action_flags & ActionOpenFile) {
         d->actionOpen = new QAction(QIcon(qti_icon_FILE_OPEN_16x16),tr("Open"),this);
         d->action_provider->addAction(d->actionOpen,QtilitiesCategory(tr("File")));
-        connect(d->actionOpen,SIGNAL(triggered()),SLOT(actionOpen()));
+        connect(d->actionOpen,&QAction::triggered,this, &CodeEditorWidget::actionOpen);
         command = ACTION_MANAGER->registerAction(qti_action_FILE_OPEN,d->actionOpen,context);
         command->setCategory(QtilitiesCategory("Editing"));
     }
@@ -664,7 +664,7 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
         d->actionSave->setEnabled(false);
         d->actionSave->setShortcut(QKeySequence(QKeySequence::Save));
         d->action_provider->addAction(d->actionSave,QtilitiesCategory(tr("File")));
-        connect(d->actionSave,SIGNAL(triggered()),SLOT(actionSave()));
+        connect(d->actionSave,&QAction::triggered,this, &CodeEditorWidget::actionSave);
         command = ACTION_MANAGER->registerAction(qti_action_FILE_SAVE,d->actionSave,context);
         command->setCategory(QtilitiesCategory("Editing"));
     }
@@ -675,7 +675,7 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
         d->actionSaveAs = new QAction(QIcon(qti_icon_FILE_SAVEAS_16x16),tr("Save As"),this);
         d->actionSaveAs->setShortcut(QKeySequence(QKeySequence::SaveAs));
         d->action_provider->addAction(d->actionSaveAs,QtilitiesCategory(tr("File")));
-        connect(d->actionSaveAs,SIGNAL(triggered()),SLOT(actionSaveAs()));
+        connect(d->actionSaveAs,&QAction::triggered,this, &CodeEditorWidget::actionSaveAs);
         command = ACTION_MANAGER->registerAction(qti_action_FILE_SAVE_AS,d->actionSaveAs,context);
         command->setCategory(QtilitiesCategory("Editing"));
     }
@@ -685,7 +685,7 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
     if (d->action_flags & ActionPrint) {
         d->actionPrint = new QAction(QIcon(qti_icon_PRINT_16x16),tr("Print"),this);
         d->action_provider->addAction(d->actionPrint,QtilitiesCategory(tr("Print")));
-        connect(d->actionPrint,SIGNAL(triggered()),SLOT(actionPrint()));
+        connect(d->actionPrint,&QAction::triggered,this, &CodeEditorWidget::actionPrint);
         command = ACTION_MANAGER->registerAction(qti_action_FILE_PRINT,d->actionPrint,context);
         command->setCategory(QtilitiesCategory("Editing"));
     }
@@ -695,7 +695,7 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
     if (d->action_flags & ActionPrintPreview) {
         d->actionPrintPreview = new QAction(QIcon(qti_icon_PRINT_PREVIEW_16x16),tr("Print Preview"),this);
         d->action_provider->addAction(d->actionPrintPreview,QtilitiesCategory(tr("Print")));
-        connect(d->actionPrintPreview,SIGNAL(triggered()),SLOT(actionPrintPreview()));
+        connect(d->actionPrintPreview,&QAction::triggered,this, &CodeEditorWidget::actionPrintPreview);
         command = ACTION_MANAGER->registerAction(qti_action_FILE_PRINT_PREVIEW,d->actionPrintPreview,context);
         command->setCategory(QtilitiesCategory("Editing"));
     }
@@ -705,7 +705,7 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
     if (d->action_flags & ActionPrintPDF) {
         d->actionPrintPdf = new QAction(QIcon(qti_icon_PRINT_PDF_16x16),tr("Print PDF"),this);
         d->action_provider->addAction(d->actionPrintPdf,QtilitiesCategory(tr("Print")));
-        connect(d->actionPrintPdf,SIGNAL(triggered()),SLOT(actionPrintPdf()));
+        connect(d->actionPrintPdf,&QAction::triggered,this, &CodeEditorWidget::actionPrintPdf);
         command = ACTION_MANAGER->registerAction(qti_action_FILE_PRINT_PDF,d->actionPrintPdf,context);
         command->setCategory(QtilitiesCategory("Editing"));
     }
@@ -715,7 +715,7 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
     if (d->action_flags & ActionUndo) {
         d->actionUndo = new QAction(QIcon(qti_icon_EDIT_UNDO_16x16),tr("Undo"),this);
         d->action_provider->addAction(d->actionUndo,QtilitiesCategory(tr("Clipboard")));
-        connect(d->actionUndo,SIGNAL(triggered()),d->codeEditor,SLOT(undo()));
+        connect(d->actionUndo,&QAction::triggered,d->codeEditor,&QPlainTextEdit::undo);
         command = ACTION_MANAGER->registerAction(qti_action_EDIT_UNDO,d->actionUndo,context);
         command->setCategory(QtilitiesCategory("Editing"));
     }
@@ -725,7 +725,7 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
     if (d->action_flags & ActionRedo) {
         d->actionRedo = new QAction(QIcon(qti_icon_EDIT_REDO_16x16),tr("Redo"),this);
         d->action_provider->addAction(d->actionRedo,QtilitiesCategory(tr("Clipboard")));
-        connect(d->actionRedo,SIGNAL(triggered()),d->codeEditor,SLOT(redo()));
+        connect(d->actionRedo,&QAction::triggered,d->codeEditor,&QPlainTextEdit::redo);
         command = ACTION_MANAGER->registerAction(qti_action_EDIT_REDO,d->actionRedo,context);
         command->setCategory(QtilitiesCategory("Editing"));
     }
@@ -735,7 +735,7 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
     if (d->action_flags & ActionCut) {
         d->actionCut = new QAction(QIcon(qti_icon_EDIT_CUT_16x16),tr("Cut"),this);
         d->action_provider->addAction(d->actionCut,QtilitiesCategory(tr("Clipboard")));
-        connect(d->actionCut,SIGNAL(triggered()),d->codeEditor,SLOT(cut()));
+        connect(d->actionCut,&QAction::triggered,d->codeEditor,&QPlainTextEdit::cut);
         command = ACTION_MANAGER->registerAction(qti_action_EDIT_CUT,d->actionCut,context);
         command->setCategory(QtilitiesCategory("Editing"));
     }
@@ -745,7 +745,7 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
     if (d->action_flags & ActionCopy) {
         d->actionCopy = new QAction(QIcon(qti_icon_EDIT_COPY_16x16),tr("Copy"),this);
         d->action_provider->addAction(d->actionCopy,QtilitiesCategory(tr("Clipboard")));
-        connect(d->actionCopy,SIGNAL(triggered()),d->codeEditor,SLOT(copy()));
+        connect(d->actionCopy,&QAction::triggered,d->codeEditor,&QPlainTextEdit::copy);
         command = ACTION_MANAGER->registerAction(qti_action_EDIT_COPY,d->actionCopy,context);
         command->setCategory(QtilitiesCategory("Editing"));
     }
@@ -757,7 +757,7 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
         if (command) {
             if (command->action()) {
                 d->action_provider->addAction(command->action(),QtilitiesCategory(tr("Clipboard")));
-                connect(command->action(),SIGNAL(triggered()),d->codeEditor,SLOT(paste()));
+                connect(command->action(),&QAction::triggered,d->codeEditor,&QPlainTextEdit::paste);
             }
         }
     }
@@ -767,7 +767,7 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
     if (d->action_flags & ActionSelectAll) {
         d->actionSelectAll = new QAction(QIcon(qti_icon_EDIT_SELECT_ALL_16x16),tr("Select All"),this);
         d->action_provider->addAction(d->actionSelectAll,QtilitiesCategory(tr("Selection")));
-        connect(d->actionSelectAll,SIGNAL(triggered()),d->codeEditor,SLOT(selectAll()));
+        connect(d->actionSelectAll,&QAction::triggered,d->codeEditor,&QPlainTextEdit::selectAll);
         command = ACTION_MANAGER->registerAction(qti_action_EDIT_SELECT_ALL,d->actionSelectAll,context);
         command->setCategory(QtilitiesCategory("Editing"));
     }
@@ -777,7 +777,7 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
     if (d->action_flags & ActionClear) {
         d->actionClear = new QAction(QIcon(qti_icon_EDIT_CLEAR_16x16),tr("Clear"),this);
         d->action_provider->addAction(d->actionClear,QtilitiesCategory(tr("Selection")));
-        connect(d->actionClear,SIGNAL(triggered()),d->codeEditor,SLOT(clear()));
+        connect(d->actionClear,&QAction::triggered,d->codeEditor,&QPlainTextEdit::clear);
         command = ACTION_MANAGER->registerAction(qti_action_EDIT_CLEAR,d->actionClear,context);
         command->setCategory(QtilitiesCategory("Editing"));
     }
@@ -787,7 +787,7 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
     if (d->action_flags & ActionFind) {
         d->actionFind = new QAction(QIcon(qti_icon_FIND_16x16),tr("Find"),this);
         d->action_provider->addAction(d->actionFind,QtilitiesCategory(tr("Selection")));
-        connect(d->actionFind,SIGNAL(triggered()),SLOT(showSearchBox()));
+        connect(d->actionFind,&QAction::triggered,this, &CodeEditorWidget::showSearchBox);
         command = ACTION_MANAGER->registerAction(qti_action_EDIT_FIND,d->actionFind,context);
     }
     // ---------------------------
@@ -801,20 +801,20 @@ void Qtilities::CoreGui::CodeEditorWidget::constructActions() {
             d->actionSettings = new QAction(QIcon(qti_icon_PROPERTY_16x16),tr("Editor Settings"),this);
             d->action_provider->addAction(d->actionSettings,QtilitiesCategory(tr("Editor Settings")));
             ACTION_MANAGER->registerAction(qti_action_FILE_SETTINGS,d->actionSettings,context);
-            connect(d->actionSettings,SIGNAL(triggered()),SLOT(showEditorSettings()));
+            connect(d->actionSettings,&QAction::triggered,this, &CodeEditorWidget::showEditorSettings);
         }
     }
 
     if (d->actionCut)
-        connect(d->codeEditor, SIGNAL(copyAvailable(bool)), d->actionCut, SLOT(setEnabled(bool)));
+        connect(d->codeEditor, &QPlainTextEdit::copyAvailable, d->actionCut, &QAction::setEnabled);
     if (d->actionCopy)
-        connect(d->codeEditor, SIGNAL(copyAvailable(bool)), d->actionCopy, SLOT(setEnabled(bool)));
+        connect(d->codeEditor, &QPlainTextEdit::copyAvailable, d->actionCopy, &QAction::setEnabled);
     if (d->actionUndo)
-        connect(d->codeEditor, SIGNAL(undoAvailable(bool)), d->actionUndo, SLOT(setEnabled(bool)));
+        connect(d->codeEditor, &QPlainTextEdit::undoAvailable, d->actionUndo, &QAction::setEnabled);
     if (d->actionRedo)
-        connect(d->codeEditor, SIGNAL(redoAvailable(bool)), d->actionRedo, SLOT(setEnabled(bool)));
+        connect(d->codeEditor, &QPlainTextEdit::redoAvailable, d->actionRedo, &QAction::setEnabled);
     if (d->actionSave)
-        connect(d->codeEditor,SIGNAL(modificationChanged(bool)),d->actionSave,SLOT(setEnabled(bool)));
+        connect(d->codeEditor,&QPlainTextEdit::modificationChanged,d->actionSave,&QAction::setEnabled);
 
     ACTION_MANAGER->commandObserver()->endProcessingCycle(false);
 }
@@ -862,7 +862,7 @@ void Qtilities::CoreGui::CodeEditorWidget::initialize() {
     if (command) {
         if (command->action()) {
             if (d->action_flags & ActionPaste)
-                connect(command->action(),SIGNAL(triggered()),d->codeEditor,SLOT(paste()));
+                connect(command->action(),&QAction::triggered,d->codeEditor,&QPlainTextEdit::paste);
             else
                 command->action()->disconnect();
         }

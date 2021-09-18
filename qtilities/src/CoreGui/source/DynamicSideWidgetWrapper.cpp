@@ -48,7 +48,7 @@ Qtilities::CoreGui::DynamicSideWidgetWrapper::DynamicSideWidgetWrapper(QMap<QStr
     // Close side viewer widget action
     ui->btnNew->setToolTip(tr("New"));
     ui->btnNew->setIcon(QIcon(qti_icon_VIEW_NEW_16x16));
-    connect(ui->btnNew,SIGNAL(clicked()),SIGNAL(newSideWidgetRequest()));
+    connect(ui->btnNew,&QAbstractButton::clicked,this, &DynamicSideWidgetWrapper::newSideWidgetRequest);
     ui->btnClose->setIcon(QIcon(qti_icon_VIEW_REMOVE_16x16));
     ui->btnClose->setToolTip(tr("Close"));
     connect(ui->btnClose,SIGNAL(clicked()),SLOT(close()));

@@ -89,18 +89,18 @@ void Qtilities::ProjectManagement::ProjectManagementConfig::configPageInitialize
         ui->radioPromptUserToSave->setChecked(true);
     }
 
-    connect(ui->btnClearRecentProjectList,SIGNAL(clicked()),SLOT(handle_btnClearRecentProjectList()));
-    connect(ui->chkCreateNewOnStartup,SIGNAL(toggled(bool)),SLOT(handle_chkCreateNewOnStartup(bool)));
-    connect(ui->chkOpenLastProject,SIGNAL(toggled(bool)),SLOT(handle_chkOpenLastProject(bool)));
-    connect(ui->chkSaveModifiedProjects,SIGNAL(toggled(bool)),SLOT(handle_chkSaveModifiedProjects(bool)));
-    connect(ui->chkUseCustomProjectsPath,SIGNAL(toggled(bool)),SLOT(handle_chkUseCustomProjectsPath(bool)));
-    connect(ui->radioPromptUserToSave,SIGNAL(toggled(bool)),SLOT(handle_radioPromptUserToSave(bool)));
-    connect(ui->radioSaveAutomatically,SIGNAL(toggled(bool)),SLOT(handle_radioSaveAutomatically(bool)));
+    connect(ui->btnClearRecentProjectList,&QAbstractButton::clicked,this, &ProjectManagementConfig::handle_btnClearRecentProjectList);
+    connect(ui->chkCreateNewOnStartup,&QAbstractButton::toggled,this, &ProjectManagementConfig::handle_chkCreateNewOnStartup);
+    connect(ui->chkOpenLastProject,&QGroupBox::toggled,this, &ProjectManagementConfig::handle_chkOpenLastProject);
+    connect(ui->chkSaveModifiedProjects,&QGroupBox::toggled,this, &ProjectManagementConfig::handle_chkSaveModifiedProjects);
+    connect(ui->chkUseCustomProjectsPath,&QGroupBox::toggled,this, &ProjectManagementConfig::handle_chkUseCustomProjectsPath);
+    connect(ui->radioPromptUserToSave,&QAbstractButton::toggled,this, &ProjectManagementConfig::handle_radioPromptUserToSave);
+    connect(ui->radioSaveAutomatically,&QAbstractButton::toggled,this, &ProjectManagementConfig::handle_radioSaveAutomatically);
 
-    connect(ui->tableCustomPaths,SIGNAL(itemChanged(QTableWidgetItem*)),SLOT(handleActiveCustomProjectPathChanged(QTableWidgetItem*)));
-    connect(ui->tableCustomPaths,SIGNAL(currentItemChanged(QTableWidgetItem*,QTableWidgetItem*)),SLOT(handleCurrentItemChanged(QTableWidgetItem*,QTableWidgetItem*)));
+    connect(ui->tableCustomPaths,&QTableWidget::itemChanged,this, &ProjectManagementConfig::handleActiveCustomProjectPathChanged);
+    connect(ui->tableCustomPaths,&QTableWidget::currentItemChanged,this, &ProjectManagementConfig::handleCurrentItemChanged);
 
-    connect(PROJECT_MANAGER,SIGNAL(customProjectPathsChanged()),SLOT(refreshCustomProjectPaths()));
+    connect(PROJECT_MANAGER,&ProjectManager::customProjectPathsChanged,this, &ProjectManagementConfig::refreshCustomProjectPaths);
     refreshCustomProjectPaths();
 }
 
@@ -228,13 +228,13 @@ void Qtilities::ProjectManagement::ProjectManagementConfig::refreshCustomProject
 }
 
 void Qtilities::ProjectManagement::ProjectManagementConfig::saveCustomProjectsPaths() {
-    disconnect(PROJECT_MANAGER,SIGNAL(customProjectPathsChanged()),this,SLOT(refreshCustomProjectPaths()));
+    disconnect(PROJECT_MANAGER,&ProjectManager::customProjectPathsChanged,this,&ProjectManagementConfig::refreshCustomProjectPaths);
     PROJECT_MANAGER->setDefaultCustomProjectsCategory(active_category);
     PROJECT_MANAGER->clearCustomProjectsPaths();
     foreach (const QString& key, custom_paths.keys()) {
         PROJECT_MANAGER->setCustomProjectsPath(custom_paths[key],key);
     }
-    connect(PROJECT_MANAGER,SIGNAL(customProjectPathsChanged()),this,SLOT(refreshCustomProjectPaths()));
+    connect(PROJECT_MANAGER,&ProjectManager::customProjectPathsChanged,this,&ProjectManagementConfig::refreshCustomProjectPaths);
 }
 
 void Qtilities::ProjectManagement::ProjectManagementConfig::handleCurrentItemChanged(QTableWidgetItem* current, QTableWidgetItem* previous) {

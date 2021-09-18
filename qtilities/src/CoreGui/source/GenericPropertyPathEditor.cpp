@@ -39,7 +39,7 @@ GenericPropertyPathEditor::GenericPropertyPathEditor(GenericProperty::PropertyTy
     else if (d_property_type == GenericProperty::TypeFileList || d_property_type == GenericProperty::TypePathList)
         ui->btnBrowse->setIcon(QIcon(qti_icon_PUSH_UP_CURRENT_16x16));
 
-    connect(ui->txtEditor,SIGNAL(textChanged(QString)),SLOT(handleValueChanged(QString)));
+    connect(ui->txtEditor,&QLineEdit::textChanged,this, &GenericPropertyPathEditor::handleValueChanged);
 }
 
 GenericPropertyPathEditor::~GenericPropertyPathEditor() {

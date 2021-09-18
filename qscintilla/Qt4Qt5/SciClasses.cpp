@@ -142,8 +142,8 @@ QsciSciListBox::QsciSciListBox(QWidget *parent, QsciListBoxQt *lbx_)
     setFrameShape(StyledPanel);
     setFrameShadow(Plain);
 
-    connect(this, SIGNAL(itemDoubleClicked(QListWidgetItem *)),
-            SLOT(handleSelection()));
+    connect(this, &QListWidget::itemDoubleClicked,
+            this, &QsciSciListBox::handleSelection);
 }
 
 

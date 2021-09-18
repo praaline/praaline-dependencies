@@ -96,7 +96,7 @@ Qtilities::CoreGui::AddDynamicPropertyWizard::AddDynamicPropertyWizard(PropertyC
         d->wizard_page_available_properties->setLayout(wizard_page_layout);
         addPage(d->wizard_page_available_properties);
 
-        connect(&d->property_list,SIGNAL(currentTextChanged(QString)),SLOT(handleSelectedPropertyChanged(QString)));
+        connect(&d->property_list,&QListWidget::currentTextChanged,this, &AddDynamicPropertyWizard::handleSelectedPropertyChanged);
     }
 
     if (!d->wizard_page_property_details) {
@@ -113,7 +113,7 @@ Qtilities::CoreGui::AddDynamicPropertyWizard::AddDynamicPropertyWizard(PropertyC
         QFormLayout *wizard_custom_property_layout = new QFormLayout(&d->custom_property_widget);
         wizard_custom_property_layout->setMargin(0);
         wizard_custom_property_layout->addRow(tr("Name:"),&d->property_name_edit);
-        connect(&d->property_name_edit,SIGNAL(textChanged(QString)),SLOT(handleCustomPropertyNameChanged(QString)));
+        connect(&d->property_name_edit,&QLineEdit::textChanged,this, &AddDynamicPropertyWizard::handleCustomPropertyNameChanged);
         wizard_custom_property_layout->addRow(tr("Type:"),&d->property_types_list);
         QStringList type_names;
         type_names << QVariant::typeToName(QVariant::Bool);
@@ -150,7 +150,7 @@ Qtilities::CoreGui::AddDynamicPropertyWizard::AddDynamicPropertyWizard(PropertyC
         addPage(d->wizard_page_property_details);
     }
 
-    connect(this,SIGNAL(currentIdChanged(int)),SLOT(handleCurrentIdChanged()));
+    connect(this,&QWizard::currentIdChanged,this, &AddDynamicPropertyWizard::handleCurrentIdChanged);
 }
 
 Qtilities::CoreGui::AddDynamicPropertyWizard::~AddDynamicPropertyWizard() {
@@ -253,7 +253,7 @@ void Qtilities::CoreGui::AddDynamicPropertyWizard::setObject(QObject* obj) {
         d->obj->disconnect(this);
 
     d->obj = obj;
-    connect(d->obj,SIGNAL(destroyed(QObject*)),SLOT(handleObjectDestroyed()));
+    connect(d->obj.data(),&QObject::destroyed,this, &AddDynamicPropertyWizard::handleObjectDestroyed);
 
     // Get available properties for the new object:
     d->validation_enabled = true;
@@ -451,9 +451,9 @@ void Qtilities::CoreGui::AddDynamicPropertyWizard::getAvailableProperties() cons
         }
     }
 
-    disconnect(&d->property_list,SIGNAL(currentTextChanged(QString)),this,SLOT(handleSelectedPropertyChanged(QString)));
+    disconnect(&d->property_list,&QListWidget::currentTextChanged,this,&AddDynamicPropertyWizard::handleSelectedPropertyChanged);
     d->property_list.clear();
-    connect(&d->property_list,SIGNAL(currentTextChanged(QString)),SLOT(handleSelectedPropertyChanged(QString)));
+    connect(&d->property_list,&QListWidget::currentTextChanged,this, &AddDynamicPropertyWizard::handleSelectedPropertyChanged);
 
     QStringList available_property_name = availablePropertyDisplayedNames();
     foreach (const QString& name, available_property_name) {

@@ -59,7 +59,7 @@ Qtilities::CoreGui::ObjectScopeWidget::ObjectScopeWidget(QWidget *parent) :
     ui(new Ui::ObjectScopeWidget)
 {
     ui->setupUi(this);
-    connect(ui->observerTable,SIGNAL(itemClicked(QTableWidgetItem*)),SLOT(handle_currentItemChanged(QTableWidgetItem *)));
+    connect(ui->observerTable,&QTableWidget::itemClicked,this, &ObjectScopeWidget::handle_currentItemChanged);
 
     d = new ObjectScopeWidgetPrivateData;
 
@@ -110,7 +110,7 @@ void Qtilities::CoreGui::ObjectScopeWidget::setObject(QObject* obj) {
     d->obj = obj;
     d->obj->installEventFilter(this);
 
-    connect(d->obj,SIGNAL(destroyed(QObject*)),SLOT(handleObjectDestroyed()));
+    connect(d->obj.data(),&QObject::destroyed,this, &ObjectScopeWidget::handleObjectDestroyed);
 
     // For this widget we are interested in dynamic observer property changes in ALL the observers
     // which are observing this object
@@ -118,7 +118,7 @@ void Qtilities::CoreGui::ObjectScopeWidget::setObject(QObject* obj) {
     for (int i = 0; i < context_map_prop.contextMap().count(); ++i) {
         Observer* observer = OBJECT_MANAGER->observerReference(context_map_prop.contextMap().keys().at(i));
         if (observer) {
-            connect(observer,SIGNAL(destroyed()),SLOT(updateContents()),Qt::UniqueConnection);
+            connect(observer,&QObject::destroyed,this, &ObjectScopeWidget::updateContents,Qt::UniqueConnection);
         }
     }
 
@@ -365,7 +365,7 @@ void Qtilities::CoreGui::ObjectScopeWidget::constructActions() {
     d->actionRemoveContext = new QAction(QIcon(qti_icon_REMOVE_ONE_16x16),"Remove Selected",this);
     d->action_provider->addAction(d->actionRemoveContext);
     d->actionRemoveContext->setEnabled(false);
-    connect(d->actionRemoveContext,SIGNAL(triggered()),SLOT(handle_actionRemoveContext_triggered()));
+    connect(d->actionRemoveContext,&QAction::triggered,this, &ObjectScopeWidget::handle_actionRemoveContext_triggered);
     Command* command = ACTION_MANAGER->registerAction(qti_action_SELECTION_SCOPE_REMOVE_SELECTED,d->actionRemoveContext,context);
     command->setCategory(QtilitiesCategory("Item Scope"));
     // ---------------------------
@@ -374,7 +374,7 @@ void Qtilities::CoreGui::ObjectScopeWidget::constructActions() {
     d->actionDetachToSelection = new QAction(QIcon(qti_icon_REMOVE_ALL_16x16),"Romove Others",this);
     d->action_provider->addAction(d->actionDetachToSelection);
     d->actionDetachToSelection->setEnabled(false);
-    connect(d->actionDetachToSelection,SIGNAL(triggered()),SLOT(handle_actionDetachToSelection_triggered()));
+    connect(d->actionDetachToSelection,&QAction::triggered,this, &ObjectScopeWidget::handle_actionDetachToSelection_triggered);
     ACTION_MANAGER->registerAction(qti_action_SELECTION_SCOPE_REMOVE_OTHERS,d->actionDetachToSelection,context);
     command->setCategory(QtilitiesCategory("Item Scope"));
 

@@ -34,7 +34,6 @@ namespace Qtilities {
         class ObserverTreeItem : public QObject
         {
             Q_OBJECT
-            Q_ENUMS(TreeItemType)
 
         public:
             //! The possible types of items which can be part of the constructed observer tree.
@@ -45,6 +44,7 @@ namespace Qtilities {
                 CategoryItem        = 4, /*!< A category item. */
                 AllItemTypes        = TreeItem | TreeNode | CategoryItem
             };
+            Q_ENUM(TreeItemType)
             Q_DECLARE_FLAGS(TreeItemTypeFlags, TreeItemType)
             Q_FLAGS(TreeItemTypeFlags)
 

@@ -54,7 +54,6 @@ class QtTreePropertyBrowserPrivate;
 class QT_QTPROPERTYBROWSER_EXPORT QtTreePropertyBrowser : public QtAbstractPropertyBrowser
 {
     Q_OBJECT
-    Q_ENUMS(ResizeMode)
     Q_PROPERTY(int indentation READ indentation WRITE setIndentation)
     Q_PROPERTY(bool rootIsDecorated READ rootIsDecorated WRITE setRootIsDecorated)
     Q_PROPERTY(bool alternatingRowColors READ alternatingRowColors WRITE setAlternatingRowColors)
@@ -71,6 +70,7 @@ public:
         Fixed,
         ResizeToContents
     };
+    Q_ENUM(ResizeMode)
 
     QtTreePropertyBrowser(QWidget *parent = nullptr);
     ~QtTreePropertyBrowser();

@@ -63,15 +63,15 @@ Qtilities::CoreGui::StringListWidget::StringListWidget(const QStringList& string
     toolbar->setObjectName("List Modification Toolbar");
     toolbar->addAction(d->actionAddString);
     toolbar->addAction(d->actionRemoveString);
-    connect(d->actionAddString,SIGNAL(triggered()),SLOT(handleAddString()));
-    connect(d->actionRemoveString,SIGNAL(triggered()),SLOT(handleRemoveString()));
+    connect(d->actionAddString,&QAction::triggered,this, &StringListWidget::handleAddString);
+    connect(d->actionRemoveString,&QAction::triggered,this, &StringListWidget::handleRemoveString);
 
     d->open_dialog_filter = "All Files (*.*)";
     d->open_dialog_path = QtilitiesApplication::applicationSessionPath();
 
     // TODO: Bad way to do it, but workaround for now:
-    connect(ui->listView,SIGNAL(clicked(QModelIndex)),SIGNAL(selectionChanged()));
-    connect(ui->listView,SIGNAL(doubleClicked(QModelIndex)),SLOT(handleDoubleClick(QModelIndex)));
+    connect(ui->listView,&QAbstractItemView::clicked,this, &StringListWidget::selectionChanged);
+    connect(ui->listView,&QAbstractItemView::doubleClicked,this, &StringListWidget::handleDoubleClick);
 }
 
 Qtilities::CoreGui::StringListWidget::~StringListWidget() {

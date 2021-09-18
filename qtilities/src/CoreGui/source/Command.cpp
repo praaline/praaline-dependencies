@@ -231,9 +231,9 @@ bool Qtilities::CoreGui::ProxyAction::setCurrentContext(QList<int> context_ids) 
 
     // Disconnect signals from old action
     if (old_action) {
-        disconnect(old_action, SIGNAL(changed()), this, SLOT(updateFrontendAction()));
-        disconnect(d->proxy_action, SIGNAL(triggered(bool)), old_action, SIGNAL(triggered(bool)));
-        disconnect(d->proxy_action, SIGNAL(toggled(bool)), old_action, SLOT(setChecked(bool)));
+        disconnect(old_action, &QAction::changed, this, &ProxyAction::updateFrontendAction);
+        disconnect(d->proxy_action, &QAction::triggered, old_action, &QAction::triggered);
+        disconnect(d->proxy_action, &QAction::toggled, old_action, &QAction::setChecked);
         #if defined(QTILITIES_VERBOSE_ACTION_DEBUGGING)
         QObject* parent = old_action->parent();
         QString parent_name = "Unspecified parent";
@@ -246,9 +246,9 @@ bool Qtilities::CoreGui::ProxyAction::setCurrentContext(QList<int> context_ids) 
 
     // Connect signals for new action
     if (d->active_backend_action) {
-        connect(d->active_backend_action, SIGNAL(changed()), this, SLOT(updateFrontendAction()));
-        connect(d->proxy_action, SIGNAL(triggered(bool)), d->active_backend_action, SIGNAL(triggered(bool)));
-        connect(d->proxy_action, SIGNAL(toggled(bool)), d->active_backend_action, SLOT(setChecked(bool)));
+        connect(d->active_backend_action.data(), &QAction::changed, this, &ProxyAction::updateFrontendAction);
+        connect(d->proxy_action, &QAction::triggered, d->active_backend_action.data(), &QAction::triggered);
+        connect(d->proxy_action, &QAction::toggled, d->active_backend_action.data(), &QAction::setChecked);
         updateFrontendAction();
         d->is_active = true;
         d->initialized = true;

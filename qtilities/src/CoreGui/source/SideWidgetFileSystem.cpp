@@ -65,10 +65,10 @@ Qtilities::CoreGui::SideWidgetFileSystem::SideWidgetFileSystem(const QString& st
     ui->treeView->setRootIndex(d->model->index(QtilitiesApplication::applicationSessionPath()));
 
     // Make neccesarry connections:
-    connect(d->model,SIGNAL(rootPathChanged(QString)),SLOT(handleRootPathChanged(QString)));
-    connect(ui->btnBrowse,SIGNAL(clicked()),SLOT(handleBtnBrowse()));
-    connect(ui->treeView,SIGNAL(doubleClicked(QModelIndex)),SLOT(handleDoubleClicked(QModelIndex)));
-    connect(ui->treeView,SIGNAL(clicked(QModelIndex)),SLOT(handleClicked(QModelIndex)));
+    connect(d->model,&QFileSystemModel::rootPathChanged,this, &SideWidgetFileSystem::handleRootPathChanged);
+    connect(ui->btnBrowse,&QAbstractButton::clicked,this, &SideWidgetFileSystem::handleBtnBrowse);
+    connect(ui->treeView,&QAbstractItemView::doubleClicked,this, &SideWidgetFileSystem::handleDoubleClicked);
+    connect(ui->treeView,&QAbstractItemView::clicked,this, &SideWidgetFileSystem::handleClicked);
 
     // Handle drag drop events manually:
     ui->treeView->viewport()->installEventFilter(this);

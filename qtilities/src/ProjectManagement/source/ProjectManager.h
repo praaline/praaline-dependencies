@@ -49,7 +49,6 @@ namespace Qtilities {
         class PROJECT_MANAGEMENT_SHARED_EXPORT ProjectManager : public QObject, public IModificationNotifier, public ITaskContainer
         {
             Q_OBJECT
-            Q_ENUMS(ModifiedProjectsHandlingPolicy)
             Q_INTERFACES(Qtilities::Core::Interfaces::IModificationNotifier)
 
         public:
@@ -87,6 +86,7 @@ namespace Qtilities {
                 PromptUser = 0,     /*!< All observer operations are available to the user (Attachment, Detachement etc.). */
                 AutoSave   = 1      /*!< The observer is read only to the user. */
             };
+            Q_ENUM(ModifiedProjectsHandlingPolicy)
 
             // ---------------------------------------
             // Functions related to project types

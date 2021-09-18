@@ -53,7 +53,7 @@ Qtilities::Core::QtilitiesCoreApplicationPrivate::QtilitiesCoreApplicationPrivat
 
     // Task Manager
     d_taskManager = new TaskManager;
-    QObject::connect(d_objectManager,SIGNAL(newObjectAdded(QObject*)),d_taskManager,SLOT(addTask(QObject*)));
+    QObject::connect(d_objectManager,&Interfaces::IObjectManager::newObjectAdded,d_taskManager,&TaskManager::addTask);
     QObject::connect(d_objectManager,SIGNAL(objectRemoved(QObject*)),d_taskManager,SLOT(removeTask(QObject*)));
 
     // Register QList<QPointer<QObject> > in Meta Object System.

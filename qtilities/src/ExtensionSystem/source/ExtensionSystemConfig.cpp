@@ -51,9 +51,9 @@ void Qtilities::ExtensionSystem::ExtensionSystemConfig::configPageInitialize() {
     // Put the widget in the center of the screen:
     QRect qrect = QApplication::desktop()->availableGeometry(this);
     move(qrect.center() - rect().center());
-    connect(ui->btnPluginDetails,SIGNAL(clicked()),SLOT(handleBtnDetailsClicked()));
+    connect(ui->btnPluginDetails,&QAbstractButton::clicked,this, &ExtensionSystemConfig::handleBtnDetailsClicked);
 
-    connect(EXTENSION_SYSTEM,SIGNAL(pluginPathsChanged(QStringList)),SLOT(updatePluginPaths()));
+    connect(EXTENSION_SYSTEM,&ExtensionSystemCore::pluginPathsChanged,this, &ExtensionSystemConfig::updatePluginPaths);
     updatePluginPaths();
 
     initialized = true;
@@ -90,7 +90,7 @@ void Qtilities::ExtensionSystem::ExtensionSystemConfig::setPluginListWidget(QWid
     observer_widget = qobject_cast<ObserverWidget*> (plugin_list_widget);
     if (observer_widget) {
         connect(observer_widget,SIGNAL(selectedObjectsChanged(QList<QObject*>)),SLOT(handleSelectionChanged(QList<QObject*>)));
-        connect(observer_widget,SIGNAL(doubleClickRequest(QObject*)),SLOT(handleSelectionDoubleClicked(QObject*)));
+        connect(observer_widget,&CoreGui::ObserverWidget::doubleClickRequest,this, &ExtensionSystemConfig::handleSelectionDoubleClicked);
     }
 }
 

@@ -237,8 +237,8 @@ void Qtilities::CoreGui::ConfigurationWidget::initialize(QList<IConfigPage*> con
                 grouped_page->setUseTabIcons(d->categorized_display_use_tab_icons);
                 grouped_config_pages[categories.at(i)] = grouped_page;
                 grouped_page->setApplyAll(d->apply_all_pages);
-                connect(grouped_page,SIGNAL(appliedPage(IConfigPage*)),SIGNAL(appliedPage(IConfigPage*)),Qt::UniqueConnection);
-                connect(grouped_page,SIGNAL(activeGroupedPageChanged(IConfigPage*)),SLOT(handleActiveGroupedPageChanged(IConfigPage*)));
+                connect(grouped_page,&GroupedConfigPage::appliedPage,this, &ConfigurationWidget::appliedPage,Qt::UniqueConnection);
+                connect(grouped_page,&GroupedConfigPage::activeGroupedPageChanged,this, &ConfigurationWidget::handleActiveGroupedPageChanged);
                 uncategorized_pages << grouped_page;
 
                 // Look if there is an information provider for this page:
@@ -373,9 +373,9 @@ void Qtilities::CoreGui::ConfigurationWidget::initialize(QList<IConfigPage*> con
     move(qrect.center() - rect().center());
 
     if (d->display_mode & DisplayModeWidgetViews) {
-        disconnect(d->mode_widget->modeManager(),SIGNAL(activeModeChanged(int,int)),this,SLOT(handleModeWidgetActiveModeChanged()));
+        disconnect(d->mode_widget->modeManager(),&ModeManager::activeModeChanged,this,&ConfigurationWidget::handleModeWidgetActiveModeChanged);
         d->mode_widget->modeManager()->addModes(d->mode_wrappers);
-        connect(d->mode_widget->modeManager(),SIGNAL(activeModeChanged(int,int)),this,SLOT(handleModeWidgetActiveModeChanged()),Qt::UniqueConnection);
+        connect(d->mode_widget->modeManager(),&ModeManager::activeModeChanged,this,&ConfigurationWidget::handleModeWidgetActiveModeChanged,Qt::UniqueConnection);
     } else if (d->display_mode & DisplayLeftItemViews) {
         // Set up the observer widget:
         if (!d->initialized) {
@@ -549,9 +549,9 @@ void Qtilities::CoreGui::ConfigurationWidget::handleActiveItemChanges(QList<QObj
                 d->active_widget->show();
             }
         } else if (d->display_mode & DisplayModeWidgetViews) {
-            disconnect(d->mode_widget->modeManager(),SIGNAL(activeModeChanged(int,int)),this,SLOT(handleModeWidgetActiveModeChanged()));
+            disconnect(d->mode_widget->modeManager(),&ModeManager::activeModeChanged,this,&ConfigurationWidget::handleModeWidgetActiveModeChanged);
             d->mode_widget->modeManager()->setActiveMode(config_page->configPageTitle());
-            connect(d->mode_widget->modeManager(),SIGNAL(activeModeChanged(int,int)),this,SLOT(handleModeWidgetActiveModeChanged()),Qt::UniqueConnection);
+            connect(d->mode_widget->modeManager(),&ModeManager::activeModeChanged,this,&ConfigurationWidget::handleModeWidgetActiveModeChanged,Qt::UniqueConnection);
         }
     }
 }

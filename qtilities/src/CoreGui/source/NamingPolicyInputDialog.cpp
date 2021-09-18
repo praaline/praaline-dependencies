@@ -30,12 +30,12 @@ Qtilities::CoreGui::NamingPolicyInputDialog::NamingPolicyInputDialog(QWidget *pa
     ui->setupUi(this);
     observer_context = tr("Context not set");
 
-    connect(ui->btnGenerateNewName,SIGNAL(clicked()),SLOT(handleGeneratedNewNameButton()));
-    connect(ui->txtDifferentName,SIGNAL(textChanged(QString)),SLOT(handleDifferentNameChange(QString)));
-    connect(ui->radioAutoRename,SIGNAL(clicked()),SLOT(updateStatusMessage()));
-    connect(ui->radioDifferentName,SIGNAL(clicked()),SLOT(updateStatusMessage()));
-    connect(ui->radioReplaceConflicting,SIGNAL(clicked()),SLOT(updateStatusMessage()));
-    connect(ui->radioReject,SIGNAL(clicked()),SLOT(updateStatusMessage()));
+    connect(ui->btnGenerateNewName,&QAbstractButton::clicked,this, &NamingPolicyInputDialog::handleGeneratedNewNameButton);
+    connect(ui->txtDifferentName,&QLineEdit::textChanged,this, &NamingPolicyInputDialog::handleDifferentNameChange);
+    connect(ui->radioAutoRename,&QAbstractButton::clicked,this, &NamingPolicyInputDialog::updateStatusMessage);
+    connect(ui->radioDifferentName,&QAbstractButton::clicked,this, &NamingPolicyInputDialog::updateStatusMessage);
+    connect(ui->radioReplaceConflicting,&QAbstractButton::clicked,this, &NamingPolicyInputDialog::updateStatusMessage);
+    connect(ui->radioReject,&QAbstractButton::clicked,this, &NamingPolicyInputDialog::updateStatusMessage);
 
     // Init icons on buttons
     ui->btnDifferentNameValidityIndicator->setIcon(QIcon(qti_icon_ERROR_16x16));

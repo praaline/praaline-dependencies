@@ -245,7 +245,7 @@ digraph "Root Node" {
         class QTILIITES_CORE_SHARED_EXPORT ObserverDotWriter : public QObject
         {
             Q_OBJECT
-            Q_ENUMS(GraphType)
+            // Q_ENUMS(GraphType) -- where is the enum?
 
         public:
             //! Default constructor

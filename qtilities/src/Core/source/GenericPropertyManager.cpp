@@ -67,7 +67,7 @@ void GenericPropertyManager::clear() {
     }
 
     qDeleteAll(props_to_delete);
-    refresh();
+    emit refresh();
 }
 
 Observer *GenericPropertyManager::propertiesObserver() const {
@@ -236,7 +236,7 @@ void GenericPropertyManager::addProperties(QList<GenericProperty *> properties) 
             do_refresh = true;
     }
     if (do_refresh)
-        refresh();
+        emit refresh();
 }
 
 void GenericPropertyManager::addProperties(QList<QPointer<GenericProperty> > properties) {
@@ -246,7 +246,7 @@ void GenericPropertyManager::addProperties(QList<QPointer<GenericProperty> > pro
             do_refresh = true;
     }
     if (do_refresh)
-        refresh();
+        emit refresh();
 }
 
 bool GenericPropertyManager::removeProperty(const QString &property_name, bool refresh_browser) {
@@ -255,7 +255,7 @@ bool GenericPropertyManager::removeProperty(const QString &property_name, bool r
         // SpecificObserverOwnership, thus will be removed from observer.
         delete prop;
         if (refresh_browser)
-            refresh();
+            emit refresh();
         return true;
     } else {
         return false;
@@ -333,12 +333,12 @@ Qtilities::Core::Interfaces::IExportable::ExportResultFlags GenericPropertyManag
                 LOG_TASK_ERROR(error_msg,task_ref);
                 delete prop;
             } else {
-                connect(prop,SIGNAL(valueChanged(GenericProperty*)),SIGNAL(propertyValueChanged(GenericProperty*)));
-                connect(prop,SIGNAL(editableChanged(GenericProperty*)),SIGNAL(propertyEditableChanged(GenericProperty*)));
-                connect(prop,SIGNAL(contextDependentChanged(GenericProperty*)),SIGNAL(propertyContextDependentChanged(GenericProperty*)));
-                connect(prop,SIGNAL(possibleValuesDisplayedChanged(GenericProperty*)),SIGNAL(propertyPossibleValuesChanged(GenericProperty*)));
-                connect(prop,SIGNAL(defaultValueChanged(GenericProperty*)),SIGNAL(propertyDefaultValueChanged(GenericProperty*)));
-                connect(prop,SIGNAL(noteChanged(GenericProperty*)),SIGNAL(propertyNoteChanged(GenericProperty*)));
+                connect(prop,&GenericProperty::valueChanged,this, &GenericPropertyManager::propertyValueChanged);
+                connect(prop,&GenericProperty::editableChanged,this, &GenericPropertyManager::propertyEditableChanged);
+                connect(prop,&GenericProperty::contextDependentChanged,this, &GenericPropertyManager::propertyContextDependentChanged);
+                connect(prop,&GenericProperty::possibleValuesDisplayedChanged,this, &GenericPropertyManager::propertyPossibleValuesChanged);
+                connect(prop,&GenericProperty::defaultValueChanged,this, &GenericPropertyManager::propertyDefaultValueChanged);
+                connect(prop,&GenericProperty::noteChanged,this, &GenericPropertyManager::propertyNoteChanged);
 
                 MultiContextProperty category_property(qti_prop_CATEGORY_MAP);
                 category_property.setValue(QVariant::fromValue(prop->category()), d->properties_observer.observerID());
@@ -745,12 +745,12 @@ void GenericPropertyManager::connectToProperty(GenericProperty *property) {
     if (!property)
         return;
 
-    connect(property,SIGNAL(valueChanged(GenericProperty*)),SIGNAL(propertyValueChanged(GenericProperty*)));
-    connect(property,SIGNAL(editableChanged(GenericProperty*)),SIGNAL(propertyEditableChanged(GenericProperty*)));
-    connect(property,SIGNAL(contextDependentChanged(GenericProperty*)),SIGNAL(propertyContextDependentChanged(GenericProperty*)));
-    connect(property,SIGNAL(possibleValuesDisplayedChanged(GenericProperty*)),SIGNAL(propertyPossibleValuesChanged(GenericProperty*)));
-    connect(property,SIGNAL(defaultValueChanged(GenericProperty*)),SIGNAL(propertyDefaultValueChanged(GenericProperty*)));
-    connect(property,SIGNAL(noteChanged(GenericProperty*)),SIGNAL(propertyNoteChanged(GenericProperty*)));
+    connect(property,&GenericProperty::valueChanged,this, &GenericPropertyManager::propertyValueChanged);
+    connect(property,&GenericProperty::editableChanged,this, &GenericPropertyManager::propertyEditableChanged);
+    connect(property,&GenericProperty::contextDependentChanged,this, &GenericPropertyManager::propertyContextDependentChanged);
+    connect(property,&GenericProperty::possibleValuesDisplayedChanged,this, &GenericPropertyManager::propertyPossibleValuesChanged);
+    connect(property,&GenericProperty::defaultValueChanged,this, &GenericPropertyManager::propertyDefaultValueChanged);
+    connect(property,&GenericProperty::noteChanged,this, &GenericPropertyManager::propertyNoteChanged);
 }
 
 }

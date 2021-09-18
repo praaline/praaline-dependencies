@@ -228,7 +228,7 @@ QtBoolEdit::QtBoolEdit(QWidget *parent) :
         lt->setContentsMargins(0, 0, 4, 0);
     lt->addWidget(m_checkBox);
     setLayout(lt);
-    connect(m_checkBox, SIGNAL(toggled(bool)), this, SIGNAL(toggled(bool)));
+    connect(m_checkBox, &QAbstractButton::toggled, this, &QtBoolEdit::toggled);
     setFocusProxy(m_checkBox);
     m_checkBox->setText(tr("True"));
 }
@@ -329,7 +329,7 @@ bool QtKeySequenceEdit::eventFilter(QObject *o, QEvent *e)
         menu->insertAction(actionBefore, clearAction);
         menu->insertSeparator(actionBefore);
         clearAction->setEnabled(!m_keySequence.isEmpty());
-        connect(clearAction, SIGNAL(triggered()), this, SLOT(slotClearShortcut()));
+        connect(clearAction, &QAction::triggered, this, &QtKeySequenceEdit::slotClearShortcut);
         menu->exec(c->globalPos());
         delete menu;
         e->accept();

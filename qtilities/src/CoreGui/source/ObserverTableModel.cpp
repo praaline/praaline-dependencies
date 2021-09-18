@@ -67,9 +67,9 @@ bool Qtilities::CoreGui::ObserverTableModel::setObserverContext(Observer* observ
         return false;
 
     d->fetch_count = 0;
-    connect(d_observer,SIGNAL(numberOfSubjectsChanged(Observer::SubjectChangeIndication, QList<QPointer<QObject> >)),SLOT(handleLayoutChanged()));
-    connect(d_observer,SIGNAL(destroyed()),SLOT(handleLayoutChanged()));
-    connect(d_observer,SIGNAL(dataChanged()),SLOT(handleDataChanged()));
+    connect(d_observer.data(),&Observer::numberOfSubjectsChanged,this, &ObserverTableModel::handleLayoutChanged);
+    connect(d_observer.data(),&QObject::destroyed,this, &ObserverTableModel::handleLayoutChanged);
+    connect(d_observer.data(),&Observer::dataChanged,this, &ObserverTableModel::handleDataChanged);
 
     // Check if this observer has a subject type filter installed
     for (int i = 0; i < observer->subjectFilters().count(); ++i) {

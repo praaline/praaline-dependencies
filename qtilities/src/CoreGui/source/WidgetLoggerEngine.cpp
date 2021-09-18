@@ -62,7 +62,7 @@ bool Qtilities::CoreGui::WidgetLoggerEngine::initialize() {
     abstractLoggerEngineData->is_initialized = true;
     d->widget = new WidgetLoggerEngineFrontend(d->message_displays_flag,
                                                d->toolbar_area);
-    connect(d->widget,SIGNAL(destroyed(QObject*)),SLOT(deleteLater()));
+    connect(d->widget.data(),&QObject::destroyed,this, &QObject::deleteLater);
 
     if (d->widget) {
         // Print startup info messages

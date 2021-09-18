@@ -101,11 +101,11 @@ Qtilities::CoreGui::MessagesPlainTextEditTab::MessagesPlainTextEditTab(QWidget *
     search_options |= SearchBoxWidget::RegEx;
     d->searchBoxWidget = new SearchBoxWidget(search_options);
     d->searchBoxWidget->setWholeWordsOnly(false);
-    connect(d->searchBoxWidget,SIGNAL(searchStringChanged(const QString)),SLOT(handleSearchStringChanged(QString)));
-    connect(d->searchBoxWidget,SIGNAL(searchOptionsChanged()),SLOT(handle_FindNext()));
-    connect(d->searchBoxWidget,SIGNAL(btnClose_clicked()),d->searchBoxWidget,SLOT(hide()));
-    connect(d->searchBoxWidget,SIGNAL(btnFindNext_clicked()),SLOT(handle_FindNext()));
-    connect(d->searchBoxWidget,SIGNAL(btnFindPrevious_clicked()),SLOT(handle_FindPrevious()));
+    connect(d->searchBoxWidget,&SearchBoxWidget::searchStringChanged,this, &MessagesPlainTextEditTab::handleSearchStringChanged);
+    connect(d->searchBoxWidget,&SearchBoxWidget::searchOptionsChanged,this, &MessagesPlainTextEditTab::handle_FindNext);
+    connect(d->searchBoxWidget,&SearchBoxWidget::btnClose_clicked,d->searchBoxWidget,&QWidget::hide);
+    connect(d->searchBoxWidget,&SearchBoxWidget::btnFindNext_clicked,this, &MessagesPlainTextEditTab::handle_FindNext);
+    connect(d->searchBoxWidget,&SearchBoxWidget::btnFindPrevious_clicked,this, &MessagesPlainTextEditTab::handle_FindPrevious);
     d->searchBoxWidget->setEditorFocus();
     d->searchBoxWidget->hide();
 
@@ -307,7 +307,7 @@ void Qtilities::CoreGui::MessagesPlainTextEditTab::handle_PrintPreview() {
 #ifndef QT_NO_PRINTER
     QPrinter printer(QPrinter::HighResolution);
     QPrintPreviewDialog preview(&printer, &d->txtLog);
-    connect(&preview, SIGNAL(paintRequested(QPrinter *)), SLOT(printPreview(QPrinter *)));
+    connect(&preview, &QPrintPreviewDialog::paintRequested, this, &MessagesPlainTextEditTab::printPreview);
     preview.exec();
 #endif
 }
@@ -383,7 +383,7 @@ void Qtilities::CoreGui::MessagesPlainTextEditTab::constructActions() {
     // ---------------------------
     d->actionSave = new QAction(QIcon(qti_icon_FILE_SAVE_16x16),QObject::tr("Save"),this);
     d->action_provider->addAction(d->actionSave,QtilitiesCategory(tr("Log")));
-    connect(d->actionSave,SIGNAL(triggered()),SLOT(handle_Save()));
+    connect(d->actionSave,&QAction::triggered,this, &MessagesPlainTextEditTab::handle_Save);
     Command* command = ACTION_MANAGER->registerAction(qti_action_FILE_SAVE,d->actionSave,context);
     command->setCategory(QtilitiesCategory("Editing"));
     // ---------------------------
@@ -391,7 +391,7 @@ void Qtilities::CoreGui::MessagesPlainTextEditTab::constructActions() {
     // ---------------------------
     d->actionCopy = new QAction(QIcon(qti_icon_EDIT_COPY_16x16),QObject::tr("Copy"),this);
     d->action_provider->addAction(d->actionCopy,QtilitiesCategory(tr("Log")));
-    connect(d->actionCopy,SIGNAL(triggered()),SLOT(handle_Copy()));
+    connect(d->actionCopy,&QAction::triggered,this, &MessagesPlainTextEditTab::handle_Copy);
     command = ACTION_MANAGER->registerAction(qti_action_EDIT_COPY,d->actionCopy,context);
     command->setCategory(QtilitiesCategory("Editing"));
     // ---------------------------
@@ -400,7 +400,7 @@ void Qtilities::CoreGui::MessagesPlainTextEditTab::constructActions() {
     d->actionSelectAll = new QAction(QIcon(qti_icon_EDIT_SELECT_ALL_16x16),QObject::tr("Select All"),this);
     d->actionSelectAll->setEnabled(true);
     d->action_provider->addAction(d->actionSelectAll,QtilitiesCategory(tr("Log")));
-    connect(d->actionSelectAll,SIGNAL(triggered()),SLOT(handle_SelectAll()));
+    connect(d->actionSelectAll,&QAction::triggered,this, &MessagesPlainTextEditTab::handle_SelectAll);
     command = ACTION_MANAGER->registerAction(qti_action_EDIT_SELECT_ALL,d->actionSelectAll,context);
     command->setCategory(QtilitiesCategory("Editing"));
     // ---------------------------
@@ -408,7 +408,7 @@ void Qtilities::CoreGui::MessagesPlainTextEditTab::constructActions() {
     // ---------------------------
     d->actionClear = new QAction(QIcon(qti_icon_BROOM_16x16),QObject::tr("Clear"),this);
     d->action_provider->addAction(d->actionClear,QtilitiesCategory(tr("Log")));
-    connect(d->actionClear,SIGNAL(triggered()),SLOT(handle_Clear()));
+    connect(d->actionClear,&QAction::triggered,this, &MessagesPlainTextEditTab::handle_Clear);
     command = ACTION_MANAGER->registerAction(qti_action_EDIT_CLEAR,d->actionClear,context);
     command->setCategory(QtilitiesCategory("Editing"));
     // ---------------------------
@@ -418,7 +418,7 @@ void Qtilities::CoreGui::MessagesPlainTextEditTab::constructActions() {
     d->actionLineWrap->setCheckable(true);
     d->actionLineWrap->setChecked(true);
     d->action_provider->addAction(d->actionLineWrap,QtilitiesCategory(tr("Log")));
-    connect(d->actionLineWrap,SIGNAL(triggered()),SLOT(handle_LineWrap()));
+    connect(d->actionLineWrap,&QAction::triggered,this, &MessagesPlainTextEditTab::handle_LineWrap);
     command = ACTION_MANAGER->registerAction(qti_action_EDIT_LINE_WRAP,d->actionLineWrap,context);
     command->setCategory(QtilitiesCategory("Editing"));
     // ---------------------------
@@ -428,7 +428,7 @@ void Qtilities::CoreGui::MessagesPlainTextEditTab::constructActions() {
     d->actionFreezeLog->setCheckable(true);
     d->actionFreezeLog->setChecked(false);
     d->action_provider->addAction(d->actionFreezeLog,QtilitiesCategory(tr("Log")));
-    connect(d->actionFreezeLog,SIGNAL(triggered()),SLOT(handle_FreezeLog()));
+    connect(d->actionFreezeLog,&QAction::triggered,this, &MessagesPlainTextEditTab::handle_FreezeLog);
     command = ACTION_MANAGER->registerAction("Edit.FreezeOutput",d->actionFreezeLog,context);
     command->setCategory(QtilitiesCategory("Editing"));
     // ---------------------------
@@ -437,14 +437,14 @@ void Qtilities::CoreGui::MessagesPlainTextEditTab::constructActions() {
     d->actionFind = new QAction(QIcon(qti_icon_FIND_16x16),QObject::tr("Find"),this);
     //d->actionFind->setShortcut(QKeySequence(QKeySequence::Find));
     d->action_provider->addAction(d->actionFind,QtilitiesCategory(tr("Log")));
-    connect(d->actionFind,SIGNAL(triggered()),SLOT(handle_SearchShortcut()));
+    connect(d->actionFind,&QAction::triggered,this, &MessagesPlainTextEditTab::handle_SearchShortcut);
     command = ACTION_MANAGER->registerAction(qti_action_EDIT_FIND,d->actionFind,context);
     // ---------------------------
     // Print
     // ---------------------------
     d->actionPrint = new QAction(QIcon(qti_icon_PRINT_16x16),QObject::tr("Print"),this);
     d->action_provider->addAction(d->actionPrint,QtilitiesCategory(tr("Print")));
-    connect(d->actionPrint,SIGNAL(triggered()),SLOT(handle_Print()));
+    connect(d->actionPrint,&QAction::triggered,this, &MessagesPlainTextEditTab::handle_Print);
     command = ACTION_MANAGER->registerAction(qti_action_FILE_PRINT,d->actionPrint,context);
     command->setCategory(QtilitiesCategory("Editing"));
     // ---------------------------
@@ -452,7 +452,7 @@ void Qtilities::CoreGui::MessagesPlainTextEditTab::constructActions() {
     // ---------------------------
     d->actionPrintPDF = new QAction(QIcon(qti_icon_PRINT_PDF_16x16),QObject::tr("Print PDF"),this);
     d->action_provider->addAction(d->actionPrintPDF,QtilitiesCategory(tr("Print")));
-    connect(d->actionPrintPDF,SIGNAL(triggered()),SLOT(handle_PrintPDF()));
+    connect(d->actionPrintPDF,&QAction::triggered,this, &MessagesPlainTextEditTab::handle_PrintPDF);
     command = ACTION_MANAGER->registerAction(qti_action_FILE_PRINT_PDF,d->actionPrintPDF,context);
     command->setCategory(QtilitiesCategory("Editing"));
     // ---------------------------
@@ -460,7 +460,7 @@ void Qtilities::CoreGui::MessagesPlainTextEditTab::constructActions() {
     // ---------------------------
     d->actionPrintPreview = new QAction(QIcon(qti_icon_PRINT_PREVIEW_16x16),QObject::tr("Print Preview"),this);
     d->action_provider->addAction(d->actionPrintPreview,QtilitiesCategory(tr("Print")));
-    connect(d->actionPrintPreview,SIGNAL(triggered()),SLOT(handle_PrintPreview()));
+    connect(d->actionPrintPreview,&QAction::triggered,this, &MessagesPlainTextEditTab::handle_PrintPreview);
     command = ACTION_MANAGER->registerAction(qti_action_FILE_PRINT_PREVIEW,d->actionPrintPreview,context);
     command->setCategory(QtilitiesCategory("Editing"));
     // ---------------------------
@@ -475,7 +475,7 @@ void Qtilities::CoreGui::MessagesPlainTextEditTab::constructActions() {
                 d->actionSettings = new QAction(QIcon(qti_icon_PROPERTY_16x16),tr("Logging Settings"),this);
                 d->action_provider->addAction(d->actionSettings,QtilitiesCategory(tr("Log")));
                 ACTION_MANAGER->registerAction(qti_action_FILE_SETTINGS,d->actionSettings,context);
-                connect(d->actionSettings,SIGNAL(triggered()),SLOT(handle_Settings()));
+                connect(d->actionSettings,&QAction::triggered,this, &MessagesPlainTextEditTab::handle_Settings);
             }
         }
     }
@@ -555,7 +555,7 @@ Qtilities::CoreGui::WidgetLoggerEngineFrontend::WidgetLoggerEngineFrontend(Widge
             new_dock->setFeatures(features);
 
             d->message_display_docks[WidgetLoggerEngine::AllMessagesPlainTextEdit] = new_dock;
-            connect(new_dock,SIGNAL(visibilityChanged(bool)),SLOT(handle_dockVisibilityChanged(bool)));
+            connect(new_dock,&QDockWidget::visibilityChanged,this, &WidgetLoggerEngineFrontend::handle_dockVisibilityChanged);
             new_dock->setWidget(new_tab);
             addDockWidget(Qt::BottomDockWidgetArea,new_dock);
 
@@ -575,7 +575,7 @@ Qtilities::CoreGui::WidgetLoggerEngineFrontend::WidgetLoggerEngineFrontend(Widge
             new_dock->setFeatures(features);
 
             d->message_display_docks[WidgetLoggerEngine::IssuesPlainTextEdit] = new_dock;
-            connect(new_dock,SIGNAL(visibilityChanged(bool)),SLOT(handle_dockVisibilityChanged(bool)));
+            connect(new_dock,&QDockWidget::visibilityChanged,this, &WidgetLoggerEngineFrontend::handle_dockVisibilityChanged);
             new_dock->setWidget(new_tab);
             addDockWidget(Qt::BottomDockWidgetArea,new_dock);
 
@@ -598,7 +598,7 @@ Qtilities::CoreGui::WidgetLoggerEngineFrontend::WidgetLoggerEngineFrontend(Widge
             new_dock->setFeatures(features);
 
             d->message_display_docks[WidgetLoggerEngine::WarningsPlainTextEdit] = new_dock;
-            connect(new_dock,SIGNAL(visibilityChanged(bool)),SLOT(handle_dockVisibilityChanged(bool)));
+            connect(new_dock,&QDockWidget::visibilityChanged,this, &WidgetLoggerEngineFrontend::handle_dockVisibilityChanged);
             new_dock->setWidget(new_tab);
             addDockWidget(Qt::BottomDockWidgetArea,new_dock);
 
@@ -623,7 +623,7 @@ Qtilities::CoreGui::WidgetLoggerEngineFrontend::WidgetLoggerEngineFrontend(Widge
             new_dock->setFeatures(features);
 
             d->message_display_docks[WidgetLoggerEngine::ErrorsPlainTextEdit] = new_dock;
-            connect(new_dock,SIGNAL(visibilityChanged(bool)),SLOT(handle_dockVisibilityChanged(bool)));
+            connect(new_dock,&QDockWidget::visibilityChanged,this, &WidgetLoggerEngineFrontend::handle_dockVisibilityChanged);
             new_dock->setWidget(new_tab);
             addDockWidget(Qt::BottomDockWidgetArea,new_dock);
 

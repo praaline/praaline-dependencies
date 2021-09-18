@@ -111,59 +111,59 @@ GenericPropertyBrowser::GenericPropertyBrowser(GenericPropertyManager* property_
     d->int_property_manager = new QtIntPropertyManager(this);
     QtSpinBoxFactory *int_factory = new QtSpinBoxFactory(this);
     d->property_browser->setFactoryForManager(d->int_property_manager, int_factory);
-    connect(d->int_property_manager, SIGNAL(valueChanged(QtProperty *, int)),
-                this, SLOT(handle_intPropertyChanged(QtProperty*,int)));
+    connect(d->int_property_manager, &QtIntPropertyManager::valueChanged,
+                this, &GenericPropertyBrowser::handle_intPropertyChanged);
 
     // Create int property manager for editable properties:
     d->double_property_manager = new QtDoublePropertyManager(this);
     QtDoubleSpinBoxFactory *double_factory = new QtDoubleSpinBoxFactory(this);
     d->property_browser->setFactoryForManager(d->double_property_manager, double_factory);
-    connect(d->double_property_manager, SIGNAL(valueChanged(QtProperty *, double)),
-                this, SLOT(handle_doublePropertyChanged(QtProperty*,double)));
+    connect(d->double_property_manager, &QtDoublePropertyManager::valueChanged,
+                this, &GenericPropertyBrowser::handle_doublePropertyChanged);
 
     // Create enum property manager for editable properties:
     d->enum_property_manager = new QtEnumPropertyManager(this);
     QtEnumEditorFactory *enum_factory = new QtEnumEditorFactory(this);
     d->property_browser->setFactoryForManager(d->enum_property_manager, enum_factory);
-    connect(d->enum_property_manager, SIGNAL(valueChanged(QtProperty *, int)),
-                this, SLOT(handle_enumPropertyChanged(QtProperty*,int)));
+    connect(d->enum_property_manager, &QtEnumPropertyManager::valueChanged,
+                this, &GenericPropertyBrowser::handle_enumPropertyChanged);
 
     // Create string property manager for editable properties:
     d->string_property_manager = new QtStringPropertyManager(this);
     QtLineEditFactory *string_factory = new QtLineEditFactory(this);
     d->property_browser->setFactoryForManager(d->string_property_manager, string_factory);
-    connect(d->string_property_manager, SIGNAL(valueChanged(QtProperty *, const QString &)),
-                this, SLOT(handle_stringPropertyChanged(QtProperty*,const QString &)));
+    connect(d->string_property_manager, &QtStringPropertyManager::valueChanged,
+                this, &GenericPropertyBrowser::handle_stringPropertyChanged);
 
     // Create bool property manager for editable properties:
     d->bool_property_manager = new QtBoolPropertyManager(this);
     QtCheckBoxFactory *check_box_factory = new QtCheckBoxFactory(this);
     d->property_browser->setFactoryForManager(d->bool_property_manager, check_box_factory);
-    connect(d->bool_property_manager, SIGNAL(valueChanged(QtProperty *, bool)),
-                this, SLOT(handle_boolPropertyChanged(QtProperty*, bool)));
+    connect(d->bool_property_manager, &QtBoolPropertyManager::valueChanged,
+                this, &GenericPropertyBrowser::handle_boolPropertyChanged);
 
     // Create path property manager for editable properties:
     d->path_property_manager = new PathPropertyManager(this);
     FileEditorFactory* file_factory = new FileEditorFactory(this);
     d->property_browser->setFactoryForManager(d->path_property_manager, file_factory);
-    connect(d->path_property_manager, SIGNAL(valueChanged(QtProperty *, const QString &)),
-                this, SLOT(handle_pathPropertyChanged(QtProperty*,const QString &)));
+    connect(d->path_property_manager, &QtStringPropertyManager::valueChanged,
+                this, &GenericPropertyBrowser::handle_pathPropertyChanged);
 
     d->ignore_build_display_side_property_changes = true;
     inspectPropertyManager();
     d->ignore_build_display_side_property_changes = false;
 
-    connect(d->generic_property_manager,SIGNAL(destroyed()),SLOT(handleObjectDeleted()));
-    connect(d->generic_property_manager,SIGNAL(toggleAdvancedSettings(bool)),SLOT(toggleAdvancedSettings(bool)));
-    connect(d->generic_property_manager,SIGNAL(toggleSwitchNames(bool)),SLOT(toggleSwitchNames(bool)));
-    connect(d->generic_property_manager,SIGNAL(refresh()),SLOT(refresh()));
+    connect(d->generic_property_manager.data(),&QObject::destroyed,this, &GenericPropertyBrowser::handleObjectDeleted);
+    connect(d->generic_property_manager.data(),&Core::GenericPropertyManager::toggleAdvancedSettings,this, &GenericPropertyBrowser::toggleAdvancedSettings);
+    connect(d->generic_property_manager.data(),&Core::GenericPropertyManager::toggleSwitchNames,this, &GenericPropertyBrowser::toggleSwitchNames);
+    connect(d->generic_property_manager.data(),&Core::GenericPropertyManager::refresh,this, &GenericPropertyBrowser::refresh);
 
-    connect(d->generic_property_manager,SIGNAL(propertyValueChanged(GenericProperty*)),SLOT(handlePropertyValueChanged(GenericProperty*)));
-    connect(d->generic_property_manager,SIGNAL(propertyEditableChanged(GenericProperty*)),SLOT(handlePropertyEditableChanged(GenericProperty*)));
-    connect(d->generic_property_manager,SIGNAL(propertyContextDependentChanged(GenericProperty*)),SLOT(handlePropertyContextDependentChanged(GenericProperty*)));
-    connect(d->generic_property_manager,SIGNAL(propertyPossibleValuesChanged(GenericProperty*)),SLOT(handlePropertyPossibleValuesChanged(GenericProperty*)));
-    connect(d->generic_property_manager,SIGNAL(propertyDefaultValueChanged(GenericProperty*)),SLOT(handlePropertyDefaultValueChanged(GenericProperty*)));
-    connect(d->generic_property_manager,SIGNAL(propertyNoteChanged(GenericProperty*)),SLOT(handlePropertyNoteChanged(GenericProperty*)));
+    connect(d->generic_property_manager.data(),&Core::GenericPropertyManager::propertyValueChanged,this, &GenericPropertyBrowser::handlePropertyValueChanged);
+    connect(d->generic_property_manager.data(),&Core::GenericPropertyManager::propertyEditableChanged,this, &GenericPropertyBrowser::handlePropertyEditableChanged);
+    connect(d->generic_property_manager.data(),&Core::GenericPropertyManager::propertyContextDependentChanged,this, &GenericPropertyBrowser::handlePropertyContextDependentChanged);
+    connect(d->generic_property_manager.data(),&Core::GenericPropertyManager::propertyPossibleValuesChanged,this, &GenericPropertyBrowser::handlePropertyPossibleValuesChanged);
+    connect(d->generic_property_manager.data(),&Core::GenericPropertyManager::propertyDefaultValueChanged,this, &GenericPropertyBrowser::handlePropertyDefaultValueChanged);
+    connect(d->generic_property_manager.data(),&Core::GenericPropertyManager::propertyNoteChanged,this, &GenericPropertyBrowser::handlePropertyNoteChanged);
 }
 
 GenericPropertyBrowser::~GenericPropertyBrowser() {

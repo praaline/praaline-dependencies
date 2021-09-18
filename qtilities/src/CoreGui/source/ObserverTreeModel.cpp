@@ -87,7 +87,7 @@ Qtilities::CoreGui::ObserverTreeModel::ObserverTreeModel(QObject* parent) :
     d->read_only = false;
 
     qRegisterMetaType<Qtilities::CoreGui::ObserverTreeItem>("Qtilities::CoreGui::ObserverTreeItem");
-    connect(&d->tree_builder,SIGNAL(buildCompleted(ObserverTreeItem*)),SLOT(receiveBuildObserverTreeItem(ObserverTreeItem*)));
+    connect(&d->tree_builder,&ObserverTreeModelBuilder::buildCompleted,this, &ObserverTreeModel::receiveBuildObserverTreeItem);
 }
 
 Qtilities::CoreGui::ObserverTreeModel::~ObserverTreeModel() {
@@ -128,7 +128,7 @@ bool Qtilities::CoreGui::ObserverTreeModel::setObserverContext(Observer* observe
     if (observer->observerName() != qti_def_GLOBAL_OBJECT_POOL && !lazyInitEnabled())
         recordObserverChange();
 
-    connect(d_observer,SIGNAL(destroyed()),SLOT(handleObserverContextDeleted()));
+    connect(d_observer.data(),&QObject::destroyed,this, &ObserverTreeModel::handleObserverContextDeleted);
     connect(d_observer,SIGNAL(layoutChanged(QList<QPointer<QObject> >)),SLOT(recordObserverChange(QList<QPointer<QObject> >)));
     connect(d_observer,SIGNAL(dataChanged(Observer*)),SLOT(handleContextDataChanged(Observer*)));
 

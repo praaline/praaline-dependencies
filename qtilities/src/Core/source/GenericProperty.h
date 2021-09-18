@@ -112,13 +112,13 @@ namespace Qtilities {
                 TypeDouble = 512,
                 TypeListBased = TypeFileList | TypePathList
             };
-            Q_ENUMS(PropertyType)
+            Q_ENUM(PropertyType)
             //! Possible property levels.
             enum PropertyLevel {
                 LevelStandard = 0,
                 LevelAdvanced = 1
             };
-            Q_ENUMS(PropertyLevel)
+            Q_ENUM(PropertyLevel)
             //! Macro mode of this property.
             /*!
               Default is MacroUnexpanded.
@@ -132,7 +132,7 @@ namespace Qtilities {
                 MacroExpandedAll = MacroExpanded | MacroExpandedCustom,
                 MacrosAll = MacroExpandedAll | MacroUnexpanded
             };
-            Q_ENUMS(MacroMode)
+            Q_ENUM(MacroMode)
 
             static QString propertyTypeToString(PropertyType property_type) {
                 if (property_type == TypeInteger) {
@@ -240,7 +240,7 @@ namespace Qtilities {
             enum FileListStringFormat {
                 FileListStringFormat_0 = 0      /*!< Files are returned in this format (it does not care if there are spaces in the files): {"file_path_1" "file_path_2"} */
             };
-            Q_ENUMS(FileListStringFormat)
+            Q_ENUM(FileListStringFormat)
 
             explicit GenericProperty(QObject *parent = nullptr);
             explicit GenericProperty(const QString& property_name, QObject *parent = nullptr);

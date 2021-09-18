@@ -1235,7 +1235,7 @@ QWidget *Qtilities::CoreGui::NamingPolicyDelegate::createEditor(QWidget *parent,
     Q_UNUSED(index)
 
     QLineEdit *editor = new QLineEdit(parent);
-    connect(editor,SIGNAL(textChanged(QString)),SLOT(on_LineEdit_TextChanged(QString)));
+    connect(editor,&QLineEdit::textChanged,this, &NamingPolicyDelegate::on_LineEdit_TextChanged);
 
     if (d->observer && d->naming_filter) {
         if (d->naming_filter->getValidator()) {

@@ -17,7 +17,7 @@ Qtilities::Logging::AbstractLoggerEngine::AbstractLoggerEngine() : QObject()
     abstractLoggerEngineData->formatting_engine = 0;
     abstractLoggerEngineData->is_enabled = true;
 
-    connect(this,SIGNAL(destroyed()),SLOT(finalize()));
+    connect(this,&QObject::destroyed,this, &AbstractLoggerEngine::finalize);
 
     installEventFilter(this);
     enableAllMessageTypes();

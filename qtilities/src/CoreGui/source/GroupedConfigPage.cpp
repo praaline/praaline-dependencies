@@ -41,7 +41,7 @@ Qtilities::CoreGui::GroupedConfigPage::GroupedConfigPage(const QtilitiesCategory
     d->category = category;
     setObjectName(d->category.toString());
 
-    connect(ui->groupedTab,SIGNAL(currentChanged(int)),SLOT(handleCurrentPageChanged(int)));
+    connect(ui->groupedTab,&QTabWidget::currentChanged,this, &GroupedConfigPage::handleCurrentPageChanged);
 }
 
 Qtilities::CoreGui::GroupedConfigPage::~GroupedConfigPage() {

@@ -30,9 +30,9 @@
 using namespace Qtilities::Core::Properties;
 
 namespace Qtilities {
-    namespace CoreGui {
-        FactoryItem<QWidget, ObjectPropertyBrowser> ObjectPropertyBrowser::factory;
-    }
+namespace CoreGui {
+FactoryItem<QWidget, ObjectPropertyBrowser> ObjectPropertyBrowser::factory;
+}
 }
 
 struct Qtilities::CoreGui::ObjectPropertyBrowserPrivateData {
@@ -85,8 +85,8 @@ Qtilities::CoreGui::ObjectPropertyBrowser::ObjectPropertyBrowser(BrowserType bro
     QtVariantEditorFactory *factory = new QtVariantEditorFactory(this);
     d->property_browser->setFactoryForManager(d->property_manager, factory);
 
-    connect(d->property_manager, SIGNAL(valueChanged(QtProperty *, const QVariant &)),
-                this, SLOT(handle_property_changed(QtProperty *, const QVariant &)));
+    connect(d->property_manager, &QtVariantPropertyManager::valueChanged,
+            this, &ObjectPropertyBrowser::handle_property_changed);
 }
 
 Qtilities::CoreGui::ObjectPropertyBrowser::~ObjectPropertyBrowser() {
@@ -96,7 +96,7 @@ Qtilities::CoreGui::ObjectPropertyBrowser::~ObjectPropertyBrowser() {
 QSize Qtilities::CoreGui::ObjectPropertyBrowser::sizeHint() const {
     if (d->property_browser) {
         if (d->property_browser->sizeHint().isValid() && d->property_browser->sizeHint().width() != 0
-            && d->property_browser->sizeHint().height() != 0)
+                && d->property_browser->sizeHint().height() != 0)
             return d->property_browser->sizeHint();
     }
 
@@ -132,9 +132,9 @@ bool Qtilities::CoreGui::ObjectPropertyBrowser::eventFilter(QObject *object, QEv
                 //qDebug() << "Dynamic change event update in ObjectPropertyBrowser: " << property_change_event->propertyName();
                 d->ignore_property_changes = true;
                 refresh(true);
-//                IModificationNotifier* mod_iface = qobject_cast<IModificationNotifier*> (d->obj);
-//                if (mod_iface)
-//                    mod_iface->setModificationState(true);
+                //                IModificationNotifier* mod_iface = qobject_cast<IModificationNotifier*> (d->obj);
+                //                if (mod_iface)
+                //                    mod_iface->setModificationState(true);
                 d->ignore_property_changes = false;
             }
         }
@@ -170,7 +170,7 @@ void Qtilities::CoreGui::ObjectPropertyBrowser::setObject(QObject *object, bool 
         d->obj->installEventFilter(this);
     }
 
-    connect(d->obj,SIGNAL(destroyed()),SLOT(handleObjectDeleted()));
+    connect(d->obj.data(),&QObject::destroyed,this, &ObjectPropertyBrowser::handleObjectDeleted);
     d->ignore_property_changes = true;
     inspectClass(d->obj->metaObject());
     d->ignore_property_changes = false;

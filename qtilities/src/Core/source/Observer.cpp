@@ -50,7 +50,7 @@ Qtilities::Core::Observer::Observer(const QString& observer_name, const QString&
     observerData->access_mode = FullAccess;
     observerData->object_deletion_policy = DeleteImmediately;
     observerData->filter_subject_events_enabled = true;
-    connect(&observerData->subject_list,SIGNAL(objectDestroyed(QObject*)),SLOT(handle_deletedSubject(QObject*)));
+    connect(&observerData->subject_list,&PointerListDeleter::objectDestroyed,this, &Observer::handle_deletedSubject);
 
     // Register this observer with the observer manager
     if (observer_name != QString(qti_def_GLOBAL_OBJECT_POOL))
@@ -68,7 +68,7 @@ Qtilities::Core::Observer::Observer(const Observer &other) : QObject(other.paren
     observerData = new ObserverData(*other.observerData);
     setObjectName(other.objectName());
 
-    connect(&observerData->subject_list,SIGNAL(objectDestroyed(QObject*)),SLOT(handle_deletedSubject(QObject*)));
+    connect(&observerData->subject_list,&PointerListDeleter::objectDestroyed,this, &Observer::handle_deletedSubject);
 
     // Register this observer with the observer manager
     if (other.objectName() != QString(qti_def_GLOBAL_OBJECT_POOL))
@@ -648,7 +648,7 @@ bool Qtilities::Core::Observer::attachSubject(QObject* obj, Observer::ObjectOwne
                         setMultiContextPropertyValue(obj,qti_prop_PARENT_ID,QVariant(-1));
                     }
                 } else if (object_ownership == OwnedBySubjectOwnership) {
-                    connect(obj,SIGNAL(destroyed()),SLOT(deleteLater()));
+                    connect(obj,&QObject::destroyed,this, &QObject::deleteLater);
                     #ifndef QT_NO_DEBUG
                         management_policy_string = "Owned By Subject Ownership (this context is now dependant on this subject, but the original ownership of the subject was not changed)";
                     #endif
@@ -659,7 +659,7 @@ bool Qtilities::Core::Observer::attachSubject(QObject* obj, Observer::ObjectOwne
                 // context using OwnedBySubjectOwnership it is attached to all other contexts after that using OwnedBySubjectOwnership
                 // as well.
                 // This observer must be deleted as soon as this subject is deleted:
-                connect(obj,SIGNAL(destroyed()),SLOT(deleteLater()));
+                connect(obj,&QObject::destroyed,this, &QObject::deleteLater);
                 #ifndef QT_NO_DEBUG
                     management_policy_string = "Owned By Subject Ownership (was already observed using this ownership type).";
                 #endif
@@ -708,7 +708,7 @@ bool Qtilities::Core::Observer::attachSubject(QObject* obj, Observer::ObjectOwne
                     obj->setParent(0);
             } else if (object_ownership == OwnedBySubjectOwnership) {
                 // This observer must be deleted as soon as this subject is deleted.
-                connect(obj,SIGNAL(destroyed()),SLOT(deleteLater()));
+                connect(obj,&QObject::destroyed,this, &QObject::deleteLater);
                 #ifndef QT_NO_DEBUG
                     management_policy_string = "Owned By Subject Ownership";
                 #endif
@@ -732,8 +732,8 @@ bool Qtilities::Core::Observer::attachSubject(QObject* obj, Observer::ObjectOwne
             has_mod_iface = true;
             #endif
             connect(obs,SIGNAL(modificationStateChanged(bool)),SLOT(setModificationState(bool)));
-            connect(obs,SIGNAL(dataChanged(Observer*)),SIGNAL(dataChanged(Observer*)));
-            connect(obs,SIGNAL(layoutChanged(QList<QPointer<QObject> >)),SIGNAL(layoutChanged(QList<QPointer<QObject> >)));
+            connect(obs,&Observer::dataChanged,this, &Observer::dataChanged);
+            connect(obs,&Observer::layoutChanged,this, &Observer::layoutChanged);
 
             observerData->subject_observer_list.append(obj);
         } else {

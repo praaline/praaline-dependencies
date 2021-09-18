@@ -81,7 +81,7 @@ namespace Qtilities {
             };
             Q_DECLARE_FLAGS(TaskLifeTimeFlags, TaskLifeTime)
             Q_FLAGS(TaskLifeTimeFlags)
-            Q_ENUMS(TaskLifeTime)
+            Q_ENUM(TaskLifeTime)
 
             //! Default constructor
             /*!

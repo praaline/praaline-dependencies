@@ -81,18 +81,18 @@ void Qtilities::CoreGui::LoggerConfigWidget::configPageApply() {
 void Qtilities::CoreGui::LoggerConfigWidget::configPageInitialize() {
     ui->txtFormattingEnginePreview->setFont(QFont("Courier New"));
 
-    connect(ui->tableViewLoggerEngines,SIGNAL(clicked(QModelIndex)),SLOT(handle_LoggerEngineTableClicked(QModelIndex)));
-    connect(ui->btnAddLoggerEngine,SIGNAL(clicked(bool)),SLOT(handle_NewLoggerEngineRequest()));
-    connect(ui->btnRemoveLoggerEngine,SIGNAL(clicked(bool)),SLOT(handle_RemoveLoggerEngineRequest()));
-    connect(ui->checkBoxToggleAll,SIGNAL(clicked(bool)),SLOT(handle_CheckBoxToggleAllClicked(bool)));
-    connect(ui->listWidgetFormattingEngines,SIGNAL(currentRowChanged(int)),SLOT(handle_FormattingEnginesCurrentRowChanged(int)));
+    connect(ui->tableViewLoggerEngines,&QAbstractItemView::clicked,this, &LoggerConfigWidget::handle_LoggerEngineTableClicked);
+    connect(ui->btnAddLoggerEngine,&QAbstractButton::clicked,this, &LoggerConfigWidget::handle_NewLoggerEngineRequest);
+    connect(ui->btnRemoveLoggerEngine,&QAbstractButton::clicked,this, &LoggerConfigWidget::handle_RemoveLoggerEngineRequest);
+    connect(ui->checkBoxToggleAll,&QAbstractButton::clicked,this, &LoggerConfigWidget::handle_CheckBoxToggleAllClicked);
+    connect(ui->listWidgetFormattingEngines,&QListWidget::currentRowChanged,this, &LoggerConfigWidget::handle_FormattingEnginesCurrentRowChanged);
     connect(ui->comboBoxLoggerFormattingEngine,SIGNAL(currentIndexChanged(int)),SLOT(handle_ComboBoxLoggerFormattingEngineCurrentIndexChange(int)));
-    connect(ui->btnLoadConfig,SIGNAL(clicked()),SLOT(handle_BtnLoadConfigClicked()));
-    connect(ui->btnSaveConfig,SIGNAL(clicked()),SLOT(handle_BtnSaveConfigClicked()));
-    connect(ui->btnApply,SIGNAL(clicked()),SLOT(handle_BtnApplyClicked()));
-    connect(ui->tableViewLoggerEngines->verticalHeader(),SIGNAL(sectionCountChanged(int,int)),SLOT(resizeCommandTableRows()));
+    connect(ui->btnLoadConfig,&QAbstractButton::clicked,this, &LoggerConfigWidget::handle_BtnLoadConfigClicked);
+    connect(ui->btnSaveConfig,&QAbstractButton::clicked,this, &LoggerConfigWidget::handle_BtnSaveConfigClicked);
+    connect(ui->btnApply,&QAbstractButton::clicked,this, &LoggerConfigWidget::handle_BtnApplyClicked);
+    connect(ui->tableViewLoggerEngines->verticalHeader(),&QHeaderView::sectionCountChanged,this, &LoggerConfigWidget::resizeCommandTableRows);
 
-    connect(Log,SIGNAL(loggerEngineCountChanged(AbstractLoggerEngine*,Logger::EngineChangeIndication)),SLOT(resizeCommandTableRows()));
+    connect(Log,&Logger::loggerEngineCountChanged,this, &LoggerConfigWidget::resizeCommandTableRows);
 
     // Add log levels:
     QStringList list = Log->allLogLevelStrings();
@@ -117,7 +117,7 @@ void Qtilities::CoreGui::LoggerConfigWidget::configPageInitialize() {
     readSettings();
 
     connect(ui->comboGlobalLogLevel,SIGNAL(currentIndexChanged(QString)),SLOT(handle_ComboBoxGlobalLogLevelCurrentIndexChange(QString)));
-    connect(ui->checkBoxRememberSession,SIGNAL(clicked(bool)),SLOT(handle_CheckBoxRememberSessionConfigClicked(bool)));
+    connect(ui->checkBoxRememberSession,&QAbstractButton::clicked,this, &LoggerConfigWidget::handle_CheckBoxRememberSessionConfigClicked);
 
     updateActiveEngine();
 }

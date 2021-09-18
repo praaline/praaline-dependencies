@@ -52,7 +52,7 @@ Qtilities::Core::ObjectManager::ObjectManager(QObject* parent) : IObjectManager(
 {
     d = new ObjectManagerPrivateData;
     d->object_pool.startProcessingCycle();
-    connect(&d->object_pool,SIGNAL(subjectDeleted(QObject*)),SIGNAL(objectRemoved(QObject*)));
+    connect(&d->object_pool,&Observer::subjectDeleted,this, &IObjectManager::objectRemoved);
 
     setObjectName(tr("Object Manager"));
 

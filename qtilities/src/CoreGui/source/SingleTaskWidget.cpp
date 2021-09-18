@@ -83,7 +83,7 @@ Qtilities::CoreGui::SingleTaskWidget::SingleTaskWidget(int task_id, QWidget* par
 
     if (d->task) {
         d->task_base = d->task->objectBase();
-        connect(d->task->objectBase(),SIGNAL(destroyed()),SLOT(handleTaskDeleted()));
+        connect(d->task->objectBase(),&QObject::destroyed,this, &SingleTaskWidget::handleTaskDeleted);
         connect(d->task->objectBase(),SIGNAL(taskStarted(int,QString,Logger::MessageType)),SLOT(update()));
         connect(d->task->objectBase(),SIGNAL(subTaskCompleted(int,QString,Logger::MessageType)),SLOT(update()));
         connect(d->task->objectBase(),SIGNAL(taskCompleted(ITask::TaskResult,QString,Logger::MessageType)),SLOT(update()));

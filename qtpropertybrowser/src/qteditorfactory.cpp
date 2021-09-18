@@ -1701,7 +1701,7 @@ bool QtCharEdit::eventFilter(QObject *o, QEvent *e)
         menu->insertAction(actionBefore, clearAction);
         menu->insertSeparator(actionBefore);
         clearAction->setEnabled(!m_value.isNull());
-        connect(clearAction, SIGNAL(triggered()), this, SLOT(slotClearChar()));
+        connect(clearAction, &QAction::triggered, this, &QtCharEdit::slotClearChar);
         menu->exec(c->globalPos());
         delete menu;
         e->accept();
@@ -2313,7 +2313,7 @@ QtColorEditWidget::QtColorEditWidget(QWidget *parent) :
     setFocusPolicy(m_button->focusPolicy());
     m_button->setText(tr("..."));
     m_button->installEventFilter(this);
-    connect(m_button, SIGNAL(clicked()), this, SLOT(buttonClicked()));
+    connect(m_button, &QAbstractButton::clicked, this, &QtColorEditWidget::buttonClicked);
     lt->addWidget(m_button);
     m_pixmapLabel->setPixmap(QtPropertyBrowserUtils::brushValuePixmap(QBrush(m_color)));
     m_label->setText(QtPropertyBrowserUtils::colorValueText(m_color));
@@ -2521,7 +2521,7 @@ QtFontEditWidget::QtFontEditWidget(QWidget *parent) :
     setFocusPolicy(m_button->focusPolicy());
     m_button->setText(tr("..."));
     m_button->installEventFilter(this);
-    connect(m_button, SIGNAL(clicked()), this, SLOT(buttonClicked()));
+    connect(m_button, &QAbstractButton::clicked, this, &QtFontEditWidget::buttonClicked);
     lt->addWidget(m_button);
     m_pixmapLabel->setPixmap(QtPropertyBrowserUtils::fontValuePixmap(m_font));
     m_label->setText(QtPropertyBrowserUtils::fontValueText(m_font));

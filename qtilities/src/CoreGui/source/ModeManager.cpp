@@ -56,7 +56,7 @@ Qtilities::CoreGui::ModeManager::ModeManager(int manager_id, Qt::Orientation ori
 
     // Setup the mode list widget in the way we need it:
     d->mode_list_widget = new ModeListWidget(orientation);
-    connect(d->mode_list_widget,SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),SLOT(handleModeListCurrentItemChanged(QListWidgetItem*,QListWidgetItem*)));
+    connect(d->mode_list_widget,&QListWidget::currentItemChanged,this, &ModeManager::handleModeListCurrentItemChanged);
 
     if (d->orientation == Qt::Horizontal) {
         d->mode_list_widget->setFlow(QListWidget::TopToBottom);
@@ -330,9 +330,9 @@ void Qtilities::CoreGui::ModeManager::refreshList() {
     // to the preferred order etc.
 
     // Clear all lists:
-    disconnect(d->mode_list_widget,SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),this,SLOT(handleModeListCurrentItemChanged(QListWidgetItem*,QListWidgetItem*)));
+    disconnect(d->mode_list_widget,&QListWidget::currentItemChanged,this,&ModeManager::handleModeListCurrentItemChanged);
     d->mode_list_widget->clear();
-    connect(d->mode_list_widget,SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),SLOT(handleModeListCurrentItemChanged(QListWidgetItem*,QListWidgetItem*)),Qt::UniqueConnection);
+    connect(d->mode_list_widget,&QListWidget::currentItemChanged,this, &ModeManager::handleModeListCurrentItemChanged,Qt::UniqueConnection);
 
     // Will indicate if an item has been set as active in the loops below:
     bool set_active_done = false;
@@ -451,7 +451,7 @@ void Qtilities::CoreGui::ModeManager::refreshList() {
                 command->setCategory(QtilitiesCategory("Application Modes"));
                 command->setKeySequence(key_sequence);
                 d->command_shortcut_map[shortcut] = command;
-                connect(shortcut,SIGNAL(activated()),SLOT(handleModeShortcutActivated()));
+                connect(shortcut,&QShortcut::activated,this, &ModeManager::handleModeShortcutActivated);
 
                 ACTION_MANAGER->commandObserver()->endProcessingCycle();
             }
@@ -617,7 +617,7 @@ QStack<int> CoreGui::ModeManager::previousModeIDs() const {
 QAction *CoreGui::ModeManager::switchToPreviousModeAction() {
     if (!d->actionSwitchToPreviousMode) {
         d->actionSwitchToPreviousMode = new QAction(tr("Switch To Previous Mode"),0);
-        connect(d->actionSwitchToPreviousMode,SIGNAL(triggered()),SLOT(switchToPreviousMode()));
+        connect(d->actionSwitchToPreviousMode.data(),&QAction::triggered,this, &ModeManager::switchToPreviousMode);
         updateSwitchToPreviousModeAction();
     }
     return d->actionSwitchToPreviousMode;

@@ -80,9 +80,9 @@ void Qtilities::CoreGui::DynamicSideWidgetViewer::setIFaceMap(QMap<QString, ISid
         QString current_item = widget_order.at(i);
         if (filtered_list.contains(current_item)) {
             DynamicSideWidgetWrapper* wrapper = new DynamicSideWidgetWrapper(filtered_list,current_item,d->is_exclusive);
-            connect(wrapper,SIGNAL(aboutToBeDestroyed(QWidget*)),SLOT(handleSideWidgetDestroyed(QWidget*)));
-            connect(wrapper,SIGNAL(newSideWidgetRequest()),SLOT(handleNewSideWidgetRequest()));
-            connect(wrapper,SIGNAL(currentTextChanged(QString)),SLOT(updateWrapperComboBoxes()));
+            connect(wrapper,&DynamicSideWidgetWrapper::aboutToBeDestroyed,this, &DynamicSideWidgetViewer::handleSideWidgetDestroyed);
+            connect(wrapper,&DynamicSideWidgetWrapper::newSideWidgetRequest,this, &DynamicSideWidgetViewer::handleNewSideWidgetRequest);
+            connect(wrapper,&DynamicSideWidgetWrapper::currentTextChanged,this, &DynamicSideWidgetViewer::updateWrapperComboBoxes);
             d->splitter->addWidget(wrapper);
             d->active_wrappers << wrapper;
             wrapper->show();
@@ -96,9 +96,9 @@ void Qtilities::CoreGui::DynamicSideWidgetViewer::setIFaceMap(QMap<QString, ISid
         itr_filtered.next();
         if (itr_filtered.value()->startupModes().contains(d->mode_destination)) {
             DynamicSideWidgetWrapper* wrapper = new DynamicSideWidgetWrapper(filtered_list,itr_filtered.key(),d->is_exclusive);
-            connect(wrapper,SIGNAL(aboutToBeDestroyed(QWidget*)),SLOT(handleSideWidgetDestroyed(QWidget*)));
-            connect(wrapper,SIGNAL(newSideWidgetRequest()),SLOT(handleNewSideWidgetRequest()));
-            connect(wrapper,SIGNAL(currentTextChanged(QString)),SLOT(updateWrapperComboBoxes()));
+            connect(wrapper,&DynamicSideWidgetWrapper::aboutToBeDestroyed,this, &DynamicSideWidgetViewer::handleSideWidgetDestroyed);
+            connect(wrapper,&DynamicSideWidgetWrapper::newSideWidgetRequest,this, &DynamicSideWidgetViewer::handleNewSideWidgetRequest);
+            connect(wrapper,&DynamicSideWidgetWrapper::currentTextChanged,this, &DynamicSideWidgetViewer::updateWrapperComboBoxes);
             d->splitter->addWidget(wrapper);
             d->active_wrappers << wrapper;
             wrapper->show();
@@ -158,9 +158,9 @@ void Qtilities::CoreGui::DynamicSideWidgetViewer::handleSideWidgetDestroyed(QWid
         if (d->active_wrappers.count() == 0) {
             // In this case we create the last widget again.
             DynamicSideWidgetWrapper* wrapper = new DynamicSideWidgetWrapper(d->text_iface_map,wrapper_test,d->is_exclusive);
-            connect(wrapper,SIGNAL(aboutToBeDestroyed(QWidget*)),SLOT(handleSideWidgetDestroyed(QWidget*)));
-            connect(wrapper,SIGNAL(newSideWidgetRequest()),SLOT(handleNewSideWidgetRequest()));
-            connect(wrapper,SIGNAL(currentTextChanged(QString)),SLOT(updateWrapperComboBoxes(QString)));
+            connect(wrapper,&DynamicSideWidgetWrapper::aboutToBeDestroyed,this, &DynamicSideWidgetViewer::handleSideWidgetDestroyed);
+            connect(wrapper,&DynamicSideWidgetWrapper::newSideWidgetRequest,this, &DynamicSideWidgetViewer::handleNewSideWidgetRequest);
+            connect(wrapper,&DynamicSideWidgetWrapper::currentTextChanged,this, &DynamicSideWidgetViewer::updateWrapperComboBoxes);
             d->splitter->addWidget(wrapper);
             d->active_wrappers << wrapper;
             wrapper->show();
@@ -195,9 +195,9 @@ void Qtilities::CoreGui::DynamicSideWidgetViewer::handleNewSideWidgetRequest() {
         new_widget_label = d->text_iface_map.keys().at(0);
     }
     DynamicSideWidgetWrapper* wrapper = new DynamicSideWidgetWrapper(d->text_iface_map,new_widget_label,d->is_exclusive);
-    connect(wrapper,SIGNAL(aboutToBeDestroyed(QWidget*)),SLOT(handleSideWidgetDestroyed(QWidget*)));
-    connect(wrapper,SIGNAL(newSideWidgetRequest()),SLOT(handleNewSideWidgetRequest()));
-    connect(wrapper,SIGNAL(currentTextChanged(QString)),SLOT(updateWrapperComboBoxes(QString)));
+    connect(wrapper,&DynamicSideWidgetWrapper::aboutToBeDestroyed,this, &DynamicSideWidgetViewer::handleSideWidgetDestroyed);
+    connect(wrapper,&DynamicSideWidgetWrapper::newSideWidgetRequest,this, &DynamicSideWidgetViewer::handleNewSideWidgetRequest);
+    connect(wrapper,&DynamicSideWidgetWrapper::currentTextChanged,this, &DynamicSideWidgetViewer::updateWrapperComboBoxes);
     d->splitter->addWidget(wrapper);
     d->active_wrappers << wrapper;
     wrapper->show();

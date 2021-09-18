@@ -364,7 +364,7 @@ bool Qtilities::Logging::Logger::attachLoggerEngine(AbstractLoggerEngine* new_lo
     if (new_logger_engine) {
         new_logger_engine->setObjectName(new_logger_engine->name());
         d->logger_engines << new_logger_engine;
-        connect(this,SIGNAL(newMessage(QString,Logger::MessageType,Logger::MessageContextFlags,QList<QVariant>)),new_logger_engine,SLOT(newMessages(QString,Logger::MessageType,Logger::MessageContextFlags,QList<QVariant>)));
+        connect(this,&Logger::newMessage,new_logger_engine,&AbstractLoggerEngine::newMessages);
     }
 
     emit loggerEngineCountChanged(new_logger_engine, EngineAdded);

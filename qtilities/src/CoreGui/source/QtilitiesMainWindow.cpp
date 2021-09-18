@@ -82,7 +82,7 @@ Qtilities::CoreGui::QtilitiesMainWindow::QtilitiesMainWindow(ModeLayout modeLayo
     if (!QApplication::applicationName().isEmpty())
         setWindowTitle(QApplication::applicationName());
 
-    connect(Log,SIGNAL(newPriorityMessage(Logger::MessageType,QString)),SLOT(processPriorityMessage(Logger::MessageType,QString)));
+    connect(Log,&Logging::Logger::newPriorityMessage,this, &QtilitiesMainWindow::processPriorityMessage);
 
     // Construct a proper priority_message_widget:
     if (d->priority_messages_widget.layout())
@@ -97,10 +97,10 @@ Qtilities::CoreGui::QtilitiesMainWindow::QtilitiesMainWindow(ModeLayout modeLayo
     d->priority_messages_icon.setVisible(false);
     d->priority_messages_text.setWordWrap(false);
 
-    connect(&d->priority_message_timer,SIGNAL(timeout()), &d->priority_messages_text, SLOT(clear()));
-    connect(&d->priority_message_timer,SIGNAL(timeout()), &d->priority_messages_text, SLOT(hide()));
-    connect(&d->priority_message_timer,SIGNAL(timeout()), &d->priority_messages_icon, SLOT(clear()));
-    connect(&d->priority_message_timer,SIGNAL(timeout()), &d->priority_messages_icon, SLOT(hide()));
+    connect(&d->priority_message_timer,&QTimer::timeout, &d->priority_messages_text, &QLabel::clear);
+    connect(&d->priority_message_timer,&QTimer::timeout, &d->priority_messages_text, &QWidget::hide);
+    connect(&d->priority_message_timer,&QTimer::timeout, &d->priority_messages_icon, &QLabel::clear);
+    connect(&d->priority_message_timer,&QTimer::timeout, &d->priority_messages_icon, &QWidget::hide);
 
     doLayout();
 
@@ -206,8 +206,8 @@ void Qtilities::CoreGui::QtilitiesMainWindow::doLayout() {
     if (d->mode_layout == ModesTop || d->mode_layout == ModesBottom) {
         if (!d->mode_manager) {
             d->mode_manager = new ModeManager(qti_def_DEFAULT_MODE_MANAGER,Qt::Vertical,this);
-            connect(d->mode_manager,SIGNAL(changeCentralWidget(QWidget*)),SLOT(changeCurrentWidget(QWidget*)));
-            connect(d->mode_manager,SIGNAL(modeListItemSizesChanged()),SLOT(updateItemSizes()));
+            connect(d->mode_manager,&ModeManager::changeCentralWidget,this, &QtilitiesMainWindow::changeCurrentWidget);
+            connect(d->mode_manager,&ModeManager::modeListItemSizesChanged,this, &QtilitiesMainWindow::updateItemSizes);
         }
 
         d->central_widget->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Expanding);
@@ -258,8 +258,8 @@ void Qtilities::CoreGui::QtilitiesMainWindow::doLayout() {
     } else if (d->mode_layout == ModesLeft || d->mode_layout == ModesRight) {
         if (!d->mode_manager) {
             d->mode_manager = new ModeManager(qti_def_DEFAULT_MODE_MANAGER,Qt::Horizontal,this);
-            connect(d->mode_manager,SIGNAL(changeCentralWidget(QWidget*)),SLOT(changeCurrentWidget(QWidget*)));
-            connect(d->mode_manager,SIGNAL(modeListItemSizesChanged()),SLOT(updateItemSizes()));
+            connect(d->mode_manager,&ModeManager::changeCentralWidget,this, &QtilitiesMainWindow::changeCurrentWidget);
+            connect(d->mode_manager,&ModeManager::modeListItemSizesChanged,this, &QtilitiesMainWindow::updateItemSizes);
         }
 
         d->central_widget->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Preferred);

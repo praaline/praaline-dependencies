@@ -911,8 +911,8 @@ bool Qtilities::Core::ActivityPolicyFilter::setObserverContext(Observer* observe
 
     if (AbstractSubjectFilter::setObserverContext(observer_context)) {
         observer_context->installEventFilter(this);
-        connect(observer_context,SIGNAL(processingCycleStarted()),SLOT(handleProcessingCycleStarted()));
-        connect(observer_context,SIGNAL(processingCycleEnded()),SLOT(handleProcessingCycleEnded()));
+        connect(observer_context,&Observer::processingCycleStarted,this, &ActivityPolicyFilter::handleProcessingCycleStarted);
+        connect(observer_context,&Observer::processingCycleEnded,this, &ActivityPolicyFilter::handleProcessingCycleEnded);
         return true;
     } else
         return false;

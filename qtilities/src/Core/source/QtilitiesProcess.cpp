@@ -52,20 +52,20 @@ Qtilities::Core::QtilitiesProcess::QtilitiesProcess(const QString& task_name,
     d->process = new QProcess;
     d->default_qprocess_error_string = d->process->errorString();
 
-    connect(this, SIGNAL(stopTaskRequest()), this, SLOT(stopProcess()));
+    connect(this, &Task::stopTaskRequest, this, &QtilitiesProcess::stopProcess);
     connect(d->process, SIGNAL(error(QProcess::ProcessError)), this, SLOT(procError(QProcess::ProcessError)));
     connect(d->process, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(procFinished(int, QProcess::ExitStatus)));
 
     d->read_process_buffers = read_process_buffers;
     if (d->read_process_buffers) {
-        connect(d->process,SIGNAL(readyReadStandardOutput()), this, SLOT(readStandardOutput()));
-        connect(d->process,SIGNAL(readyReadStandardError()), this, SLOT(readStandardError()));
+        connect(d->process,&QProcess::readyReadStandardOutput, this, &QtilitiesProcess::readStandardOutput);
+        connect(d->process,&QProcess::readyReadStandardError, this, &QtilitiesProcess::readStandardError);
     } else {
         // If the buffers are not processed, we need to read them and append to the last buffer manually,
         // if they are processed, the readStandardOutput() function will update the
         // last run buffer for us.
-        connect(d->process,SIGNAL(readyReadStandardOutput()), this, SLOT(manualAppendLastRunBuffer()));
-        connect(d->process,SIGNAL(readyReadStandardError()), this, SLOT(manualAppendLastRunBuffer()));
+        connect(d->process,&QProcess::readyReadStandardOutput, this, &QtilitiesProcess::manualAppendLastRunBuffer);
+        connect(d->process,&QProcess::readyReadStandardError, this, &QtilitiesProcess::manualAppendLastRunBuffer);
     }
 
     setCanStop(true);
@@ -178,7 +178,7 @@ bool Qtilities::Core::QtilitiesProcess::startProcess(const QString& program,
             QTimer* timer = new QTimer;
             timer->setSingleShot(true);
             timer->start(timeout_msecs);
-            connect(timer,SIGNAL(timeout()),SLOT(stopTimedOut()));
+            connect(timer,&QTimer::timeout,this, &QtilitiesProcess::stopTimedOut);
             connect(d->process,SIGNAL(finished(int)),timer,SLOT(deleteLater()));
             if (d->process_info_messages_enabled)
                 logMessage(QString("A %1 msec timeout was specified for this process. It will be stopped if not completed before the timeout was reached.").arg(timeout_msecs));
@@ -223,7 +223,7 @@ AbstractLoggerEngine* Qtilities::Core::QtilitiesProcess::assignFileLoggerEngineT
         }
 
         engine->setMessageContexts(Logger::EngineSpecificMessages);
-        connect(this,SIGNAL(destroyed()),engine,SLOT(deleteLater()));
+        connect(this,&QObject::destroyed,engine,&QObject::deleteLater);
     }
 
     // Set the log context:

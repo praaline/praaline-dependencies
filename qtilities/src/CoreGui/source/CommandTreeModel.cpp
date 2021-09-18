@@ -187,7 +187,7 @@ bool Qtilities::CoreGui::qti_private_QtKeySequenceEdit::eventFilter(QObject *o, 
         menu->insertAction(actionBefore, clearAction);
         menu->insertSeparator(actionBefore);
         clearAction->setEnabled(!m_keySequence.isEmpty());
-        connect(clearAction, SIGNAL(triggered()), this, SLOT(slotClearShortcut()));
+        connect(clearAction, &QAction::triggered, this, &qti_private_QtKeySequenceEdit::slotClearShortcut);
         menu->exec(c->globalPos());
         delete menu;
         e->accept();

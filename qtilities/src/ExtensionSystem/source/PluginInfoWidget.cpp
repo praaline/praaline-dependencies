@@ -66,7 +66,7 @@ Qtilities::ExtensionSystem::PluginInfoWidget::PluginInfoWidget(IPlugin* plugin, 
         }
     }
 
-    connect(ui->btnClose,SIGNAL(clicked()),SLOT(close()));
+    connect(ui->btnClose,&QAbstractButton::clicked,this, &QWidget::close);
     // Put the widget in the center of the screen:
     QRect qrect = QApplication::desktop()->availableGeometry(this);
     move(qrect.center() - rect().center());

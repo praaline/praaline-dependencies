@@ -111,7 +111,6 @@ int main(int argc, char *argv[])
         class QTILITIES_CORE_GUI_SHARED_EXPORT QtilitiesMainWindow : public QMainWindow
         {
             Q_OBJECT
-            Q_ENUMS(ModeLayout)
 
         public:
             //! The possible places where modes can be displayed.
@@ -125,6 +124,7 @@ int main(int argc, char *argv[])
                 ModesBottom = 4,       /*!< Display modes as a horizontal list in the bottom of the widget. */
                 ModesLeft = 8          /*!< Display modes as a vertical list in the left of the widget. */
             };
+            Q_ENUM(ModeLayout)
             Q_DECLARE_FLAGS(ModeLayoutFlags, ModeLayout)
             Q_FLAGS(ModeLayoutFlags)
 

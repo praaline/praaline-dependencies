@@ -803,9 +803,9 @@ void Qtilities::ProjectManagement::ProjectManager::initialize() {
     }
 
     connect(this,SIGNAL(modificationStateChanged(bool)),SLOT(handle_projectStateChanged()));
-    connect(this,SIGNAL(projectClosingFinished(bool)),SLOT(handle_projectStateChanged()));
-    connect(this,SIGNAL(projectLoadingFinished(QString,bool)),SLOT(handle_projectStateChanged()));
-    connect(this,SIGNAL(projectCreationFinished()),SLOT(handle_projectStateChanged()));
+    connect(this,&ProjectManager::projectClosingFinished,this, &ProjectManager::handle_projectStateChanged);
+    connect(this,&ProjectManager::projectLoadingFinished,this, &ProjectManager::handle_projectStateChanged);
+    connect(this,&ProjectManager::projectCreationFinished,this, &ProjectManager::handle_projectStateChanged);
 
     //connect(QtilitiesCoreApplication::instance(),SIGNAL(busyStateChanged(bool)),SLOT(handleApplicationBusyStateChanged()));
 
@@ -908,7 +908,7 @@ QAction *ProjectManagement::ProjectManager::actionNewProject() {
     if (!d->actionProjectNew) {
         d->actionProjectNew = new QAction(QIcon(),tr("New Project"),this);
         d->actionProjectNew->setShortcut(QKeySequence(QKeySequence::New));
-        connect(d->actionProjectNew,SIGNAL(triggered()),SLOT(handle_actionProjectNew()));
+        connect(d->actionProjectNew,&QAction::triggered,this, &ProjectManager::handle_actionProjectNew);
         Command* command = ACTION_MANAGER->registerAction(qti_action_PROJECTS_NEW,d->actionProjectNew);
         command->setCategory(QtilitiesCategory(tr("Projects")));
     }
@@ -920,7 +920,7 @@ QAction *ProjectManagement::ProjectManager::actionOpenProject() {
     if (!d->actionProjectOpen) {
         d->actionProjectOpen = new QAction(QIcon(),tr("Open Project"),this);
         d->actionProjectOpen->setShortcut(QKeySequence(QKeySequence::Open));
-        connect(d->actionProjectOpen,SIGNAL(triggered()),SLOT(handle_actionProjectOpen()));
+        connect(d->actionProjectOpen,&QAction::triggered,this, &ProjectManager::handle_actionProjectOpen);
         Command* command = ACTION_MANAGER->registerAction(qti_action_PROJECTS_OPEN,d->actionProjectOpen);
         command->setCategory(QtilitiesCategory(tr("Projects")));
     }
@@ -932,7 +932,7 @@ QAction *ProjectManagement::ProjectManager::actionCloseProject() {
     if (!d->actionProjectClose) {
         d->actionProjectClose = new QAction(QIcon(),tr("Close Project"),this);
         d->actionProjectClose->setEnabled(false);
-        connect(d->actionProjectClose,SIGNAL(triggered()),SLOT(handle_actionProjectClose()));
+        connect(d->actionProjectClose,&QAction::triggered,this, &ProjectManager::handle_actionProjectClose);
         Command* command = ACTION_MANAGER->registerAction(qti_action_PROJECTS_CLOSE,d->actionProjectClose);
         command->setCategory(QtilitiesCategory(tr("Projects")));
     }
@@ -945,7 +945,7 @@ QAction *ProjectManagement::ProjectManager::actionSaveProject() {
         d->actionProjectSave = new QAction(QIcon(),tr("Save Project"),this);
         d->actionProjectSave->setEnabled(false);
         d->actionProjectSave->setShortcut(QKeySequence(QKeySequence::Save));
-        connect(d->actionProjectSave,SIGNAL(triggered()),SLOT(handle_actionProjectSave()));
+        connect(d->actionProjectSave,&QAction::triggered,this, &ProjectManager::handle_actionProjectSave);
         Command* command = ACTION_MANAGER->registerAction(qti_action_PROJECTS_SAVE,d->actionProjectSave);
         command->setCategory(QtilitiesCategory(tr("Projects")));
     }
@@ -958,7 +958,7 @@ QAction *ProjectManagement::ProjectManager::actionSaveAsProject() {
         d->actionProjectSaveAs = new QAction(QIcon(),tr("Save Project As"),this);
         d->actionProjectSaveAs->setEnabled(false);
         d->actionProjectSaveAs->setShortcut(QKeySequence(QKeySequence::SaveAs));
-        connect(d->actionProjectSaveAs,SIGNAL(triggered()),SLOT(handle_actionProjectSaveAs()));
+        connect(d->actionProjectSaveAs,&QAction::triggered,this, &ProjectManager::handle_actionProjectSaveAs);
         Command* command = ACTION_MANAGER->registerAction(qti_action_PROJECTS_SAVE_AS,d->actionProjectSaveAs);
         command->setCategory(QtilitiesCategory(tr("Projects")));
     }
@@ -1210,16 +1210,16 @@ void ProjectManagement::ProjectManager::refreshRecentProjects() {
         foreach (QMenu* menu, d->recentProjectsMenus)
             menu->addAction(prev_action);
 
-        connect(prev_action,SIGNAL(triggered()),SLOT(handleRecentProjectActionTriggered()));
+        connect(prev_action,&QAction::triggered,this, &ProjectManager::handleRecentProjectActionTriggered);
         ++recent_count;
         continue;
     }
 
     if (recent_count > 0) {
         QAction* clear_recent_action = new QAction(tr("Clear List"),0);
-        connect(clear_recent_action,SIGNAL(triggered()),SLOT(clearRecentProjects()));
+        connect(clear_recent_action,&QAction::triggered,this, &ProjectManager::clearRecentProjects);
         QAction* remove_non_existing_recent_action = new QAction(tr("Remove Non-Existing"),0);
-        connect(remove_non_existing_recent_action,SIGNAL(triggered()),SLOT(removeNonExistingRecentProjects()));
+        connect(remove_non_existing_recent_action,&QAction::triggered,this, &ProjectManager::removeNonExistingRecentProjects);
 
         foreach (QMenu* menu, d->recentProjectsMenus) {
             menu->addSeparator();

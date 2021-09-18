@@ -69,14 +69,14 @@ void QsciLexerCustom::setStyling(int length, const QsciStyle &style)
 void QsciLexerCustom::setEditor(QsciScintilla *new_editor)
 {
     if (editor())
-        disconnect(editor(), SIGNAL(SCN_STYLENEEDED(int)), this,
-                SLOT(handleStyleNeeded(int)));
+        disconnect(editor(), &QsciScintillaBase::SCN_STYLENEEDED, this,
+                &QsciLexerCustom::handleStyleNeeded);
 
     QsciLexer::setEditor(new_editor);
 
     if (editor())
-        connect(editor(), SIGNAL(SCN_STYLENEEDED(int)), this,
-                SLOT(handleStyleNeeded(int)));
+        connect(editor(), &QsciScintillaBase::SCN_STYLENEEDED, this,
+                &QsciLexerCustom::handleStyleNeeded);
 }
 
 

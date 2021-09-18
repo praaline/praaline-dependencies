@@ -55,7 +55,7 @@ Qtilities::CoreGui::TaskSummaryWidget::TaskSummaryWidget(TaskRemoveOption remove
     d->layout->setSpacing(0);
     d->layout->setAlignment(Qt::AlignBottom);
 
-    QObject::connect(OBJECT_MANAGER,SIGNAL(newObjectAdded(QObject*)),SLOT(addTask(QObject*)),Qt::UniqueConnection);
+    QObject::connect(OBJECT_MANAGER,&IObjectManager::newObjectAdded,this, &TaskSummaryWidget::addTask,Qt::UniqueConnection);
 }
 
 Qtilities::CoreGui::TaskSummaryWidget::~TaskSummaryWidget() {
@@ -187,7 +187,7 @@ void Qtilities::CoreGui::TaskSummaryWidget::addTask(QObject* obj) {
             task_widget->setPauseButtonVisible(false);
             task_widget->setStopButtonVisible(true);
             d->id_widget_map[task->taskID()] = task_widget;
-            connect(task_widget,SIGNAL(destroyed()),SLOT(handleSingleTaskWidgetDestroyed()));
+            connect(task_widget,&QObject::destroyed,this, &TaskSummaryWidget::handleSingleTaskWidgetDestroyed);
             addSingleTaskWidget(task_widget);
         }
     }
@@ -196,7 +196,7 @@ void Qtilities::CoreGui::TaskSummaryWidget::addTask(QObject* obj) {
 void Qtilities::CoreGui::TaskSummaryWidget::addSingleTaskWidget(SingleTaskWidget* single_task_widget) {
     if (single_task_widget) {
         d->layout->insertWidget(0,single_task_widget);
-        connect(single_task_widget,SIGNAL(hiddenByStopButton()),SLOT(hideIfNeeded()),Qt::UniqueConnection);
+        connect(single_task_widget,&SingleTaskWidget::hiddenByStopButton,this, &TaskSummaryWidget::hideIfNeeded,Qt::UniqueConnection);
         updateTaskWidget(single_task_widget->task()); // hideIfNeeded() called in here
         connect(single_task_widget->task()->objectBase(),SIGNAL(taskTypeChanged(ITask::TaskType)),SLOT(handleTaskTypeChanged()),Qt::UniqueConnection);
     }

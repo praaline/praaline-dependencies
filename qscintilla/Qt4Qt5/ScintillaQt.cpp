@@ -706,7 +706,7 @@ bool QsciScintillaQt::SetIdle(bool on)
             if (!timer)
             {
                 idler.idlerID = timer = new QTimer(this);
-                connect(timer, SIGNAL(timeout()), this, SLOT(onIdle()));
+                connect(timer, &QTimer::timeout, this, &QsciScintillaQt::onIdle);
             }
 
             timer->start(0);

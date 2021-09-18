@@ -220,7 +220,7 @@ log_engine->setMessageContexts(Logger::EngineSpecificMessages);
                                                       toolbar_area);
                 if (log_widget) {
                     log_dock_widget->setWidget(log_widget);
-                    QObject::connect(log_widget,SIGNAL(destroyed()),log_dock_widget,SLOT(deleteLater()));
+                    QObject::connect(log_widget,&QObject::destroyed,log_dock_widget,&QObject::deleteLater);
                     return log_dock_widget;
                 } else {
                     delete log_dock_widget;

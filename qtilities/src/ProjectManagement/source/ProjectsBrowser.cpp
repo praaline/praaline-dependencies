@@ -24,11 +24,11 @@ Qtilities::ProjectManagement::ProjectsBrowser::ProjectsBrowser(QWidget *parent) 
 {
     ui->setupUi(this);
 
-    connect(PROJECT_MANAGER,SIGNAL(recentProjectsChanged(QStringList,QStringList)),SLOT(refreshContents()));
-    connect(PROJECT_MANAGER,SIGNAL(customProjectPathsChanged()),SLOT(refreshContents()));
+    connect(PROJECT_MANAGER,&ProjectManager::recentProjectsChanged,this, &ProjectsBrowser::refreshContents);
+    connect(PROJECT_MANAGER,&ProjectManager::customProjectPathsChanged,this, &ProjectsBrowser::refreshContents);
 
     file_system_browser = new SideWidgetFileSystem(QtilitiesApplication::applicationSessionPath());
-    connect(file_system_browser,SIGNAL(requestEditor(QString)),SLOT(openProjectAtPath(QString)));
+    connect(file_system_browser,&SideWidgetFileSystem::requestEditor,this, &ProjectsBrowser::openProjectAtPath);
     ui->widgetCustomBrowser->setEnabled(false);
 
     if (ui->widgetCustomBrowser->layout())

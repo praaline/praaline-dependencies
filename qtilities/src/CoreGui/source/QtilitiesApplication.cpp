@@ -54,7 +54,7 @@ Qtilities::CoreGui::QtilitiesApplication::QtilitiesApplication(int &argc, char *
         qRegisterMetaType<QList<QPointer<QObject> > >("QList<QPointer<QObject> >");
 
         connect(OBJECT_MANAGER,SIGNAL(newObjectAdded(QObject*)),TaskManagerGui::instance(),SLOT(handleObjectPoolAddition(QObject*)));
-        connect(QtilitiesCoreApplicationPrivate::instance(),SIGNAL(busyStateChanged(bool)),this,SIGNAL(busyStateChanged(bool)));
+        connect(QtilitiesCoreApplicationPrivate::instance(),&QtilitiesCoreApplicationPrivate::busyStateChanged,this,&QtilitiesApplication::busyStateChanged);
 
         // Organization name not set here yet, thus we can't do this:
         // applicationSessionPath();

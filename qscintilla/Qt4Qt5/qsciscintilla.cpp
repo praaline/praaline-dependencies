@@ -71,31 +71,31 @@ QsciScintilla::QsciScintilla(QWidget *parent)
       call_tips_style(CallTipsNoContext), maxCallTips(-1),
       use_single(AcusNever), explicit_fillups(""), fillups_enabled(false)
 {
-    connect(this,SIGNAL(SCN_MODIFYATTEMPTRO()),
-             SIGNAL(modificationAttempted()));
+    connect(this,&QsciScintillaBase::SCN_MODIFYATTEMPTRO,
+             this, &QsciScintilla::modificationAttempted);
 
-    connect(this,SIGNAL(SCN_MODIFIED(int,int,const char *,int,int,int,int,int,int,int)),
-             SLOT(handleModified(int,int,const char *,int,int,int,int,int,int,int)));
-    connect(this,SIGNAL(SCN_CALLTIPCLICK(int)),
-             SLOT(handleCallTipClick(int)));
-    connect(this,SIGNAL(SCN_CHARADDED(int)),
-             SLOT(handleCharAdded(int)));
-    connect(this,SIGNAL(SCN_INDICATORCLICK(int,int)),
-             SLOT(handleIndicatorClick(int,int)));
-    connect(this,SIGNAL(SCN_INDICATORRELEASE(int,int)),
-             SLOT(handleIndicatorRelease(int,int)));
-    connect(this,SIGNAL(SCN_MARGINCLICK(int,int,int)),
-             SLOT(handleMarginClick(int,int,int)));
-    connect(this,SIGNAL(SCN_MARGINRIGHTCLICK(int,int,int)),
-             SLOT(handleMarginRightClick(int,int,int)));
-    connect(this,SIGNAL(SCN_SAVEPOINTREACHED()),
-             SLOT(handleSavePointReached()));
-    connect(this,SIGNAL(SCN_SAVEPOINTLEFT()),
-             SLOT(handleSavePointLeft()));
-    connect(this,SIGNAL(SCN_UPDATEUI(int)),
-             SLOT(handleUpdateUI(int)));
-    connect(this,SIGNAL(QSCN_SELCHANGED(bool)),
-             SLOT(handleSelectionChanged(bool)));
+    connect(this,&QsciScintillaBase::SCN_MODIFIED,
+             this, &QsciScintilla::handleModified);
+    connect(this,&QsciScintillaBase::SCN_CALLTIPCLICK,
+             this, &QsciScintilla::handleCallTipClick);
+    connect(this,&QsciScintillaBase::SCN_CHARADDED,
+             this, &QsciScintilla::handleCharAdded);
+    connect(this,&QsciScintillaBase::SCN_INDICATORCLICK,
+             this, &QsciScintilla::handleIndicatorClick);
+    connect(this,&QsciScintillaBase::SCN_INDICATORRELEASE,
+             this, &QsciScintilla::handleIndicatorRelease);
+    connect(this,&QsciScintillaBase::SCN_MARGINCLICK,
+             this, &QsciScintilla::handleMarginClick);
+    connect(this,&QsciScintillaBase::SCN_MARGINRIGHTCLICK,
+             this, &QsciScintilla::handleMarginRightClick);
+    connect(this,&QsciScintillaBase::SCN_SAVEPOINTREACHED,
+             this, &QsciScintilla::handleSavePointReached);
+    connect(this,&QsciScintillaBase::SCN_SAVEPOINTLEFT,
+             this, &QsciScintilla::handleSavePointLeft);
+    connect(this,&QsciScintillaBase::SCN_UPDATEUI,
+             this, &QsciScintilla::handleUpdateUI);
+    connect(this,&QsciScintillaBase::QSCN_SELCHANGED,
+             this, &QsciScintilla::handleSelectionChanged);
     connect(this,SIGNAL(SCN_AUTOCSELECTION(const char *,int)),
              SLOT(handleAutoCompletionSelection()));
     connect(this,SIGNAL(SCN_USERLISTSELECTION(const char *,int)),
@@ -3346,16 +3346,16 @@ void QsciScintilla::setLexer(QsciLexer *lexer)
 
         lex->setEditor(this);
 
-        connect(lex,SIGNAL(colorChanged(const QColor &, int)),
-                SLOT(handleStyleColorChange(const QColor &, int)));
-        connect(lex,SIGNAL(eolFillChanged(bool, int)),
-                SLOT(handleStyleEolFillChange(bool, int)));
-        connect(lex,SIGNAL(fontChanged(const QFont &, int)),
-                SLOT(handleStyleFontChange(const QFont &, int)));
-        connect(lex,SIGNAL(paperChanged(const QColor &, int)),
-                SLOT(handleStylePaperChange(const QColor &, int)));
-        connect(lex,SIGNAL(propertyChanged(const char *, const char *)),
-                SLOT(handlePropertyChange(const char *, const char *)));
+        connect(lex.data(),&QsciLexer::colorChanged,
+                this, &QsciScintilla::handleStyleColorChange);
+        connect(lex.data(),&QsciLexer::eolFillChanged,
+                this, &QsciScintilla::handleStyleEolFillChange);
+        connect(lex.data(),&QsciLexer::fontChanged,
+                this, &QsciScintilla::handleStyleFontChange);
+        connect(lex.data(),&QsciLexer::paperChanged,
+                this, &QsciScintilla::handleStylePaperChange);
+        connect(lex.data(),&QsciLexer::propertyChanged,
+                this, &QsciScintilla::handlePropertyChange);
 
         SendScintilla(SCI_SETPROPERTY, "fold", "1");
         SendScintilla(SCI_SETPROPERTY, "fold.html", "1");
@@ -4411,32 +4411,32 @@ QMenu *QsciScintilla::createStandardContextMenu()
 
     if (!read_only)
     {
-        action = menu->addAction(tr("&Undo"), this, SLOT(undo()));
+        action = menu->addAction(tr("&Undo"), this, &QsciScintilla::undo);
         set_shortcut(action, QsciCommand::Undo);
         action->setEnabled(isUndoAvailable());
 
-        action = menu->addAction(tr("&Redo"), this, SLOT(redo()));
+        action = menu->addAction(tr("&Redo"), this, &QsciScintilla::redo);
         set_shortcut(action, QsciCommand::Redo);
         action->setEnabled(isRedoAvailable());
 
         menu->addSeparator();
 
-        action = menu->addAction(tr("Cu&t"), this, SLOT(cut()));
+        action = menu->addAction(tr("Cu&t"), this, &QsciScintilla::cut);
         set_shortcut(action, QsciCommand::SelectionCut);
         action->setEnabled(has_selection);
     }
 
-    action = menu->addAction(tr("&Copy"), this, SLOT(copy()));
+    action = menu->addAction(tr("&Copy"), this, &QsciScintilla::copy);
     set_shortcut(action, QsciCommand::SelectionCopy);
     action->setEnabled(has_selection);
 
     if (!read_only)
     {
-        action = menu->addAction(tr("&Paste"), this, SLOT(paste()));
+        action = menu->addAction(tr("&Paste"), this, &QsciScintilla::paste);
         set_shortcut(action, QsciCommand::Paste);
         action->setEnabled(SendScintilla(SCI_CANPASTE));
 
-        action = menu->addAction(tr("Delete"), this, SLOT(delete_selection()));
+        action = menu->addAction(tr("Delete"), this, &QsciScintilla::delete_selection);
         action->setEnabled(has_selection);
     }
 

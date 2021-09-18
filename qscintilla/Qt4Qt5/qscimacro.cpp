@@ -245,8 +245,8 @@ void QsciMacro::startRecording()
 
     macro.clear();
 
-    connect(qsci, SIGNAL(SCN_MACRORECORD(unsigned int, unsigned long, void *)),
-            SLOT(record(unsigned int, unsigned long, void *)));
+    connect(qsci, &QsciScintillaBase::SCN_MACRORECORD,
+            this, &QsciMacro::record);
 
     qsci->SendScintilla(QsciScintillaBase::SCI_STARTRECORD);
 }
