@@ -352,7 +352,7 @@ void Qtilities::Core::VersionNumber::fromString(const QString& version, const QS
     QString cleaned_version = version.toLower();
     cleaned_version.replace(" ","");
 
-    QStringList list = cleaned_version.split(separator,Qt::SkipEmptyParts);
+    QStringList list = cleaned_version.split(separator, Qt::SkipEmptyParts);
     if (list.isEmpty())
         return;
 

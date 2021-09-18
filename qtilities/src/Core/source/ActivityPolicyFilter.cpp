@@ -680,9 +680,6 @@ QStringList Qtilities::Core::ActivityPolicyFilter::monitoredProperties() const {
 bool Qtilities::Core::ActivityPolicyFilter::handleMonitoredPropertyChange(QObject* obj, const char* property_name, QDynamicPropertyChangeEvent* propertyChangeEvent) {
     Q_UNUSED(property_name)
 
-    QTime time;
-    time.start();
-
     if (!d->enforce_activity_policy)
         return true;
 

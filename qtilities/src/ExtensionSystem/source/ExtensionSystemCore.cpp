@@ -194,7 +194,7 @@ void Qtilities::ExtensionSystem::ExtensionSystemCore::initialize() {
 
                             // Set the category property of the plugin:
                             MultiContextProperty category_property(qti_prop_CATEGORY_MAP);
-                            category_property.setValue(QVariant::fromValue(pluginIFace->pluginCategory()),d->plugins.observerID());
+                            category_property.setValue(QVariant::fromValue(pluginIFace->pluginCategory()), d->plugins.observerID());
                             ObjectManager::setMultiContextProperty(pluginIFace->objectBase(),category_property);
 
                             // Store the file name:

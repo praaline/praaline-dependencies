@@ -269,11 +269,11 @@ void Qtilities::Core::ObjectManager::registerObject(QObject* obj, QtilitiesCateg
         if (obj->thread() == thread()) {
             if (ObjectManager::propertyExists(obj,qti_prop_CATEGORY_MAP)) {
                 MultiContextProperty category_property = ObjectManager::getMultiContextProperty(obj,qti_prop_CATEGORY_MAP);
-                category_property.setValue(QVariant::fromValue(category),d->object_pool.observerID());
+                category_property.setValue(QVariant::fromValue(category), d->object_pool.observerID());
                 ObjectManager::setMultiContextProperty(obj,category_property);
             } else {
                 MultiContextProperty category_property(qti_prop_CATEGORY_MAP);
-                category_property.setValue(QVariant::fromValue(category),d->object_pool.observerID());
+                category_property.setValue(QVariant::fromValue(category), d->object_pool.observerID());
                 ObjectManager::setMultiContextProperty(obj,category_property);
             }
         }

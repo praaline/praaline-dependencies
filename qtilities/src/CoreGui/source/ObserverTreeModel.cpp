@@ -909,8 +909,7 @@ bool Qtilities::CoreGui::ObserverTreeModel::dropMimeData(const QMimeData * data,
                                 // Skip if current category is same as new category:
                                 if (current_category == *target_category && !target_category->isEmpty())
                                     continue;
-
-                                obs->setMultiContextPropertyValue(subjects.at(i),qti_prop_CATEGORY_MAP,QVariant::fromValue(*target_category));
+                                obs->setMultiContextPropertyValue(subjects.at(i), qti_prop_CATEGORY_MAP, QVariant::fromValue(*target_category));
                                 IModificationNotifier* mod_notifier = qobject_cast<IModificationNotifier*> (subjects.at(i));
                                 if (mod_notifier)
                                     mod_notifier->setModificationState(true);
@@ -918,8 +917,7 @@ bool Qtilities::CoreGui::ObserverTreeModel::dropMimeData(const QMimeData * data,
                             } else {
                                 // If the category does not exist, we create and add it:
                                 MultiContextProperty new_category_prop(qti_prop_CATEGORY_MAP);
-                                new_category_prop.setValue(QVariant::fromValue(*target_category),obs->observerID());
-
+                                new_category_prop.setValue(QVariant::fromValue(*target_category), obs->observerID());
                                 ObjectManager::setMultiContextProperty(subjects.at(i),new_category_prop);
                                 IModificationNotifier* mod_notifier = qobject_cast<IModificationNotifier*> (subjects.at(i));
                                 if (mod_notifier)
@@ -968,7 +966,6 @@ bool Qtilities::CoreGui::ObserverTreeModel::dropMimeData(const QMimeData * data,
 Qt::DropActions Qtilities::CoreGui::ObserverTreeModel::supportedDropActions() const {
     if (!d->tree_model_up_to_date)
         return Qt::IgnoreAction;
-
     Qt::DropActions drop_actions = Qt::DropActions();
     if (!d->read_only)
         drop_actions |= Qt::CopyAction;

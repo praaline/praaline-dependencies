@@ -842,8 +842,8 @@ bool Qtilities::CoreGui::NamingPolicyFilter::validateNamePropertyChange(QObject*
                 instance_names_prop = obj->property(qti_prop_ALIAS_MAP);
                 if (instance_names_prop.isValid() && instance_names_prop.canConvert<MultiContextProperty>()) {
                     MultiContextProperty new_instance_name = instance_names_prop.value<MultiContextProperty>();
-                    new_instance_name.setValue(QVariant(valid_name),observer->observerID());
-                    obj->setProperty(qti_prop_ALIAS_MAP,QVariant::fromValue(new_instance_name));
+                    new_instance_name.setValue(QVariant(valid_name), observer->observerID());
+                    obj->setProperty(qti_prop_ALIAS_MAP, QVariant::fromValue(new_instance_name));
                     return_value = true;
                 } else
                     return_value = false;
@@ -1166,7 +1166,7 @@ void Qtilities::CoreGui::NamingPolicyFilter::setName(QObject* object, const QStr
         if (instance_names_prop.isValid() && instance_names_prop.canConvert<MultiContextProperty>()) {
             MultiContextProperty new_instance_name = instance_names_prop.value<MultiContextProperty>();
             new_instance_name.setValue(QVariant(new_name),observer->observerID());
-            object->setProperty(qti_prop_ALIAS_MAP,QVariant::fromValue(new_instance_name));
+            object->setProperty(qti_prop_ALIAS_MAP, QVariant::fromValue(new_instance_name));
         }
     }
 }

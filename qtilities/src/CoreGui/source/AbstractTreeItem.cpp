@@ -344,11 +344,11 @@ bool Qtilities::CoreGui::AbstractTreeItem::setCategory(const QtilitiesCategory& 
                 // Ok it changed, thus set it again:
                 if (ObjectManager::propertyExists(obj,qti_prop_CATEGORY_MAP)) {
                     MultiContextProperty category_property = ObjectManager::getMultiContextProperty(obj,qti_prop_CATEGORY_MAP);
-                    category_property.setValue(QVariant::fromValue(category),parent_observer->observerID());
+                    category_property.setValue(QVariant::fromValue(category), parent_observer->observerID());
                     ObjectManager::setMultiContextProperty(obj,category_property);
                 } else {
                     MultiContextProperty category_property(qti_prop_CATEGORY_MAP);
-                    category_property.setValue(QVariant::fromValue(category),parent_observer->observerID());
+                    category_property.setValue(QVariant::fromValue(category), parent_observer->observerID());
                     ObjectManager::setMultiContextProperty(obj,category_property);
                 }
                 return true;
@@ -372,11 +372,11 @@ bool Qtilities::CoreGui::AbstractTreeItem::setCategory(const QtilitiesCategory& 
             // Ok it changed, thus set it again:
             if (ObjectManager::propertyExists(obj,qti_prop_CATEGORY_MAP)) {
                 MultiContextProperty category_property = ObjectManager::getMultiContextProperty(obj,qti_prop_CATEGORY_MAP);
-                category_property.setValue(QVariant::fromValue(category),observer_id);
+                category_property.setValue(QVariant::fromValue(category), observer_id);
                 ObjectManager::setMultiContextProperty(obj,category_property);
             } else {
                 MultiContextProperty category_property(qti_prop_CATEGORY_MAP);
-                category_property.setValue(QVariant::fromValue(category),observer_id);
+                category_property.setValue(QVariant::fromValue(category), observer_id);
                 ObjectManager::setMultiContextProperty(obj,category_property);
             }
             return true;

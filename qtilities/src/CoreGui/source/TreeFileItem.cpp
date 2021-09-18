@@ -42,7 +42,7 @@ Qtilities::Core::InstanceFactoryInfo Qtilities::CoreGui::TreeFileItem::instanceF
 }
 
 Qtilities::Core::Interfaces::IExportable::ExportModeFlags Qtilities::CoreGui::TreeFileItem::supportedFormats() const {
-    IExportable::ExportModeFlags flags = 0;
+    IExportable::ExportModeFlags flags;
     flags |= IExportable::XML;
     return flags;
 }

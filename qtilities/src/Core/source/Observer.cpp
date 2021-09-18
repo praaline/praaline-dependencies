@@ -723,10 +723,14 @@ bool Qtilities::Core::Observer::attachSubject(QObject* obj, Observer::ObjectOwne
             obj->installEventFilter(this);
 
         // Check if this is an observer:
+        #ifndef QT_NO_DEBUG
         bool has_mod_iface = false;
+        #endif
         Observer* obs = qobject_cast<Observer*> (obj);
         if (obs) {
+            #ifndef QT_NO_DEBUG
             has_mod_iface = true;
+            #endif
             connect(obs,SIGNAL(modificationStateChanged(bool)),SLOT(setModificationState(bool)));
             connect(obs,SIGNAL(dataChanged(Observer*)),SIGNAL(dataChanged(Observer*)));
             connect(obs,SIGNAL(layoutChanged(QList<QPointer<QObject> >)),SIGNAL(layoutChanged(QList<QPointer<QObject> >)));
@@ -739,7 +743,9 @@ bool Qtilities::Core::Observer::attachSubject(QObject* obj, Observer::ObjectOwne
             if (mod_iface) {
                 if (mod_iface->objectBase()) {
                     connect(mod_iface->objectBase(),SIGNAL(modificationStateChanged(bool)),SLOT(setModificationState(bool)));
+                    #ifndef QT_NO_DEBUG
                     has_mod_iface = true;
+                    #endif
                 }
             }
         }
@@ -1806,7 +1812,7 @@ QList<QPointer<QObject> > Qtilities::Core::Observer::renameCategory(const Qtilit
                     observerData->categories << renamed_category;
 
                 // Update the property on the current subject:
-                setMultiContextPropertyValue(subjectAt(i),qti_prop_CATEGORY_MAP,QVariant::fromValue(renamed_category));
+                setMultiContextPropertyValue(subjectAt(i), qti_prop_CATEGORY_MAP, QVariant::fromValue(renamed_category));
                 renamed_list << subjectAt(i);
             }
         }

@@ -189,8 +189,8 @@ void Qtilities::CoreGui::DynamicSideWidgetWrapper::updateAvailableWidgets(QMap<Q
     QString current_text = ui->widgetCombo->currentText();
     ISideViewerWidget* current_iface = d->text_iface_map[current_text];
     d->text_iface_map.clear();
-    d->text_iface_map.unite(text_iface_map);
-    d->text_iface_map.insert(current_text,current_iface);
+    d->text_iface_map.insert(text_iface_map); // was: unite (deprecated in Qt 5.15) but keys should be unique
+    d->text_iface_map.insert(current_text, current_iface);
 
     ui->widgetCombo->clear();
     QStringList items;

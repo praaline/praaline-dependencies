@@ -711,13 +711,13 @@ void Qtilities::CoreGui::ConfigurationWidget::addPageCategoryProperty(IConfigPag
         if (config_page->configPageCategory().isEmpty())
             return;
 
-        if (ObjectManager::propertyExists(config_page->objectBase(),qti_prop_CATEGORY_MAP)) {
+        if (ObjectManager::propertyExists(config_page->objectBase(), qti_prop_CATEGORY_MAP)) {
             MultiContextProperty category_property = ObjectManager::getMultiContextProperty(config_page->objectBase(),qti_prop_CATEGORY_MAP);
-            if (category_property.setValue(QVariant::fromValue(config_page->configPageCategory()),d->config_pages_obs.observerID()))
+            if (category_property.setValue(QVariant::fromValue(config_page->configPageCategory()), d->config_pages_obs.observerID()))
                 ObjectManager::setMultiContextProperty(config_page->objectBase(),category_property);
         } else {
             MultiContextProperty category_property(qti_prop_CATEGORY_MAP);
-            if (category_property.setValue(QVariant::fromValue(config_page->configPageCategory()),d->config_pages_obs.observerID()))
+            if (category_property.setValue(QVariant::fromValue(config_page->configPageCategory()), d->config_pages_obs.observerID()))
                 ObjectManager::setMultiContextProperty(config_page->objectBase(),category_property);
         }
     }
