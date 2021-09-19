@@ -8,7 +8,7 @@ CONFIG += ordered
 # Dependencies for Praaline UI
 SUBDIRS += qtpropertybrowser/qtpropertybrowser.pro
 SUBDIRS += qtilities/src/Qtilities.pro
-SUBDIRS += qscintilla/Qt4Qt5/qscintilla.pro
+SUBDIRS += qscintilla/src/qscintilla.pro
 SUBDIRS += qcustomplot/qcustomplot.pro
 
 # Dependencies inherited from Sonic Visualiser

@@ -8,8 +8,7 @@ CONFIG += staticlib qt thread warn_on stl rtti exceptions c++11
 
 TEMPLATE = lib
 
-QT += core gui network
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
+QT += core gui widgets printsupport
 
 CONFIG += staticlib
 
