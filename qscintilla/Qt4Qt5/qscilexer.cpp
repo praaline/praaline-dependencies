@@ -376,7 +376,7 @@ bool QsciLexer::readSettings(QSettings &qs,const char *prefix)
         if (description(i).isEmpty())
             continue;
 
-        key.sprintf("%s/%s/style%d/",prefix,language(),i);
+        key.asprintf("%s/%s/style%d/",prefix,language(),i);
 
         // Read the foreground colour.
         full_key = key + "color";
@@ -463,7 +463,7 @@ bool QsciLexer::readSettings(QSettings &qs,const char *prefix)
     }
 
     // Read the properties.
-    key.sprintf("%s/%s/properties/",prefix,language());
+    key.asprintf("%s/%s/properties/",prefix,language());
 
     if (!readProperties(qs,key))
         rc = false;
@@ -471,7 +471,7 @@ bool QsciLexer::readSettings(QSettings &qs,const char *prefix)
     refreshProperties();
 
     // Read the rest.
-    key.sprintf("%s/%s/",prefix,language());
+    key.asprintf("%s/%s/",prefix,language());
 
     // Read the default foreground colour.
     full_key = key + "defaultcolor";
@@ -578,7 +578,7 @@ bool QsciLexer::writeSettings(QSettings &qs,const char *prefix) const
 
         QColor c;
 
-        key.sprintf("%s/%s/style%d/",prefix,language(),i);
+        key.asprintf("%s/%s/style%d/",prefix,language(),i);
 
         // Write the foreground colour.
         c = color(i);
@@ -616,13 +616,13 @@ bool QsciLexer::writeSettings(QSettings &qs,const char *prefix) const
     }
 
     // Write the properties.
-    key.sprintf("%s/%s/properties/",prefix,language());
+    key.asprintf("%s/%s/properties/",prefix,language());
 
     if (!writeProperties(qs,key))
         rc = false;
 
     // Write the rest.
-    key.sprintf("%s/%s/",prefix,language());
+    key.asprintf("%s/%s/",prefix,language());
 
     // Write the default foreground colour.
     num = (defColor.red() << 16) | (defColor.green() << 8) | defColor.blue();

@@ -111,7 +111,7 @@ Qtilities::CoreGui::AddDynamicPropertyWizard::AddDynamicPropertyWizard(PropertyC
 
         // The custom property controls:
         QFormLayout *wizard_custom_property_layout = new QFormLayout(&d->custom_property_widget);
-        wizard_custom_property_layout->setMargin(0);
+        wizard_custom_property_layout->setContentsMargins(0, 0, 0, 0);
         wizard_custom_property_layout->addRow(tr("Name:"),&d->property_name_edit);
         connect(&d->property_name_edit,&QLineEdit::textChanged,this, &AddDynamicPropertyWizard::handleCustomPropertyNameChanged);
         wizard_custom_property_layout->addRow(tr("Type:"),&d->property_types_list);
@@ -139,7 +139,7 @@ Qtilities::CoreGui::AddDynamicPropertyWizard::AddDynamicPropertyWizard(PropertyC
 
         // The message area:
         QHBoxLayout *wizard_message_layout = new QHBoxLayout(&d->message_widget);
-        wizard_message_layout->setMargin(0);
+        wizard_message_layout->setContentsMargins(0, 0, 0, 0);
         wizard_message_layout->addStretch();
         wizard_message_layout->addWidget(&d->message_icon);
         wizard_message_layout->addWidget(&d->message_label);

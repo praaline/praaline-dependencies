@@ -132,7 +132,8 @@ void Qtilities::Logging::Logger::clear() {
         if (d->logger_engines.at(i)) {
             if (d->logger_engines.at(i) != QtMsgLoggerEngine::instance() && d->logger_engines.at(i) != ConsoleLoggerEngine::instance()) {
                 //qDebug() << tr("> Deleting logger engine: ") << d->logger_engines.at(i)->objectName();
-                delete d->logger_engines.at(i);
+                // delete d->logger_engines.at(i);
+                // it has been causing a segmentation fault. Who has deleted the engine?
             }
         }
 

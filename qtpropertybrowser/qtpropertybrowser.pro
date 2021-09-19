@@ -3,6 +3,9 @@
 
 TEMPLATE = lib
 CONFIG += qt dll
+QT *= widgets
+
+DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x050F00
 
 #mac:CONFIG += absolute_library_soname
 win32|mac:!wince*:!win32-msvc:!macx-xcode:CONFIG += debug_and_release build_all
@@ -26,11 +29,9 @@ INSTALLS += target
 # Creating shared libary
 DEFINES += QTPROPERTYBROWSER_LIBRARY
 
-greaterThan(QT_MAJOR_VERSION, 4): QT *= widgets
 INCLUDEPATH += $$PWD/src
 DEPENDPATH += $$PWD/src
 
-DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
 SOURCES += $$PWD/src/qtpropertybrowser.cpp \
         $$PWD/src/qtpropertymanager.cpp \
         $$PWD/src/qteditorfactory.cpp \

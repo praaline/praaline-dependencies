@@ -172,7 +172,7 @@ void Qtilities::CoreGui::DynamicSideWidgetWrapper::handleCurrentIndexChanged(con
                 delete ui->centralwidget->layout();
 
             QHBoxLayout* layout = new QHBoxLayout(ui->centralwidget);
-            layout->setMargin(0);
+            layout->setContentsMargins(0, 0, 0, 0);
             layout->addWidget(widget);
             widget->show();
             widget->setEnabled(true);

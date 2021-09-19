@@ -27,7 +27,7 @@ GenericPropertyPathEditorListWrapper::GenericPropertyPathEditorListWrapper(Strin
         delete ui->listHolder->layout();
 
     QHBoxLayout* layout = new QHBoxLayout(ui->listHolder);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(list_widget);
 }
 

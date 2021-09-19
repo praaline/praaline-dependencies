@@ -216,7 +216,7 @@ void Qtilities::CoreGui::QtilitiesMainWindow::doLayout() {
 
         // Create a layout for the task summary widget if needed:
         QHBoxLayout* horizontal_layout = new QHBoxLayout;
-        horizontal_layout->setMargin(0);
+        horizontal_layout->setContentsMargins(0, 0, 0, 0);
         horizontal_layout->setSpacing(0);
         horizontal_layout->addWidget(d->mode_manager->modeListWidget());
 
@@ -246,7 +246,7 @@ void Qtilities::CoreGui::QtilitiesMainWindow::doLayout() {
             layout->addWidget(d->current_widget_holder);
             layout->addLayout(horizontal_layout);
         }
-        layout->setMargin(0);
+        layout->setContentsMargins(0, 0, 0, 0);
 
         setCentralWidget(d->central_widget);
         d->central_widget->show();
@@ -268,7 +268,7 @@ void Qtilities::CoreGui::QtilitiesMainWindow::doLayout() {
 
         // Create a layout for the task summary widget if needed:
         QVBoxLayout* vertical_layout = new QVBoxLayout;
-        vertical_layout->setMargin(0);
+        vertical_layout->setContentsMargins(0, 0, 0, 0);
         vertical_layout->setSpacing(0);
         vertical_layout->addWidget(d->mode_manager->modeListWidget());
 
@@ -293,7 +293,7 @@ void Qtilities::CoreGui::QtilitiesMainWindow::doLayout() {
               layout->addWidget(d->current_widget_holder);
               layout->addLayout(vertical_layout);
           }
-        layout->setMargin(0);
+        layout->setContentsMargins(0, 0, 0, 0);
 
         setCentralWidget(d->central_widget);
         d->central_widget->show();
@@ -357,7 +357,7 @@ void Qtilities::CoreGui::QtilitiesMainWindow::changeCurrentWidget(QWidget* new_c
         delete d->current_widget_holder->layout();
 
     QVBoxLayout* layout = new QVBoxLayout(d->current_widget_holder);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(d->current_widget);
 
     if (d->current_widget)

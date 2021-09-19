@@ -147,7 +147,7 @@ Qtilities::CoreGui::CodeEditorWidget::CodeEditorWidget(ActionFlags action_flags,
 
     d->central_widget_layout = new QBoxLayout(QBoxLayout::TopToBottom,d->central_widget);
     d->central_widget_layout->addWidget(d->codeEditor);
-    d->central_widget_layout->setMargin(0);
+    d->central_widget_layout->setContentsMargins(0, 0, 0, 0);
     d->central_widget_layout->setSpacing(0);
 
     // Assign a default meta type for this widget:

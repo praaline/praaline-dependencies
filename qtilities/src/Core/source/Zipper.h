@@ -24,12 +24,6 @@ using namespace Qtilities::Core;
   */
 struct ArchiveType{
     ArchiveType() {}
-    ArchiveType(const ArchiveType& ref) {
-        type = ref.type;
-        description = ref.description;
-        argument = ref.argument;
-        extension = ref.extension;
-    }
 
     QString type;
     QString description;

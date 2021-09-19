@@ -901,7 +901,7 @@ void Qtilities::CoreGui::ObserverWidget::initializePrivate(bool hints_only) {
                 delete ui->itemParentWidget->layout();
 
             QHBoxLayout* layout = new QHBoxLayout(ui->itemParentWidget);
-            layout->setMargin(0);
+            layout->setContentsMargins(0, 0, 0, 0);
             layout->addWidget(d->tree_view);
 
             d->tree_model->setObjectName(d->root_observer_context->observerName());
@@ -1003,7 +1003,7 @@ void Qtilities::CoreGui::ObserverWidget::initializePrivate(bool hints_only) {
                 delete ui->itemParentWidget->layout();
 
             QHBoxLayout* layout = new QHBoxLayout(ui->itemParentWidget);
-            layout->setMargin(0);
+            layout->setContentsMargins(0, 0, 0, 0);
             layout->addWidget(d->table_view);
 
 //            time(&end);
@@ -1069,7 +1069,7 @@ void Qtilities::CoreGui::ObserverWidget::initializePrivate(bool hints_only) {
             d->navigation_bar = new ObjectHierarchyNavigator();
             QGridLayout* layout = new QGridLayout();
             layout->addWidget(d->navigation_bar);
-            layout->setMargin(0);
+            layout->setContentsMargins(0, 0, 0, 0);
             if (ui->navigationBarWidget->layout())
                 delete ui->navigationBarWidget->layout();
             ui->navigationBarWidget->setLayout(layout);
@@ -3239,7 +3239,7 @@ void Qtilities::CoreGui::ObserverWidget::toggleSearchBox() {
 
         QHBoxLayout* layout = new QHBoxLayout(ui->widgetSearchBox);
         layout->addWidget(d->searchBoxWidget);
-        layout->setMargin(0);
+        layout->setContentsMargins(0, 0, 0, 0);
 
         connect(d->searchBoxWidget,&SearchBoxWidget::btnClose_clicked,this, &ObserverWidget::toggleSearchBox);
 
@@ -3748,7 +3748,7 @@ void Qtilities::CoreGui::ObserverWidget::handleTreeRebuildStarted() {
                 d->update_progress_widget_contents_label = new QLabel(tr("Updating %1").arg(d->root_observer_context->observerName()));
                 d->update_progress_widget_contents_label->setAlignment(Qt::AlignHCenter);
                 contents_layout->addWidget(d->update_progress_widget_contents_label);
-                contents_layout->setMargin(0);
+                contents_layout->setContentsMargins(0, 0, 0, 0);
                 QProgressBar* update_progress_widget_contents_progressbar = new QProgressBar;
                 update_progress_widget_contents_progressbar->setTextVisible(false);
                 update_progress_widget_contents_progressbar->setMinimum(0);
@@ -3764,7 +3764,7 @@ void Qtilities::CoreGui::ObserverWidget::handleTreeRebuildStarted() {
                 delete ui->widgetProgressBarHolder->layout();
 
             QHBoxLayout* layout = new QHBoxLayout(ui->widgetProgressBarHolder);
-            layout->setMargin(0);
+            layout->setContentsMargins(0, 0, 0, 0);
             layout->addWidget(d->update_progress_widget_contents);
 
             ui->itemParentWidget->hide();

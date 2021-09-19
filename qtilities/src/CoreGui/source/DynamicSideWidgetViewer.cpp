@@ -48,7 +48,7 @@ Qtilities::CoreGui::DynamicSideWidgetViewer::DynamicSideWidgetViewer(int mode_de
     d->splitter->setMinimumWidth(220);
     QBoxLayout* layout = new QBoxLayout(QBoxLayout::LeftToRight,this);
     layout->addWidget(d->splitter);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
 
     d->mode_destination = mode_destination;

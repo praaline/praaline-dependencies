@@ -378,7 +378,7 @@ QWidget* Qtilities::ExtensionSystem::ExtensionSystemCore::configWidget() {
         d->treeModel = new PluginTreeModel;
         observer_widget->setCustomTreeModel(d->treeModel);
         observer_widget->initialize();
-        observer_widget->layout()->setMargin(0);
+        observer_widget->layout()->setContentsMargins(0, 0, 0, 0);
 
         d->extension_system_config_widget = new ExtensionSystemConfig();
         d->extension_system_config_widget->configPageInitialize();

@@ -589,7 +589,7 @@ void QsciScintillaBase::mousePressEvent(QMouseEvent *e)
 
         sci->ButtonDown(pt, clickTime, shift, ctrl, alt);
     }
-    else if (e->button() == Qt::MidButton)
+    else if (e->button() == Qt::MiddleButton)
     {
         QClipboard *cb = QApplication::clipboard();
 

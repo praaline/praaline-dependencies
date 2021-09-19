@@ -16,6 +16,8 @@ QT += core xml
 # Note: xml module is deprecated
 QT -= gui
 
+DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x050F00
+
 TARGET = QtilitiesCore$${QTILITIES_LIB_POSTFIX}
 
 TEMPLATE = lib

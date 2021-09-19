@@ -132,7 +132,7 @@ bool Zipper::zipFiles(const QStringList &files, const QString &output_file, QStr
     arguments << "-w" + d->temp_dir;
 
     // Create a filelist d->temp_dir and use that to archive:
-    QString tmp_file_path = d->temp_dir + "/" + QString::number(QDateTime::currentDateTime().toTime_t());
+    QString tmp_file_path = d->temp_dir + "/" + QString::number(QDateTime::currentDateTime().toSecsSinceEpoch());
     FileUtils::writeTextFile(tmp_file_path,files.join("\n"));
     arguments << "@" + tmp_file_path;
 

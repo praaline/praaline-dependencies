@@ -122,7 +122,7 @@ Qtilities::CoreGui::MessagesPlainTextEditTab::MessagesPlainTextEditTab(QWidget *
         delete d->central_widget->layout();
 
     QVBoxLayout* layout = new QVBoxLayout(d->central_widget);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
     layout->addWidget(&d->txtLog);
     layout->addWidget(d->searchBoxWidget);

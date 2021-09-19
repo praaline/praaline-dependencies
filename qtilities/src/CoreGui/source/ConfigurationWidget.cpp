@@ -147,7 +147,7 @@ void Qtilities::CoreGui::ConfigurationWidget::sharedConstruct() {
 
         QHBoxLayout* layout = new QHBoxLayout(ui->widgetTopModeWidgetHolder);
         layout->addWidget(d->mode_widget);
-        layout->setMargin(0);
+        layout->setContentsMargins(0, 0, 0, 0);
         if (d->mode_widget->statusBar())
             d->mode_widget->statusBar()->hide();
     } else if (d->display_mode & DisplayLeftItemViews) {
@@ -160,7 +160,7 @@ void Qtilities::CoreGui::ConfigurationWidget::sharedConstruct() {
 
         QHBoxLayout* layout = new QHBoxLayout(ui->configPagesWidgetHolder);
         layout->addWidget(&d->obs_widget);
-        layout->setMargin(0);
+        layout->setContentsMargins(0, 0, 0, 0);
     }
 
     // Put the widget in the center of the screen:
@@ -537,7 +537,7 @@ void Qtilities::CoreGui::ConfigurationWidget::handleActiveItemChanges(QList<QObj
 
             // Create new layout with new widget
             QBoxLayout* layout = new QBoxLayout(QBoxLayout::LeftToRight,ui->configWidget);
-            layout->setMargin(0);
+            layout->setContentsMargins(0, 0, 0, 0);
 
             layout->addWidget(d->active_widget);
             if (d->active_widget) {

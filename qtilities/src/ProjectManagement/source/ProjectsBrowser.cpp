@@ -35,7 +35,7 @@ Qtilities::ProjectManagement::ProjectsBrowser::ProjectsBrowser(QWidget *parent) 
         delete ui->widgetCustomBrowser->layout();
 
     QHBoxLayout* layout = new QHBoxLayout(ui->widgetCustomBrowser);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(file_system_browser);
     file_system_browser->show();
     file_system_browser->toggleDoubleClickFileOpen(false);

@@ -75,9 +75,9 @@ Qtilities::CoreGui::ObjectPropertyBrowser::ObjectPropertyBrowser(BrowserType bro
         d->property_browser = property_browser;
     }
 
-    d->property_browser->layout()->setMargin(0);;
+    d->property_browser->layout()->setContentsMargins(0, 0, 0, 0);
     QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(d->property_browser);
 
     d->property_manager_read_only = new QtVariantPropertyManager(this);

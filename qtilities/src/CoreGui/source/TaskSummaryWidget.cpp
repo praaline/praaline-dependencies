@@ -51,7 +51,7 @@ Qtilities::CoreGui::TaskSummaryWidget::TaskSummaryWidget(TaskRemoveOption remove
         delete ui->widgetSingleWidgetItemsHolder->layout();
 
     d->layout = new QVBoxLayout(ui->widgetSingleWidgetItemsHolder);
-    d->layout->setMargin(0);
+    d->layout->setContentsMargins(0, 0, 0, 0);
     d->layout->setSpacing(0);
     d->layout->setAlignment(Qt::AlignBottom);
 
@@ -61,6 +61,7 @@ Qtilities::CoreGui::TaskSummaryWidget::TaskSummaryWidget(TaskRemoveOption remove
 Qtilities::CoreGui::TaskSummaryWidget::~TaskSummaryWidget() {
     delete ui;
     delete d;
+    d = nullptr;
 }
 
 TaskSummaryWidget::TaskDisplayOptions Qtilities::CoreGui::TaskSummaryWidget::taskDisplayOptions() const {
@@ -203,6 +204,7 @@ void Qtilities::CoreGui::TaskSummaryWidget::addSingleTaskWidget(SingleTaskWidget
 }
 
 void Qtilities::CoreGui::TaskSummaryWidget::handleSingleTaskWidgetDestroyed() {
+    if (!d) return; // Check necessary because this function will be called during destruction (e.g. application shutdown)
     QObject* sender_task = sender();
     QList<QPointer<SingleTaskWidget> > map_values = d->id_widget_map.values();
     for (int i = 0; i < map_values.count(); ++i) {

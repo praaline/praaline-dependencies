@@ -91,7 +91,7 @@ void Qtilities::CoreGui::CommandEditor::configPageInitialize() {
         delete ui->widgetCommandsHolder->layout();
 
     QHBoxLayout* layout = new QHBoxLayout(ui->widgetCommandsHolder);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(d->observer_widget);
 
     d->model = new qti_private_CommandTreeModel(this);

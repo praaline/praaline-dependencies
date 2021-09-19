@@ -85,7 +85,7 @@ void Qtilities::ExtensionSystem::ExtensionSystemConfig::setPluginListWidget(QWid
 
     QHBoxLayout* new_layout = new QHBoxLayout(ui->widgetPluginListHolder);
     new_layout->addWidget(plugin_list_widget);
-    new_layout->setMargin(0);
+    new_layout->setContentsMargins(0, 0, 0, 0);
 
     observer_widget = qobject_cast<ObserverWidget*> (plugin_list_widget);
     if (observer_widget) {

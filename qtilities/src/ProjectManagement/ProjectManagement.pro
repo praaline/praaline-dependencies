@@ -11,10 +11,10 @@ include(../Qtilities.pri)
 INCLUDEPATH += $$QTILITIES_INCLUDE/QtilitiesProjectManagement
 
 CONFIG += qt dll
-QT += core xml gui
+QT += core xml gui widgets printsupport
 # Note: xml module is deprecated
 
-greaterThan(QT_MAJOR_VERSION, 4) { QT += widgets printsupport }
+DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x050F00
 
 TARGET = QtilitiesProjectManagement$${QTILITIES_LIB_POSTFIX}
 

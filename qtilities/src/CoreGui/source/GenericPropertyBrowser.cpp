@@ -101,7 +101,7 @@ GenericPropertyBrowser::GenericPropertyBrowser(GenericPropertyManager* property_
         d->property_browser = property_browser;
     }
 
-    d->property_browser->layout()->setMargin(0);
+    d->property_browser->layout()->setContentsMargins(0, 0, 0, 0);
     setCentralWidget(d->property_browser);
 
     // Create variant property manager for editable properties:

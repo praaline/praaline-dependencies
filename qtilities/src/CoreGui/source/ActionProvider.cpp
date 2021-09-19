@@ -194,7 +194,7 @@ QList<QAction*> Qtilities::CoreGui::ActionProvider::findActionsByText(const QStr
             QRegExp reg_exp(match_string,case_sensitivity,QRegExp::Wildcard);
             if (reg_exp.exactMatch(actions_keys.at(i)->text()))
                 matches << actions_keys.at(i);
-        } else if (match_flags == Qt::MatchRegExp) {
+        } else if (match_flags == Qt::MatchRegularExpression) {
             QRegExp reg_exp(match_string,case_sensitivity);
             if (reg_exp.exactMatch(actions_keys.at(i)->text()))
                 matches << actions_keys.at(i);
@@ -230,7 +230,7 @@ QList<QAction*> Qtilities::CoreGui::ActionProvider::findActionsByObjectName(cons
             QRegExp reg_exp(match_string,case_sensitivity,QRegExp::Wildcard);
             if (reg_exp.exactMatch(d->actions.keys().at(i)->objectName()))
                 matches << d->actions.keys().at(i);
-        } else if (match_flags == Qt::MatchRegExp) {
+        } else if (match_flags == Qt::MatchRegularExpression) {
             QRegExp reg_exp(match_string,case_sensitivity);
             if (reg_exp.exactMatch(d->actions.keys().at(i)->objectName()))
                 matches << d->actions.keys().at(i);

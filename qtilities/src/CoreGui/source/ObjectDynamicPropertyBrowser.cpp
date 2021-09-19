@@ -113,7 +113,7 @@ Qtilities::CoreGui::ObjectDynamicPropertyBrowser::ObjectDynamicPropertyBrowser(B
         d->property_browser = property_browser;
     }
 
-    d->property_browser->layout()->setMargin(0);
+    d->property_browser->layout()->setContentsMargins(0, 0, 0, 0);
     setCentralWidget(d->property_browser);
 
     // Create property manager for editable:

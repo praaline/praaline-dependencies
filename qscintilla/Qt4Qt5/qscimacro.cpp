@@ -185,7 +185,8 @@ QString QsciMacro::save() const
         unsigned len = (*it).text.size();
         QString m;
 
-        ms += m.sprintf("%u %lu %u", (*it).msg, (*it).wParam, len);
+        ms.append(QString("%1 %2 %3").arg((*it).msg, (*it).wParam, len));
+        // DEPRECATED: ms += m.sprintf("%u %lu %u", (*it).msg, (*it).wParam, len);
 
         if (len)
         {
@@ -212,7 +213,7 @@ QString QsciMacro::save() const
                 {
                     QString buf;
 
-                    ms += buf.sprintf("\\%02x", ch);
+                    ms += buf.asprintf("\\%02x", ch);
                 }
                 else
                     ms += ch;
